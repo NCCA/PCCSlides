@@ -31,7 +31,7 @@
 										{ name: 'Solarized', theme: './js/reveal.js/css/theme/solarized.css' }
 										],
 										custom: [
-										{ title: 'Code Style', icon: '<i class="fa fa-external-link">', src: './js/reveal.js/codeThemes.html' },
+										{ title: 'Code Style', icon: '<i class="fa fa-external-link">', src: '../js/reveal.js/codeThemes.html' },
 										]
 			        
                                     },
