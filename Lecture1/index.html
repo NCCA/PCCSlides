@@ -13,7 +13,7 @@
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '/jmacey//js/reveal.js/css/print/pdf.css' : '/jmacey//js/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../js/reveal.js/css/print/pdf.css' : '../js/reveal.js/css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 
@@ -32,7 +32,6 @@
 
     <script src="../js/reveal.js/lib/js/head.min.js"></script>
     <script src="../js/reveal.js/js/reveal.js"></script>
-    <script src="../js/jquery/jquery.min.js"></script>
     <script>
       // this is a uniqe id for the slide for saving notes later I will update to use IndexedDB but 
       // this will work on all systems
@@ -73,10 +72,7 @@
   <div id="hidden" style="display:none;">
     <div id="header">
       <div id="header-left">
-        <input id="home" type="image" src="/jmacey/js/icons/home.png" width='24%' height='24%' onclick="goHome();" title="home"> </input>
-       <!-- <input type="image" src="/jmacey/js/icons/pen.png" width='8%' height='8%' onclick="storeNote();" title="add notes"> </input>
-        <input type="image" src="/jmacey/js/icons/notes.png" width='8%' height='8%' onclick="showNotes();" title="show notes"> </input>
-      -->
+        <input id="home" type="image" src="../js/icons/home.png" width='24%' height='24%' onclick="goHome();" title="home"> </input>
       </div>
 
 
@@ -89,7 +85,7 @@
 
 
 
-    <script src="/jmacey/js/reveal.js/slidefunctions.js"></script>
+    <script src="../js/reveal.js/slidefunctions.js"></script>
     
  
 </div>
