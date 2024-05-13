@@ -14,11 +14,10 @@ print("Hello, World!")
 
 ### The Zen of Python, by Tim Peters
 
-<script id="my_script" type="py-editor" terminal worker></script>
-<script>
-const myterm = document.querySelector("#my_script");
-await myterm.process('import this');
+<script type="mpy-editor" target="editor">
+import this
 </script>
+<div id="editor"></div> 
 
 --
 
