@@ -18,20 +18,20 @@
 									openSlideNumber: true,
 									keyboard: false,
 									themes: [
-										{ name: 'Black', theme: './js/reveal.js/css/theme/black.css' },
-										{ name: 'White', theme: './js/reveal.js/css/theme/white.css' },
-										{ name: 'League', theme: './js/reveal.js/css/theme/league.css' },
-										{ name: 'Sky', theme: './js/reveal.js/css/theme/sky.css' },
-										{ name: 'Beige', theme: './js/reveal.js/css/theme/beige.css' },
-										{ name: 'Simple', theme: './js/reveal.js/css/theme/simple.css' },
-										{ name: 'Serif', theme: './js/reveal.js/css/theme/serif.css' },
-										{ name: 'Blood', theme: './js/reveal.js/css/theme/blood.css' },
-										{ name: 'Night', theme: './js/reveal.js/css/theme/night.css' },
-										{ name: 'Moon', theme: './js/reveal.js/css/theme/moon.css' },
-										{ name: 'Solarized', theme: './js/reveal.js/css/theme/solarized.css' }
+										{ name: 'Black', theme: '../js/reveal.js/css/theme/black.css' },
+										{ name: 'White', theme: '../js/reveal.js/css/theme/white.css' },
+										{ name: 'League', theme: '../js/reveal.js/css/theme/league.css' },
+										{ name: 'Sky', theme: '../js/reveal.js/css/theme/sky.css' },
+										{ name: 'Beige', theme: '../js/reveal.js/css/theme/beige.css' },
+										{ name: 'Simple', theme: '../js/reveal.js/css/theme/simple.css' },
+										{ name: 'Serif', theme: '../js/reveal.js/css/theme/serif.css' },
+										{ name: 'Blood', theme: '../js/reveal.js/css/theme/blood.css' },
+										{ name: 'Night', theme: '../js/reveal.js/css/theme/night.css' },
+										{ name: 'Moon', theme: '../js/reveal.js/css/theme/moon.css' },
+										{ name: 'Solarized', theme: '../js/reveal.js/css/theme/solarized.css' }
 										],
 										custom: [
-										{ title: 'Code Style', icon: '<i class="fa fa-external-link">', src: './js/reveal.js/codeThemes.html' },
+										{ title: 'Code Style', icon: '<i class="fa fa-external-link">', src: '/js/reveal.js/codeThemes.html' },
 										]
 			        
                                     },
