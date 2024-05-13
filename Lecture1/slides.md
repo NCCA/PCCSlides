@@ -22,11 +22,4 @@ await myterm.process('import this');
 
 --
 
-## A REPL
-
-<script type="py" terminal worker>
-import code
-
-code.interact()
-</script>
 
