@@ -81,7 +81,7 @@ var head = document.getElementsByTagName('head')[0],
    link = document.createElement('link');
    link.type = 'text/css';
    link.rel = 'stylesheet';
-   link.href = "./js/reveal.js/lib/css/"+name;
+   link.href = "../js/reveal.js/lib/css/"+name;
    head.appendChild(link);
 
 
