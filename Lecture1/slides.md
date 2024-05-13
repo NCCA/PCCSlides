@@ -15,6 +15,6 @@ print("Hello, World!")
 ### The Zen of Python, by Tim Peters
 
 
-<script type="py" terminal>import this</script>
+<script type="py" terminal worker>import this</script>
 
 
