@@ -14,7 +14,7 @@ print("Hello, World!")
 
 ### The Zen of Python, by Tim Peters
 
-<script type="py" target="editor">
+<script type="py" target="editor" terminal worker>
 import this
 </script>
 <div id="editor"></div> 
