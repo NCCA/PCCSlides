@@ -14,7 +14,19 @@ print("Hello, World!")
 
 ### The Zen of Python, by Tim Peters
 
+<script id="my_script" type="mpy" terminal worker></script>
+<script>
+const myterm = document.querySelector("#my_script");
+await myterm.process('import this');
+</script>
 
-<script type="py" terminal worker>import this</script>
+--
 
+## A REPL
+
+<script type="py" terminal worker>
+import code
+
+code.interact()
+</script>
 
