@@ -70,7 +70,7 @@
 
   	current_slide += event.indexv+1;
 		gCurrentSlide=current_slide;
-		console.log("slide "+gCurrentSlide);
+		//console.log("slide "+gCurrentSlide);
 
     // event.previousSlide, event.currentSlide, event.indexh, event.indexv
 } );
