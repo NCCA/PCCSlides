@@ -17,7 +17,7 @@ print("Hello, World!")
 <script type="py-editor" target="editor1">
 import this
 </script>
-<code><div id="editor1" align="left" font size="small"></div></code>
+<div id="editor1" align="left" font size="small"><code></code></div>
 
 --
 
