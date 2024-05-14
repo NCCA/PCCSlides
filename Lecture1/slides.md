@@ -25,11 +25,10 @@ import this
 # code
 
 
-<script type="py-editor" target="editor2"">
-print("hello World!")
+<script type="py-editor" src="code/hello.py"  target="editor2">
 </script>
 
-<div id="editor2" style="font-size: 40px; text-align: left;"></div>
+<div id="editor2" style="font-size: 20px; text-align: left; overflow-y: scroll; height:400px;"></div>
 
 --
 
