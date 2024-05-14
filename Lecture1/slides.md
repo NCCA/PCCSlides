@@ -17,13 +17,13 @@ print("Hello, World!")
 <script type="py-editor" target="editor1">
 import this
 </script>
-<div id="editor1" align="left" font-size="xx-small"></div> 
+<code><div id="editor1" align="left" font size="small"></div></code>
 
 --
 
 
-<script type="py" target="editor" terminal worker>
-print("hello world")
+<script type="py-ditor" target="editor" terminal worker>
+print('hello world')
 </script>
 <div id="editor"></div> 
 
