@@ -12,25 +12,25 @@
   </script>
   <meta charset="utf-8">
   <title>Procedural Content Creation Lecture 1 </title>
-  <link rel="stylesheet" href="/js/reveal.js/reveal.css">
-  <link rel="stylesheet" href="/js/reveal.js/reveal.js-fullscreen-code.css">                             
-  <link rel="stylesheet" href="/js/reveal.js/theme/white.css" id="theme">
-  <link rel="stylesheet" href="/js/reveal.js/theme/zenburn.css">
-  <link rel="stylesheet" href="/js/reveal.js/jonstyle.css">
-  <link rel="stylesheet" href="/js/pyscript/core.css">
+  <link rel="stylesheet" href="js/reveal.js/reveal.css">
+  <link rel="stylesheet" href="js/reveal.js/reveal.js-fullscreen-code.css">                             
+  <link rel="stylesheet" href="js/reveal.js/theme/white.css" id="theme">
+  <link rel="stylesheet" href="js/reveal.js/theme/zenburn.css">
+  <link rel="stylesheet" href="js/reveal.js/jonstyle.css">
+  <link rel="stylesheet" href="js/pyscript/core.css">
 
   <!-- This script tag bootstraps PyScript -->
-  <script type="module" src="/js/pyscript/core.js"></script>
+  <script type="module" src="js/pyscript/core.js"></script>
   <py-config>
     sync_main_only = true
-    interpreter = "/js/pyodide/pyodide.mjs"
+    interpreter = "js/pyodide/pyodide.mjs"
   </py-config>
 
   <script>
     var link = document.createElement( 'link' );
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? './js/reveal.js/css/print/pdf.css' : '../js/reveal.js/css/print/paper.css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '.js/reveal.js/css/print/pdf.css' : '..js/reveal.js/css/print/paper.css';
     document.getElementsByTagName( 'head' )[0].appendChild( link );
   </script>
 
@@ -42,9 +42,9 @@
       <style> .reveal section img { background:none; border:none; box-shadow:none; } </style>   
       <!-- Slides are separated by newline + three dashes + newline, vertical slides identical but two dashes -->
       <section data-markdown="/Lecture1/slides.md" data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$"></section>        
-      <script src="/js/reveal.js/head.min.js"></script>
-      <script src="/js/reveal.js/reveal.js"></script>
-      <script src="/js/jquery/jquery.min.js"></script>
+      <script src="js/reveal.js/head.min.js"></script>
+      <script src="js/reveal.js/reveal.js"></script>
+      <script src="js/jquery/jquery.min.js"></script>
     
     </div>
   </div>
@@ -53,7 +53,7 @@
   <div id="hidden" style="display:none;">
     <div id="header">
       <div id="header-left">
-        <input id="home" type="image" src="/js/icons/home.png" width='24%' height='24%' onclick="goHome();" title="home"> </input>
+        <input id="home" type="image" src="js/icons/home.png" width='24%' height='24%' onclick="goHome();" title="home"> </input>
       </div>
         <!--        
         <div id="header-right">HEADER-RIGHT</div>
@@ -63,7 +63,7 @@
   </div>
 
 
-  <script src="/js/reveal.js/slidefunctions.js"></script>
+  <script src="js/reveal.js/slidefunctions.js"></script>
 
 </body>
 </html>
