@@ -7,7 +7,7 @@
                         
                         slideNumber: 'c/t' ,
                         math: {
-                        mathjax: '/js/MathJax-2.7.7/MathJax.js',
+                        mathjax: 'js/MathJax-2.7.7/MathJax.js',
                         config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
                         },
                        menu: {
@@ -15,35 +15,35 @@
 									openSlideNumber: true,
 									keyboard: false,
 									themes: [
-										{ name: 'Black', theme: '/js/reveal.js/theme/black.css' },
-										{ name: 'White', theme: '/js/reveal.js/theme/white.css' },
-										{ name: 'League', theme: '/js/reveal.js/theme/league.css' },
-										{ name: 'Sky', theme: '/js/reveal.js/theme/sky.css' },
-										{ name: 'Beige', theme: '/js/reveal.js/theme/beige.css' },
-										{ name: 'Simple', theme: '/js/reveal.js/theme/simple.css' },
-										{ name: 'Serif', theme: '/js/reveal.js/theme/serif.css' },
-										{ name: 'Blood', theme: '/js/reveal.js/theme/blood.css' },
-										{ name: 'Night', theme: '/js/reveal.js/theme/night.css' },
-										{ name: 'Moon', theme: '/js/reveal.js/theme/moon.css' },
-										{ name: 'Solarized', theme: '/js/reveal.js/theme/solarized.css' }
+										{ name: 'Black', theme: 'js/reveal.js/theme/black.css' },
+										{ name: 'White', theme: 'js/reveal.js/theme/white.css' },
+										{ name: 'League', theme: 'js/reveal.js/theme/league.css' },
+										{ name: 'Sky', theme: 'js/reveal.js/theme/sky.css' },
+										{ name: 'Beige', theme: 'js/reveal.js/theme/beige.css' },
+										{ name: 'Simple', theme: 'js/reveal.js/theme/simple.css' },
+										{ name: 'Serif', theme: 'js/reveal.js/theme/serif.css' },
+										{ name: 'Blood', theme: 'js/reveal.js/theme/blood.css' },
+										{ name: 'Night', theme: 'js/reveal.js/theme/night.css' },
+										{ name: 'Moon', theme: 'js/reveal.js/theme/moon.css' },
+										{ name: 'Solarized', theme: 'js/reveal.js/theme/solarized.css' }
 										],
 										custom: [
-										{ title: 'Code Style', icon: '<i class="fa fa-external-link">', src: '/js/reveal.js/codeThemes.html' },
+										{ title: 'Code Style', icon: '<i class="fa fa-external-link">', src: 'js/reveal.js/codeThemes.html' },
 										]
 			        
                                     },
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                            { src: '/js/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                            { src: '/js/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                            { src: '/js/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                            { src: '/js/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                            { src: '/js/reveal.js/plugin/math/math.js', async: true },
-                            { src: '/js/reveal.js/plugin/menu/menu.js' },
-                            { src: '/js/reveal.js/plugin/line-numbers/line-numbers.js'},
-                            { src:'/js/reveal.js/plugin/reveal-sampler/sampler.js' },
-                            { src:'/js/reveal.js/reveal.js-fullscreen-code.js' },
-                            { src: '/js/reveal-plantuml.min.js' },
+                            { src: 'js/reveal.js/libjs/classList.js', condition: function() { return !document.body.classList; } },
+                            { src: 'js/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                            { src: 'js/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                            { src: 'js/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                            { src: 'js/reveal.js/plugin/math/math.js', async: true },
+                            { src: 'js/reveal.js/plugin/menu/menu.js' },
+                            { src: 'js/reveal.js/plugin/line-numbers/line-numbers.js'},
+                            { src:'js/reveal.js/plugin/reveal-sampler/sampler.js' },
+                            { src:'js/reveal.js/reveal.js-fullscreen-code.js' },
+                            { src: 'js/reveal-plantuml.min.js' },
                             ],
 
     });
@@ -77,7 +77,7 @@ var head = document.getElementsByTagName('head')[0],
    link = document.createElement('link');
    link.type = 'text/css';
    link.rel = 'stylesheet';
-   link.href = "/js/reveal.js/lib/css/"+name;
+   link.href = "js/reveal.js/lib/css/"+name;
    head.appendChild(link);
 
 
