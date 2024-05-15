@@ -1,16 +1,50 @@
-# Writing Slides with Markdown
+### Writing Slides with Markdown
 
-Jon Macey
+- press the right arrow key to continue
+
 
 ---
 
-# Overview
+### Overview
 
 - This slide set will show examples of how to write slides using markdown
 - It will also include some of the more complex elements where you need to embed html or javascript
 - This can be used along with the index.html file as a starting point / reference
+- **now press the down key!**
+
+--
+
+## Navigation 
+
+- Use the arrow keys to move between slides
+- Pressing the ```s``` key will open the speaker notes
+- Pressing the ```f``` key will open full screen mode
+- Pressing the ```b``` key will open a black screen
+- Pressing the ```ESC``` will give full overview of slides
+
+Note:
+  The notes keyword is used to add speaker notes to a slide. 
+  These notes are not visible to the audience.
+  Note the new line and the Tabs
+
+--
+
+### Menu Button
+
+- The home button at the top left returns to the first slide, but can be altered to go to a different url if required
+- The menu button at the bottom left opens a menu with many options including themes 
+
+--
+
+
+### Structure of slides
+
+- I tend to group topics into vertical sections each slide has a ```--``` to separate them in the markdown file
+- Horizontal slides are created using the ```---``` separator and I use these for core heading topics 
+- Make sure the spaces are correct or the slide will not render correctly you basically need a blank line between each slide
 
 ---
+
 
 ### Part One basic reveal.js
 
@@ -21,14 +55,39 @@ Jon Macey
 
 --
 
-## numbers
-
+### numbers
 
 1. This is a numbered list
 2. This is the second item
   1. This is a sub item
   2. This is another sub item
 3. This is the third item
+
+--
+
+## fragments (press down!)
+
+* Fragments are used to animate items on a slide press right to continue <!-- .element: class="fragment" -->
+* I tend not to use these <!-- .element: class="fragment" -->
+* but you can add them if you wish <!-- .element: class="fragment" -->
+* they can be used to reveal items one at a time <!-- .element: class="fragment" -->
+
+Note:
+  If using a markdown file you need to add the element tags to get it to render correctly
+
+--
+
+## more complex fragments
+
+* default is fade in <!-- .element: class="fragment" -->
+* highlight red <!-- .element: class="fragment highlight-red" -->
+* fade in then out <!-- .element: class="fragment fade-in-then-out" -->
+* slide up while fading in <!-- .element: class="fragment fade-up" -->
+* slide down while fading in <!-- .element: class="fragment fade-down" -->
+* slide left while fading in <!-- .element: class="fragment fade-left" -->
+* slide right while fading in <!-- .element: class="fragment fade-right" -->
+
+
 
 ---
 

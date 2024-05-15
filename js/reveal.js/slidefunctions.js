@@ -38,6 +38,7 @@
                             { src: '../js/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                             { src: '../js/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                             { src: '../js/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                            { src: '../js/reveal.js/plugin/notes/notes.js' },
                             { src: '../js/reveal.js/plugin/math/math.js', async: true },
                             { src: '../js/reveal.js/plugin/menu/menu.js' },
                             { src: '../js/reveal.js/plugin/line-numbers/line-numbers.js'},
