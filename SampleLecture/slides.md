@@ -79,7 +79,7 @@ import this
 - note the size and scroll bars are set in the div
 
 ```python
-<script type="py-editor" src="docs/SampleLecture/code/python.py"  target="editor2"></script>
+<script type="py-editor" src="code/python.py"  target="editor2"></script>
 <div id="editor2" style="font-size: 18px; text-align: left; overflow-y: scroll; height:400px;"></div>
 ```
 
@@ -87,7 +87,7 @@ import this
 
 ## Code from file
 
-<script type="py-editor" src="docs/SampleLecture/code/python.py"  target="editor2"></script>
+<script type="py-editor" src="code/python.py"  target="editor2"></script>
 <div id="editor2" style="font-size: 18px; text-align: left; overflow-y: scroll; height:400px;"></div>
 
 
