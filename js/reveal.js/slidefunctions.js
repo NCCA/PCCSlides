@@ -7,7 +7,7 @@
                         
                         slideNumber: 'c/t' ,
                         math: {
-                        mathjax: 'js/MathJax-2.7.7/MathJax.js',
+                        mathjax: '../js/MathJax-2.7.7/MathJax.js',
                         config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
                         },
                        menu: {
@@ -28,7 +28,7 @@
 										{ name: 'Solarized', theme: '../js/reveal.js/theme/solarized.css' }
 										],
 										custom: [
-										{ title: 'Code Style', icon: '<i class="fa fa-external-link">', src: 'js/reveal.js/codeThemes.html' },
+										{ title: 'Code Style', icon: '<i class="fa fa-external-link">', src: '../js/reveal.js/codeThemes.html' },
 										]
 			        
                                     },
