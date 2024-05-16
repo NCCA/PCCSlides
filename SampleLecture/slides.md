@@ -150,3 +150,10 @@ import this
 <div id="editor2" style="font-size: 18px; text-align: left; overflow-y: scroll; height:400px;"></div>
 
 
+---
+
+## [asciinema](https://asciinema.org/)
+
+
+<asciinema-player src="example.asc" cols=120 rows=30></asciinema-player>
+
