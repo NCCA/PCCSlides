@@ -1,0 +1,13 @@
+{"version": 2, "width": 80, "height": 25, "timestamp": 1692790591, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.007052, "o", "[\u001b[33mjmacey\u001b[m@\u001b[31mw33401:LinuxTest$\u001b[m]"]
+[0.900025, "o", "m"]
+[0.973404, "o", "a"]
+[1.084501, "o", "n"]
+[1.256946, "o", " "]
+[1.452452, "o", "l"]
+[1.581147, "o", "s"]
+[1.96831, "o", "\r\n"]
+[1.990749, "o", "\u001b[?1049h\u001b[22;0;0t\u001b[?1h\u001b=\r"]
+[2.004255, "o", "LS(1)                            User Commands                           LS(1)\u001b[m\r\n\u001b[m\r\n\u001b[1mNAME\u001b[0m\u001b[m\r\n       ls - list directory contents\u001b[m\r\n\u001b[m\r\n\u001b[1mSYNOPSIS\u001b[0m\u001b[m\r\n       \u001b[1mls \u001b[22m[\u001b[4mOPTION\u001b[24m]... [\u001b[4mFILE\u001b[24m]...\u001b[m\r\n\u001b[m\r\n\u001b[1mDESCRIPTION\u001b[0m\u001b[m\r\n       List  information  about  the FILEs (the current directory by default).\u001b[m\r\n       Sort entries alphabetically if none of \u001b[1m-cftuvSUX \u001b[22mnor \u001b[1m--sort  \u001b[22mis  speci‐\u001b[m\r\n       fied.\u001b[m\r\n\u001b[m\r\n       Mandatory  arguments  to  long  options are mandatory for short options\u001b[m\r\n       too.\u001b[m\r\n\u001b[m\r\n       \u001b[1m-a\u001b[22m, \u001b[1m--all\u001b[0m\u001b[m\r\n              do not ignore entries starting with .\u001b[m\r\n\u001b[m\r\n       \u001b[1m-A\u001b[22m, \u001b[1m--almost-all\u001b[0m\u001b[m\r\n              do not list implied . and ..\u001b[m\r\n\u001b[m\r\n       \u001b[1m--author\u001b[0m\u001b[m\r\n              with \u001b[1m-l\u001b[22m, print the author of each file\u001b[m\r\n\u001b[7m Manual page ls(1) line 1 (press h for help or q to quit)\u001b[27m\u001b[K"]
+[3.99071, "o", "\r\u001b[K\u001b[?1l\u001b>\u001b[?1049l\u001b[23;0;0t"]
+[3.992386, "o", "[\u001b[33mjmacey\u001b[m@\u001b[31mw33401:LinuxTest$\u001b[m]"]
