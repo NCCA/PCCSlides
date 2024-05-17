@@ -135,7 +135,23 @@ Note:
 
 - Videos can be embedded using standard html, to avoid large files on github I have used a youtube link
  
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0KrCh5qD9Ho" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="width: 560px; height: 315px; float: none; clear: both; margin: 2px auto;">
+  <embed
+    src="https://www.youtube.com/embed/XAuvXJBlvyA?si=A9O0WBWxjIApVpRS"
+    wmode="transparent"
+    type="video/mp4"
+    width="100%" height="100%"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen
+    title="Keyboard Cat"
+  >
+</div>
+
+
+<object
+  style="width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;"
+  data=>
+</object>
 
 
 ---
@@ -260,3 +276,10 @@ $$`
 <div class="stretch">
 <iframe width="900" height="90%" src="add.html"></iframe>
 </div>
+
+
+---
+
+## OpenGL with three
+
+<iframe width="1000" height="600px" src="checkshader.html"></iframe>
