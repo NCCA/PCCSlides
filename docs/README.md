@@ -17,6 +17,12 @@ The ``--`` tag gives a new vertical slide, at triple ```---``` indicates a new h
 See the SampleLecture/slides.md file for examples of how to write slides and all the current features / modules added. If you need more put it into a new branch and I will try to add it.
 
 
-# How to add to Slides
+## How to add to Slides
 
-For simplicity it is best to create a branch for each slide update you make, this will make tracking and merging easier.
+For simplicity it is best to create a branch for each slide update you make, this will make tracking and merging easier. Due to the layout of the javascript projects everything must be pathed relative, or with ../js/ etc.
+
+# Labs
+
+The labs will get rendered from the README.md file in the labs folder, this is a standard markdown file and should be updated in the same way as the slides.md file only this will be rendered using the github markdown renderer. 
+
+It is possible to add script tags in the top for things like asciinema etc, but again this must be pathed relative to the index.html file.
