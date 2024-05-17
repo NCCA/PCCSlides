@@ -47,7 +47,7 @@ As a shortcut we can always travel home by typing cd followed by enter or
 cd ~ 
 ```
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/cd.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="cd.cast" cols=120 rows=10></asciinema-player>
 
 In the example above we use the [```pwd```](https://man7.org/linux/man-pages/man1/pwd.1.html) command to show us where we are. ```pwd```  stands for "print working directory" and you will find this sort of acronym is very common in Linux / Unix. In fact ```cd``` stands for change directory.  
 
@@ -55,7 +55,7 @@ In the example above we use the [```pwd```](https://man7.org/linux/man-pages/man
 
 You home directory is on a server the quota for the home directories is set at 100GB and if full, things will likely  stop working.  Use ```quota -s``` from a terminal to check or the more user friendly  output script ```/public/bin/2023/homequota```
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/quota.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="quota.cast" cols=120 rows=10></asciinema-player>
 
 {{% alert warning %}}
 Using the file manager to delete files will not remove them from your home folder, it will move them into a recycle bin. This still counts to your quota. It is stored in the folder .local/share/Trash/files. You can delete this folder to free up space, or use the command ```gio trash --empty``` in the terminal.
@@ -66,7 +66,7 @@ Using the file manager to delete files will not remove them from your home folde
 
 The build in  commands ```pushd``` and ```popd``` can be used to move around the filesystem.  ```pushd``` will change to a directory and save the current directory on a stack.  ```popd``` will change to the directory on the top of the stack.  This is useful if you want to move to a directory and then return to the previous directory.  The following examples show this in action.
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/pushd.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="pushd.cast" cols=120 rows=10></asciinema-player>
 
 
 ## Directories
@@ -89,7 +89,7 @@ This path is relative to the current directory.  We can also use an absolute pat
 ls /home/jmacey/LinuxTest
 ```
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/mkdir.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="mkdir.cast" cols=120 rows=10></asciinema-player>
 
 
 To change into the LinuxTest directory we can use the ```cd``` command.  As we are in the root folder we can just type the name of the directory
@@ -100,7 +100,7 @@ cd LinuxTest
 
 We can also use the command ```cd ~/LinuxTest``` to say change relative to root (~/). This can be useful when we are somewhere else and need to change.
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/cd2.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="cd2.cast" cols=120 rows=10></asciinema-player>
 
 ## The [```touch```](https://man7.org/linux/man-pages/man1/touch.1.html) command
 
@@ -108,7 +108,7 @@ The ```touch``` command is very useful in linux, it's main role is to Update the
 
 However if the file does not exist when passed on the command line an empty file will be created.
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/touch.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="touch.cast" cols=120 rows=10></asciinema-player>
 
 ## the [```rm``` command](https://linux.die.net/man/1/rm)
 
@@ -116,13 +116,13 @@ The rm command is one of the most dangerous commands in the linux toolbox.  It i
 
 The following example will remove the files we created in the previous example.
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/rm1.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="rm1.cast" cols=120 rows=10></asciinema-player>
 
 You will note there is no prompt to delete, it just assumes you know what you are doing and does it! 
 
 Luckily rm has a number of flags we can use to help avoid some of these issues. In particular we can set the ```-i``` flag for interactive usage as follows. 
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/rm2.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="rm2.cast" cols=120 rows=10></asciinema-player>
 
 
 ## Sessions
@@ -133,11 +133,11 @@ When you open a terminal in the gui or via ssh you are also given a shell.
 
 You can see who is logged into the machine and how many sessions are running using the who command. 
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/who.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="who.cast" cols=120 rows=10></asciinema-player>
 
 Typically when opening a terminal in linux we get a new session, and each session is unique. 
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/loginctl.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="loginctl.cast" cols=120 rows=10></asciinema-player>
 
 
  This means that if we open a terminal and set a variable it will not be set in a different session.  This is because each session has its own environment.  The environment is a set of variables that are set when the session is created.  These variables are used by the shell and other programs to determine how they behave.  For example the PATH variable is used by the shell to determine where to look for programs.  If we type a command in the terminal the shell will look in the directories listed in the PATH variable for the program.  
@@ -198,7 +198,7 @@ The alias command allows us to create shortcuts for commands.  In this case we a
 
 To make this work in the current environment we need to source the .bashrc file.  
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/alias.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="alias.cast" cols=120 rows=10></asciinema-player>
 
 we can now always override the default -i mode using the -f (force) flag. 
 
@@ -213,7 +213,7 @@ history
 
 we will get a list of all the commands we have typed into the terminal.  Each command has a number associated with it.  
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/history.cast" cols=120 rows=10></asciinema-player>
+<asciinema-player src="history.cast" cols=120 rows=10></asciinema-player>
 
 We can use the ```!!``` shortcut to run the last command. ![letters] gives us the last command with the starting letters. 
 
@@ -221,7 +221,7 @@ We can use the ```!!``` shortcut to run the last command. ![letters] gives us th
 
 Linux comes with a user manual built in, we use the man command to access this.
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/man.cast" cols=120 rows=30></asciinema-player>
+<asciinema-player src="man.cast" cols=120 rows=30></asciinema-player>
 
 We can page through the manual using the space bar and quit using the q key.  We can also search for text using the / key.  For example to search for the word "directory" we can type /directory
 
@@ -238,7 +238,7 @@ All man pages are formatted in a particular way, once you get used to them it is
 |7|	Miscellaneous|
 |8|	System administration commands and daemons|
 
-<asciinema-player src="/jmacey/sfdcc/labs/lab1/man2.cast" cols=120 rows=30></asciinema-player>
+<asciinema-player src="man2.cast" cols=120 rows=30></asciinema-player>
 
 ## Conclusions
 
