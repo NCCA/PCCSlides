@@ -4,6 +4,20 @@ These notes give some guidance on how to update and write the reveal.js slides f
 
 ## Getting started
 
+You can view the slides locally by running python as an http server in the PCCSlides directory, this will work for each of the reveal slides.  
+
+```
+python -m http.server
+```
+
+This will start a server on port 8000, you can then view the slides by going to [http://localhost:8000](http://localhost:8000) in your browser.
+
+You can't view the labs locally as they are rendered using the github markdown renderer, but you can view them on the github page.
+
+Check the SampleSlides folder for an example of how to write slides and the different features that are available.
+
+## Updating slides
+
 Each of the Core lecture folders contains a markdown file called slides.md, this is read by the index.html file which will also setup the basic reveal.js system and some custom functions to allow different slide templates and code styles.
 
 The main webpage title can be set using the html ```<title>``` tag, but in general it is not required to edit this file much.
