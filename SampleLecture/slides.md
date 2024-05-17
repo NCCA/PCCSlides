@@ -88,10 +88,62 @@ Note:
 * slide right while fading in <!-- .element: class="fragment fade-right" -->
 
 
+---
+
+
+## Tables
+
+- Tables are created using markdown
+
+| operation | Result |
+|--------|-------|
+| ``` x+y``` | sum of x and y |
+| ``` x-y``` | difference of x and y |
+| ``` x*y``` | product of x and y |
+| ``` x/y``` | quotient of x and y |
+| ``` x//y``` | floored quotient of x and y |
+
+
+--
+
+## images
+
+- Images are embedded using the markdown syntax ```![alt text](url)```
+
+![antigrav](images/antigrav.png)
+
+--
+
+## images
+
+- finer control can be achieved using html
+
+<img style="border: 0;" src="images/antigrav.png" width="20%">
+- [python easter eggs](http://digitizor.com/easter-eggs-in-python/)
+
+--
+
+# Quotes
+
+- You can use block quotes to highlight text, the markdown one tends to be quite large html gives finer control
+
+<blockquote><small><p>Turner Whitted’s original paper on ray tracing (1980) emphasized its recursive nature, which was the key that made it possible to include indirect specular reflection and transmission in rendered images.</p></small></blockquote>
+
+--
+
+# Videos 
+
+- Videos can be embedded using standard html, to avoid large files on github I have used a youtube link
+ 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0KrCh5qD9Ho" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ---
 
-## C-Code
+## Code
+
+- Code can be embedded in the slides using the markdown triple single backtick 
+- It can be inline like ```this``` or a block like below
 
 ```c
 #include <stdio.h>
@@ -104,7 +156,11 @@ int main()
 
 --
 
-# Python Code
+# Code
+
+- The code can be syntax highlighted using the language name after the first set of backticks
+- There is also an option to full screen the code block
+- This is static code which can also be cut and pasted easily to a terminal etc. 
 
 ```python
 print("Hello World")
@@ -154,6 +210,53 @@ import this
 
 ## [asciinema](https://asciinema.org/)
 
+- we can record terminal sessions and embed them in the slides
+- emebedding is done using the asciinema-player element
 
-<asciinema-player src="example.asc" cols=120 rows=30></asciinema-player>
+```
+<asciinema-player src="example.asc" cols=120 rows=10></asciinema-player>
+```
 
+<asciinema-player src="example.asc" cols=120 rows=10></asciinema-player>
+
+--
+
+## [asciinema](https://asciinema.org/)
+
+- it is possible to edit the recorded files if you make a mistake 
+- I also have a tool that allows minimal edits / re-timings for the files
+- This is on github [here](https://github.com/NCCA/AsciinemaEdit) 
+
+---
+
+## math notation
+
+- Math notation is rendered with [MathJax](https://www.mathjax.org/) as we are using markdown we need the delimiters  ``` `$$ ```
+- plain text needs to use ```\text{}``` to render correctly
+
+`$$ \text{When } a \ne 0, \text{there are two solutions to } \\\\ ax^2 + bx + c = 0  \text{ and they are } \\\\ x = {-b \pm \sqrt{b^2-4ac} \over 2a}  $$`
+
+--
+
+## Math notation
+
+- The math plugin is set to the default TeX-AMS_HTML-full so most LaTex should work fine.
+
+
+`$$
+tx=\begin{pmatrix}
+cos(\theta) & -sin(\theta) \\\
+sin(\theta) & cos(\theta)
+\end{pmatrix}
+$$`
+
+
+---
+
+### Processing 
+
+- web based processing can be added, It is best to do it in a separate file and then embed it in the slide
+
+<div class="stretch">
+<iframe width="900" height="90%" src="add.html"></iframe>
+</div>
