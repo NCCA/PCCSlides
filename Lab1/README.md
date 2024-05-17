@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../js/asciinema-player.css">
 <script src="../js/asciinema-player.js"></script>
 
-# Lab 1 Ibtroduction to Linux
+# Lab 1 Introduction to Linux
 
 # Aims
 
