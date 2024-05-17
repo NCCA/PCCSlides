@@ -14,7 +14,9 @@ Most slides can be written in standard markdown and should work, there are two c
 
 The ``--`` tag gives a new vertical slide, at triple ```---``` indicates a new horizontal slide.
 
+See the SampleLecture/slides.md file for examples of how to write slides and all the current features / modules added. If you need more put it into a new branch and I will try to add it.
+
 
 # How to add to Slides
 
-For simplicity it is best to create a branch for each slide update you make, this will make tracking and merging easier. I reccomend
+For simplicity it is best to create a branch for each slide update you make, this will make tracking and merging easier.
