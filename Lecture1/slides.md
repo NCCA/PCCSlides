@@ -59,7 +59,7 @@ Note:
 
 - **Computer Animation**
   - Rigging
-  - Procedural animation
+  - Procedural animation (crowds, flocking, etc.)
 - **Visual Effects**
   - Simulations: fluid, smoke, shattering, cloth...
   - Procedural Modelling
@@ -78,12 +78,12 @@ Note:
 
 ---
 
-## Programming sounds like too technical
+## Programming sounds too technical
 
-- *I think only a mathematically minded people can ever write programs* - **wrong**.  
+- "*I think only a mathematically minded people can ever write programs*" - **wrong**.  
 - Process of creating art is similar to the process of creating programs
   - Starting software with sketches, tiny programs that just do one thing
-  - Refine ideas through trial and error
+  - Refine ideas through trial and error (and abstraction)
 - Writing scripts is easier than you think
   - More about that later this session
   
@@ -108,6 +108,7 @@ Note:
   - Linux is Unix as well
   
 ---
+
 ## Loading Linux
 
 - **Why Linux?**
@@ -117,7 +118,7 @@ Note:
   - Controllable
   - User-friendly
   - Build for software development
-- It is important to use / understand Linux for production  
+- It is important to use / understand Linux for production as most big studios use Linux
 
 ---
 ## Loading Linux
