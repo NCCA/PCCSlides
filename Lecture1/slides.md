@@ -1,3 +1,10 @@
+## Lecture 1: Introduction to Procedural Content Creation
+
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+
+
+---
+
 # Session outline
 
 - **Course:** BA Computer Animation and Visual Effects
@@ -88,6 +95,7 @@ Note:
   - More about that later this session
   
 --
+
 # The creative process of computing
 - As you go through the unit, you might encounter some points you might not really understand what is happening
 - Do not be shy to ask questions as we are going along
@@ -96,6 +104,8 @@ Note:
 - There is no "right way" or "wrong way" when it comes to programming
   - Similar to art!
   - The only "right direction" in programming is to ensure the program is doing what is supposed to do
+
+--
 
 # Learning to speak with computer
 
@@ -120,7 +130,8 @@ Note:
   - Build for software development
 - It is important to use / understand Linux for production as most big studios use Linux
 
----
+--
+
 ## Loading Linux
 
 * Restart your machine <!-- .element: class="fragment highlight-red" -->
@@ -145,7 +156,7 @@ Note:
 
 ---
 
-##Terminal 
+## Terminal 
 
 - The first thing we need to do is to get a terminal open
 - When we open the terminal, it runs a program called a shell and awaits for your command
@@ -155,7 +166,8 @@ Note:
   -```~``` command shows your *home folder*
   - **pwd** command shows where you are now
 
--- 
+--
+
 # The filesystem 
 
 - Most of the work we do is based on a filesystem and navigating 
@@ -164,13 +176,16 @@ Note:
 - Under the root are a number of directories 
   - They are called folders in Windows. 
   - They can contain files and other directories
----
+
+--
+
 ## The filesystem: directories
 - Each of you have a home directory, in your case it will be /home/```[```iSTUDENT_NUMBER```]```
 -```~``` command shows your *home folder*
 - What else is in your folder?
 
----
+--
+
 ## The filesystem: files
 
 - Each file has a name and an extension
@@ -178,7 +193,8 @@ Note:
 - For example, .mb files are Maya binaries and can be opened by Maya
 - We will come back to files and folder in a later session.
 
---
+---
+
 # Why Python
 - Python is a language that allows read and run programs
 - It reads programs line by line executing each instruction
@@ -187,7 +203,7 @@ Note:
 - **Python in the industry**
   - Scripting in Maya, Houdini, Blender and many others
   
----
+--
 
 ## Examples of Python in DCC
 
@@ -206,8 +222,9 @@ Note:
 - Movie script explains what happens in the shot 
 - Script in programming explains what happens in the program
 
--- 
-# The first Python code
+--
+
+# ["hello world" in Python](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)
 
 - In the terminal type the command **python3** and press enter
 - You will enter the Python environment
@@ -215,13 +232,14 @@ Note:
 - Start with writing this code:
 
 ```python
-print("Hello World")
+print("Hello World!")
 ```
 - After you press "Enter" you should see *Hello World* in your shell
 - You just wrote your first Python program!
 
----
-## The first Python code: explanation
+--
+
+## Explanation of the code
 ```python
 print("Hello World")
 ```
@@ -231,7 +249,8 @@ print("Hello World")
   
 - Now try to output your own string in the Python shell
 
--- 
+--
+
 # Creating graphics with Python
 
 - Now try the following code 
@@ -242,7 +261,8 @@ import turtle
 turtle.down()
 ```
 
----
+--
+
 ## Creating graphics with Python (cont)
 
 - Extend the code
@@ -258,10 +278,9 @@ turtle.forward(100)
 turtle.right(90)
 turtle.forward(100)
 turtle.right(90)
-
 ```
 
---- 
+---
 
 ## Creating graphics with Python: explanation
 
@@ -292,21 +311,23 @@ turtle.forward(100)
 turtle.right(90)
 turtle.forward(100)
 turtle.right(90)
-
 ```
 
 -- 
+
 # Conclusion
 
 - **What have you learned today**
 
 
 --
+
 # Expectations and Outcomes
 
 - **What will you learn in this unit**
 - **What will you learn next time**
 
 --
+
 # Q&A and discussion
 - **Open Floor for Questions**
