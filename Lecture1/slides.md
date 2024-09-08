@@ -2,16 +2,18 @@
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
+- **Course:** BA Computer Animation and Visual Effects
+- **Level:** 4 
+- **Unit:** Procedural Content Creation
 
 ---
 
 # Session outline
 
-- **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
-- **Unit:** Procedural Content Creation
-- **Title:** Introduction
-- **Lecturers:** Jon Macey, Ian Stephenson, Oleg Fryazinov 
+- **Title:** Introduction to Procedural Content Creation
+- **What will you learn today:**
+  - What this unit is about and why you are studying it 
+  - What is Linux and what is Python
 
 ---
 
@@ -36,7 +38,7 @@ Note:
   
 --
 
-## What will you learn 
+## What will you learn in the unit
 
 - How to create assets using code / scripting
 - How to speak with computer using Python language
@@ -53,7 +55,7 @@ Note:
 
 ---
 
-# What is Procedural Content Creation?
+## What is Procedural Content Creation?
 
 - The unit name is three words: **procedural**, **content** and **creation**
 - We are going to **create** assets that can be used for computer animation and visual effects pipeline (**content**) **procedurally**
