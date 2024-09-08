@@ -13,7 +13,7 @@
 - **Title:** Introduction
 - **Lecturers:** Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
---
+---
 
 # Unit overview
 
@@ -22,9 +22,9 @@
 - Sessions can be more theoretical (lectures) or practical (workshops)
   - All the sessions in the computer labs, as we have practical elements during each session
 
----
+--
 
-##  Aims
+##  Unit aims
  
 - Develop the skill of computational thinking
 - Apply it to the production of animation and visual effects.  
@@ -34,7 +34,15 @@ Note:
   These notes are not visible to the audience.
   Note the new line and the Tabs
   
----  
+--
+
+## What will you learn 
+
+- How to create assets using code / scripting
+- How to speak with computer using Python language
+- Why blending arts and science can be fun
+  
+--  
 
 ## Assignment
 
@@ -43,16 +51,22 @@ Note:
   - We will discuss it during one of the latter sessions
 - 100% mark
 
---
+---
 
 # What is Procedural Content Creation?
 
+- The unit name is three words: **procedural**, **content** and **creation**
 - We are going to **create** assets that can be used for computer animation and visual effects pipeline (**content**) **procedurally**
+
+--
+
+## What is procedural
+
 - What is the difference between **procedural** and **manual**?
   - We are going to write procedure and then computer will create the asset by following the procedure
   - We are going to write **the script** and the computer is going to **run** the script
   
----
+--
 
 ## Context
 
@@ -60,7 +74,7 @@ Note:
   - We are all using computers
   - Your phone and even drawing tablet is a computer
 
----
+--
 
 ## Applications
 
@@ -83,7 +97,7 @@ Note:
 - Variety
   - Different assets can be created using the same procedure
 
----
+--
 
 ## Programming sounds too technical
 
@@ -313,19 +327,25 @@ turtle.forward(100)
 turtle.right(90)
 ```
 
--- 
+--- 
 
 # Conclusion
 
 - **What have you learned today**
-
+  - Your (probably) first two hours in Linux
+  - Your first script in Python that draws a square
+- **Homework**
+  - Modify the code to draw a cross (or letter X)
 
 --
 
-# Expectations and Outcomes
+# Next time
 
-- **What will you learn in this unit**
 - **What will you learn next time**
+  - Files and directories in Linux**
+  - *Getting out of the Python shell* 
+    - Working with .py scripts
+  - Learning more about *libraries*
 
 --
 

@@ -6,8 +6,8 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 1
 
-- [Lecture 1 Slides](https://ncca.github.io/PCCSlides/Lecture1) 
-- [Lecture 1 Lab](https://ncca.github.io/PCCSlides/Lab1)
+- [Introduction and your first script in Python](https://ncca.github.io/PCCSlides/Lecture1) 
+- [Files and Libraries](https://ncca.github.io/PCCSlides/Lecture2)
 
 ## Week 2
 
