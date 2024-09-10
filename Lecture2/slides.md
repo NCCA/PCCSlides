@@ -38,7 +38,7 @@
 ## Recap: the filesystem
 
 - The filesystem is a tree structure with a root at the top
-- The root is the top level of the filesystem and is represented by a **/** character.
+- The root is the top level of the filesystem and is represented by a ```/``` character.
 - Under the root are a number of directories 
   - They are called folders in Windows. 
   - They can contain files and other directories
@@ -47,41 +47,52 @@
 
 ## Recap: files and directories
 
-- Directories are separated by a **/** character
+- Directories are separated by a ```/``` character (windows uses ```\```)
 - Each of you have a home directory, in your case it will be /home/```[```iSTUDENT_NUMBER```]```
-- Each file has a name and an extension
+- Each file has a name and an additionally may have an extension separated by the . used to identify the file type.
 
 ---
 
+## ```pwd```
+
+- "print working directory"
+- This command will show you where you are in the filesystem, think of it as your way of asking where am i?
+
+<asciinema-player src="terminal/pwd.asc" cols=120 rows=10></asciinema-player>
+
+--
+
+
 ## Linux commands: cd
 
-- ```~``` command shows your *home folder*
-- **cd** is a command that changes directory
-- Change directory to where Maya is installed:
-<blockquote><small><p>cd /opt/autodesk/maya</p></small></blockquote>
-- Change directory to your home folder:
-<blockquote><small><p>cd ~</p></small></blockquote>
+- ```~``` is a linux shortcut for your *home folder*
+- ```cd``` is a command that changes directory
+- Change directory to where Maya is installed: (/opt/autodesk/maya) 
+
+<asciinema-player src="terminal/cd.asc" cols=120 rows=10></asciinema-player>
+
+
 
 --
 
 ## Linux commands: cd
 
-- To go to the parent directory, type
-<blockquote><small><p>cd ..</p></small></blockquote>
+- To go to the parent directory (up a level), type ```cd ..```
 - Linux terminal allows for autocomplete using Tab key. 
-  - To go into Documents folder I can start typing 
-<blockquote><small><p>cd Doc</p></small></blockquote>
-  - Then press Tab to autocomplete to 
-<blockquote><small><p>cd Documents/</p></small></blockquote>
+
+<asciinema-player src="terminal/cd2.asc" cols=120 rows=10></asciinema-player>
+
+
 
 ---
 
 ## Create directories
 
-- To create a new directory, we use **mkdir**
-- Try this commands:
-<blockquote><small><p>cd ~<br>cd /Documents<br>mkdir py_scripts</p></small></blockquote>
-- What these commands do?
+- To create a new directory, we use ```mkdir```
+- first we will make sure we are home by using ```cd``` with no arguments
+
+<asciinema-player src="terminal/mkdir.asc" cols=120 rows=10></asciinema-player>
+
 
 --
 
@@ -89,8 +100,10 @@
 
 - The **touch** command updates the access and modification times of each *file* to the current time. 
 - If the file does not exist when passed on the command line an empty file will be created. 
-<blockquote><small><p>cd py_scripts<br>touch test.py</p></small></blockquote>
-- What these commands do?
+
+<asciinema-player src="terminal/touch.asc" cols=120 rows=10></asciinema-player>
+
+
 
 --
 
