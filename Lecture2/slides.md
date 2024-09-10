@@ -15,7 +15,7 @@
   - How to navigate, create and edit files and directories in Linux 
   - How to work with Python files
   - What is *a library* in the context of computing
-  
+
 ---
 
 ## Recap: Loading Linux
@@ -42,7 +42,7 @@
 - Under the root are a number of directories 
   - They are called folders in Windows. 
   - They can contain files and other directories
-  
+
 --
 
 ## Recap: files and directories
@@ -83,7 +83,7 @@
 <blockquote><small><p>cd ~<br>cd /Documents<br>mkdir py_scripts</p></small></blockquote>
 - What these commands do?
 
--- 
+--
 
 ## Create files
 
@@ -202,4 +202,74 @@ turtle.done()
 
 ---
 
-# Python libraries
+## Python libraries
+
+- With a computer we can do everything
+- But we do not want to create entire worlds from scratch
+- We can leverage the work of other people through **Python libraries**
+
+--
+
+## Python libraries
+
+- We use **import** keyword for importing the library
+- We let Python know we are using the code from the library
+- Import turtle graphics: 
+```python
+import turtle 
+```
+
+--
+
+## Python libraries
+
+- Various libraries do different things
+
+```python
+import keyword
+print(keyword.kwlist)
+```
+
+--
+
+## Python libraries
+```python
+import keyword
+print(keyword.kwlist)
+```
+
+```python
+['False', 'None', 'True', 'and', 'as', 'assert', 'async',
+ 'await', 'break', 'class', 'continue', 'def', 'del',
+ 'elif', 'else', 'except', 'finally', 'for', 'from',
+ 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal',
+ 'not', 'or', 'pass', 'raise', 'return', 'try', 'while',
+ 'with', 'yield']
+```
+
+--
+
+## Python libraries
+
+- Python graphics libraries:
+  - **Pillow**: image manipulation with Python
+  - **Turtle**: turtle graphics
+  - **Matplotlib**: data visualisation
+  - **PyGame**: creating games with Python
+
+--
+
+## Python libraries
+
+- There are two ways of working with libraries:
+  - **import X**: imports the library X, and you can refer to things defined in module X, but using the module path <blockquote><small><p>X.name</p></small></blockquote> or <blockquote><small><p>python3 X.attribute</p></small></blockquote>
+  - **from X import ***: import everything from the library X, but you should use plain (unqualified name) to refer to things 
+  
+---
+
+## Python syntax
+
+- Python syntax refers to the set of rules that defines the combinations of symbols that are considered to be correctly structured programs in the Python language.
+```python
+print("Hello, World!")
+```
