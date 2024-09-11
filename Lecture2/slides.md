@@ -286,3 +286,89 @@ print(keyword.kwlist)
 ```python
 print("Hello, World!")
 ```
+
+--
+
+## Python syntax
+
+```python
+print("Hello, World!")
+```
+- In the above program we use **print** *function* to print the message
+- The arguments for the function are whatever is inside the paretheses ()
+
+--
+
+## Python syntax
+
+- Comments are the text that we can add to our program to make our code easier to understand
+- The computer ignores comments 
+```python
+# This program prints the string 'Hello World'
+print("Hello, World!")
+```
+
+--
+
+## Python variables
+
+- Variables are containers for storing data values
+- A variable is created the moment you first assign a value to it
+```python
+x = 150
+y = "Hello"
+print(x)
+print(y) 
+```
+
+--
+
+## Python variables
+
+- Variables do not need to be decrared with a particular *type*
+- We will be talking about variables later!
+```python
+value = input("Enter the value")
+print(name)
+```
+
+
+---
+
+## Creating an empty image
+
+- Now put everything we discussed about the syntax together
+- What is happening here?
+```python
+from PIL import Image  
+
+width = 400
+height = 300
+
+img  = Image.new( mode = "RGB", size = (width, height), color = (209, 123, 193) )
+img.show()
+```
+
+---
+
+# Conclusion
+
+- **What have you learned today**
+  - How to work with files and directories in Linux
+  - How to run scripts from .py files
+  - How to create an empty image
+- **Homework**
+  - Modify the code to create an empty image of a yellow colour
+
+--
+
+# Next time
+
+- **What will you learn next time**
+  - Introduction to *algorithmic thinking* and how to go with the program flow
+  - Data and variables
+
+--
+
+# Q&A and discussion
+- **Open Floor for Questions**
