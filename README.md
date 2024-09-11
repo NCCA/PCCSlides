@@ -11,8 +11,8 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 2
 
-- [Lecture 2 Slides](https://ncca.github.io/PCCSlides/Lecture2)
-- [Lecture 2 Lab](https://ncca.github.io/PCCSlides/Lab2)
+- [Data and Program flow](https://ncca.github.io/PCCSlides/Lecture3)
+- [Numbers and more data types](https://ncca.github.io/PCCSlides/Lecture4)
 
 
 ## Week 3

@@ -1,4 +1,4 @@
-## Lecture 2: Files, directories and libraries
+## Lesson 2: Files, directories and libraries
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
@@ -214,6 +214,59 @@ turtle.done()
 - Can you see it now?
 
 ---
+## Python syntax
+
+- Python syntax refers to the set of rules that defines the combinations of symbols that are considered to be correctly structured programs in the Python language.
+```python
+print("Hello, World!")
+```
+
+--
+
+## Python syntax
+
+```python
+print("Hello, World!")
+```
+- In the above program we use **print** *function* to print the message
+- The arguments for the function are whatever is inside the paretheses ()
+
+--
+
+## Python syntax
+
+- Comments are the text that we can add to our program to make our code easier to understand
+- The computer ignores comments 
+```python
+# This program prints the string 'Hello World'
+print("Hello, World!")
+```
+
+--
+
+## Python variables
+
+- Variables are containers for storing data values
+- A variable is created the moment you first assign a value to it
+```python
+x = 150
+y = "Hello"
+print(x)
+print(y) 
+```
+
+--
+
+## Python variables
+
+- Variables do not need to be decrared with a particular *type*
+- We will be talking about variables later!
+```python
+value = input("Enter the value")
+print(name)
+```
+
+---
 
 ## Python libraries
 
@@ -280,60 +333,6 @@ print(keyword.kwlist)
   
 ---
 
-## Python syntax
-
-- Python syntax refers to the set of rules that defines the combinations of symbols that are considered to be correctly structured programs in the Python language.
-```python
-print("Hello, World!")
-```
-
---
-
-## Python syntax
-
-```python
-print("Hello, World!")
-```
-- In the above program we use **print** *function* to print the message
-- The arguments for the function are whatever is inside the paretheses ()
-
---
-
-## Python syntax
-
-- Comments are the text that we can add to our program to make our code easier to understand
-- The computer ignores comments 
-```python
-# This program prints the string 'Hello World'
-print("Hello, World!")
-```
-
---
-
-## Python variables
-
-- Variables are containers for storing data values
-- A variable is created the moment you first assign a value to it
-```python
-x = 150
-y = "Hello"
-print(x)
-print(y) 
-```
-
---
-
-## Python variables
-
-- Variables do not need to be decrared with a particular *type*
-- We will be talking about variables later!
-```python
-value = input("Enter the value")
-print(name)
-```
-
-
----
 
 ## Creating an empty image
 
