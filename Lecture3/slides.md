@@ -382,8 +382,8 @@ im.show()
 # Next time
 
 - **What will you learn next time**
-  - Loops
-  - What is Boolean logic
+  - More data types: lists
+  - How to make your code readable and why you need to do it
 
 --
 
