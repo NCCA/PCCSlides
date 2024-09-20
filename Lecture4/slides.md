@@ -1,4 +1,4 @@
-## Lesson 4: Program flow 
+## Lesson 4: Variables and lists 
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
@@ -10,7 +10,7 @@
 
 # Session outline
 
-- **Title:** Program flow
+- **Title:** Variables and lists
 - **What will you learn today:**
   - More data types: we will talk about lists
   - What is a coding standard and why you need to use it
