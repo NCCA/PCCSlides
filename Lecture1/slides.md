@@ -1,6 +1,7 @@
-## Lecture 1: Introduction to Procedural Content Creation
+#### Lecture 1
+### Introduction to Procedural Content Creation
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+##### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
 - **Course:** BA Computer Animation and Visual Effects
 - **Level:** 4 
@@ -67,7 +68,7 @@ Note:
 - What is the difference between **procedural** and **manual**?
   - We are going to write procedure and then computer will create the asset by following the procedure
   - We are going to write **the script** and the computer is going to **run** the script
-  
+
 --
 
 ## Context
@@ -89,9 +90,9 @@ Note:
 - **Art**
   - Generative art
 
--- 
+--
 
-# Why creating content procedurally?
+### Why create content procedurally?
 
 - The ability to write new software gives extra power to go beyond the capabilities of the software
 - Efficiency
@@ -101,7 +102,7 @@ Note:
 
 --
 
-## Programming sounds too technical
+### Programming sounds technical
 
 - "*I think only a mathematically minded people can ever write programs*" - **wrong**.  
 - Process of creating art is similar to the process of creating programs
@@ -109,21 +110,27 @@ Note:
   - Refine ideas through trial and error (and abstraction)
 - Writing scripts is easier than you think
   - More about that later this session
-  
+
 --
 
-# The creative process of computing
+### The creative process of computing
 - As you go through the unit, you might encounter some points you might not really understand what is happening
 - Do not be shy to ask questions as we are going along
 - In these sessions we are going stress important parts that cannot be skipped
 - Perfection comes with practice
+
+--
+
+### The creative process of computing
+
+
 - There is no "right way" or "wrong way" when it comes to programming
   - Similar to art!
   - The only "right direction" in programming is to ensure the program is doing what is supposed to do
 
 --
 
-# Learning to speak with computer
+### Learning to speak with a computer
 
 - Let we try to understand computers
 - We are going to use **Linux** operating system. 
@@ -132,7 +139,7 @@ Note:
   - Unix is the family of computer operating systems. 
   - If you are using Mac, Macos is Unix
   - Linux is Unix as well
-  
+
 ---
 
 ## Loading Linux
@@ -158,10 +165,11 @@ Note:
 
 ## Loading Linux
 
-* Use your student username (s123456) and password to log in <!-- .element: class="fragment highlight-red" -->
-* Locate Terminal in the menu on top <!-- .element: class="fragment highlight-red" -->
+* Use your student username (s123456) and password to log in 
+* Locate Terminal in the menu on top 
+* or right mouse click and select "open in Terminal" 
 
----
+--
 
 ## Terminal
 
