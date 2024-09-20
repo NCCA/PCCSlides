@@ -118,35 +118,54 @@
 
 ## Essential Linux directories
 
-Most linux environments have a similar directory structure.  The following is a list of the most important directories and their purpose.
+- Most linux environments have a similar directory structure.  
+- The following is a list of the most important directories and their purpose.
 
-| Directory | Purpose |
+| <small>Directory</small> | <small>Purpose</small> |
 |-----------|---------|
-| /bin      | Essential user command binaries (for use by all users) |
-| /boot     | Static files of the boot loader |
-| /dev      | Device files |
-| /etc      | Host-specific system configuration |
-| /home     | User home directories (optional) |
-| /lib /lib64      | Essential shared libraries and kernel modules |
-| /opt      | Add-on application software packages |
-| /proc     | Virtual filesystem providing process and kernel information as files |
-| /root     | Home directory for the root user (optional) |
-| /sbin     | Essential system binaries |
-| /srv      | Data directory for services provided by this system |
-| /tmp      | Temporary files |
-| /usr      | Secondary hierarchy |
-| /var      | Variable data: files whose content is expected to continually change during normal operation of the system |
+| <small>/bin</small>      | <small>Essential user command binaries (for use by all users) </small>|
+| <small>/boot</small>     | <small>Static files of the boot loader</small> |
+| <small>/dev</small>      | <small>Device files</small> |
+| <small>/etc </small>     | <small>Host-specific system configuration</small> |
+
 
 --
 
-## NCCA Specific folders
+| <small>Directory</small> | <small>Purpose</small> |
+|-----------|---------|
+| <small>/home </small>    | <small>User home directories (optional)</small> |
+| <small>/lib /lib64 </small>     | <small>Essential shared libraries and kernel modules</small>|
+| <small>/opt</small>      | <small>Add-on application software packages </small>|
+| <small>/proc</small>     | <small>Virtual filesystem providing process and kernel information as files</small> |
+| <small>/root </small>    | <small>Home directory for the root user (optional)</small> |
+
+--
+
+| <small>Directory</small> | <small>Purpose</small> |
+|-----------|---------|
+| <small>/sbin </small>    | <small>Essential system binaries</small> |
+| <small>/tmp </small>     | <small>Temporary files</small> |
+| <small>/usr </small>     | <small>Secondary hierarchy </small>|
+| <small>/var </small>     | <small>Variable data: files whose content is expected to continually change during normal operation of the system </small>|
+
+--
+
+### NCCA Specific folders
 
 - The ```/transfer``` folder is a mounted 1Tb local hard drive. 
   - This is shared with the windows partition and should be use for local work.
-  - This is machine-specific!
+  - This is machine-specific and considered volatile
+  - so work can be deleted at any time!
+
+--
+
+### NCCA Specific folders
+
 - The ```/public``` folder is a network share when various things for teaching and learning are stored
-  - ````/public/bin/2023```` is the folder where all the goScripts are stored. 
-  - These scripts set up the environments for the various DCC tools to run.
+  - ````/public/bin/2024```` is the folder where all the goScripts are stored. 
+- ```/public/devel/24-25``` loads of extra programming tools and libraries are stored here.
+- you have read only access to this.
+
 
 ---
 
