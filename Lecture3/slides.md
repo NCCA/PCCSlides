@@ -77,10 +77,18 @@ Note:
 
 --
 
+### Diagrams can help
+
+<img src="images/flowchart.png" height="25%">
+
+
+--
+
 ## Algorithms
 
 - The art of programming is the design of the algorithms that form the basis of our programs
 - Algorithm design requires understanding of the problems that we want to solve
+- and to some extent how computers (and humans) work
 
 --
 
@@ -112,6 +120,13 @@ turtle.done()
 
 --
 
+## Sequences
+
+- Sequences are a series of steps that are executed in order, a fundamental concept in programming
+- The sequence of operations is important
+- The order of operations can change the outcome
+  - In advance programs many things can be happening at once, but we will not bother with that for now!
+- But first a step back :-) 
 
 ---
 
@@ -254,6 +269,8 @@ print("\nCreating a multiline String: ")
 print(String1)
 ```
 
+--
+
 ## Strings
 
 - Strings in Python are arrays
@@ -264,10 +281,11 @@ print(String1)
 
 ## Drawing a square
 
-- As we discussed, this program draws the square
+- As we discussed, [turtle1.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture3/code/turtle1.py)
 - Can we draw something more complex?
 
 ```python
+#!/usr/bin/env python
 import turtle 
 turtle.down()
 turtle.forward(100)
@@ -285,31 +303,37 @@ turtle.done()
 
 ## Turtle graphics
 
-| Command | What it does |
+| <small>Command </small> | <small>What it does </small> |
 |--------|-------|
-| ``` forward(distance)``` | Move the turtle forward by the specified distance |
-| ``` backward(distance)``` | Move the turtle backward by distance |
-| ``` left(angle)``` | Turn turtle left by angle units (in degrees by default) |
-| ``` right(angle)``` | Turn turtle right by angle units |
-| ``` goto(x,y)``` | Move turtle to an absolute position (x,y). If the pen is down, draw line. |
-| ``` teleport(x,y)``` | Move turtle to an absolute position, a line will not be drawn |
-| ``` color()``` | set colour for pen and fill |
+| <small>``` forward(distance)``` </small>| <small>Move the turtle forward by the specified distance </small>|
+| <small>``` backward(distance)```</small>| <small>Move the turtle backward by distance </small>|
+| <small>``` left(angle)``` </small>| <small>Turn turtle left by angle units (in degrees by default) </small>|
+| <small>``` right(angle)``` </small>| <small>Turn turtle right by angle units </small>|
+| <small>``` goto(x,y)```</small> | <small>Move turtle to an absolute position (x,y). If the pen is down, draw line.</small> |
+| <small>``` teleport(x,y)``` </small>| <small>Move turtle to an absolute position, a line will not be drawn </small>|
+| <small>``` color(*args)```</small> | <small>set colour for pen and fill </small>|
+
+--
+
+## Getting Help
+
+- it is possible to get help at any stage by using the help function in the REPL
+
+<asciinema-player src="terminal/turtle_help.cast" cols=120 rows=20></asciinema-player>
 
 ---
 
 ## Coordinate systems
 
-- **Coordinate system** is a system that uses **coordinates** to **establish position** of the point in space
+- **A Coordinate system** is a system that uses **coordinates** to **establish position** of the point in space
 - Coordinates are represented by numbers
 - Coordinate systems can have different dimensionalities
   - 1D, 2D, 3D, ...
 
-Note: 
-  We should expect them to know about coordinate systems from school, here is more like a recap
-    
+
 --
 
-## Coordinates on a real number line
+### Coordinates on a real number line
 
 - The origin corresponds to 0
   - To the left of the origin are the negative real numbers
@@ -335,12 +359,16 @@ Note:
 - Different programs can do things that are seemingly the same
   - Their efficiency might be different
   - The code might have different readability
-  
+
 --
 
 ## Another way to draw the square
 
+[turtle2.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture3/code/turtle2.py)
+
 ```python
+#!/usr/bin/env python
+
 import turtle 
 turtle.down()
 turtle.goto(100,0)
@@ -352,9 +380,13 @@ turtle.done()
 
 --
 
-## One more way to draw the square
+### One more way to draw the square
+
+[pil_square.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture3/code/pil_square.py)
 
 ```python
+#!/usr/bin/env python
+
 from PIL import Image, ImageDraw
 
 im = Image.new('RGB', (640, 480), (255, 255, 20))
@@ -389,3 +421,5 @@ im.show()
 
 # Q&A and discussion
 - **Open Floor for Questions**
+
+

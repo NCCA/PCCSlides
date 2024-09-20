@@ -1,4 +1,7 @@
-import turtle 
+#!/usr/bin/env python
+
+import turtle
+
 turtle.down()
 turtle.forward(100)
 turtle.right(90)
