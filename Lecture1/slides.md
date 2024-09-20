@@ -184,11 +184,13 @@ Note:
 
 - The first thing we need to do is to get a terminal open
 - When we open the terminal, it runs a program called a shell and awaits for your command
-- Try these commands
-<blockquote><small><p>~<br>pwd<br>echo "Hello World"</p></small></blockquote>
-- What do they do?
-  -```~``` command shows your *home folder*
-  - **pwd** command shows where you are now
+- Try this command (you need to press Enter after typing it)
+
+```bash
+pwd
+```
+- what do you think this has done?
+- What do you think pwd stands for?
 
 --
 
@@ -203,40 +205,50 @@ Note:
 
 --
 
-## The filesystem: directories
-- Each of you have a home directory, in your case it will be /home/```[```iSTUDENT_NUMBER```]```
--```~``` command shows your *home folder*
-- What else is in your folder?
+## The filesystem : directories
+- Each of you have a home directory, in your case it will be ```/home/i[STUDENT_NUMBER]```]
+- ~ is a shortcut for your home directory we can use it to mean "from home" 
+- To list the contents of a directory we use the ```ls``` command 
+
+```
+ls ~
+```
+
+- what else is in your home directory?
+
+
 
 --
 
 ## The filesystem: files
 
-- Each file has a name and an extension
-- The file type is defined by its extension
+- Each file has a name and and possibly an extension
+- There are different file types and we will get to know them.
 - For example, .mb files are Maya binaries and can be opened by Maya
 - We will come back to files and folder in a later session.
 
 ---
 
-# Why Python
-- Python is a language that allows read and run programs
+## Why Python
+
+- Python is what is know as an interpreted language
 - It reads programs line by line executing each instruction
   - We can have our programs run as we type
   - For beginners it makes starting with Python less frustrating!
 - **Python in the industry**
-  - Scripting in Maya, Houdini, Blender and many others
-  
+  - Scripting in Maya, Houdini, and most pipelines are built from python
+
 --
 
 ## Examples of Python in DCC
 
-Note: 
-  Include some images here from Technical Arts Production or similar
+- I'm now going to show you some practical examples of why we use python.
+  - Maya Example
+  - Houdini Example (not python but procedural)
 
 --
 
-# Python scripts
+## Python scripts
 
 - Often we use the term *script*. 
 - What is the script in filmmaking?
@@ -246,11 +258,33 @@ Note:
 - Movie script explains what happens in the shot 
 - Script in programming explains what happens in the program
 
+---
+
+## Getting started
+
+- The machines you use are all the same, for security purposes they are locked down
+- This makes things more complex when programming
+- To overcome this we need to install our own local python (another python advantage)
+- Full details on how to do this are in [this blog post](https://nccastaff.bournemouth.ac.uk/jmacey/post/PythonInstall/PythonInstall/)
+
 --
 
-# ["hello world" in Python](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)
+## Installing Python
 
-- In the terminal type the command **python3** and press enter
+- open a terminal and type the following
+
+
+```bash
+install_python.sh
+```
+
+This may take a few minutes to run
+
+---
+
+## ["hello world" in Python](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)
+
+- In the terminal type the command **python** and press enter
 - You will enter the Python environment
   - Python shell
 - Start with writing this code:
@@ -273,9 +307,9 @@ print("Hello World")
   
 - Now try to output your own string in the Python shell
 
---
+---
 
-# Creating graphics with Python
+### Creating graphics with Python
 
 - Now try the following code 
   - Note we have graphics window appearing
@@ -285,11 +319,14 @@ import turtle
 turtle.down()
 ```
 
+- to exit python we can send the command ```exit()``` or press ```Ctrl-D```
+
+
 --
 
-## Creating graphics with Python (cont)
+### Creating graphics with Python
 
-- Extend the code
+- Now we are going to write a new program, we need to re-open the [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) by typing ```python``` again.
 
 ```python
 import turtle 
@@ -304,40 +341,31 @@ turtle.forward(100)
 turtle.right(90)
 ```
 
----
+--
 
-## Creating graphics with Python: explanation
+## result
+<img src="images/Square.png" width="60%">
 
-- **import** command imports the *library* turtle
-  - Turtle Graphics
-- **down** command puts the *pen* down
-- **forward** command moves the pen a number of pixels forward
-- **right** command turns the pen right given a certain degree
+--
+
+
+### Explanation
+
+
+- ```import``` command imports the *library* turtle
+- ```down``` command puts the *pen* down
+- ```forward(n)``` command moves the pen a number of pixels forward
+- ```right(deg)``` command turns the pen right given by deg degrees
   
-Note: 
-  Insert image here 
 
----
+--
 
-## Creating graphics with Python (cont)
+### Creating graphics with Python 
 
-- The following code draws the square
+- The previous code draws a square
 - Can you draw other shapes like triangle?
 
-```python
-import turtle 
-turtle.down()
-turtle.forward(100)
-turtle.right(90)
-turtle.forward(100)
-turtle.right(90)
-turtle.forward(100)
-turtle.right(90)
-turtle.forward(100)
-turtle.right(90)
-```
-
---- 
+---
 
 # Conclusion
 
@@ -352,12 +380,13 @@ turtle.right(90)
 # Next time
 
 - **What will you learn next time**
-  - Files and directories in Linux**
-  - *Getting out of the Python shell* 
+  - Files and directories in Linux
+  - Getting out of the Python shell 
     - Working with .py scripts
   - Learning more about *libraries*
 
 --
 
-# Q&A and discussion
+## Q&A and discussion
 - **Open Floor for Questions**
+
