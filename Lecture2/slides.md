@@ -1,4 +1,5 @@
-## Lesson 2: Files, directories and libraries
+## Lecture 2 : 
+### Files, directories and libraries
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
@@ -8,9 +9,8 @@
 
 ---
 
-# Session outline
+## Session outline
 
-- **Title:** Files, directories and libraries
 - **What will you learn today:**
   - How to navigate, create and edit files and directories in Linux 
   - How to work with Python files
@@ -111,67 +111,102 @@
 
 - To remove a directory and , we use **mkdir**
 - Try this commands:
-<blockquote><small><p>mkdir to_delete<br>rm to_delete</p></small></blockquote>
+
+```
+mkdir to_delete
+rmdir to_delete
+``` 
+
 -  There is no recycle bin in Linux terminal, so **once it is gone it is gone**
 
 ---
 
 ## Essential Linux directories
 
-Most linux environments have a similar directory structure.  The following is a list of the most important directories and their purpose.
+- Most linux environments have a similar directory structure.  
+- The following is a list of the most important directories and their purpose.
 
-| Directory | Purpose |
+| <small>Directory</small> | <small>Purpose</small> |
 |-----------|---------|
-| /bin      | Essential user command binaries (for use by all users) |
-| /boot     | Static files of the boot loader |
-| /dev      | Device files |
-| /etc      | Host-specific system configuration |
-| /home     | User home directories (optional) |
-| /lib /lib64      | Essential shared libraries and kernel modules |
-| /opt      | Add-on application software packages |
-| /proc     | Virtual filesystem providing process and kernel information as files |
-| /root     | Home directory for the root user (optional) |
-| /sbin     | Essential system binaries |
-| /srv      | Data directory for services provided by this system |
-| /tmp      | Temporary files |
-| /usr      | Secondary hierarchy |
-| /var      | Variable data: files whose content is expected to continually change during normal operation of the system |
+| <small>/bin</small>      | <small>Essential user command binaries (for use by all users) </small>|
+| <small>/boot</small>     | <small>Static files of the boot loader</small> |
+| <small>/dev</small>      | <small>Device files</small> |
+| <small>/etc </small>     | <small>Host-specific system configuration</small> |
+
 
 --
 
-## NCCA Specific folders
+| <small>Directory</small> | <small>Purpose</small> |
+|-----------|---------|
+| <small>/home </small>    | <small>User home directories (optional)</small> |
+| <small>/lib /lib64 </small>     | <small>Essential shared libraries and kernel modules</small>|
+| <small>/opt</small>      | <small>Add-on application software packages </small>|
+| <small>/proc</small>     | <small>Virtual filesystem providing process and kernel information as files</small> |
+| <small>/root </small>    | <small>Home directory for the root user (optional)</small> |
+
+--
+
+| <small>Directory</small> | <small>Purpose</small> |
+|-----------|---------|
+| <small>/sbin </small>    | <small>Essential system binaries</small> |
+| <small>/tmp </small>     | <small>Temporary files</small> |
+| <small>/usr </small>     | <small>Secondary hierarchy </small>|
+| <small>/var </small>     | <small>Variable data: files whose content is expected to continually change during normal operation of the system </small>|
+
+--
+
+### NCCA Specific folders
 
 - The ```/transfer``` folder is a mounted 1Tb local hard drive. 
   - This is shared with the windows partition and should be use for local work.
-  - This is machine-specific!
+  - This is machine-specific and considered volatile
+  - so work can be deleted at any time!
+
+--
+
+### NCCA Specific folders
+
 - The ```/public``` folder is a network share when various things for teaching and learning are stored
-  - ````/public/bin/2023```` is the folder where all the goScripts are stored. 
-  - These scripts set up the environments for the various DCC tools to run.
+  - ````/public/bin/2024```` is the folder where all the goScripts are stored. 
+- ```/public/devel/24-25``` loads of extra programming tools and libraries are stored here.
+- you have read only access to this.
+
 
 ---
 
 ## Editing Python scripts
 
 - First, we will make a folder to put our scripts in
-<blockquote><small><p>cd ~<br>mkdir scripts<br>cd scripts<br>touch my_first_script.py</p></small></blockquote>
-- Now edit the file using *gedit*
-<blockquote><small><p>gedit my_first_script.py</p></small></blockquote>
-- This will run the text editor *gedit* and wait until you close the application
+- I prefer to use my Desktop for this, but you can use any location
 
---
-
-## Async start for programs
-
-- For async start of the application add **&** in the end, for example
-<blockquote><small><p>gedit &</p></small></blockquote>
-- or
-<blockquote><small><p>gedit my_first_script.py&</p></small></blockquote>
+```bash
+cd ~/Desktop
+mkdir PCC
+cd PCC
+mkdir Week2
+cd Week2
+pwd
+```
 
 --
 
 ## Editing Python scripts
 
-- In **gedit**, modify the contents of *my_first_script.py* to 
+- Now we are in the Week2 directory, let's create a Python script
+
+```bash
+touch my_first_script.py
+code my_first_script.py
+```
+
+- This will open the script in [Visual Studio Code](https://code.visualstudio.com/)
+
+--
+
+
+## Editing Python scripts
+
+- In the editor modify the contents of *my_first_script.py* to 
 
 ```python
 import turtle 
@@ -191,7 +226,11 @@ turtle.right(90)
 ## Running Python scripts
 
 - Back to terminal, type
-<blockquote><small><p>python3 my_first_script.py</p></small></blockquote>
+
+```bash
+python my_first_script.py
+```
+
 - Wait, is it just drawing and then immediately disappearing?
 
 --
@@ -214,9 +253,11 @@ turtle.done()
 - Can you see it now?
 
 ---
+
 ## Python syntax
 
 - Python syntax refers to the set of rules that defines the combinations of symbols that are considered to be correctly structured programs in the Python language.
+- 
 ```python
 print("Hello, World!")
 ```
@@ -224,6 +265,8 @@ print("Hello, World!")
 --
 
 ## Python syntax
+
+- in the REPL (Read-Eval-Print-Loop) we can type the following
 
 ```python
 print("Hello, World!")
@@ -237,17 +280,25 @@ print("Hello, World!")
 
 - Comments are the text that we can add to our program to make our code easier to understand
 - The computer ignores comments 
+
+
 ```python
 # This program prints the string 'Hello World'
 print("Hello, World!")
+
+""" 
+We can also have longer multi
+line comments using the triple quotes
+"""
 ```
 
 --
 
 ## Python variables
 
-- Variables are containers for storing data values
+- Variables are names for storing data values
 - A variable is created the moment you first assign a value to it
+
 ```python
 x = 150
 y = "Hello"
@@ -259,11 +310,12 @@ print(y)
 
 ## Python variables
 
-- Variables do not need to be decrared with a particular *type*
+- Python will try to figure out what type (more later) the variable is (unlike other languages)
 - We will be talking about variables later!
+
 ```python
 value = input("Enter the value")
-print(name)
+print(value)
 ```
 
 ---
@@ -289,29 +341,41 @@ import turtle
 
 ## Python libraries
 
-- Various libraries do different things
+- Various libraries do different things for example random number generation
 
 ```python
-import keyword
-print(keyword.kwlist)
+import random
+print(random.randint(1, 100))
 ```
+
+- This will print a random number between 1 and 100
+
+--
+
+## What does the . mean
+
+- in the previous example we imported random
+- this is a python module that contains functions for generating random numbers
+- the . is used to access the functions in the module
+- we are basically saying "use the randint function from the random module"
 
 --
 
 ## Python libraries
+
+- There are two ways to import a library
+
 ```python
-import keyword
-print(keyword.kwlist)
+import random
 ```
 
 ```python
-['False', 'None', 'True', 'and', 'as', 'assert', 'async',
- 'await', 'break', 'class', 'continue', 'def', 'del',
- 'elif', 'else', 'except', 'finally', 'for', 'from',
- 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal',
- 'not', 'or', 'pass', 'raise', 'return', 'try', 'while',
- 'with', 'yield']
+from random import *
 ```
+
+- we tend to use the first method as it is more explicit and can avoid complications later. 
+- It would also bring in all of random and we don't need that
+- this is why we need module name . function name
 
 --
 
@@ -322,22 +386,15 @@ print(keyword.kwlist)
   - **Turtle**: turtle graphics
   - **Matplotlib**: data visualisation
   - **PyGame**: creating games with Python
+  - **PyOpenGL**: OpenGL bindings for Python
 
---
-
-## Python libraries
-
-- There are two ways of working with libraries:
-  - **import X**: imports the library X, and you can refer to things defined in module X, but using the module path <blockquote><small><p>X.name</p></small></blockquote> or <blockquote><small><p>python3 X.attribute</p></small></blockquote>
-  - **from X import ***: import everything from the library X, but you should use plain (unqualified name) to refer to things 
-  
 ---
-
 
 ## Creating an empty image
 
 - Now put everything we discussed about the syntax together
 - What is happening here?
+
 ```python
 from PIL import Image  
 
@@ -347,6 +404,14 @@ height = 300
 img  = Image.new( mode = "RGB", size = (width, height), color = (209, 123, 193) )
 img.show()
 ```
+
+--
+
+## Time to play
+
+- create an empty file called ```first_image.py```
+- copy the previous code into the file
+- now change things and see what happens, if it breaks ask for help (or try to fix it yourself)
 
 ---
 
