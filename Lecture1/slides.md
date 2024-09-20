@@ -142,7 +142,8 @@ Note:
 
 ---
 
-## Loading Linux
+## Why Linux
+
 
 - **Why Linux?**
   - Lots of software work under Linux in the same way as for other operating systems
@@ -151,9 +152,19 @@ Note:
   - Controllable
   - User-friendly
   - Build for software development
-- It is important to use / understand Linux for production as most big studios use Linux
 
 --
+
+
+## Why Linux
+
+- as you can see it is the most used OS in the VFX industry
+
+<img src="images/vfx-survey-linux-marketshare-1024x443.png" width="100%">
+<blockquote><small><p>Source: <a href="https://drive.google.com/file/d/15b-4GMTSEE9tyqeQdBfy_LZnxQIdp38Y/view" target="_blank">Studio Platform Survey</a></p></small></blockquote>
+
+--
+
 
 ## Loading Linux
 
