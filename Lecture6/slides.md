@@ -14,7 +14,7 @@
 - **What will you learn today:**
   - How to define and use functions for modular code
   - What is a random number generator
-  
+
 ---
 
 ## Recap: indentation
@@ -281,7 +281,7 @@ drawBox(im, x, y, h, w, (0, 255, 255))
 im.show()
 ```
 
---- 
+---
 
 ## Loops and functions 1
 
@@ -410,7 +410,7 @@ print(num)
 ## Random numbers in Python
 
 - **uniform(a,b)**: Return a floating point random number between *lower* and *upper*
-- **randint(a, b)**: Returns a random integer N such that `$$a <= N <= b $$`.
+- **randint(a, b)**: Returns a random integer N such that `$$a <= N <= b $$`
 - **choice(arg)**: Returns a random item from a list, tuple or string *arg*
 
 ```python
@@ -527,14 +527,13 @@ im.show()
   - **random** module for procedural content creation
 - **Homework**
   - Can you generate multiple triangles? How about other shapes? 
-  
+
 --
 
 # Next time
 
 - **What will you learn next time**
   - Vectors and why they are important in graphics
-
 
 --
 
