@@ -17,8 +17,8 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 3
 
-- [Lecture 3 Slides](https://ncca.github.io/PCCSlides/Lecture3)
-- [Lecture 3 Lab](https://ncca.github.io/PCCSlides/Lab3)
+- [Basic programming constructs](https://ncca.github.io/PCCSlides/Lecture5)
+- [Functions and randomness](https://ncca.github.io/PCCSlides/Lecture6)
 
 ## Week 4
 
