@@ -67,7 +67,7 @@ print(b)
 
 ## Variables
 
-- Variable is a **named storage location**
+- A variable is a **named storage location**
 - It is a common practice to give a meaningful name
 - Are names meaningful in this example?
 
@@ -101,19 +101,20 @@ print(year)
 
 --
 
-## Why coding standards are necessary
+#### Why coding standards are necessary
 
 1. **Easier to Read**: It is much easier to someone else to understand your code
 2. **Reduces Mistakes**: Following standards can prevent common errors
 3. **Teamwork**: Coding style keeps everything organised when working in teams
 4. **Reusing code**: It is easier to reuse clearly written code
 5. **Saves time**: When code is easy to understand, it saves time during debugging and updating
-  
+
 ---
 
 ##  Using variables
 
 - Rewrite this code to improve its readability
+
 ```python
 from PIL import Image, ImageDraw
 
@@ -130,33 +131,36 @@ im.show()
 
 ## Using variables
 
-- Can we further simplify this code?<!-- .element: class="fragment" -->
+- Can we further simplify this code?
+
+
 ```python
+#!/usr/bin/env python
 from PIL import Image, ImageDraw
 
 window_size = (640, 480)
-background_colour = (255, 255, 20)
+background_colour = (255, 255, 255)
 draw_colour = (0, 255, 255)
-im = Image.new('RGB', window_size, background_colour)
-draw = ImageDraw.Draw(im)
-draw.line( ( (0, 0), (100,0)), draw_colour)
-draw.line( ( (100, 0), (100,100)), draw_colour)
-draw.line( ( (100, 100), (0,100)), draw_colour)
-draw.line( ( (0, 100), (0,0)), draw_colour)
-im.show()
+image = Image.new('RGB', window_size, background_colour)
+canvas = ImageDraw.Draw(image)
+canvas.line( ( (0, 0), (100,0)), draw_colour)
+canvas.line( ( (100, 0), (100,100)), draw_colour)
+canvas.line( ( (100, 100), (0,100)), draw_colour)
+canvas.line( ( (0, 100), (0,0)), draw_colour)
+image.show()
 ```
 
 ---
 
-## Data types
+## Recap :- Data types
 
 - Python has 5 standard data types
-  1. Numbers <!-- .element: class="fragment highlight-red" -->
-  2. String <!-- .element: class="fragment highlight-red" -->
+  1. Numbers
+  2. String 
   3. List
   4. Tuple
   5. Dictionary
-  
+
 ---
 
 ## Lists
@@ -198,7 +202,7 @@ print(len(list2))
 ## List elements
 
 - List items can be of any data type
-- A list can contain different data types
+- A list can contain different data types (even other lists)
 ```python
 list1 = ["animation", "effects", "games", "animation"]
 list2 = [2, 0, 2, 4]
@@ -209,7 +213,7 @@ list3 = ["abc", 123, "Hello!", 3.14159]
 
 ## Accessing elements from the list
 
-- Use the index operator [ ] to access an item in a list. 
+- Use the subscript operator [ ] to access an item in a list. 
 - The index must be an integer.
 - The minimal index is 0, the maximum index is len()-1
 
@@ -251,60 +255,52 @@ print(my_list[-2])
 ## Using variables and lists
 
 ```python
+#!/usr/bin/env python
 from PIL import Image, ImageDraw
 
 window_size = (640, 480)
-background_colour = (255, 255, 20)
-draw_colour = (20, 20, 255)
+background_colour = (255, 255, 255)
+draw_colour = (0, 0, 255)
 points = [(0, 0), (100,0), (100,100), (0, 100)]
-im = Image.new('RGB', window_size, background_colour)
-draw = ImageDraw.Draw(im)
-draw.line( ( points[0], points[1]), draw_colour)
-draw.line( ( points[1], points[2]), draw_colour)
-draw.line( ( points[2], points[3]), draw_colour)
-draw.line( ( points[3], points[0]), draw_colour)
-im.show()
+image = Image.new('RGB', window_size, background_colour)
+canvas = ImageDraw.Draw(image)
+canvas.line( ( points[0], points[1]), draw_colour)
+canvas.line( ( points[1], points[2]), draw_colour)
+canvas.line( ( points[2], points[3]), draw_colour)
+canvas.line( ( points[3], points[0]), draw_colour)
+image.show()
+
 ```
 
 --
 
 ```python
+#!/usr/bin/env python
 from PIL import Image, ImageDraw
 
 window_size = (640, 480)
-background_colour = (255, 255, 20)
-draw_colour = (20, 20, 255)
+background_colour = (255, 255, 255)
+draw_colour = (0, 0, 255)
 origin_x = 0
 origin_y = 0
 points = [(origin_x, origin_y), (origin_x+100,origin_y), (origin_x+100,origin_y+100), (origin_x, origin_y+100)]
-im = Image.new('RGB', window_size, background_colour)
-draw = ImageDraw.Draw(im)
-draw.line( ( points[0], points[1]), draw_colour)
-draw.line( ( points[1], points[2]), draw_colour)
-draw.line( ( points[2], points[3]), draw_colour)
-draw.line( ( points[3], points[0]), draw_colour)
-im.show()
+image = Image.new('RGB', window_size, background_colour)
+canvas = ImageDraw.Draw(image)
+canvas.line( ( points[0], points[1]), draw_colour)
+canvas.line( ( points[1], points[2]), draw_colour)
+canvas.line( ( points[2], points[3]), draw_colour)
+canvas.line( ( points[3], points[0]), draw_colour)
+image.show()
 ```
 
 --
 
-```python
-from PIL import Image, ImageDraw
+### advantages of using variables
+- With the previous code we can easily change the position of the square
+- how would you do this?
+- What would you need to change?
+- how would you make the square bigger?
 
-window_size = (640, 480)
-background_colour = (255, 255, 20)
-draw_colour = (20, 20, 255)
-origin_x = 320
-origin_y = 240
-points = [(origin_x, origin_y), (origin_x+100,origin_y), (origin_x,origin_y+100), (origin_x-100, origin_y), (origin_x, origin_y-100)]
-im = Image.new('RGB', window_size, background_colour)
-draw = ImageDraw.Draw(im)
-draw.line( ( points[0], points[1]), draw_colour)
-draw.line( ( points[0], points[2]), draw_colour)
-draw.line( ( points[0], points[3]), draw_colour)
-draw.line( ( points[0], points[4]), draw_colour)
-im.show()
-```
 
 ---
 
@@ -321,17 +317,19 @@ im.show()
 ## How to simplify the code?
 
 - Instead of 
+
 ```python
-draw.line( ( points[0], points[1]), draw_colour)
-draw.line( ( points[0], points[2]), draw_colour)
-draw.line( ( points[0], points[3]), draw_colour)
-draw.line( ( points[0], points[4]), draw_colour)
+canvas.line( ( points[0], points[1]), draw_colour)
+canvas.line( ( points[0], points[2]), draw_colour)
+canvas.line( ( points[0], points[3]), draw_colour)
+canvas.line( ( points[0], points[4]), draw_colour)
 ```
 
 - You can use 
+
 ```python
 #repeat four times
-draw.line( ( points[0], points[number_of_iteration_starting_at_1]), draw_colour)
+canvas.line( ( points[0], points[number_of_iteration_starting_at_1]), draw_colour)
 #end of repeat
 ```
 
@@ -343,8 +341,14 @@ draw.line( ( points[0], points[number_of_iteration_starting_at_1]), draw_colour)
   - How we can use variables
   - How we can use lists
   - Why do we need to care about how we write as well as what we write
-- **Homework**
-  - Extend the last example to draw the simple object like a clipart of the crystal. 
+
+--
+
+## Homework
+
+- Extend the last example to draw the simple object like a clipart of the crystal. 
+- It may help to determine the points of the crystal on paper first
+
 <img style="border: 0;" src="images/crystal.png" width="20%">
 
 --
@@ -352,8 +356,8 @@ draw.line( ( points[0], points[number_of_iteration_starting_at_1]), draw_colour)
 # Next time
 
 - **What will you learn next time**
-  - Loops
-  - What 'if' means in the world of geeks
+  - Loops (iteration)
+  - Selection (how to make decisions in code using if statements)
 
 --
 
