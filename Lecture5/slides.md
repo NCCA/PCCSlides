@@ -15,7 +15,7 @@
   - What is a loop
   - What is a conditional statement
   - Importance of indentation
-  
+
 ---
 
 ## Recap: variables
@@ -29,10 +29,10 @@
 ## Recap: lists and variables
 
 ```python
-draw.line( ( points[0], points[1]), draw_colour)
-draw.line( ( points[0], points[2]), draw_colour)
-draw.line( ( points[0], points[3]), draw_colour)
-draw.line( ( points[0], points[4]), draw_colour)
+canvas.line( ( points[0], points[1]), draw_colour)
+canvas.line( ( points[0], points[2]), draw_colour)
+canvas.line( ( points[0], points[3]), draw_colour)
+canvas.line( ( points[0], points[4]), draw_colour)
 ```
 
 --
@@ -57,7 +57,7 @@ turtle.done()
   - Sequence
   - Selection
   - Iteration
-  
+
 ---
 
 ## Sequence
@@ -90,9 +90,10 @@ print(y_m)
 
 - Writing instruction in the wrong order is one of the most common programming errors
 - What is wrong with the algorithm below (apart from lack of comments)?
+
 ```python
 x_m = (x1 + x2) / 2  
-draw.line( ( (x_m, y_m), (x2, y2)), draw_colour)
+canvas.line( ( (x_m, y_m), (x2, y2)), draw_colour)
 y_m = (y1 + y2) / 2
 
 x1 = input()
@@ -143,12 +144,12 @@ if condition:
 - **Indentation**: Python uses indentation to define blocks of code.
   - Convention states we use **4** spaces for indentation
   - This might be inconvenient
-  - This can lead to problem, especially when mixing tabs and spaces
-  - Usually t his will follow a statement and the : operator
-  
+  - This can lead to problem, especially when mixing tabs and spaces (python 3 does not allow this)
+  - Usually this will follow a statement and the : operator to indicate the start of a code block
+
 --
 
-## Why indentation is important
+### Why indentation is important
 
 - Consistent indentation is crucial for Python code to work correctly.
 
@@ -166,6 +167,7 @@ print("x is greater than 5")  # This will cause an error
 ---
 
 ## If statement: example
+
 ```python
 x = 0.5
 
@@ -177,7 +179,7 @@ if x > 0:
   - The condition checks if x is greater than 0.
   - If the condition is true (in this case, 0.5 > 0), the message "x is positive" is printed.
   - If the condition is false, the program moves on without executing the block.
-  
+
 --
 
 ## The else Statement
@@ -209,14 +211,14 @@ else:
 
 - Comparison operators are used to compare two values
 
-| operator | meaning |
+| <small>operator </small>|<small> meaning </small>|
 |--------|-------|
-| ``` == ``` | equal to |
-| ``` != ``` | not equal to |
-| ``` > ``` | greater than |
-| ``` < ``` | less than |
-| ``` >= ``` | greater or equal to |
-| ``` <= ``` | less or equal to |
+|<small> ``` == ``` </small>|<small> equal to </small>|
+|<small> ``` != ```</small> | <small>not equal to </small>|
+|<small> ``` > ``` </small>| <small>greater than </small>|
+|<small> ``` < ``` </small>| <small>less than </small>|
+|<small> ``` >= ``` </small>| <small>greater or equal to</small> |
+|<small> ``` <= ``` </small>| <small>less or equal to</small> |
 
 --
 
@@ -271,7 +273,7 @@ if x >= 0 and y >= 0:
 - There are two types of iteration:
   - **for loop**: Iterates over a sequence of items
   - **while loop**: Repeats as long as a condition is true. 
-  
+
 ---
 
 ## The **for** loop
@@ -300,7 +302,7 @@ for i in range(start, stop, step):
 
 --
 
-## for loop with range(): example
+### for loop with range(): example
 
 ```python
 import turtle 
@@ -359,25 +361,30 @@ for i in range(1, 6):
 ## Bringing it all together
 
 ```python
+#!/usr/bin/env python
+
 import turtle
+
 running = True
 while running:
-    print('enter triangle, square, or exit:') entered = input()
-    if entered == 'triangle':
-	    for i in range(3):
+    print("enter triangle, square, or exit:")
+    entered = input()
+    if entered == "triangle":
+        for i in range(3):
             turtle.forward(100)
             turtle.right(120)
-			continue
-    if entered == 'square': 
-	    for i in range(4):
+            continue
+    if entered == "square":
+        for i in range(4):
             turtle.forward(100)
             turtle.right(90)
-			continue
-    if entered == 'exit': 
-	    running = False
-        print('exiting...') 
+            continue
+    if entered == "exit":
+        running = False
+        print("exiting...")
     else:
-        print('not a command')
+        print("not a command")
+
 ```
 
 ---
@@ -388,9 +395,14 @@ while running:
   - Conditional operator **if**
   - The importance of indentation
   - The **for** loop and the **while** loop
-- **Homework**
-  - Extend the last program to draw one extra object, such as a hexagon (six sides, 60 degrees turn). 
-  
+
+--
+
+## Homework
+
+- Extend the last program to draw one extra object, such as a hexagon (six sides, 60 degrees turn). 
+- Add the ability to move to a new location before drawing the object. (hint you will need to ask for two numbers)
+
 --
 
 # Next time
