@@ -6,8 +6,10 @@ from random import randint
 def drawHollowBox(im, x, y, h, w, c):
     draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
 
+
 def drawSolidBox(im, x, y, h, w, c):
     draw.polygon(((x, y), (x + w, y), (x + w, y + h), (x, y + h)), c, c)
+
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
 draw = ImageDraw.Draw(im)

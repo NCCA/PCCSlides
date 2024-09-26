@@ -67,3 +67,18 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 - [Lecture 12 Lab](https://ncca.github.io/PCCSlides/Lab12)
 
 
+## Reading the Slides on your local machine
+
+To read the slides on your local machine, you need to clone this repository somewhere on your computer. You can do this by running the following command in your terminal:
+
+```bash
+git https://github.com/NCCA/PCCSlides.git
+```
+
+You can then naviate to the directory where you cloned the repository and run the following command to start a local server:
+
+```bash
+python -m http.server
+```
+
+This will start a server on your local machine, you can then open your browser and navigate to the url [http://localhost:8000](http://localhost:8000) to view the slides.

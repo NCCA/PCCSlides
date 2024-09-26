@@ -7,5 +7,7 @@ x = 300
 y = 300
 w = 100
 h = 50
-draw.polygon(((x, y), (x + w, y), (x + w, y + h), (x, y + h)), (100, 0, 20), (255, 255, 0))
+draw.polygon(
+    ((x, y), (x + w, y), (x + w, y + h), (x, y + h)), (100, 0, 20), (255, 255, 0)
+)
 im.show()

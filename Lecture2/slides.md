@@ -396,12 +396,14 @@ from random import *
 - What is happening here?
 
 ```python
-from PIL import Image  
+#!/usr/bin/env python
+from PIL import Image
 
-width = 400
-height = 300
+# by convention we use uppercase for constants
+WIDTH = 400
+HEIGHT = 300
 
-img  = Image.new( mode = "RGB", size = (width, height), color = (209, 123, 193) )
+img = Image.new(mode="RGB", size=(WIDTH, HEIGHT), color=(209, 123, 193))
 img.show()
 ```
 

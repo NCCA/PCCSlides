@@ -200,7 +200,7 @@ Unix file permissions are a way to control who can read, write and execute a fil
 
 <asciinema-player src="/jmacey/sfdcc/labs/lab2/permissions.cast" cols=120 rows=10></asciinema-player>
 
-## [````chmod```](https://en.wikipedia.org/wiki/Chmod)
+## [```chmod```](https://en.wikipedia.org/wiki/Chmod)
 
 ```chmod``` has two main modes of usage, either the octal mode as shown in the table below or the symbolic mode.  
 

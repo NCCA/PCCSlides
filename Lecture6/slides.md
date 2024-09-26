@@ -41,18 +41,19 @@ for i in range(5):
 
 --
 
-## Recap: Drawing the square using Pillow
+#### Recap: Drawing the square using Pillow
 
 ```python
+#!/usr/bin/env python
 from PIL import Image, ImageDraw
 
-im = Image.new('RGB', (640, 480), (255, 255, 20))
-draw = ImageDraw.Draw(im)
-draw.line( ( (0, 0), (100,0)), (0, 255, 255))
-draw.line( ( (100, 0), (100,100)), (0, 255, 255))
-draw.line( ( (100, 100), (0,100)), (0, 255, 255))
-draw.line( ( (0, 100), (0,0)), (0, 255, 255))
-im.show()
+image = Image.new('RGB', (640, 480), (255, 255, 255))
+canvas = ImageDraw.Draw(image)
+canvas.line( ( (0, 0), (100,0)), (0, 255, 255))
+canvas.line( ( (100, 0), (100,100)), (0, 255, 255))
+canvas.line( ( (100, 100), (0,100)), (0, 255, 255))
+canvas.line( ( (0, 100), (0,0)), (0, 255, 255))
+image.show()
 ```
 
 --
@@ -81,21 +82,21 @@ draw_colour = (20, 20, 255)
 origin_x = 0
 origin_y = 0
 points = [(origin_x, origin_y), (origin_x+100,origin_y), (origin_x+100,origin_y+100), (origin_x, origin_y+100)]
-im = Image.new('RGB', window_size, background_colour)
-draw = ImageDraw.Draw(im)
-draw.line( ( points[0], points[1]), draw_colour)
-draw.line( ( points[1], points[2]), draw_colour)
-draw.line( ( points[2], points[3]), draw_colour)
-draw.line( ( points[3], points[0]), draw_colour)
-im.show()
+image = Image.new('RGB', window_size, background_colour)
+canvas = ImageDraw.Draw(image)
+canvas.line( ( points[0], points[1]), draw_colour)
+canvas.line( ( points[1], points[2]), draw_colour)
+canvas.line( ( points[2], points[3]), draw_colour)
+canvas.line( ( points[3], points[0]), draw_colour)
+image.show()
 ```
 
 ---
 
-## Pillow library and ImageDraw
+### Pillow library and ImageDraw
 
 - **Pillow** is an easy-to-use **Python Imaging Library** (PIL) fork for opening, manipulating, and saving images.
-- **ImageDraw** is a module in the Pillow library that allows you to draw shapes, lines, and text on images.
+- **ImageDraw** is a module in the Pillow library that allows you to draw shapes, lines, and text on images (a canvas).
 
 --
 
@@ -106,7 +107,7 @@ im.show()
 - Syntax:
 
 ```python
-draw.line(coordinates, line_colour, line_width)
+canvas.line(coordinates, line_colour, line_width)
 ```
 
 --
@@ -116,14 +117,14 @@ draw.line(coordinates, line_colour, line_width)
 ```python
 from PIL import Image, ImageDraw
 
-im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+image = Image.new("RGB", (640, 480), (100, 0, 20))
+canvas = ImageDraw.Draw(image)
 x = 300
 y = 300
 w = 100
 h = 50
-draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), (255, 255, 0))
-im.show()
+canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), (255, 255, 0))
+image.show()
 ```
 
 --
@@ -183,7 +184,7 @@ im.show()
 
 --
 
-## Defining a Function
+**## Defining a Function
 
 ```python
 def function_name(parameters):
@@ -197,7 +198,7 @@ def function_name(parameters):
 - **return**: Optional statement to return a value.
 
 --
-
+**
 ## Defining a Function: example
 
 ```python

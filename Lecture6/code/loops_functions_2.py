@@ -1,13 +1,30 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from PIL import Image, ImageDraw
 
 
-def drawBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def draw_box(canvas, x, y, height, width, colour) -> None:
+    """
+    Draws a box on the given canvas.
+
+    Args:
+        canvas: The canvas object on which to draw the box.
+        x (int): The x-coordinate of the top-left corner of the box.
+        y (int): The y-coordinate of the top-left corner of the box.
+        height (int): The height of the box.
+        width (int): The width of the box.
+        colour (tuple): The color of the box's outline as an RGB tuple.
+
+    Returns:
+        None
+    """
+    canvas.line(
+        ((x, y), (x + width, y), (x + width, y + height), (x, y + height), (x, y)),
+        colour,
+    )
 
 
-im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+image = Image.new("RGB", (640, 480), (100, 0, 20))
+canvas = ImageDraw.Draw(image)
 x = 300
 y = 100
 w = 100
@@ -16,5 +33,5 @@ for x in (300, 320, 340, 360):
     y += 50
     h += 12
     w += 18
-    drawBox(im, x, y, h, w, (255, 255, 0))
-im.show()
+    draw_box(canvas, x, y, h, w, (255, 255, 0))
+image.show()

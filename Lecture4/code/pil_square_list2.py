@@ -4,13 +4,14 @@ from PIL import Image, ImageDraw
 window_size = (640, 480)
 background_colour = (255, 255, 255)
 draw_colour = (0, 0, 255)
-origin_x = 0
-origin_y = 0
+ORIGIN_X = 0
+ORIGIN_Y = 0
+
 points = [
-    (origin_x, origin_y),
-    (origin_x + 100, origin_y),
-    (origin_x + 100, origin_y + 100),
-    (origin_x, origin_y + 100),
+    (ORIGIN_X, ORIGIN_Y),
+    (ORIGIN_X + 100, ORIGIN_Y),
+    (ORIGIN_X + 100, ORIGIN_Y + 100),
+    (ORIGIN_X, ORIGIN_Y + 100),
 ]
 image = Image.new("RGB", window_size, background_colour)
 canvas = ImageDraw.Draw(image)
