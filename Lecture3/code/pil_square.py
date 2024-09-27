@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from PIL import Image, ImageDraw
 
 im = Image.new("RGB", (640, 480), (255, 255, 20))

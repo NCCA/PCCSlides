@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from PIL import Image, ImageDraw
 
 window_size = (640, 480)
