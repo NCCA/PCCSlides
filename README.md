@@ -22,8 +22,8 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 4
 
-- [Lecture 4 Slides](https://ncca.github.io/PCCSlides/Lecture4)
-- [Lecture 4 Lab](https://ncca.github.io/PCCSlides/Lab4)
+- [Lines and Vectors](https://ncca.github.io/PCCSlides/Lecture7)
+- [Lecture 4 Lab](https://ncca.github.io/PCCSlides/Lecture8)
 
 
 ## Week 5
