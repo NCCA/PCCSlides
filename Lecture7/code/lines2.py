@@ -23,5 +23,13 @@ def draw_segment(canvas, start, direction, colour) -> None:
 
 image = Image.new("RGB", (640, 480), (100, 0, 20))
 canvas = ImageDraw.Draw(image)
-draw_segment(canvas, (100, 50), (-100, 50), (255, 255, 0))
+x = 300
+y = 100
+w = 100
+h = 50
+for x in (300, 320, 340, 360):
+    y += 50
+    h += 12
+    w += 18
+    draw_segment(canvas, (x, y), (h, w), (255, 255, 0))
 image.show()

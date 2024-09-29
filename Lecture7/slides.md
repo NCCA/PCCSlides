@@ -21,6 +21,7 @@
 
 - A **function** is a reusable block of code that performs a specific task.
 - Parameters are variables that a function uses as input. When calling a function, arguments are passed to these parameters.
+
 ```python
 def add_numbers(a, b):
     return a + b
@@ -50,7 +51,7 @@ for i in range(5):
   3. **List**: ["animation", "effects", "games", "animation"]
   4. Tuple
   5. Dictionary
-  
+
 ---
 
 ## Tuples
@@ -67,6 +68,7 @@ print(var)
 ## Tuple with one item
 
 - In case your generating a tuple with a single element, make sure to add a comma after the element. 
+
 ```python
 #One-item tuple
 mytuple = ("Animation",)
@@ -141,12 +143,12 @@ image.show()
 - A **vector** is a quantity that has length and direction
 - A geometric vector is defined by a directed line segment
 
-![](images/Desc1.png)
-![](images/Picture1.png)
-![](images/Desc2.png)
-![](images/Picture2.png)
-![](images/Desc3.png)
-![](images/Picture3.png)
+<img style="border: 0;" src="images/Desc1.png" width="15%">
+<img style="border: 0;" src="images/Picture1.png" width="15%">
+<img style="border: 0;" src="images/Desc2.png" width="15%">
+<img style="border: 0;" src="images/Picture2.png" width="15%">
+<img style="border: 0;" src="images/Desc3.png" width="15%">
+<img style="border: 0;" src="images/Picture3.png" width="15%">
 
 --
 
@@ -165,7 +167,15 @@ image.show()
   - Defined by coordinates
 - A vector defines the direction
   - For example, direction from the origin to another point
+
+![Position Vector](images/PositionVector.png)
+
+--
+
+## Position vs direction
+
 - You cannot do mathematical operations such as addition over two points, but you can over vectors
+- To define the vector you need two points
 
 ![Position Vector](images/PositionVector.png)
 
@@ -176,21 +186,25 @@ image.show()
 - We are going to work with vectors in two ways
   - Geometric vectors: a directed line segment
   - Algebraic vectors: a tuple of scalar numbers
-  
+
 ---
 
 ## Vector: an algebraic definition
 
-- Let *A* and *B* be two points with coordinates `$$ (a_x, a_y) $$` and `$$ (b_x, b_y) $$`
-- We denote the vector from *A* to *B* as `$$ \overrightarrow{AB} $$`
-- Its values are `$$ (b_x-a_x, b_y-a_y) $$`
+- Let *A* and *B* be two points with coordinates $ (a_x, a_y) $ and $ (b_x, b_y) $
+- We denote the vector from *A* to *B* as $ \overrightarrow{AB} $
+- Its values are $ (b_x-a_x, b_y-a_y) $
 
 --
 
 ## Length of the vector
 
 - The length of the directed line segment *AB* is the distance between *A* and *B*
-- We denote it as `$$ \left\| \overrightarrow{AB} \right\| $$`
-- The value is `$$ \sqrt{(b_x-a_x)^2+(b_y-a_y)^2} $$`
+- We denote it as $ \left\| \overrightarrow{AB} \right\| $
+- The value is $ \sqrt{(b_x-a_x)^2+(b_y-a_y)^2} $
 
 ---
+
+## Visualising vectors
+
+- A geometric vector is defined by a directed line segment
