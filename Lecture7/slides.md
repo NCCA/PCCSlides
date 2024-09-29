@@ -194,6 +194,7 @@ image.show()
 - Let *A* and *B* be two points with coordinates $ (a_x, a_y) $ and $ (b_x, b_y) $
 - We denote the vector from *A* to *B* as $ \overrightarrow{AB} $
 - Its values are $ (b_x-a_x, b_y-a_y) $
+  - Note we are doing subtractions per coordinate (vector component)
 
 --
 
@@ -208,3 +209,64 @@ image.show()
 ## Visualising vectors
 
 - A geometric vector is defined by a directed line segment
+
+<iframe width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/l32yzd?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
+
+--
+
+## Visualising vectors with Python
+
+- vector = endpoint - startpoint 
+- endpoint = startpoint + vector
+  - for the line segment we call this vector **a direction vector**
+
+```python
+from PIL import Image, ImageDraw
+def draw_segment(canvas, start, direction, colour) -> None:
+    canvas.line(((start[0], start[1]), (start[0] + direction[0], start[1]+direction[1])), colour)
+
+image = Image.new("RGB", (640, 480), (100, 0, 20))
+canvas = ImageDraw.Draw(image)
+draw_segment(canvas, (100, 50), (-100, 50), (255, 255, 0))
+image.show()
+```
+
+--
+
+## Position vs direction
+
+[lines1.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture7/code/lines1.py)
+
+```python
+def draw_segment(canvas, start, direction, colour) -> None:
+    canvas.line(((start[0], start[1]), (start[0] + direction[0], start[1]+direction[1])), colour)
+```
+
+- **start** is a position (location)
+- *direction** is a vector (displacement)
+- Both represented by the same data structure: **a tuple**
+
+--
+
+## Equal vectors
+
+- If two vectors are equal, their components are equal as well
+- Vectors with the same values are parallel line segments of the same length
+
+```python
+from PIL import Image, ImageDraw
+def draw_segment(canvas, start, direction, colour) -> None:
+    canvas.line(((start[0], start[1]), (start[0] + direction[0], start[1]+direction[1])), colour)
+
+image = Image.new("RGB", (640, 480), (100, 0, 20))
+canvas = ImageDraw.Draw(image)
+draw_segment(canvas, (100, 50), (-100, 50), (255, 255, 0))
+draw_segment(canvas, (150, 70), (-100, 50), (255, 255, 0))
+draw_segment(canvas, (200, 70), (-100, 50), (255, 255, 0))
+image.show()
+```
+
+---
+
+## Vector operations
+
