@@ -184,7 +184,7 @@ im.show()
 
 --
 
-**## Defining a Function
+## Defining a Function
 
 ```python
 def function_name(parameters):
@@ -198,7 +198,7 @@ def function_name(parameters):
 - **return**: Optional statement to return a value.
 
 --
-**
+
 ## Defining a Function: example
 
 ```python
