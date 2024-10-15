@@ -39,7 +39,7 @@ canvas.line( ( points[0], points[4]), draw_colour)
 
 ```python
 import turtle 
-turtle.down()
+turtle.down()for
 # repeat the following two lines four times
 turtle.forward(100)
 turtle.right(90)
@@ -307,7 +307,7 @@ for i in range(start, stop, step):
 ```python
 import turtle 
 turtle.down()
-for i in range(4)
+for i in range(4) :
     turtle.forward(100)
     turtle.right(90)
 turtle.done()
