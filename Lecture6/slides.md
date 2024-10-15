@@ -258,26 +258,26 @@ print(name, age)  # Output: Alice 30
 ```python
 from PIL import Image, ImageDraw
 
-def drawBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def drawBox(canvas, x, y, h, w, c):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 x = 300
 y = 300
 w = 100
 h = 50
-drawBox(im, x, y, h, w, (255, 255, 0))
+drawBox(canvas, x, y, h, w, (255, 255, 0))
 x = x + 10
 y = y + 10
 h += 1
 w += 1
-drawBox(im, x, y, h, w, (0, 255, 0))
+drawBox(canvas, x, y, h, w, (0, 255, 0))
 x = x + 10
 y = y + 10
 h += 1
 w += 1
-drawBox(im, x, y, h, w, (0, 255, 255))
+drawBox(canvas, x, y, h, w, (0, 255, 255))
 
 im.show()
 ```
@@ -289,17 +289,17 @@ im.show()
 ```python
 from PIL import Image, ImageDraw
 
-def drawBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def drawBox(canvas, x, y, h, w, colour):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), colour)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 x = 300
 y = 300
 w = 100
 h = 50
 for x in (300, 320, 340, 360):
-    drawBox(im, x, y, h, w, (255, 255, 0))
+    drawBox(canvas, x, y, h, w, (255, 255, 0))
 im.show()
 ```
 
@@ -310,11 +310,11 @@ im.show()
 ```python
 from PIL import Image, ImageDraw
 
-def drawBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def drawBox(canvas, x, y, h, w, colour):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), colour)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 x = 300
 y = 100
 w = 100
@@ -323,7 +323,7 @@ for x in (300, 320, 340, 360):
     y += 50
     h += 12
     w += 18
-    drawBox(im, x, y, h, w, (255, 255, 0))
+    drawBox(canvas, x, y, h, w, (255, 255, 0))
 im.show()
 ```
 
@@ -332,16 +332,16 @@ im.show()
 ## Loops and functions 3
 
 ```python
-def drawBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def drawBox(canvas, x, y, h, w, colour):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), colour)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 w = 50
 h = 50
 y = 200
 for x in range(1, 5):
-    drawBox(im, x * 100, y, h, w, (255, 255, 0))
+    drawBox(canvas, x * 100, y, h, w, (255, 255, 0))
 im.show()
 ```
 
@@ -352,17 +352,17 @@ im.show()
 ```python
 from PIL import Image, ImageDraw
 
-def drawBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def drawBox(canvas, x, y, h, w, colour):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), colour)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 w = 50
 h = 50
 y = 200
 for x in range(1, 5):
     for y in range(1, 5):
-        drawBox(im, x * 100, y * 100, h, w, (255, 255, 0))
+        drawBox(canvas, x * 100, y * 100, h, w, (255, 255, 0))
 im.show()
 
 ```
@@ -378,7 +378,7 @@ im.show()
 
 --
 
-## Procedural content in games
+### Procedural content in games
 
 - Procedural content generation has been a part of videogames for many years
   - Level generation was an early feature of games when memory and storage were limited
@@ -424,69 +424,69 @@ print(random_int)
 
 ---
 
-## Loops and functions and random 1
+### Loops and functions and random 1
 
 ```python
 from PIL import Image, ImageDraw
 from random import randint
 
-def drawBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def draw_box(canvas, x, y, h, w, c):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 for x in range(1, 5):
     for y in range(1, 5):
         h = randint(20, 60)
         w = randint(20, 60)
-        drawBox(im, x * 100, y * 100, h, w, (255, 255, 0))
+        draw_box(canvas, x * 100, y * 100, h, w, (255, 255, 0))
 im.show()
 ```
 
 --
 
-## Loops and functions and random 2
+### Loops and functions and random 2
 
 ```python
 from PIL import Image, ImageDraw
 from random import randint
 
-def drawBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def draw_box(canvas, x, y, h, w, colour):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), colour)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 for x in range(1, 5):
     for y in range(1, 5):
         h = randint(20, 60)
         w = randint(20, 60)
         c = (randint(0, 256), randint(0, 256), randint(0, 256))
-        drawBox(im, x * 100, y * 100, h, w, c)
+        draw_box(canvas, x * 100, y * 100, h, w, c)
 im.show()
 ```
 
 --
 
-## Loops and functions and random 3
+### Loops and functions and random 3
 
 ```python
-ffrom PIL import Image, ImageDraw
+from PIL import Image, ImageDraw
 from random import randint
 
-def drawHollowBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def draw_hollow_box(canvas, x, y, h, w, colour):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), colour)
 
-def drawSolidBox(im, x, y, h, w, c):
-    draw.polygon(((x, y), (x + w, y), (x + w, y + h), (x, y + h)), c, c)
+def draw_solid_box(canvas, x, y, h, w, colour):
+    canvas.polygon(((x, y), (x + w, y), (x + w, y + h), (x, y + h)), c, colour)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 for x in range(1, 5):
     for y in range(1, 5):
         h = randint(20, 60)
         w = randint(20, 60)
         c = (randint(0, 256), randint(0, 256), randint(0, 256))
-        drawSolidBox(im, x * 100, y * 100, h, w, c)
+        draw_solid_box(canvas, x * 100, y * 100, h, w, c)
 im.show()
 ```
 
@@ -497,14 +497,14 @@ im.show()
 from PIL import Image, ImageDraw
 from random import randint
 
-def drawHollowBox(im, x, y, h, w, c):
-    draw.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), c)
+def draw_hollow_box(canvas, x, y, h, w, colour):
+    canvas.line(((x, y), (x + w, y), (x + w, y + h), (x, y + h), (x, y)), colour)
 
-def drawSolidBox(im, x, y, h, w, c):
-    draw.polygon(((x, y), (x + w, y), (x + w, y + h), (x, y + h)), c, c)
+def draw_solid_box(canvas, x, y, h, w, colour):
+    canvas.polygon(((x, y), (x + w, y), (x + w, y + h), (x, y + h)), c, colour)
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-draw = ImageDraw.Draw(im)
+canvas = ImageDraw.Draw(im)
 for x in range(1, 5):
     for y in range(1, 5):
         h = randint(20, 60)
@@ -512,9 +512,9 @@ for x in range(1, 5):
         c = (randint(0, 256), randint(0, 256), randint(0, 256))
         selector = randint(0,1)
         if selector == 1:
-            drawSolidBox(im, x * 100, y * 100, h, w, c)
+            draw_solid_box(canvas, x * 100, y * 100, h, w, c)
         else:
-            drawHollowBox(im, x * 100, y * 100, h, w, c)
+            draw_hollow_box(canvas, x * 100, y * 100, h, w, c)
 im.show()
 ```
 
