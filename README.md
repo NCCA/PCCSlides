@@ -23,8 +23,7 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 ## Week 4
 
 - [Lines and Vectors](https://ncca.github.io/PCCSlides/Lecture7)
-- [Lecture 4 Lab](https://ncca.github.io/PCCSlides/Lecture8)
-
+- [Math(s)](https://ncca.github.io/PCCSlides/Lecture8)
 
 ## Week 5
 
