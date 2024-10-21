@@ -130,9 +130,9 @@ image.show()
 
 ---
 
-# Vectors
+# [Vectors](https://immersivemath.com/ila/ch02_vectors/ch02.html#fig_vec_breakout)
 
-- Did you have vectors at school?
+- Did you study vectors at school?
 
 <iframe width="100%" height="800" src="https://immersivemath.com/ila/ch02_vectors/ch02.html#fig_vec_breakout"></iframe>
 
@@ -168,6 +168,10 @@ image.show()
 - A vector defines the direction
   - For example, direction from the origin to another point
 
+--
+
+## Position vs direction
+
 <img style="border: 0;" src="images/PositionVector.png" width="50%">
 
 --
@@ -181,7 +185,7 @@ image.show()
 
 --
 
-## Algebraic and geometric vectors
+### Algebraic and geometric vectors
 
 - We are going to work with vectors in two ways
   - Geometric vectors: a directed line segment
@@ -189,7 +193,7 @@ image.show()
 
 ---
 
-## Vector: an algebraic definition
+### Vector: an algebraic definition
 
 - Let *A* and *B* be two points with coordinates $ (a_x, a_y) $ and $ (b_x, b_y) $
 - We denote the vector from *A* to *B* as $ \overrightarrow{AB} $
@@ -214,13 +218,14 @@ image.show()
 
 --
 
-## Visualising vectors with Python
+### Visualising vectors with Python
 
 - vector = endpoint - startpoint 
 - endpoint = startpoint + vector
   - for the line segment we call this vector **a direction vector**
 
 ```python
+# lines1.py
 from PIL import Image, ImageDraw
 def draw_segment(canvas, start, direction, colour) -> None:
     canvas.line(((start[0], start[1]), (start[0] + direction[0], start[1]+direction[1])), colour)
@@ -254,6 +259,7 @@ def draw_segment(canvas, start, direction, colour) -> None:
 - Vectors with the same values are parallel line segments of the same length
 
 ```python
+# lines2.py
 from PIL import Image, ImageDraw
 def draw_segment(canvas, start, direction, colour) -> None:
     canvas.line(((start[0], start[1]), (start[0] + direction[0], start[1]+direction[1])), colour)
@@ -289,9 +295,10 @@ image.show()
 
 --
 
-## Vector addition: Python example
+### Vector addition: Python example
 
 ```python
+# vector_addition.py
 from PIL import Image, ImageDraw
 def draw_segment(canvas, start, direction, colour) -> None:
     canvas.line(((start[0], start[1]), (start[0] + direction[0], start[1]+direction[1])), colour)
@@ -325,6 +332,7 @@ image.show()
 ### Vector multiplication by a scalar: Python example
 
 ```python
+# vector_mul_scalar.py
 from PIL import Image, ImageDraw
 def draw_segment(canvas, start, direction, colour) -> None:
     canvas.line(((start[0], start[1]), (start[0] + direction[0], start[1]+direction[1])), colour)
@@ -355,7 +363,7 @@ image.show()
 
 ## Vector subtraction
 
-- **a** - **b** = **a + ( **-b** )
+- **a - b = a + ( -b )**
 - $ (a_x, a_y) - (b_x, b_y) = (a_x-b_x, a_y-b_y) $
 
 <img style="border: 0;" src="images/VectorSubtraction.png" width="20%">
@@ -446,7 +454,7 @@ image.show()
 - They all have the same length of 100 pixels
 - Why they are end up in positive quarter for x and y?
 
--- 
+--
 
 ## Refining the code
 
