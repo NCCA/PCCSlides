@@ -94,9 +94,12 @@ image.show()
 
 --
 
-## Adding content to the square texture
+#### Adding content to the square texture
 
 ```python
+#!/usr/bin/env python3
+#texture1.py
+
 from PIL import Image, ImageDraw
 
 resolution = 1024 #1k image, i.e. 1024x1024 
@@ -114,7 +117,7 @@ image.show()
 
 --
 
-## Why square textures are useful?
+### Why square textures are useful?
 
 - You can divide the power of two to other powers of two
 - For example, we can easily create tessellations by repeating the element power-of-two times
@@ -135,6 +138,7 @@ image.show()
 ## Tessellated textures
 
 ```python
+# texture2_1.py
 from PIL import Image, ImageDraw
 
 resolution = 1024 #1k image, i.e. 1024x1024 
@@ -154,9 +158,10 @@ image.show()
 
 --
 
-## Tessellates textures - using power of two
+#### Tessellated textures - using power of two
 
 ```python
+# texture2_2.py
 from PIL import Image, ImageDraw
 
 resolution = 1024 #1k image, i.e. 1024x1024 
@@ -176,11 +181,11 @@ image.show()
 
 --
 
-## Tessellates textures - using power of two
+#### Tessellated textures - using power of two
 
 ```python
 from PIL import Image, ImageDraw
-
+# texture2_3.py
 resolution = 1024 #1k image, i.e. 1024x1024 
 background_colour = (0,0,0) #black background
 line_colour = (255, 255, 155) #white line colour
@@ -199,9 +204,10 @@ image.show()
 
 --
 
-## Tessellated textures - isolating tiles
+#### Tessellated textures - isolating tiles
 
 ```python
+# texture2_4.py
 from PIL import Image, ImageDraw
 
 def draw_square_tile(canvas, x, y, size, colour) -> None:
@@ -225,9 +231,10 @@ image.show()
 
 --
 
-## Tessellated textures - playing with tiles
+#### Tessellated textures - playing with tiles
 
 ```python
+# texture2_5.py
 from PIL import Image, ImageDraw
 
 def draw_square_tile(canvas, x, y, size, colour) -> None:
@@ -260,7 +267,7 @@ image.show()
 
 --
 
-## Linear interpolation formula
+### Linear interpolation formula
 
 - Given two values $x_0$ and $x_1$, and a fraction $t$ between 0 and 1: 
   - $x = x_0 + t(x_1 - x_0)$
@@ -269,7 +276,7 @@ image.show()
 
 --
 
-## Filling the triangle with linear interpolation
+##### Filling a triangle with linear interpolation
 
 - Earlier we defined the triangle like that:
 ```python
@@ -284,7 +291,7 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 
 --
 
-## Filling the triangle with linear interpolation
+##### Filling a triangle with linear interpolation
 
 - The idea is: 
   - Instead of three edges, we will be drawing parallel lines one pixel apart
@@ -296,7 +303,7 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 
 --
 
-## Filling the triangle with linear interpolation
+##### Filling a triangle with linear interpolation
 
 - Start of the scanline line segment:
   - $x_0 = x$, $x_1 = x+size/2$
@@ -313,7 +320,10 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 ```
 
 --
-## Interpolating colour
+
+
+
+### Interpolating colour
 
 - In the previous example we interpolated geometry
 - Can we interpolate colour?
@@ -321,7 +331,7 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 
 ---
 
-##Math library
+### Math library
 
 - *math* library provides access to the mathematical functions
 - Can work only with floating point real numbers and integers
@@ -343,7 +353,7 @@ import math
 
 --
 
-## Interpolating numbers with math.floor
+### Interpolating numbers with math.floor
 
 ```python
 colour_r = math.floor(colour1[0]+t*(colour2[0]-colour1[0]))
@@ -353,11 +363,46 @@ colour_b = math.floor(colour1[2]+t*(colour2[2]-colour1[2]))
 
 --
 
-##Filling the triangle with interpolation
+#### Filling the triangle with interpolation
 
 - Full example: 
-<script type="py-editor" src="code/texture3_2.py"  target="editor2"></script>
-<div id="editor2" style="font-size: 18px; text-align: left; overflow-y: scroll; height:400px;"></div>
+
+```python
+#!/usr/bin/env python3
+
+# texture3_2.py
+from PIL import Image, ImageDraw
+import math
+
+
+def draw_square_tile(canvas, x, y, size, colour1, colour2) -> None:
+    for height in range(y, y + size, 1):
+        t = (height - y) / size
+        colour_r = math.floor(colour1[0] + t * (colour2[0] - colour1[0]))
+        colour_g = math.floor(colour1[1] + t * (colour2[1] - colour1[1]))
+        colour_b = math.floor(colour1[2] + t * (colour2[2] - colour1[2]))
+        colour = (colour_r, colour_g, colour_b)
+        canvas.line(
+            ((x + t * size / 2, y + t * size), (x + size - t * size / 2, y + t * size)),
+            colour,
+        )
+
+
+resolution = 1024  # 1k image, i.e. 1024x1024
+background_colour = (0, 0, 0)  # black background
+line_colour_1 = (255, 0, 0)  # red colour
+line_colour_2 = (0, 255, 0)  # green colour
+step = 128
+
+image = Image.new("RGB", (resolution, resolution), background_colour)
+canvas = ImageDraw.Draw(image)
+
+draw_square_tile(canvas, 0, 0, step, line_colour_1, line_colour_2)
+
+image.show()
+
+```
+
 
 ---
 
@@ -398,10 +443,58 @@ def draw_circle(cx, cy, r, col):
 
 ---
 
-##Putting everything together and time to play
+#### Putting everything together and time to play
 
-<script type="py-editor" src="code/textures4.py"  target="editor2"></script>
-<div id="editor2" style="font-size: 18px; text-align: left; overflow-y: scroll; height:400px;"></div>
+```python
+#!/usr/bin/env python3
+# texture4.py
+from PIL import Image, ImageDraw
+import math
+
+
+def draw_square_tile(canvas, x, y, size, colour1, colour2) -> None:
+    for height in range(y, y + size, 1):
+        t = (height - y) / size
+        colour_r = math.floor(colour1[0] + t * (colour2[0] - colour1[0]))
+        colour_g = math.floor(colour1[1] + t * (colour2[1] - colour1[1]))
+        colour_b = math.floor(colour1[2] + t * (colour2[2] - colour1[2]))
+        colour = (colour_r, colour_g, colour_b)
+        canvas.line(
+            ((x + t * size / 2, y + t * size), (x + size - t * size / 2, y + t * size)),
+            colour,
+        )
+
+
+def draw_circle(canvas, cx, cy, r, col) -> None:
+    dr = 5
+    drRad = dr / 360.0 * 2 * math.pi
+    for theta in range(0, 360, dr):
+        thetaRad = (theta / 360.0) * (2 * math.pi)
+        x1 = cx + r * math.cos(thetaRad)
+        y1 = cy + r * math.sin(thetaRad)
+        x2 = cx + r * math.cos(thetaRad + drRad)
+        y2 = cy + r * math.sin(thetaRad + drRad)
+        canvas.line(((x1, y1), (x2, y2)), col)
+
+
+resolution = 1024  # 1k image, i.e. 1024x1024
+background_colour = (0, 0, 0)  # black background
+line_colour_1 = (255, 0, 0)  # red colour
+line_colour_2 = (0, 255, 0)  # green colour
+circle_colour = (255, 255, 255)  # blue colour
+step = 128
+
+image = Image.new("RGB", (resolution, resolution), background_colour)
+canvas = ImageDraw.Draw(image)
+
+for x in range(0, resolution, step):
+    for y in range(0, resolution, step):
+        draw_square_tile(canvas, x, y, step, line_colour_1, line_colour_2)
+        draw_circle(canvas, x + step / 2, y + step / 2, step / 2, circle_colour)
+
+image.show()
+
+```
 
 ---
 
