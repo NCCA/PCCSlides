@@ -60,7 +60,7 @@ import turtle
 ## Why Maths?
 
 <blockquote><small><p>To make a film, we have to direct almost 200 billion pixels. That's a lot of mathematics. (Iñigo Quilez, Pixar)</p></small></blockquote>					
-<img style="border: 0;" src="images/shadertoy-girl.jpg" width="40%">
+<img style="border: 0;" src="images/shadertoy-girl.jpg" width="35%">
 - The image above is generated procedurally
 
 --
@@ -320,8 +320,6 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 ```
 
 --
-
-
 
 ### Interpolating colour
 
