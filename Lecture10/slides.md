@@ -16,6 +16,19 @@
 
 ---
 
+## Recap: functions
+
+- A **function** is a reusable block of code that performs a specific task.
+- Parameters are variables that a function uses as input. When calling a function, arguments are passed to these parameters.
+
+```python
+def add_numbers(a, b):
+    return a + b
+
+print(add_numbers(3, 5))  # Output: 8
+```
+
+---
 ## Transformation: a definition
 
 - A geometric transformation is a function which maps from a point set to itself or another point set.
