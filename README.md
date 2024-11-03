@@ -32,38 +32,38 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 6
 
-- [Lecture 6 Slides](https://ncca.github.io/PCCSlides/Lecture6)
-- [Lecture 6 Lab](https://ncca.github.io/PCCSlides/Lab6)
+- [Image Manipulation](https://ncca.github.io/PCCSlides/Lecture11)
+- [Strings and UI](https://ncca.github.io/PCCSlides/Lecture12)
 
 ## Week 7
 
-- [Lecture 7 Slides](https://ncca.github.io/PCCSlides/Lecture7)
-- [Lecture 7 Lab](https://ncca.github.io/PCCSlides/Lab7)
+- [User input](https://ncca.github.io/PCCSlides/Lecture13)
+- [Interactive applications 1](https://ncca.github.io/PCCSlides/Lecture14)
 
 ## Week 8
 
-- [Lecture 8 Slides](https://ncca.github.io/PCCSlides/Lecture8)
-- [Lecture 8 Lab](https://ncca.github.io/PCCSlides/Lab8)
+- [Back to Linux: project management](https://ncca.github.io/PCCSlides/Lecture15)
+- [Transforming objects with matrices](https://ncca.github.io/PCCSlides/Lecture16)
 
 ## Week 9
 
-- [Lecture 9 Slides](https://ncca.github.io/PCCSlides/Lecture9)
-- [Lecture 9 Lab](https://ncca.github.io/PCCSlides/Lab9)
+- [Interactive applications 2](https://ncca.github.io/PCCSlides/Lecture17)
+- [More image manipulation](https://ncca.github.io/PCCSlides/Lecture18)
 
 ## Week 10
 
-- [Lecture 10 Slides](https://ncca.github.io/PCCSlides/Lecture10)
-- [Lecture 10 Lab](https://ncca.github.io/PCCSlides/Lab10)
+- [Python in Maya 1](https://ncca.github.io/PCCSlides/Lecture19)
+- [Python in Maya 2](https://ncca.github.io/PCCSlides/Lecture20)
 
 ## Week 11
 
-- [Lecture 11 Slides](https://ncca.github.io/PCCSlides/Lecture11)
-- [Lecture 11 Lab](https://ncca.github.io/PCCSlides/Lab11)
+- [Revision 1](https://ncca.github.io/PCCSlides/Lecture11)
+- [Revision 2](https://ncca.github.io/PCCSlides/Lab11)
 
 ## Week 12
 
-- [Lecture 12 Slides](https://ncca.github.io/PCCSlides/Lecture12)
-- [Lecture 12 Lab](https://ncca.github.io/PCCSlides/Lab12)
+- [Revision 3](https://ncca.github.io/PCCSlides/Lecture12)
+- [Revision 4](https://ncca.github.io/PCCSlides/Lab12)
 
 
 ## Reading the Slides on your local machine
