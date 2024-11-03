@@ -510,7 +510,7 @@ image.show()
 # Next time
 
 - **What will you learn next time**
-  - Polar coordinate system
+  - Texture maps
   - Deeper dive into colours
 
 --

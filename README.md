@@ -27,8 +27,8 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 5
 
-- [Lecture 5 Slides](https://ncca.github.io/PCCSlides/Lecture5)
-- [Lecture 5 Lab](https://ncca.github.io/PCCSlides/Lab5)
+- [Texture maps, colour spaces](https://ncca.github.io/PCCSlides/Lecture9)
+- [Transformations](https://ncca.github.io/PCCSlides/Lecture10)
 
 ## Week 6
 

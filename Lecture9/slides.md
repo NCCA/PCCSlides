@@ -471,8 +471,8 @@ image.save("NormalMap.png")
 # Next time
 
 - **What will you learn next time**
-  - Loading images
-  - Procedural image manipulation
+  - Transformations: translate, rotate, scale
+  - How to position objects in space using code
 
 --
 
