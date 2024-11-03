@@ -99,6 +99,7 @@ file.close()  # Close file after use
 --
 
 ## File I/O Best Practices
+
 - Using *with* Statement:
   - Why? Ensures file is properly closed after operations, even if errors occur.
   - **Syntax**: with open(filename, mode) as file:
@@ -122,11 +123,13 @@ with open("example.obj", "r") as file:
 ```
 
 --
+
 ## Writing to a file in Python
+
 - Methods for Writing:
-  - file.write(string): Writes a string to the file.
-  - file.writelines(list_of_strings): Writes a list of strings to the file.
-- Note: Using "w" mode overwrites existing content, while "a" mode appends to the file.
+  - *file.write(string)*: Writes a string to the file.
+  - *file.writelines(list_of_strings)*: Writes a list of strings to the file.
+- Note: Using *"w"* mode overwrites existing content, while *"a"* mode appends to the file.
 
 ```python
 with open("output.txt", "w") as file:
@@ -137,7 +140,7 @@ with open("output.txt", "w") as file:
 
 ## Open image in PIL
 
-- To open an image in PIL use .open() method
+- To open an image in PIL use *.open()* method
 
 ```python
 from PIL import Image
@@ -151,7 +154,7 @@ im.show()
 ## Save image in PIL
 
 - After you worked on an image, do some image processing or image manipulation you will likely want to save this new version of your image.
-- Saving an image can be achieved by using .save() method with PIL library’s Image module in Python.
+- Saving an image can be achieved by using *.save()* method with PIL library’s Image module in Python.
 
 ```python
 from PIL import Image
@@ -163,20 +166,21 @@ im.save("green_new.jpg")
 ---
 
 ## Texture maps
-- A texture map is a way of applying properties to a 3d model so as to alter its appearance using 2d images.
-  - This can include its color, fine detail, how shiny or metallic it looks, whether its transparent or if it glows.
-- Texture maps are applied to a 2d representation of a 3d model also known as a **UV**.
+- A texture map is a way of applying properties to a 3D model so as to alter its appearance using 2D images.
+  - This can include its colour, fine detail, how shiny or metallic it looks, whether its transparent or if it glows.
+- Texture maps are applied to a 2D representation of a 3D model also known as a **UV**.
 
 --
 
 ## Physically-based Rendering pipeline
-- PBR also known as Physically Based Rendering is a texture workflow that aims to simulate how light reacts with a model to attempt to simulate real life materials.
-- The Physically Based Rendering (PBR) pipeline standardizes ways of texturing
+- PBR (Physically Based Rendering) is a texture workflow that aims to simulate how light reacts with a model to attempt to simulate real life materials.
+- The PBR pipeline standardises ways of texturing
 - Two different types of methodologies used which require different maps
   - *Metallic Roughness*: Base colour, Metallic, Roughness
   - *Specular Glossiness*: Diffuse, Specular, Glossiness
 
 --
+
 ## Groups of texture maps
 - **Geometry Altering Maps**: maps that have the ability to alter fine details of a model’s geometry
   - Bump map, normal map, displacement map
@@ -189,9 +193,9 @@ im.save("green_new.jpg")
 
 ## Create the base colour map
 
+[texture1.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture9/code/texture1.py)
+
 ```python
-#!/usr/bin/env python3
-# texture1.py
 from PIL import Image, ImageDraw
 import math
 
@@ -228,9 +232,9 @@ image.show()
 
 ## Save the base colour map
 
+[texture2.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture9/code/texture2.py)
+
 ```python
-#!/usr/bin/env python3
-# texture2.py
 from PIL import Image, ImageDraw
 import math
 
@@ -272,7 +276,7 @@ image.save("baseColor.png")
   - RGB (Red, Green, Blue): Used in digital displays.
   - HSV (Hue, Saturation, Value): Useful for colour manipulation.
   - CMYK (Cyan, Magenta, Yellow, Black): Primarily used in printing.
-  
+
 --
 
 ## RGB colour model
@@ -291,9 +295,11 @@ from PIL import Image
 img = Image.new("RGB", (128, 128), (255, 255, 0))  # Yellow
 img.show()
 ```
+
 --
 
 ## RGBA colour model
+
 - A three-channel RGB color model supplemented with a fourth alpha channel.
 - Alpha indicates how opaque each pixel
   - 0 is fully transparent, 255 is fully opaque
@@ -334,9 +340,9 @@ img.show()
 
 ## Create the opacity map
 
+[texture3.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture9/code/texture3.py)
+
 ```python
-#!/usr/bin/env python3
-# texture3.py
 from PIL import Image, ImageDraw
 import math
 
@@ -377,9 +383,7 @@ image.save("baseColor.png")
 - When a lighting model is applied it gives the appearance of a non-flat surface.
 - A normal map is a texture where the RGB colour values of each textel is used for the x, y and z values of a normal vector
 
-'''
-https://jonshiach.github.io/graphics-book/_pages/09_Normal_mapping.html
-'''
+[More information about normal mapping](https://jonshiach.github.io/graphics-book/_pages/09_Normal_mapping.html)
 
 --
 

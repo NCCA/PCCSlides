@@ -93,8 +93,8 @@ im.show()
 ## Translation formula
 
 - Translation is defined by adding an offset:
-- $x'=x+t_x$
-- $y'=y+t_y$
+- $x\prime=x+t_x$
+- $y\prime=y+t_y$
 
 <img style="border: 0;" src="images/T2.png" width="50%">
 
@@ -135,11 +135,9 @@ im.show()
 
 ## Translation: Refining Python implementation
 
-[31.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/31.py)
+[32.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/31.py)
 
 ```python
-#!/usr/bin/env python3
-# 32.py
 from PIL import Image, ImageDraw
 
 def draw_polyline(canvas, pointList, colour) -> None:
@@ -182,20 +180,21 @@ im.show()
 ## Scaling
 
 - Scaling is a transformation that enlarges or shrinks the objects
-  - Uniform (isotropic) scaling uses the same scaling factor in all directions
-  - Non-uniform (anisotropic) scaling uses different scaling factors for different directions
+  - **Uniform**: The same scaling factor in all directions
+  - **Non-uniform**: different scaling factors for different directions
 - Scaling is expressed in relation to the origin
 
-<img style="border: 0;" src="images/SU.png" width="30%">
-<img style="border: 0;" src="images/SNU.png" width="30%">
+<img style="border: 0;" src="images/SU.png" width="20%">
+<img style="border: 0;" src="images/SNU.png" width="20%">
 
 --
 
 ## Scaling formula
 
 - Scaling is defined by multiplying coordinates by scale factors
-- $x'=s_x x$
-- $y'=s_y y$
+- $x\prime=s_x x$
+- $y\prime=s_y y$
+
 <img style="border: 0;" src="images/SNU.png" width="30%">
 
 --
@@ -314,9 +313,10 @@ im.show()
 ## Rotation formula
 
 - Rotation by arbitrary angle in **counter-clockwise direction**
-- $x'=x cos(\phi)$
-- $y'=x sin(\phi)$
-<img style="border: 0;" src="images/R2.png" width="30%">
+- $ x\prime =x\cos \left(\theta \right)+y\sin \left(\theta \right) $
+- $ y\prime =x\sin\left(\theta\right)+y\cos\left(\theta\right) $
+
+<img style="border: 0;" src="images/R2.jpg" width="30%">
 
 --
 
@@ -499,7 +499,7 @@ im.show()
 
 ---
 
-## One more example: brick wall
+### One more example: brick wall
 
 [brickwall.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/brickwall.py)
 
