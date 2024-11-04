@@ -3,7 +3,8 @@
 from PIL import Image, ImageDraw
 import math
 
-def drawCircle(canvas, cx, cy, radius, colour, thickness) -> None:
+
+def draw_circle(canvas, cx, cy, radius, colour, thickness) -> None:
     dr = 5
     drRad = dr / 360.0 * 2 * math.pi
     for theta in range(0, 360, dr):
@@ -16,25 +17,39 @@ def drawCircle(canvas, cx, cy, radius, colour, thickness) -> None:
 
 
 resolution = 1024  # 1k image, i.e. 1024x1024
-backgroundColour = (0, 0, 0)  # black background
-circleColour = (255, 0, 0)  # red colour
+background_colour = (0, 0, 0)  # black background
+circle_colour = (255, 0, 0)  # red colour
 step = 128
-lineThickness = 10
+line_thickness = 10
 
-imageBase = Image.new("RGB", (resolution, resolution), backgroundColour)
-canvasBase = ImageDraw.Draw(imageBase)
-
-for x in range(0, resolution, step):
-    for y in range(0, resolution, step):
-        drawCircle(canvasBase, x + step / 2, y + step / 2, step / 2, circleColour, lineThickness)
-
-imageBase.save("baseColorMap.png")
-
-imageA = Image.new("RGB", (resolution, resolution), backgroundColour)
-canvasA = ImageDraw.Draw(imageA)
+image_base = Image.new("RGB", (resolution, resolution), background_colour)
+canvas_base = ImageDraw.Draw(image_base)
 
 for x in range(0, resolution, step):
     for y in range(0, resolution, step):
-        drawCircle(canvasA, x + step / 2, y + step / 2, step / 2, (255,255,255), lineThickness)
+        draw_circle(
+            canvas_base,
+            x + step / 2,
+            y + step / 2,
+            step / 2,
+            circle_colour,
+            line_thickness,
+        )
 
-imageA.save("opacityMap.png")
+image_base.save("baseColorMap.png")
+
+image_alpha = Image.new("RGB", (resolution, resolution), background_colour)
+canvas_alpha = ImageDraw.Draw(image_alpha)
+
+for x in range(0, resolution, step):
+    for y in range(0, resolution, step):
+        draw_circle(
+            canvas_alpha,
+            x + step / 2,
+            y + step / 2,
+            step / 2,
+            (255, 255, 255),
+            line_thickness,
+        )
+
+image_alpha.save("opacityMap.png")
