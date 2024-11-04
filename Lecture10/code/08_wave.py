@@ -53,10 +53,11 @@ purple = (255, 0, 255)
 rainbow = (red, yellow, green, cyan, blue, purple)
 
 points = [(-0.5, -0.5), (0.5, -0.5), (0.5, 0.5), (-0.5, 0.5), (-0.5, -0.5)]
-for count in range(0, 100):
-    new_points = scale_points(points, 3, 6)
-    new_points = translate_points(new_points, count * 2, 0)
-    new_points = rotate_points(new_points, count * 1.618 * 2 * math.pi)
-    new_points = translate_points(new_points, 320, 240)
-    canvas.line(new_points, rainbow[count % len(rainbow)])
+for count in range(0, 50):
+    new_points = scale_points(points, 10, 5)
+    new_points = rotate_points(new_points, math.cos(count * 10 / 360.0 * 2 * math.pi))
+    new_points = translate_points(
+        new_points, count * 15, 240 + 30 * math.sin((count * 15) / 360.0 * 2 * math.pi)
+    )
+    canvas.line( new_points, rainbow[count % len(rainbow)])
 im.show()

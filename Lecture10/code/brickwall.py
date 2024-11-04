@@ -1,45 +1,52 @@
-#!/usr/bin/python3
-from PIL import Image, ImageDraw
-import random
+#!/usr/bin/env python3
 import math
+import random
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
+from PIL import Image, ImageDraw
+
+
+
 
 def draw_polygon(canvas, pointList, colour) -> None:
     pointTuple = tuple(pointList)
     canvas.polygon(pointTuple, colour, colour)
 
-def translatePoint(point, dx, dy) -> (float, float):
+
+def translate_point(point, dx, dy) -> (float, float):
     return (point[0] + dx, point[1] + dy)
 
-def translatePoints(points, dx, dy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(translatePoint(p, dx, dy))
-    return newPoints
 
-def scalePoint(point, sx, sy) -> (float, float):
+def translate_points(points, dx, dy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(translate_point(p, dx, dy))
+    return new_points
+
+
+def scale_point(point, sx, sy) -> (float, float):
     return (point[0] * sx, point[1] * sy)
 
-def scalePoints(points, sx, sy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(scalePoint(p, sx, sy))
-    return newPoints
 
-def rotatePoint(point, theta) -> (float, float):
+def scale_points(points, sx, sy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(scale_point(p, sx, sy))
+    return new_points
+
+
+def rotate_point(point, theta) -> (float, float):
     return (
         point[0] * math.cos(theta) + point[1] * math.sin(theta),
         -point[0] * math.sin(theta) + point[1] * math.cos(theta),
     )
 
-def rotatePoints(points, theta) -> list:
-    newPoints = list()
+
+def rotate_points(points, theta) -> list:
+    new_points = list()
     for p in points:
-        newPoints.append(rotatePoint(p, theta))
-    return newPoints
+        new_points.append(rotate_point(p, theta))
+    return new_points
+
 
 cement = (200, 200, 200)
 brick = (178, 34, 34)
@@ -50,15 +57,15 @@ canvas = ImageDraw.Draw(im)
 
 points = [(-0.5, -0.5), (0.5, -0.5), (0.5, 0.5), (-0.5, 0.5), (-0.5, -0.5)]
 lineShift = True
-for x in range(0, resolution+1, step):
-    for y in range(0, resolution, math.floor(step/2)):
-        newPoints = scalePoints(points, 115, 55)
-        newPoints = rotatePoints(newPoints, random.uniform(-0.05,0.05))
-        if lineShift :
-            newPoints = translatePoints(newPoints, x, y)
+for x in range(0, resolution + 1, step):
+    for y in range(0, resolution, math.floor(step / 2)):
+        new_points = scale_points(points, 115, 55)
+        new_points = rotate_points(new_points, random.uniform(-0.05, 0.05))
+        if lineShift:
+            new_points = translate_points(new_points, x, y)
             lineShift = False
-        else :
-            newPoints = translatePoints(newPoints, x+step/2, y)
+        else:
+            new_points = translate_points(new_points, x + step / 2, y)
             lineShift = True
-        draw_polygon(canvas, newPoints, brick)
+        canvas.polygon( new_points, brick)
 im.show()

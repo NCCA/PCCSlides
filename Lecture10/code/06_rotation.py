@@ -1,24 +1,22 @@
-#!/usr/bin/python3
-from PIL import Image, ImageDraw
+#!/usr/bin/env python3
 import math
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
+from PIL import Image, ImageDraw
 
 
-def rotatePoint(point, theta) -> (float, float):
+
+def rotate_point(point, theta) -> (float, float):
     return (
         point[0] * math.cos(theta) + point[1] * math.sin(theta),
         -point[0] * math.sin(theta) + point[1] * math.cos(theta),
     )
 
 
-def rotatePoints(points, theta) -> list:
-    newPoints = list()
+def rotate_points(points, theta) -> list:
+    new_points = list()
     for p in points:
-        newPoints.append(rotatePoint(p, theta))
-    return newPoints
+        new_points.append(rotate_point(p, theta))
+    return new_points
 
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
@@ -34,6 +32,6 @@ rainbow = (red, yellow, green, cyan, blue, purple)
 
 points = [(100, 100), (200, 100), (200, 200), (100, 200), (100, 100)]
 for count in range(0, 6):
-    draw_polyline(canvas, points, rainbow[count])
-    points = rotatePoints(points, 0.1)
+    canvas.line(points, rainbow[count])
+    points = rotate_points(points, 0.1)
 im.show()

@@ -29,6 +29,7 @@ print(add_numbers(3, 5))  # Output: 8
 ```
 
 ---
+
 ## Transformation: a definition
 
 - A geometric transformation is a function which maps from a point set to itself or another point set.
@@ -74,23 +75,21 @@ print(add_numbers(3, 5))  # Output: 8
 
 ## Preparing the playground
 
-[30.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/30.py)
+[01_drawbox.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/01_drawbox.py)
 
 ```python
+#!/usr/bin/env python3
+import math
+
 from PIL import Image, ImageDraw
 
-def draw_polyline(canvas, pointList, colour):
-    #the function takes the list of points as an input, we need to convert to tuple
-    pointTuple = tuple(pointList)
-    #the line() function takes a tuple of points as a first argument
-    canvas.line(pointTuple, colour)
-
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-canvas = ImageDraw.Draw(im)
+draw = ImageDraw.Draw(im)
 white = (255, 255, 255)
 points = [(100, 100), (200, 100), (200, 200), (100, 200), (100, 100)]
-draw_polyline(points, white)
+draw.line(points, white)
 im.show()
+
 ```
 
 ---
@@ -113,59 +112,56 @@ im.show()
 
 --
 
-## Translation: Python implementation
+#### Translation: Python implementation
 
-[31.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/31.py)
+[02_translate_box.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/02_translate_box.py)
 
 ```python
+#!/usr/bin/env python3
+import math
+from random import randint
+
 from PIL import Image, ImageDraw
 
-def draw_polyline(canvas, pointList, colour):
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
 
-def translatePoints(points, dx, dy) -> list:
-    newPoints = list()
+def translate_points(points, dx, dy) -> list:
+    new_points = list()
     for p in points:
-        newPoints.append((p[0] + dx, p[1] + dy))
-    return newPoints
+        new_points.append((p[0] + dx, p[1] + dy))
+    return new_points
+
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
-canvas = ImageDraw.Draw(im)
+draw = ImageDraw.Draw(im)
 white = (255, 255, 255)
 green = (0, 255, 0)
 points = [(100, 100), (200, 100), (200, 200), (100, 200), (100, 100)]
-#draw original polyline
-draw_polyline(points, white)
-tx = 50 #shift for x
-ty = 50 #shift for y
-newPoints = translatePoints(points, tx, ty)
-draw_polyline(newPoints, green)
+draw.line(tuple(points), white)
+new_points = translate_points(points, 50, 50)
+draw.line(tuple(new_points), green)
 im.show()
 ```
 
 --
 
-## Translation: Refining Python implementation
+#### Translation: Refining Python implementation
 
-[32.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/31.py)
+[03_translate_box2.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/03_translate_box2.py)
 
 ```python
+#!/usr/bin/env python3
 from PIL import Image, ImageDraw
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    #the function takes the list of points as an input, we need to convert to tuple
-    pointTuple = tuple(pointList)
-    #the line() function takes a tuple of points as a first argument
-    canvas.line(pointTuple, colour)
-    
-def translatePoint(point, dx, dy) -> (float, float): #The function moves just one point given the offset
+def translate_point(point, dx, dy) -> (float, float):  
+    # The function moves just one point given the offset
     return (point[0] + dx, point[1] + dy)
 
-def translatePoints(points, dx, dy) -> list: #This function moves multiple points with the same offset
+
+def translate_points(points, dx, dy) -> list:  
+    # This function moves multiple points with the same offset
     newPoints = list()
     for p in points:
-        newPoints.append(translatePoint(p, dx, dy))
+        newPoints.append(translate_point(p, dx, dy))
     return newPoints
 
 
@@ -180,12 +176,13 @@ blue = (0, 0, 255)
 purple = (255, 0, 255)
 rainbow = (red, yellow, green, cyan, blue, purple)
 points = [(100, 100), (200, 100), (200, 200), (100, 200), (100, 100)]
-tx = 40 #shift for x
-ty = 40 #shift for y
+tx = 40  # shift for x
+ty = 40  # shift for y
 for count in range(0, 6):
-    draw_polyline(canvas, points, rainbow[count])
-    points = translatePoints(points, 40, 40)
+    canvas.line(points, rainbow[count])
+    points = translate_points(points, 40, 40)
 im.show()
+
 ```
 
 ---
@@ -212,27 +209,27 @@ im.show()
 
 --
 
-## Scaling: Python implementation
+#### Scaling: Python implementation
 
-[33.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/33.py)
+[04_scaling1.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/04_scaling1.py)
 
 ```python
+#!/usr/bin/env python3
 from PIL import Image, ImageDraw
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
 
 
-def scalePoint(point, sx, sy) -> (float, float): #The function does non-uniform scaling for a point
+def scale_point(point, sx, sy) -> (float, float):  
+    # The function does non-uniform scaling for a point
     return (point[0] * sx, point[1] * sy)
 
 
-def scalePoints(points, sx, sy) -> list: #The function does non-uniform scaling for a point set
-    newPoints = list()
+def scale_points(points, sx, sy) -> list:  
+    # The function does non-uniform scaling for a point set
+    new_points = list()
     for p in points:
-        newPoints.append(scalePoint(p, sx, sy))
-    return newPoints
+        new_points.append(scale_point(p, sx, sy))
+    return new_points
 
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
@@ -248,48 +245,50 @@ rainbow = (red, yellow, green, cyan, blue, purple)
 
 points = [(100, 100), (200, 100), (200, 200), (100, 200), (100, 100)]
 for count in range(0, 6):
-    draw_polyline(canvas, points, rainbow[count])
-    points = scalePoints(points, 1.1, 1.1)
+    canvas.line( points, rainbow[count])
+    points = scale_points(points, 1.1, 1.1)
 im.show()
 ```
 
 ---
 
-## Composition of transformations
+### Composition of transformations
 
-- A composition of tramsformations involves 2 or more transformations applied to one shape or point.
+- A composition of transformations involves 2 or more transformations applied to one shape or point.
 - The order in which the transformations were applied often changed the outcome
 
 --
 
-### Composition of transformations: Python example
+###### Composition of transformations: Python 
 
-[34.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/34.py)
+[05_compose.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/05_compose.py)
 
 ```python
+#!/usr/bin/env python3
 from PIL import Image, ImageDraw
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
 
-def translatePoint(point, dx, dy) -> (float, float):
+def translate_point(point, dx, dy) -> (float, float):
     return (point[0] + dx, point[1] + dy)
 
-def translatePoints(points, dx, dy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(translatePoint(p, dx, dy))
-    return newPoints
 
-def scalePoint(point, sx, sy) -> (float, float):
+def translate_points(points, dx, dy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(translate_point(p, dx, dy))
+    return new_points
+
+
+def scale_point(point, sx, sy) -> (float, float):
     return (point[0] * sx, point[1] * sy)
 
-def scalePoints(points, sx, sy) -> list:
-    newPoints = list()
+
+def scale_points(points, sx, sy) -> list:
+    new_points = list()
     for p in points:
-        newPoints.append(scalePoint(p, sx, sy))
-    return newPoints
+        new_points.append(scale_point(p, sx, sy))
+    return new_points
+
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
 canvas = ImageDraw.Draw(im)
@@ -305,11 +304,12 @@ rainbow = (red, yellow, green, cyan, blue, purple)
 points = [(-0.5, -0.5), (0.5, -0.5), (0.5, 0.5), (-0.5, 0.5), (-0.5, -0.5)]
 
 for count in range(0, 6):
-    #note if you swap next two lines, you will get a different result
-    newPoints = scalePoints(points, count * 80, count * 80)
-    newPoints = translatePoints(newPoints, 320, 240)
-    draw_polyline(canvas, newPoints, rainbow[count])
+    # note if you swap next two lines, you will get a different result
+    new_points = scale_points(points, count * 80, count * 80)
+    new_points = translate_points(new_points, 320, 240)
+    canvas.line( new_points, rainbow[count])
 im.show()
+
 ```
 
 ---
@@ -333,31 +333,30 @@ im.show()
 
 --
 
-## Rotation: Python implementation
+#### Rotation: Python implementation
 
-[35.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/35.py)
+[06_rotation.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/06_rotation)
 
 ```python
-from PIL import Image, ImageDraw
+#!/usr/bin/env python3
 import math
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
+from PIL import Image, ImageDraw
 
 
-def rotatePoint(point, theta) -> (float, float):
+
+def rotate_point(point, theta) -> (float, float):
     return (
         point[0] * math.cos(theta) + point[1] * math.sin(theta),
         -point[0] * math.sin(theta) + point[1] * math.cos(theta),
     )
 
 
-def rotatePoints(points, theta) -> list:
-    newPoints = list()
+def rotate_points(points, theta) -> list:
+    new_points = list()
     for p in points:
-        newPoints.append(rotatePoint(p, theta))
-    return newPoints
+        new_points.append(rotate_point(p, theta))
+    return new_points
 
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
@@ -373,8 +372,8 @@ rainbow = (red, yellow, green, cyan, blue, purple)
 
 points = [(100, 100), (200, 100), (200, 200), (100, 200), (100, 100)]
 for count in range(0, 6):
-    draw_polyline(canvas, points, rainbow[count])
-    points = rotatePoints(points, 0.1)
+    canvas.line(points, rainbow[count])
+    points = rotate_points(points, 0.1)
 im.show()
 ```
 
@@ -382,45 +381,52 @@ im.show()
 
 ### Bringing it all together 
 
-[36.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/36.py)
+[07_scale_trans_rot.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/07_scale_trans_rot.py)
 
 ```python
-from PIL import Image, ImageDraw
+#!/usr/bin/env python3
 import math
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
+from PIL import Image, ImageDraw
 
-def translatePoint(point, dx, dy) -> (float, float):
+
+
+
+def translate_point(point, dx, dy) -> (float, float):
     return (point[0] + dx, point[1] + dy)
 
-def translatePoints(points, dx, dy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(translatePoint(p, dx, dy))
-    return newPoints
 
-def scalePoint(point, sx, sy) -> (float, float):
+def translate_points(points, dx, dy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(translate_point(p, dx, dy))
+    return new_points
+
+
+def scale_point(point, sx, sy) -> (float, float):
     return (point[0] * sx, point[1] * sy)
 
-def scalePoints(points, sx, sy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(scalePoint(p, sx, sy))
-    return newPoints
 
-def rotatePoint(point, theta) -> (float, float):
+def scale_points(points, sx, sy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(scale_point(p, sx, sy))
+    return new_points
+
+
+def roate_point(point, theta) -> (float, float):
     return (
         point[0] * math.cos(theta) + point[1] * math.sin(theta),
         -point[0] * math.sin(theta) + point[1] * math.cos(theta),
     )
 
-def rotatePoints(points, theta) -> list:
-    newPoints = list()
+
+def roate_points(points, theta) -> list:
+    new_points = list()
     for p in points:
-        newPoints.append(rotatePoint(p, theta))
-    return newPoints
+        new_points.append(roate_point(p, theta))
+    return new_points
+
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
 canvas = ImageDraw.Draw(im)
@@ -436,10 +442,10 @@ rainbow = (red, yellow, green, cyan, blue, purple)
 points = [(-0.5, -0.5), (0.5, -0.5), (0.5, 0.5), (-0.5, 0.5), (-0.5, -0.5)]
 
 for count in range(0, 6):
-    newPoints = scalePoints(points, count * 60, count * 60)
-    newPoints = rotatePoints(newPoints, (count * 5) / 360.0 * 2 * math.pi)
-    newPoints = translatePoints(newPoints, 320, 240)
-    draw_polyline(canvas, newPoints, rainbow[count])
+    new_points = scale_points(points, count * 60, count * 60)
+    new_points = roate_points(new_points, (count * 5) / 360.0 * 2 * math.pi)
+    new_points = translate_points(new_points, 320, 240)
+    canvas.line( new_points, rainbow[count])
 im.show()
 
 ```
@@ -448,45 +454,49 @@ im.show()
 
 ### Time to play
 
-[37.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/37.py)
+[08_wave.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/08_wave.py)
 
 ```python
-from PIL import Image, ImageDraw
+#!/usr/bin/env python3
 import math
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
+from PIL import Image, ImageDraw
 
-def translatePoint(point, dx, dy) -> (float, float):
+def translate_point(point, dx, dy) -> (float, float):
     return (point[0] + dx, point[1] + dy)
 
-def translatePoints(points, dx, dy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(translatePoint(p, dx, dy))
-    return newPoints
 
-def scalePoint(point, sx, sy) -> (float, float):
+def translate_points(points, dx, dy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(translate_point(p, dx, dy))
+    return new_points
+
+
+def scale_point(point, sx, sy) -> (float, float):
     return (point[0] * sx, point[1] * sy)
 
-def scalePoints(points, sx, sy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(scalePoint(p, sx, sy))
-    return newPoints
 
-def rotatePoint(point, theta) -> (float, float):
+def scale_points(points, sx, sy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(scale_point(p, sx, sy))
+    return new_points
+
+
+def rotate_point(point, theta) -> (float, float):
     return (
         point[0] * math.cos(theta) + point[1] * math.sin(theta),
         -point[0] * math.sin(theta) + point[1] * math.cos(theta),
     )
 
-def rotatePoints(points, theta) -> list:
-    newPoints = list()
+
+def rotate_points(points, theta) -> list:
+    new_points = list()
     for p in points:
-        newPoints.append(rotatePoint(p, theta))
-    return newPoints
+        new_points.append(rotate_point(p, theta))
+    return new_points
+
 
 im = Image.new("RGB", (640, 480), (100, 0, 20))
 canvas = ImageDraw.Draw(im)
@@ -501,13 +511,14 @@ rainbow = (red, yellow, green, cyan, blue, purple)
 
 points = [(-0.5, -0.5), (0.5, -0.5), (0.5, 0.5), (-0.5, 0.5), (-0.5, -0.5)]
 for count in range(0, 50):
-    newPoints = scalePoints(points, 10, 5)
-    newPoints = rotatePoints(newPoints, math.cos(count * 10 / 360.0 * 2 * math.pi))
-    newPoints = translatePoints(
-        newPoints, count * 15, 240 + 30 * math.sin((count * 15) / 360.0 * 2 * math.pi)
+    new_points = scale_points(points, 10, 5)
+    new_points = rotate_points(new_points, math.cos(count * 10 / 360.0 * 2 * math.pi))
+    new_points = translate_points(
+        new_points, count * 15, 240 + 30 * math.sin((count * 15) / 360.0 * 2 * math.pi)
     )
-    draw_polyline(canvas, newPoints, rainbow[count % len(rainbow)])
+    canvas.line( new_points, rainbow[count % len(rainbow)])
 im.show()
+
 ```
 
 ---
@@ -517,47 +528,55 @@ im.show()
 [brickwall.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/brickwall.py)
 
 ```python
-from PIL import Image, ImageDraw
-import random
+#!/usr/bin/env python3
 import math
+import random
 
-def draw_polyline(canvas, pointList, colour) -> None:
-    pointTuple = tuple(pointList)
-    canvas.line(pointTuple, colour)
+from PIL import Image, ImageDraw
+
+
+
 
 def draw_polygon(canvas, pointList, colour) -> None:
     pointTuple = tuple(pointList)
     canvas.polygon(pointTuple, colour, colour)
 
-def translatePoint(point, dx, dy) -> (float, float):
+
+def translate_point(point, dx, dy) -> (float, float):
     return (point[0] + dx, point[1] + dy)
 
-def translatePoints(points, dx, dy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(translatePoint(p, dx, dy))
-    return newPoints
 
-def scalePoint(point, sx, sy) -> (float, float):
+def translate_points(points, dx, dy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(translate_point(p, dx, dy))
+    return new_points
+
+
+def scale_point(point, sx, sy) -> (float, float):
     return (point[0] * sx, point[1] * sy)
 
-def scalePoints(points, sx, sy) -> list:
-    newPoints = list()
-    for p in points:
-        newPoints.append(scalePoint(p, sx, sy))
-    return newPoints
 
-def rotatePoint(point, theta) -> (float, float):
+def scale_points(points, sx, sy) -> list:
+    new_points = list()
+    for p in points:
+        new_points.append(scale_point(p, sx, sy))
+    return new_points
+
+
+def rotate_point(point, theta) -> (float, float):
     return (
         point[0] * math.cos(theta) + point[1] * math.sin(theta),
         -point[0] * math.sin(theta) + point[1] * math.cos(theta),
     )
 
-def rotatePoints(points, theta) -> list:
-    newPoints = list()
+
+def rotate_points(points, theta) -> list:
+    new_points = list()
     for p in points:
-        newPoints.append(rotatePoint(p, theta))
-    return newPoints
+        new_points.append(rotate_point(p, theta))
+    return new_points
+
 
 cement = (200, 200, 200)
 brick = (178, 34, 34)
@@ -568,18 +587,19 @@ canvas = ImageDraw.Draw(im)
 
 points = [(-0.5, -0.5), (0.5, -0.5), (0.5, 0.5), (-0.5, 0.5), (-0.5, -0.5)]
 lineShift = True
-for x in range(0, resolution+1, step):
-    for y in range(0, resolution, math.floor(step/2)):
-        newPoints = scalePoints(points, 115, 55)
-        newPoints = rotatePoints(newPoints, random.uniform(-0.05,0.05))
-        if lineShift :
-            newPoints = translatePoints(newPoints, x, y)
+for x in range(0, resolution + 1, step):
+    for y in range(0, resolution, math.floor(step / 2)):
+        new_points = scale_points(points, 115, 55)
+        new_points = rotate_points(new_points, random.uniform(-0.05, 0.05))
+        if lineShift:
+            new_points = translate_points(new_points, x, y)
             lineShift = False
-        else :
-            newPoints = translatePoints(newPoints, x+step/2, y)
+        else:
+            new_points = translate_points(new_points, x + step / 2, y)
             lineShift = True
-        draw_polygon(canvas, newPoints, brick)
+        canvas.polygon( new_points, brick)
 im.show()
+
 ```
 
 ---
