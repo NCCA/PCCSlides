@@ -62,7 +62,7 @@ import turtle
 - The **&** makes the command run in the background: **goMaya&**
 
 ---
-
+<!---
 ## File I/O
 
 - What is File I/O?
@@ -137,7 +137,7 @@ with open("output.txt", "w") as file:
 ```
 
 ---
-
+-->
 ## Open image in PIL
 
 - To open an image in PIL use *.open()* method
