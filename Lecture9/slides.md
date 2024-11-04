@@ -431,6 +431,18 @@ image.save("normal_map.png")
 
 ---
 
+## Using the Maps
+
+![](images/MayaGraph.png)
+
+--
+
+![](images/FinalRender.jpg)
+
+
+
+---
+
 # Conclusion
 
 - **What have you learned today**
