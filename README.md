@@ -33,7 +33,7 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 ## Week 6
 
 - [Image Manipulation](https://ncca.github.io/PCCSlides/Lecture11)
-- [Strings and UI](https://ncca.github.io/PCCSlides/Lecture12)
+- [Files and Meshes](https://ncca.github.io/PCCSlides/Lecture12)
 
 ## Week 7
 
