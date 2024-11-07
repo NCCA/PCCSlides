@@ -327,7 +327,7 @@ im.show()
 
 - Rotation by arbitrary angle in **counter-clockwise direction**
 - $ x\prime =x\cos \left(\theta \right)+y\sin \left(\theta \right) $
-- $ y\prime =x\sin\left(\theta\right)+y\cos\left(\theta\right) $
+- $ y\prime =-x\sin\left(\theta\right)+y\cos\left(\theta\right) $
 
 <img style="border: 0;" src="images/R2.jpg" width="30%">
 
