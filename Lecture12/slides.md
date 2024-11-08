@@ -12,11 +12,11 @@
 
 - **Title:** Files and Meshes
 - **What will you learn today:**
-- Opening and closing files
-- Reading and writing text files
-- context managers and exceptions
-- How meshes are stored and written 
-- The obj file format
+  - Opening and closing files
+  - Reading and writing text files
+  - context managers and exceptions
+  - How meshes are stored and written 
+  - The obj file format
 
 
 ---
@@ -221,6 +221,42 @@ try:
 except PermissionError:
     print("Permission denied")
 
+```
+
+---
+
+## OS module
+
+- The module **os** provides functions for interacting with the operating system and allows for
+  - Handling the current working directory
+  - Creating a directory
+  - Listing out files and directories with Python
+
+--
+
+## Getting the Current working directory
+
+- To get the location of the current working directory use *os.getcwd()* 
+```python
+import os 
+cwd = os.getcwd() 
+print("Current working directory:", cwd) 
+```
+
+--
+
+## Listing out Files and Directories 
+
+- Another useful function is OS is *os.listdir()*
+  - It lists all files and directories in the specified directory 
+  - If no directory specified, it lists all files and folders in the current working directory
+
+```python
+import os 
+path = "/"
+dir_list = os.listdir(path) 
+print("Files and directories in '", path, "' :") 
+print(dir_list)
 ```
 
 --
