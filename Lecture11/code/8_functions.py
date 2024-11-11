@@ -1,5 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from PIL import Image
+
 
 def key(img, min) -> Image:
     mask = Image.new("L", img.size, 0)

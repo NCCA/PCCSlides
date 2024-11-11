@@ -1,10 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from PIL import Image
 
 fg = Image.open("green.jpg")
 bg = Image.open("background.jpg")
 mask = Image.new("L", fg.size, 0)
-#matte extraction
+# matte extraction
 for x in range(0, bg.width):
     for y in range(0, bg.height):
         pixel = fg.getpixel((x, y))
