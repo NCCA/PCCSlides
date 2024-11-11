@@ -326,11 +326,147 @@ f 1 2 3
 
 --- 
 
-## Python Objewriter 
+## Python ObjWriter 
 
 - We can write a simple python program to write out an obj file
 
 ```python
+#!/usr/bin/env python3
 
+
+triangle = [[2.0, 0.0, 0.0], [0.0, 4.0, 0.0], [-2.0, 0.0, 0.0]]
+
+faces = [[0, 1, 2]]
+
+
+with open("triangle1.obj", "w") as file:
+    for vertex in triangle:
+        file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]}\n")
+    # write the faces Note these are 1-based indices
+    for face in faces:
+        file.write(f"f {face[0]+1} {face[1]+1} {face[2]+1}\n")
 
 ```
+
+--
+
+## Python ObjWriter
+
+- This will write out a simple triangle mesh to a file called ```triangle1.obj```
+- We can then open this file in a 3D application such as Maya to view the mesh.
+- You will notice there are no normals or texture coordinates in this file 
+- we will add normals next
+
+---
+
+## Adding Normals
+
+- Normals are vectors that are perpendicular to the surface of the mesh at each vertex.
+- They are used to calculate the shading of the mesh.
+- We can add normals to our OBJ file by adding lines like this:
+
+```
+vn 0.0 0.0 1.0
+```
+
+- This line defines a normal vector pointing straight  in the z-direction.
+
+
+--
+
+## Calculating Normals
+
+- To calculate the normals for a triangle mesh, we can use the cross product of the edges of the triangle.
+- The cross product of two vectors gives a vector that is perpendicular to both of them.
+- We can calculate the normal for a triangle by taking the cross product of two of its edges.
+- For example, the normal of a triangle with vertices A, B, and C is given by the cross product of the vectors AB and AC.
+
+==
+
+## Calculating Normals
+
+- The cross product of two vectors A and B is given by the formula:
+
+```
+A x B = (AyBz - AzBy, AzBx - AxBz, AxBy - AyBx)
+```
+
+- We can use this formula to calculate the normal of a triangle mesh.
+
+--
+
+## Python ObjWriter
+
+- We can add normals to our OBJ file by calculating the normals for each face and writing them to the file.
+
+```python
+#!/usr/bin/env python3
+
+def calc_normal(v1, v2) :
+    
+    n=[v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]]
+    # normalize the normal
+    length = math.sqrt((n[0]**2 + n[1]**2 + n[2]**2))
+    if length == 0:
+        return n
+    n[0] /= length
+    n[1] /= length
+    n[2] /= length
+    return n
+
+```
+
+--
+
+## Python ObjWriter
+
+- We can then calculate the normals for each face and write them to the file.
+
+```python
+triangle = [[2.0, 0.0, 0.0], [0.0, 4.0, 0.0], [-2.0, 0.0, 0.0]]
+
+faces = [[0, 1, 2]]
+
+normals=[]
+normals.append(calc_normal(triangle[0], triangle[1]))
+normals.append(calc_normal(triangle[1], triangle[2]))
+normals.append(calc_normal(triangle[2], triangle[0]))
+
+with open("triangle2.obj", "w") as file:
+    for vertex in triangle:
+        file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]}\n")
+    for normal in normals:
+        file.write(f"vn {normal[0]} {normal[1]} {normal[2]}\n")
+    # write the faces Note these are 1-based indices
+    for face in faces:
+        file.write(f"f {face[0]+1}//{face[0]+1} {face[1]+1}//{face[1]+1} {face[2]+1}//{face[2]+1}\n")
+        
+```
+
+--
+
+## Python ObjWriter
+
+- This will write out a simple triangle mesh with normals to a file called ```triangle2.obj```
+- We can then open this file in a 3D application such as Maya to view the mesh.
+- You will notice there are no texture coordinates in this file so the face format is ```v//n```
+- we will add texture coordinates next
+
+---
+
+## Adding Texture Coordinates
+
+- Texture coordinates are used to map a 2D image onto a 3D mesh.
+- They are typically given as two floating-point numbers (u, v) that specify the position of the texture on the mesh.
+- We can add texture coordinates to our OBJ file by adding lines like this:
+
+```
+vt 0.0 0.0
+vt 1.0 0.0
+vt 0.0 1.0
+```
+
+--
+
+## Python ObjWriter
+
