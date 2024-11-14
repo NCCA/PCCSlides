@@ -311,6 +311,8 @@ triangle=[
   - ```vt``` - a vertex texture coordinate
   - ```f``` - a face
 
+--
+
 ## A Simple Triangle
 
 - The OBJ file format for a simple triangle mesh would look like this:
@@ -544,9 +546,27 @@ with open("cube.obj", "w") as file:
 
 ## exercise
 
-- using the code above write the remaining faces of the cube
-- open the file in maya and check it is correct
-- a solution is provided in the code directory
-  - Think how you could do this as a triangle mesh
+
+# Conclusion
+
+- **What have you learned today**
+  - How to load and save text files
+  - What are exceptions and what is try-except block
+  - The structure of .obj file and how to save simple .obj meshes
+- **Homework**
+  - Using the code above write the remaining faces of the cube, check in Maya if the file is correct
+
+--
+
+# Next time
+
+- **What will you learn next time**
+  - How to create games with Pygame
+  - Procedural content generation for games 
+
+--
+
+# Q&A and discussion
+- **Open Floor for Questions**
 
 

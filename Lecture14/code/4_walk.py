@@ -16,7 +16,7 @@ black = (0, 0, 0)
 
 sprites = [
     "liquidWater",
-    "bridgeLogs",
+    "sandCenter",
 ]
 
 sprite_images = []
@@ -38,8 +38,21 @@ for x in range (10):
 
 posX = random.randint(0, 10)
 posY = random.randint(0, 10)
-for i in range(10):
+walkDirections = ["left", "right", "up", "down"]
+canWalk = True
+while canWalk:
     grid[posX][posY] = "island"
+    newDirection = random.choice(walkDirections)
+    if newDirection == "left":
+        posX = posX - 1
+    if newDirection == "right":
+        posX = posX + 1
+    if newDirection == "up":
+        posY = posY - 1
+    if newDirection == "down":
+        posY = posY + 1
+    if posX < 0 or posY < 0 or posX >= 10 or posY >= 10:
+        canWalk = False
 
 # the game loop
 while running:

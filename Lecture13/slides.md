@@ -19,17 +19,21 @@
 
 ## Recap: Libraries
 
+```python
+import math
+from PIL import Image
+```
 
 ---
 
+<img style="border: 0;" src="images/3d_pipeline.png" width="70%">
 
-![](images/3d_pipeline.png)
 
 ---
 
 ## Real-time graphics pipeline
 
-![](images/graphics_pipeline.png)
+<img style="border: 0;" src="images/graphics_pipeline.png" width="70%">
 
 --
 
@@ -72,6 +76,8 @@
 --
 
 ## The Pygame game loop example
+
+[1_basic_pygame.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/1_basic_pygame.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -153,6 +159,9 @@ for event in pygame.event.get():
 --
 
 ## Handling keyboard: example
+
+[2_keyboard.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/2_keyboard.py)
+
 ```python
 import pygame   #we will need core pygame functionality
 import pygame.draw #this module will be needed for drawing on the screen
@@ -209,6 +218,8 @@ while running:
 
 - Position of the mouse can be queried with *pygame.mouse.get_pos()*
 - Similar to keyboard, you can handle mouse buttons with *pygame.mouse.get_pressed()*
+
+[2_mouse.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/2_mouse.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -279,6 +290,8 @@ while running:
 
 ### Shapes with Pygame: example
 
+[3_shapes.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/3_shapes.py)
+
 ```python
 import pygame   #we will need core pygame functionality
 import pygame.draw #this module will be needed for drawing on the screen
@@ -320,6 +333,8 @@ while running:
 ---
 
 ### User input + shapes = graphic editor
+
+[4_editor.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/4_editor.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -390,6 +405,8 @@ while running:
 - Use *pygame.image.load()* to load sprites 
 - Use *screen.blit()* to render them on the screen.
 
+[5_sprites.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/5_sprites.py)
+
 ```python
 import pygame   #we will need core pygame functionality
 import pygame.draw #this module will be needed for drawing on the screen
@@ -434,6 +451,8 @@ while running:
 ---
 
 ### Time to play: level editor
+
+[6_leveldesign.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/5_leveldesign.py)
 
 ```python
 #!/usr/bin/python3
@@ -530,7 +549,6 @@ while running:
 # Next time
 
 - **What will you learn next time**
-  - How to create games with Pygame
   - Procedural content generation for games 
 
 --

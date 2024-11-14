@@ -37,8 +37,8 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 7
 
-- [User input](https://ncca.github.io/PCCSlides/Lecture13)
-- [Interactive applications 1](https://ncca.github.io/PCCSlides/Lecture14)
+- [Going interactive](https://ncca.github.io/PCCSlides/Lecture13)
+- [Procedural game content creation](https://ncca.github.io/PCCSlides/Lecture14)
 
 ## Week 8
 
@@ -57,13 +57,11 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 11
 
-- [Revision 1](https://ncca.github.io/PCCSlides/Lecture11)
-- [Revision 2](https://ncca.github.io/PCCSlides/Lab11)
+- Revision and feedback sessions
 
 ## Week 12
 
-- [Revision 3](https://ncca.github.io/PCCSlides/Lecture12)
-- [Revision 4](https://ncca.github.io/PCCSlides/Lab12)
+- Revision and feedback sessions
 
 
 ## Reading the Slides on your local machine
