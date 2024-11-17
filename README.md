@@ -37,18 +37,18 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 
 ## Week 7
 
-- [Going interactive](https://ncca.github.io/PCCSlides/Lecture13)
-- [Procedural game content creation](https://ncca.github.io/PCCSlides/Lecture14)
+- [Vectors and Normals](https://ncca.github.io/PCCSlides/Lecture13)
+- [Going interactive](https://ncca.github.io/PCCSlides/Lecture14)
 
 ## Week 8
 
-- [Back to Linux: project management](https://ncca.github.io/PCCSlides/Lecture15)
-- [Transforming objects with matrices](https://ncca.github.io/PCCSlides/Lecture16)
+- [Procedural game content creation](https://ncca.github.io/PCCSlides/Lecture15)
+- [Back to Linux: project management](https://ncca.github.io/PCCSlides/Lecture16)
 
 ## Week 9
 
-- [Interactive applications 2](https://ncca.github.io/PCCSlides/Lecture17)
-- [More image manipulation](https://ncca.github.io/PCCSlides/Lecture18)
+- [Transforming objects with matrices](https://ncca.github.io/PCCSlides/Lecture17)
+- [More image Manipulation](https://ncca.github.io/PCCSlides/Lecture18)
 
 ## Week 10
 

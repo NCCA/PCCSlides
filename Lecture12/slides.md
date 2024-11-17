@@ -313,6 +313,16 @@ triangle=[
 
 --
 
+## Obj components explained
+
+- a vertex position: keyword 'v' followed by three coordinates x, y and z
+- a vertex normal: keyword 'vn' followed by three components of the unit normal vector
+- a vertex texture coordinate: 'vt' followed by two numbers, uv coordinates
+- a face: f followed by indices of vertices/normals/textures in the list
+  - start counting from 1, not 0
+
+--
+
 ## A Simple Triangle
 
 - The OBJ file format for a simple triangle mesh would look like this:
@@ -357,7 +367,7 @@ with open("triangle1.obj", "w") as file:
 - This will write out a simple triangle mesh to a file called ```triangle1.obj```
 - We can then open this file in a 3D application such as Maya to view the mesh.
 - You will notice there are no normals or texture coordinates in this file 
-- we will add normals next
+- we will add normals and texture coordinates next time
 
 ---
 
@@ -542,10 +552,7 @@ with open("cube.obj", "w") as file:
         file.write(f"  {faces[i+3][0]}/{faces[i+3][1]}/{faces[i+3][2]}\n")
 ```
 
---
-
-## exercise
-
+---
 
 # Conclusion
 
@@ -554,15 +561,15 @@ with open("cube.obj", "w") as file:
   - What are exceptions and what is try-except block
   - The structure of .obj file and how to save simple .obj meshes
 - **Homework**
-  - Using the code above write the remaining faces of the cube, check in Maya if the file is correct
+  - Python files are text files too. Can you write the program that opens Python file and saves into another script, adding empty comment for every line of code
 
 --
 
 # Next time
 
 - **What will you learn next time**
-  - How to create games with Pygame
-  - Procedural content generation for games 
+  - More insight into vector algebra
+  - How to complete .obj file exporter with normals
 
 --
 

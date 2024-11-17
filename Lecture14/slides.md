@@ -1,4 +1,4 @@
-## Lesson 14: Procedural game content creation
+## Lesson 13: Going interactive
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
@@ -10,480 +10,78 @@
 
 # Session outline
 
-- **Title:** Procedural game content creation
+- **Title:** Going interactive
 - **What will you learn today:**
-  - More insight about pygame library 
-  - Procedural level design with Pygame
+  - Introduction to pygame library 
+  - How to read user mind with input
 
 ---
 
-## Recap: Procedural content
-
-- A procedure is the instruction or set of instructions to be executed
-- Content can be anything we are presenting to the user
-- In games the term is known as *Procedural Content Generation*
-
---
-
-## Recap: Random numbers and random library
-
-- Random module: *import random*
-- *random.randint(a, b)*: Returns a random integer between a and b.
-- *random.choice(list): Chooses a random element from a list.*
+## Recap: Libraries
 
 ```python
-import random
-x = random.randint(0, 800)
-y = random.randint(0, 600)
-```
-
----
-
-## Types of Procedural Content Generation
-- **Random Generation**: Using random values to place objects and create unpredictable layouts.
-- **Noise Functions**: Using noise for organic patterns (e.g. terrain generation).
-- **Cellular Automata**: Algorithms that use cells to create complex systems (used in caves or dungeons).
-- **Rule-Based Systems**: Predefined rules to create structured content.
-
----
-
-## Recap: Pygame
-
-[1_start.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/1_start.py)
-
-```python
-#!/usr/bin/env python3
-import pygame  # we will need core pygame functionality
-import pygame.draw  # this module will be needed for drawing on the screen
-
-pygame.init()  # this is an essential line to make pygame working
-
-width = 700  # width of the game window
-height = 700  # height of the game window
-screen = pygame.display.set_mode((width, height))  # create the game window
-clock = (
-    pygame.time.Clock()
-)  # use the clock to ensure we updating the window not too often
-running = True  # the variable to ensure the game loop
-black = (0, 0, 0)
-
-try:
-    spriteWater = pygame.image.load("base/liquidWater.png")
-except FileNotFoundError:
-    print("File base/liquidWater.png is not found")
-
-# the game loop
-while running:
-    screen.fill(
-        black
-    )  # clear the window by filling the space with the background colour
-
-    for x in range (0, 700, 70):
-        for y in range (0, 700, 70):
-            screen.blit(spriteWater, (x, y))
-
-    # event management
-    for event in pygame.event.get():  # if we received an event
-        if event.type == pygame.QUIT:  # if the event is "quit game"
-            running = False  # then we set the variable allowing for the loop to stop
-    pygame.display.flip()  # render
-    clock.tick(30)  # wait until we run with 30 frames per second or less
-# end of the program
-```
-
----
-
-## Grid-based random generation
-
-- The screen is divided into a grid
-  - Normally stored as a list of lists
-- Obstacles, collectibles, etc are placed randomly
-
---
-
-## Grid-based random generation, example
-
-[2_random.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/2_random.py)
-
-```python
-#!/usr/bin/env python3
-import pygame  # we will need core pygame functionality
-import pygame.draw  # this module will be needed for drawing on the screen
-import random
-
-pygame.init()  # this is an essential line to make pygame working
-
-width = 700  # width of the game window
-height = 700  # height of the game window
-screen = pygame.display.set_mode((width, height))  # create the game window
-clock = (
-    pygame.time.Clock()
-)  # use the clock to ensure we updating the window not too often
-running = True  # the variable to ensure the game loop
-black = (0, 0, 0)
-
-sprites = [
-    "liquidWater",
-    "bridgeLogs",
-]
-
-sprite_images = []
-for spriteName in sprites:
-    filename = "base/" + spriteName + ".png"
-    try:
-        loadedImage = pygame.image.load(filename)
-        sprite_images.append(loadedImage)
-    except FileNotFoundError:
-        print("File base/liquidWater.png is not found")
-
-levelElements = ["water", "island"]
-grid = []
-for x in range (10):
-    gridrow = []
-    for y in range(10):
-        gridrow.append(random.choice(levelElements))
-    grid.append(gridrow)
-
-# the game loop
-while running:
-    screen.fill(
-        black
-    )  # clear the window by filling the space with the background colour
-
-    for x in range (0, 10):
-        for y in range (0, 10):
-            screen.blit(sprite_images[0], (x*70, y*70))
-            if (grid[x][y] == "island"):
-                screen.blit(sprite_images[1], (x*70, y*70))
-
-    # event management
-    for event in pygame.event.get():  # if we received an event
-        if event.type == pygame.QUIT:  # if the event is "quit game"
-            running = False  # then we set the variable allowing for the loop to stop
-    pygame.display.flip()  # render
-    clock.tick(30)  # wait until we run with 30 frames per second or less
-# end of the program
-```
-
---
-
-## Procedural object placement
-
-- Place items / elements / etc in random locations
-- Avoid clusters by checking proximity 
-
-[3_sampling.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_sampling.py)
-
-```python
-grid = []
-for x in range (10):
-    gridrow = []
-    for y in range(10):
-        gridrow.append("water")
-    grid.append(gridrow)
-
-for i in range(10):
-    posX = random.randint(0, 10)
-    posY = random.randint(0, 10)
-    grid[posX][posY] = "island"
-```
-
---
-
-## Adding prefabs
-
-- Grid-based methods work for larger objects
-  - Prefabs are predefined structures
-- You modify more than one cell
-- Prefabs do not have to be rectanular
-
-```python
-grid = []
-for x in range (10):
-    gridrow = []
-    for y in range(10):
-        gridrow.append(0)
-    grid.append(gridrow)
-
-for i in range(10):
-    posX = random.randint(0, 7) # 10-3 = 7
-    posY = random.randint(0, 8) # 10-2 = 8
-    grid[posX][posY] = 2
-    grid[posX+1][posY] = 3
-    grid[posX+2][posY] = 4
-    grid[posX][posY+1] = 5
-    grid[posX+1][posY+1] = 5
-    grid[posX+2][posY+1] = 5
-```
-
---
-
-### Modifying the code by adding extra conditions
-
-- While placing objects randomly we might want to check if the place is not previously occupied
-
-[3_prefabs.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_prefabs.py)
-
-```python
-for i in range(10):
-    posX = random.randint(0, 7) # 10-3 = 7
-    posY = random.randint(0, 8) # 10-2 = 8
-    if grid[posX][posY] == 0 and grid[posX+1][posY] == 0 and grid[posX+2][posY] == 0 and grid[posX][posY+1] == 0 and grid[posX+1][posY+1]==0 and grid[posX+2][posY+1]==0:
-        #place the island only if the space has not been taken before
-        grid[posX][posY] = 2
-        grid[posX+1][posY] = 3
-        grid[posX+2][posY] = 4
-        grid[posX][posY+1] = 5
-        grid[posX+1][posY+1] = 5
-        grid[posX+2][posY+1] = 5
-```
-
----
-
-## Noise-based procedural generation
-
-- Noise *functions* interpolate random values
-- Classic noise functions: *Perlin Noise*, *Simplex Noise*
-- Noise functions create natural patterns:
-
-<img style="border: 0;" src="images/terrain.png" width="30%">
-
----
-
-## Cellular automata
-
-- Cellular automata is a grid of cells, each in one of a finite number of states
-- At each iteration, the cell can change its state based on some fixed rule
-- Classic example is <a href = "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's game of life</a>
-
-<img style="border: 0;" src="images/gameoflife.gif" width="30%">
-
----
-
-## Rule-based systems
-
-- Cellular automata is an example of rule-based systems
-- We define the rule, we follow the rule until we hit the stopping condition
-
---
-
-## Drunkard walk algorithm
-
-- Example of rule-based system
-  - Start at a random cell
-  - Randomly move in one direction
-  - Stop when a predefined number of steps have been taken
-
---
-
-### Drunkard walk algorithm example
-
-[3_walk.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_walk.py)
-
-```python
-posX = random.randint(0, 10)
-posY = random.randint(0, 10)
-walkDirections = ["left", "right", "up", "down"]
-canWalk = True
-while canWalk:
-    grid[posX][posY] = "island"
-    newDirection = random.choice(walkDirections)
-    if newDirection == "left":
-        posX = posX - 1
-    if newDirection == "right":
-        posX = posX + 1
-    if newDirection == "up":
-        posY = posY - 1
-    if newDirection == "down":
-        posY = posY + 1
-    if posX < 0 or posY < 0 or posX >= 10 or posY >= 10:
-        canWalk = False
-```
-
---
-
-## More rule-based systems
-
-- L-System (https://en.wikipedia.org/wiki/L-system) allows to describe fractal-like forms
-- Used to generate plants
-- But before let we learn one more data type in Python
-
----
-
-## Data types
-
-- Python has 5 standard data types
-  1. Numbers
-  2. String
-  3. List
-  4. Tuple
-  5. **Dictionary**
-
---
-
-## Dictionaries in Python
-
-- A **dictionary** is a collection of key-value pairs where each key is associated with a specific value.
-- Unlike lists, dictionaries are unordered and accessed by keys, not indices.
-
-```python
-student = {"name": "Alice", "age": 20, "courses": ["Animation", "Effects"]}
-```
-
---
-
-## Characteristics of dictionaries
-
-- Keys must be unique and immutable (e.g., strings, numbers, or tuples).
-- Values can be of any data type, including lists or other dictionaries.
-- Create a dictionary: with curly braces {} or using the dict() function.
-
-```python
- # Using {}
-car = {"brand": "Toyota", "year": 2020}
-
- # Using dict()
-car = dict(brand="Toyota", year=2020)
-```
-
---
-
-## Elements in dictionaries
-
-- Access values using their key with square brackets [] or get() method.
-- Use [] or update() to add a new key-value pair or update an existing one.
-- Use del to remove by key or pop() to remove and return a value.
-```python
-print(car["brand"])      # Output: Toyota
-print(car.get("year"))   # Output: 2020
-car["colour"] = "blue"  # Add new key-value pair
-car["year"] = 2021     # Update existing value
-del car["brand"]
-year = car.pop("year")
-```
-
----
-
-## L-systems
-
-- **Lindenmayer System (L-System)**: A mathematical system to model the growth processes of plants and other natural forms.
-- Key Components of an L-System:
-  - **Alphabet**: Set of symbols used in the system.
-  - **Axiom**: Initial string or starting point of the system.
-  - **Rules**: Define how each symbol in the alphabet is replaced iteratively.
-
---
-
-## How L-systems work
-- Start with an axiom (initial string).
-- Apply production rules iteratively to evolve the axiom into more complex forms.
-- Example: Axiom: **A**, Rule: **A → AB** and **B → A**
-- Iterations: 1. A,  2. AB, 3. ABA, 4. ABAAB
-
---
-
-## L-systems: example
-
-- Fern: 
-  - Axiom = "X"  
-  - Rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  
-
---
-
-## L-systems: Pygame example
-
-[5_lsystem.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_lsystem.py)
-
-```python
-#!/usr/bin/env python
-import pygame  # we will need core pygame functionality
-import pygame.draw  # this module will be needed for drawing on the screen
-
-import random
 import math
+from PIL import Image
+```
 
-def generate_rule_string(axiom: str, rules: dict[str, str], iterations: int) -> str:
-    """
-    Generates a rule string based on the given axiom, rules, and number of iterations.
+---
 
-    Args:
-        axiom (str): The initial string to start the generation process.
-        rules (dict[str, str]): A dictionary where keys are characters in the axiom and values are the replacement strings.
-        iterations (int): The number of iterations to apply the rules.
-
-    Returns:
-        str: The generated rule string after applying the rules for the specified number of iterations.
-    """
-    derived = [axiom]  # this is the first seed
-    for _ in range(iterations):  # now loop for each iteration
-        next_sequence = derived[-1]  # grab the last rule
-        next_axiom = [
-            rule(char, rules) for char in next_sequence
-        ]  # for each element in the rule expand
-        derived.append(
-            "".join(next_axiom)
-        )  # append to the list, we will only need the last element
-    return derived
+<img style="border: 0;" src="images/3d_pipeline.png" width="70%">
 
 
-def rule(sequence: str, rules: dict[str, str]) -> str:
-    """
-    Applies the given rules to the sequence.
+---
 
-    Args:
-        sequence (str): The initial string to which the rules will be applied.
-        rules (dict[str, str]): A dictionary where keys are characters in the sequence and values are the replacement strings.
+## Real-time graphics pipeline
 
-    Returns:
-        str: The resulting string after applying the rules to the sequence.
-    """
-    if sequence in rules:
-        return rules[sequence]
-    return sequence
+<img style="border: 0;" src="images/graphics_pipeline.png" width="70%">
 
+--
 
-def draw_lsystem(screen, position: tuple, orientation: float, commands: str, length: float, angle: float) -> None:
-    """
-    Draws an L-system based on the given commands.
+### Real-time graphics pipeline: explanation
 
-    Args:
-        turtle (Turtle): The turtle object used to draw the L-system.
-        commands (str): The string of commands to control the turtle.
-        length (float): The length of each step the turtle takes.
-        angle (float): The angle by which the turtle turns.
+- **Application**: prepare your models, textures, lights, effects etc before the rendering stage
+- **Geometry**: collect all the geometry to be rendered: meshes, sprites, volumetrics etc
+- **Rasterisation**: converting geometry to pixels, takes place at the rendering engine and / or the graphics card
+- Basically, we generate a lot of images in a second 
 
-    Returns:
-        None
-    """
-    stack = []
-    for command in commands:
-        if command in ["F", "G", "R", "L", "A"]:  # forward rules for some l system grammars
-            directionX = math.cos(orientation)*length
-            directionY = math.sin(orientation)*length
-            newPosition = (position[0]+directionX, position[1]+directionY)
-            pygame.draw.line(screen, (255, 255, 255), position, newPosition, 1)
-            position = newPosition
-        elif command in ["f", "B"]:
-            directionX = math.cos(orientation)*length
-            directionY = math.sin(orientation)*length
-            newPosition = (position[0]+directionX, position[1]+directionY)
-            position = newPosition
-        elif command == "+":
-            orientation += angle
-        elif command == "-":
-            orientation -= angle
-        elif command == "[":
-            stack.append((position, orientation))  # save turtle values
-        elif command == "]":
-            position, orientation = stack.pop()
+---
 
+### Interactive applications with Pygame
 
-# F -> Forward
-# X -> A place holder for movements
-# [ push position and direction onto stack
-# ] pop position and direction back to turtle
-# + Turn Left
-# - Turn Right
+- What is Pygame?
+  - **Pygame** is a popular Python library used to create games and interactive applications.
+  - Provides tools for handling graphics, sounds, and user inputs.
+- Why use Pygame?
+  - Ideal for beginners learning game development and interactive programming concepts.
+  - Great for interactive graphics
+
+--
+
+## Pygame: a quick start
+
+- *import pygame*
+- Ensure pygame is initialised with *pygame.init()*.
+- Some commands are similar to PIL, but check the syntax in examples later this session!
+
+---
+
+## The Pygame game loop
+
+- Game loop is a continuous loop that: 
+  - Processed user input
+  - Updates game state
+  - Draws graphics on the screen
+- User input is handled by **events**
+
+--
+
+## The Pygame game loop example
+
+[1_basic_pygame.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/1_basic_pygame.py)
+
+```python
+import pygame   #we will need core pygame functionality
+import pygame.draw #this module will be needed for drawing on the screen
 
 pygame.init()   #this is an essential line to make pygame working
 
@@ -495,68 +93,463 @@ running = True  #the variable to ensure the game loop
 white = (255,255,255)
 black = (0,0,0)
 
-max_iterations = 8
-iterations = 1 
-
-axiom = "X"  # start
-rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  # fern
-
 #the game loop
 while running:
     screen.fill(black) #clear the window by filling the space with the background colour
     #draw two lines
-    length = 8/iterations  
-    angle = math.radians(25)  # change this to make different shapes
-    g = generate_rule_string(axiom, rules, iterations)
-    draw_lsystem(screen, (320, 470), math.radians(-90), g[-1], length, angle)
-    if iterations < max_iterations:
-        iterations += 1 
+    pygame.draw.line(screen, white, (0,0), (20,20), 10) 
+    pygame.draw.line(screen, white, (20,0), (0,20), 10)
+    
     #event management
     for event in pygame.event.get(): #if we received an event
         if event.type == pygame.QUIT: #if the event is "quit game"
             running = False         #then we set the variable allowing for the loop to stop
     pygame.display.flip()       #render
-    clock.tick(1)              #wait until we run with 30 frames per second or less
+    clock.tick(30)              #wait until we run with 30 frames per second or less
 #end of the program
 
 ```
 
+--
+
+### The Pygame game loop example: explanation
+
+- To work properly, pygame needs to be initialised: *pygame.init()*
+- The game loop is implemented using *while* loop with variable that can only be changed when we receive an appropriate event
+
 ---
 
-### Best practices for procedural game content generation
+## User input
 
-- Keep code modular for easier tweaks and testing
-- Test generated content to ensure playability
-- Experiment with different algorithms
-  - The same task can be solved with a different algorithm!
+- By now we draw images procedurally, but they could not be changed after they were generated
+- Now let we create the program that can change the image while running
+- User will provide an input for the program
 
 --
 
-## Next steps in PCG
+## Handling user input
 
-- Explore more algorithms
-  - http://pcg.wikidot.com/start
-- Combine algorithms
+- Use *pygame.event.get()* to handle events like key presses and mouse movements.
+- Common events:
+  - **QUIT**: Closing the application
+  - **KEYDOWN**: Key pressed
+  - **MOUSEBUTTONDOWN**: Mouse button pressed
+
+--
+
+### Event handling in the game loop
+
+- *pygame.event.get()* should be run inside the game loop if we want the pygame program processing events
+
+```python
+for event in pygame.event.get():
+ # then check what event.type is 
+```
+
+- Some events can be handled separately, but *pygame.event.get()* should be called nevertheless
+
+---
+
+## Handling keyboard
+
+- Easier way to handle keyboard is to use *pygame.key.get_pressed()* after *pygame.event.get()* is called
+  - The function returns a list of keys and their states (pressed / not pressed)
+  - The key for "a" is pygame.K_a, the key for '0' is pygame.K_0, for arrow up is pygame.K_UP
+
+--
+
+## Handling keyboard: example
+
+[2_keyboard.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/2_keyboard.py)
+
+```python
+import pygame   #we will need core pygame functionality
+import pygame.draw #this module will be needed for drawing on the screen
+
+pygame.init()   #this is an essential line to make pygame working
+
+width = 640     #width of the game window
+height = 480    #height of the game window
+screen = pygame.display.set_mode((width, height)) #create the game window
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+running = True  #the variable to ensure the game loop
+white = (255,255,255)
+black = (0,0,0)
+
+posX = 0
+posY = 0
+
+#the game loop
+while running:
+    screen.fill(black) #clear the window by filling the space with the background colour
+    #draw two lines
+    pygame.draw.line(screen, white, (posX,posY), (posX+20,posY+20), 10) 
+    pygame.draw.line(screen, white, (posX+20,posY+0), (posX+0,posY+20), 10)
+
+    key = pygame.key.get_pressed()
+    if key[pygame.K_UP]:
+        posY = posY - 1
+    if key[pygame.K_DOWN]:
+        posY = posY + 1
+    if key[pygame.K_RIGHT]:
+        posX = posX + 1
+    if key[pygame.K_LEFT]:
+        posX = posX - 1
+    #event management
+    for event in pygame.event.get(): #if we received an event
+        if event.type == pygame.QUIT: #if the event is "quit game"
+            running = False         #then we set the variable allowing for the loop to stop
+    pygame.display.flip()       #render
+    clock.tick(30)              #wait until we run with 30 frames per second or less
+```
+
+--
+
+## Handling keyboard: tips
+
+- pygame.key.get_pressed() is updated every game loop. 
+  - If we want to check if the key was pressed and released, is it better to check for *pygame.KEYUP* event
+  - This should happen inside handling of *pygame.event.get()*
+- clock.tick(t) allows refreshing the screen and update the keyboard with *t* frames per second
+
+---
+
+## Handling mouse
+
+- Position of the mouse can be queried with *pygame.mouse.get_pos()*
+- Similar to keyboard, you can handle mouse buttons with *pygame.mouse.get_pressed()*
+
+[2_mouse.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/2_mouse.py)
+
+```python
+import pygame   #we will need core pygame functionality
+import pygame.draw #this module will be needed for drawing on the screen
+
+pygame.init()   #this is an essential line to make pygame working
+
+width = 640     #width of the game window
+height = 480    #height of the game window
+screen = pygame.display.set_mode((width, height)) #create the game window
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+running = True  #the variable to ensure the game loop
+white = (255,255,255)
+red = (255,0,0)
+black = (0,0,0)
+
+posX = 0
+posY = 0
+
+#the game loop
+while running:
+    screen.fill(black) #clear the window by filling the space with the background colour
+    #the colour of the cross object is white by default
+    current_colour = white
+    #set position of the cross to be the position of the mouse cursor
+    mouse_pos = pygame.mouse.get_pos()
+    posX = mouse_pos[0]
+    posY = mouse_pos[1]
+
+    #if left mouse button is pressed, change the drawing colour to red
+    key = pygame.mouse.get_pressed()
+    if key[0]:
+        current_colour = red
+
+    #draw the cross in the current position with the current colour
+    pygame.draw.line(screen, current_colour, (posX,posY), (posX+20,posY+20), 10) 
+    pygame.draw.line(screen, current_colour, (posX+20,posY+0), (posX+0,posY+20), 10)
+
+    #event management
+    for event in pygame.event.get(): #if we received an event
+        if event.type == pygame.QUIT: #if the event is "quit game"
+            running = False         #then we set the variable allowing for the loop to stop
+    pygame.display.flip()       #render
+    clock.tick(30)              #wait until we run with 30 frames per second or less
+```
+
+--
+
+###Handling mouse and keyboard: troubleshooting
+
+- Make sure your code has *pygame.event.get()* within your main game loop
+  - The *get_pressed* function does not generate events itself!
+- For the mouse, the button index might differ depending on your mouse configuration
+- Use *print(pygame.mouse.get_pressed())* inside your loop to see the current button states
+
+
+---
+
+### Drawing shapes and objects with Pygame
+
+- Common Drawing Functions:
+  - **pygame.draw.polygon()**: Draws a polygon
+  - **pygame.draw.circle()**: Draws a circle
+  - **pygame.draw.line()**: Draws a line
+- The first parameter is normally the game window, the second if the colour
+
+--
+
+### Shapes with Pygame: example
+
+[3_shapes.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/3_shapes.py)
+
+```python
+import pygame   #we will need core pygame functionality
+import pygame.draw #this module will be needed for drawing on the screen
+
+pygame.init()   #this is an essential line to make pygame working
+
+width = 640     #width of the game window
+height = 480    #height of the game window
+screen = pygame.display.set_mode((width, height)) #create the game window
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+running = True  #the variable to ensure the game loop
+white = (255,255,255)
+black = (0,0,0)
+
+#the game loop
+while running:
+    screen.fill(black) #clear the window by filling the space with the background colour
+    #draw two lines
+
+    key = pygame.key.get_pressed()
+    
+    if key[pygame.K_c]:
+        pygame.draw.circle(screen, (255, 0, 0), (320, 240), 50)  # Draws a red circle
+    elif key[pygame.K_p]:
+        pygame.draw.polygon(screen, white, ((300,220), (340,220), (320, 260)))
+    else:
+        pygame.draw.line(screen, white, (300,220), (340,260), 5) 
+        pygame.draw.line(screen, white, (340,220), (300,260), 5) 
+    
+    #event management
+    for event in pygame.event.get(): #if we received an event
+        if event.type == pygame.QUIT: #if the event is "quit game"
+            running = False         #then we set the variable allowing for the loop to stop
+    pygame.display.flip()       #render
+    clock.tick(30)              #wait until we run with 30 frames per second or less
+#end of the program   
+```
+
+---
+
+### User input + shapes = graphic editor
+
+[4_editor.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/4_editor.py)
+
+```python
+import pygame   #we will need core pygame functionality
+import pygame.draw #this module will be needed for drawing on the screen
+
+def draw_shape(screen, x, y, colour):
+    pygame.draw.line(screen, colour, (x,y), (x+20,y+20), 10) 
+    pygame.draw.line(screen, colour, (x+20,y+0), (x+0,y+20), 10)
+
+pygame.init()   #this is an essential line to make pygame working
+
+width = 640     #width of the game window
+height = 480    #height of the game window
+screen = pygame.display.set_mode((width, height)) #create the game window
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+running = True  #the variable to ensure the game loop
+white = (255,255,255)
+red = (255,0,0)
+black = (0,0,0)
+
+posX = 0
+posY = 0
+
+cursorList = []
+
+#the game loop
+while running:
+    screen.fill(black) #clear the window by filling the space with the background colour
+    
+    for item in cursorList:
+        draw_shape(screen, item[0], item[1], white)
+
+    #set position of the cross to be the position of the mouse cursor
+    mouse_pos = pygame.mouse.get_pos()
+    posX = mouse_pos[0]
+    posY = mouse_pos[1]
+
+    #if left mouse button is pressed, change the drawing colour to red
+    key = pygame.mouse.get_pressed()
+    if key[0]:
+        cursorList.append((posX, posY))
+        draw_shape(screen, posX, posY, red)
+    else:
+        draw_shape(screen, posX, posY, white)
+
+    #event management
+    for event in pygame.event.get(): #if we received an event
+        if event.type == pygame.QUIT: #if the event is "quit game"
+            running = False         #then we set the variable allowing for the loop to stop
+    pygame.display.flip()       #render
+    clock.tick(30)              #wait until we run with 30 frames per second or less
+#end of the program  
+```
+
+---
+
+## Sprites
+
+- A sprite is a 2D image that represents an object or part of the larger object
+- The term comes from early 2D video games
+- Most of modern 2D games use sprites
+  - You can download free to use sprite packs from websites like https://opengameart.org
+
+--
+
+## Working with sprites in Pygame
+
+- Use *pygame.image.load()* to load sprites 
+- Use *screen.blit()* to render them on the screen.
+
+[5_sprites.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/5_sprites.py)
+
+```python
+import pygame   #we will need core pygame functionality
+import pygame.draw #this module will be needed for drawing on the screen
+
+sprites = ["lollipopFruitGreen", "lollipopFruitRed", "lollipopFruitYellow", "lollipopGreen", "lollipopRed", "lollipopWhiteGreen", "lollipopWhiteRed"]
+
+pygame.init()   #this is an essential line to make pygame working
+
+width = 640     #width of the game window
+height = 480    #height of the game window
+screen = pygame.display.set_mode((width, height)) #create the game window
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+running = True  #the variable to ensure the game loop
+black = (0,0,0)
+
+sprite_images = []
+for spriteName in sprites:
+    filename = "candy/"+spriteName+".png"
+    loadedImage = pygame.image.load(filename)
+    sprite_images.append(loadedImage)
+
+#the game loop
+while running:
+    screen.fill(black) #clear the window by filling the space with the background colour
+    
+    x = 0
+    y = 0
+    for spriteImage in sprite_images:
+        screen.blit(spriteImage, (x, y))
+        x = x+80
+        y = y+50
+
+    #event management
+    for event in pygame.event.get(): #if we received an event
+        if event.type == pygame.QUIT: #if the event is "quit game"
+            running = False         #then we set the variable allowing for the loop to stop
+    pygame.display.flip()       #render
+    clock.tick(30)              #wait until we run with 30 frames per second or less
+#end of the program    
+```
+
+---
+
+### Time to play: level editor
+
+[6_leveldesign.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/5_leveldesign.py)
+
+```python
+#!/usr/bin/python3
+import pygame   #we will need core pygame functionality
+import pygame.draw #this module will be needed for drawing on the screen
+import os #note previous lecture: this will be needed to get all the files in a directory
+import math #using floor function from this library
+
+def justifyPosition(x, y) -> tuple:
+    # this function rounds the value to a multiple of 70 (the size of the sprite)
+    # it divides by 70, finds closest smallest integer and multiplies back
+    xCell = math.floor(x / 70)
+    yCell = math.floor(y / 70)
+    return (xCell*70, yCell*70)
+    
+
+pygame.init()   #this is an essential line to make pygame working
+
+width = 700     #width of the game window, multiple of 70 because of the sprite size
+height = 490    #height of the game window, multiple of 70 because of hte sprite size
+screen = pygame.display.set_mode((width, height)) #create the game window
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+running = True  #the variable to ensure the game loop
+black = (0,0,0)
+white = (255,255,255)
+
+ #loading all the sprites from directory candy
+file_list = os.listdir("candy/")
+sprites = []
+for filename in file_list:
+    try:
+        loadedImage = pygame.image.load("candy/"+filename)
+        sprites.append(loadedImage)
+    except FileNotFoundError:
+        print("Sprite "+filename+" is not loaded")
+    
+currentSprite = -1
+sprite_count = len(sprites)
+
+ #this list will be used for sprites we keep on the screen
+levelSprites = []
+
+#the game loop
+while running:
+    screen.fill(black) #clear the window by filling the space with the background colour
+    
+    for item in levelSprites:
+        spriteImage = sprites[item[2]]
+        screen.blit(spriteImage, (item[0], item[1]))
+    
+    mouse_pos = pygame.mouse.get_pos()
+    posX = mouse_pos[0]
+    posY = mouse_pos[1]
+    posScreen = justifyPosition(posX, posY)
+    posX = posScreen[0]
+    posY = posScreen[1]
+    
+    if currentSprite >= 0:
+        spriteImage = sprites[currentSprite]
+        screen.blit(spriteImage, posScreen)
+    else:
+        pygame.draw.line(screen, white, (posX,posY), (posX+70,posY+70), 10) 
+        pygame.draw.line(screen, white, (posX+70,posY), (posX,posY+70), 10)
+    
+    #event management
+    for event in pygame.event.get(): #if we received an event
+        if event.type == pygame.QUIT: #if the event is "quit game"
+            running = False         #then we set the variable allowing for the loop to stop
+        if event.type == pygame.KEYUP: #we use event handling not key_pressed, because we need to check when the key is pressed AND released
+            if event.key == pygame.K_RIGHT and currentSprite < (sprite_count-1):
+                currentSprite = currentSprite + 1
+            if event.key == pygame.K_LEFT and currentSprite > 0:
+                currentSprite = currentSprite - 1
+            if event.key == pygame.K_SPACE and currentSprite >= 0:
+                levelSprites.append((posX, posY, currentSprite))
+                
+    pygame.display.flip()       #render
+    clock.tick(30)              #wait until we run with 30 frames per second or less
+#end of the program  
+```
 
 ---
 
 # Conclusion
 
 - **What have you learned today**
-  - Dictionary data type
-  - Various algorithms for procedural game content generation
+  - How to create interactive programs with Pygame
+  - How to read user's mind with a keyboard and a mouse
 - **Homework**
-  - Can use L-systems for generating something grid-based?
-  - In generak, the material from previous and this lessons is enough to kick-off with the coursework. 
+  - Think how you can save your level design. Refer to the previous lecture about loading and saving files if you need a starting point. 
 
 --
 
 # Next time
 
 - **What will you learn next time**
-  - Structuring the code with classes
-  - More about vectors
-  - Project management
+  - Procedural content generation for games 
 
 --
 
