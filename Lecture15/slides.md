@@ -555,7 +555,6 @@ while running:
 
 - **What will you learn next time**
   - Structuring the code with classes
-  - More about vectors
   - Project management
 
 --

@@ -33,27 +33,26 @@ The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides
 ## Week 6
 
 - [Image Manipulation](https://ncca.github.io/PCCSlides/Lecture11)
-- [Files and Meshes](https://ncca.github.io/PCCSlides/Lecture12)
 
 ## Week 7
 
+- [Files and Meshes](https://ncca.github.io/PCCSlides/Lecture12)
 - [Vectors and Normals](https://ncca.github.io/PCCSlides/Lecture13)
-- [Going interactive](https://ncca.github.io/PCCSlides/Lecture14)
 
 ## Week 8
 
+- [Going interactive](https://ncca.github.io/PCCSlides/Lecture14)
 - [Procedural game content creation](https://ncca.github.io/PCCSlides/Lecture15)
-- [Back to Linux: project management](https://ncca.github.io/PCCSlides/Lecture16)
 
 ## Week 9
 
-- [Transforming objects with matrices](https://ncca.github.io/PCCSlides/Lecture17)
-- [More image Manipulation](https://ncca.github.io/PCCSlides/Lecture18)
+- [Project management](https://ncca.github.io/PCCSlides/Lecture16)
+- [Python in Maya 1](https://ncca.github.io/PCCSlides/Lecture17)
 
 ## Week 10
 
-- [Python in Maya 1](https://ncca.github.io/PCCSlides/Lecture19)
-- [Python in Maya 2](https://ncca.github.io/PCCSlides/Lecture20)
+- [Python in Maya 2](https://ncca.github.io/PCCSlides/Lecture18)
+- [Preparing your submission](https://ncca.github.io/PCCSlides/Lecture19)
 
 ## Week 11
 
