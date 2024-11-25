@@ -7,7 +7,7 @@ class BouncingBall:
     minX = 0
     minY = 0
     maxX = 1000
-    maxY = 1000;
+    maxY = 1000
     def __init__(self, radius, position, velocity):
         self.radius = radius
         self.position = position

@@ -405,6 +405,7 @@ from bouncingball import BouncingBall as BouncingBall
 ```css
 my_project/
 ├── my_package/
+|   |── __init__.py # Initialize package
 │   ├── module1.py
 │   └── module2.py
 ├── main.py
@@ -436,6 +437,20 @@ my_project/
   - *git commit -m "message"* : Commit changes  
   - *git push* : Push changes to remote repository  
   - *git pull* : Pull latest changes from remote repository 
+  - *git status* : show the status of our repo
+
+--
+
+## Setting up some defaults
+
+```
+git config --global user.name "put your name here"
+git config --global user.email "put your email here"
+git config --global pull.rebase false
+git config --global init.defaultbranch main
+
+git config --list
+```
 
 --
 
@@ -444,7 +459,7 @@ my_project/
 - Platforms like GitHub or GitLab facilitate collaboration.
 - Collaboration Tips:
   - Commit often with clear messages.
-  - egularly pull the latest changes to avoid conflicts.
+  - regularly pull the latest changes to avoid conflicts.
 
 ---
 
