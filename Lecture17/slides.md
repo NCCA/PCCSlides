@@ -1,4 +1,4 @@
-## Lesson 17: Python in Autodesk Maya
+### Lesson 17: Python in  Maya
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
@@ -17,292 +17,140 @@
 
 ---
 
-## Recap: Procedural content
+### Maya as a scripting Engine
 
-- A procedure is the instruction or set of instructions to be executed
-- Content can be anything we are presenting to the user
+- at it's simplest maya is a scripting engine that can run MEL language scripts.
+- When maya starts up it executes multiple scripts located in the directory 
+
+``` $MAYA_LOCATION/scripts/startup/ ```
+
+- This makes it possible to fully customize the look and feel of maya.
 
 --
 
-## Recap: libararies
+## MEL (Maya Embedded Language)
 
+>As a language, MEL is descended from UNIX shell scripting. This means MEL is strongly based on executing commands to accomplish things (like executing commands in a UNIX shell), rather than manipulating data structures, calling functions, or using object oriented methods as in other languages.
+
+--
+
+# [MEL](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Scripting/files/GUID-60178D44-9990-45B4-8B43-9429D54DF70E-htm.html)
+
+- Maya’s user interface is created primarily using MEL, and MEL provides an easy way to extend the functionality of Maya. 
+- Everything you can do using Maya’s graphical interface can be automated and extended using MEL. 
+- Familiarity with MEL can deepen your understanding of and expertise with Maya.
+- it’s easy to perform a task in the graphical interface, then drag the resulting commands from the Script Editor to the shelf to create a button. 
+
+--
+
+# Do I need MEL?
+
+- Mel is still the low level core of maya, as a power user (TD) it can be useful to know how to write mel scripts.
+- However, for most users it is better to use Python as it is a more modern language and is more widely used in the industry.
+- maya.cmds is a python module that wraps the mel commands so you can use them in python.
+  - because of this the way we interact with maya is very similar in both languages.
 
 ---
 
-## Why Python in Maya?
 
-- Automate repetitive tasks
-- Create custom tools for artists
-- Implement procedural content generation:
-  - Speeds up asset creation
-  - Allows for flexibility and scalability
-  - Enables iterative design
+## The script editor
+
+![](images/mel1.png)
+
+- The script editor can be launched by pressing the icon at the bottom right of the screen.
+- simple mel commands can also be executed in the mel dialog to the left.
 
 --
 
-### Maya's Scripting Capabilities
+## The script editor
 
-- Python Integration in Maya:
-  - A Python API for scripting
-  - Compatible with MEL (Maya Embedded Language)
-- Access Python in Maya
-  - Script Editor: Write and execute Python commands
-  - Python Plug-ins: Extend Maya’s functionality
+![](images/mel2.png)
+
+--
+
+## The script editor
+
+- The script editor has two tabs at the bottom, these allow us to switch between mel and python.
+- We can also load in files to edit and run.
+- Feedback is provided in the output window above the script editor.
 
 ---
 
-### Setting up Python in Maya
+## a simple commands
 
-- Script Editor allows write, execute, and save Python scripts
-- Access via Windows > General Editors > Script Editor
-- Import Maya Modules:
+- **Create a sphere:**
+
 ```python
-import maya.cmds as cmds
+cmds.polySphere()
+```
+
+- This will create a simple polysphere at the origin there are some things to note
+  - it has a default name of pSphere1
+  - it is selected by default
+  - The command returns the name of the object created.
+
+```
+# Result: ['pSphere1', 'polySphere1']
+```
+
+
+--
+
+### Create, edit, and query modes
+
+- many of the commands have different modes outlined in the documentation.
+
+![](images/mel3.png)
+
+- by default the command is in create mode, but we can also query and edit the object.
+
+--
+
+## Query mode
+
+- Query the radius of the sphere:
+
+```python
+radius=cmds.polySphere(q=True, r=True)
+print(radius)
+```
+
+- What happens if the object is not selected?
+- Always best to name the object we want to query.
+
+```
+radius=cmds.polySphere('pSphere1', q=True, r=True)
+print(radius)
 ```
 
 --
 
-## Core Python Modules in Maya
+## Edit mode
 
-- **maya.cmds**:
-  - Main module for interacting with Maya's commands.
-  - Examples: Creating objects, setting attributes, querying data.
-- **maya.OpenMaya**:
-  - Advanced API for lower-level interactions.
-  - Old API
-- **maya.api.OpenMaya**
-  - Advanced API, version 2.0
+- Edit the radius of the sphere:
 
---
-
-## maya.cmds
-
-- Every action in Maya is a command
-- You can run this command using the script
 ```python
-import maya.cmds as cmds
-cmds.ls()
-cmds.sphere( radius=4 )
+cmds.polySphere('pSphere1', e=True, r=2)
 ```
 
---
-
-## maya.cmds: an explanation
-
-- **import maya.cmds as cmds** imports **cmds** module from **maya** library
-  - it will be referred to as just **cmds*
-- command **ls** returns the names of objects in the scene
-  - we are using it as a cheap way to deselect objects
-- what the command **cmds.sphere( radius=4 )** do?
-
----
-
-## Creating objects
-
-```python
-import maya.cmds as cmds
-cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
-```
+- In this case we are naming the object and editing the radius, however if selected this would affect the selected object.
 
 --
 
-## Transforming Objects
+## edit and query mode
 
-- the commands **move**, **rotate** and **scale** transform object by performing one command
-
-```python
-import maya.cmds as cmds
-cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
-cmds.move(5, 0, 0, "MyCube")
-cmds.rotate(45, 0, 0, "MyCube")
-cmds.scale(2, 2, 2, "MyCube")
-position = cmds.getAttr("MyCube.translate")
-```
-
---
-## Transforming Objects
-
-- More control can be achieved with **xform**
+- we can only edit / query one attribute at a time
+- if we need to change more than one object we need to do them individually.
 
 ```python
-import maya.cmds as cmds
-cubeObject = cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
-cmds.xform(cubeObject, t=[5,0,0],r=True, os=True) #translate by (5,0,0), relative transformation in object space
-cmds.xform(cubeObject, ro=[45,0,0],r=True, os=True) #rotate by 45 degrees around x, relative transformation in object space
-cmds.xform(cubeObject, s=[2, 2, 2], r=True) #uniform scale by 2, relative transformation
-```
-
----
-
-## Procedural content in Maya
-
-- Procedural Content created algorithmically instead of manually.
-- Applications in Maya:
-  - Automatic creation of assets (e.g., buildings, trees).
-  - Randomised or rule-based placement.
-  - Pattern and structure generation.
-  
---
-
-## Creating procedural geometry
-
-```python
-import maya.cmds as cmds
-for i in range(10):
-    cmds.torus(name=f"Donut_{i}")
-    cmds.move(i * 2, 0, 0, f"Donut_{i}")
-```
-
---
-
-## Using Randomness for Variation
-
-- Use Python’s **random** module to introduce variation.
-
-```python
-import maya.cmds as cmds
-import random
-for i in range(10):
-    x = random.uniform(-10, 10)
-    y = random.uniform(-10, 10)
-    cmds.polySphere(name=f"Sphere_{i}")
-    cmds.move(x, y, 0, f"Sphere_{i}")
-```
-
---
-
-## Generating Patterns and Grids
-
-- Procedural Grid Example:
-
-```python
-import maya.cmds as cmds
-import random
-for x in range(5):
-    for y in range(5):
-        cmds.polyCube(name=f"Cube_{x}_{y}")
-        cmds.move(x * 2, y * 2, 0)
-```
-
-- Use case: creating city layouts, modular patterns, or grids of objects.
-
---
-
-## Rule-Based Procedural Systems
-
-- Defining Rules control how objects are placed or transformed.
-
-```python
-import maya.cmds as cmds
-for i in range(10):
-    cmds.polyCube(name=f"Step_{i}")
-    cmds.move(i, i, 0, f"Step_{i}")
+cmds.polySphere('pSphere1', e=True, r=2)
+cmds.polySphere('pSphere1', e=True, sx=10)
+cmds.polySphere('pSphere1', e=True, sy=10)
 ```
 
 ---
 
-### Example: creating a Solar System
-```python
-import maya.cmds as cmds
 
-def createSatelite(star, numOfMoons, distance, scaleFactor):
-	incr = 360.0/numOfMoons
-	newStars = []
-	for i in range(numOfMoons):
-		satellite = cmds.duplicate(star)
-		newStars.append(satellite)
-		cmds.xform(satellite, ro=[0,i*incr,0],r=True, os=True)
-		cmds.xform(satellite, s=[scaleFactor, scaleFactor, scaleFactor], r=True)
-		cmds.xform(satellite, t=[distance,0,0],r=True, os=True)
-	for i in range(numOfMoons):
-		cmds.parent(newStars[i],star)
 
-cmds.select(all=True)
-cmds.delete()
-Sun = cmds.sphere(name='sun')
-createSatelite(Sun[0], 12, 20, 0.2)
-```
 
----
-
-## Procedural Textures and Shading
-
-```python
-import maya.cmds as cmds
-for i in range(10):
-    material = cmds.shadingNode("lambert", asShader=True, name=f"Shader_{i}")
-    cmds.setAttr(f"{material}.color", random.random(), random.random(), random.random(), type="double3")
-    cmds.polySphere(name=f"Sphere_{i}")
-    cmds.select(f"Sphere_{i}")
-    cmds.hyperShade(assign=material)
-```
-
----
-
-## Procedural terrain generation
-
-- Create a grid and adjust heights based on noise.
-- Adjust the colour based on the height
-
---
-
-### Procedural terrain generation: the Python code
-```python
-import maya.cmds as cmds
-import random
-import math
- # the idea is described here: https://www.redblobgames.com/maps/terrain-from-noise/
-
-def noiseMap(width, height, scale):
-    noise = [[r for r in range(width)] for i in range(height)]
-
-    for i in range(0,height):
-        for j in range(0,width):
-            noise[i][j] = scale * random.random() # (0,1]
-    return noise
-
-def Elevation(terrain, width, height, sharpness):
-	noiseMap3 = noiseMap(width/4, height/4, 1.4)
-	noiseMap2 = noiseMap(width/2, height/2, 1.2)
-	noiseMap1 = noiseMap(width, height, 1.0)
-	for y in range(height):
-		for x in range(width):
-			pointy = noiseMap3[x/4][y/4] + 0.4* noiseMap2[x/2][y/2] + 0.2* noiseMap1[x][y]
-			pointy = math.pow(pointy, sharpness)
-			cmds.xform(terrain + ".vtx["+ str(y*width+x) +"]", r=True, t=[0, pointy, 0])
-    
-cmds.select(all=True)
-cmds.delete()
-height=32
-width=32
-smoothness = 2
-sharpness = 6.0
-terrain=cmds.polyPlane(n="plane1",h=100, w=100, sx=(width-1), sy=(height-1))
-Elevation(terrain[0], width, height, sharpness)    
-cmds.polyAverageVertex(iterations = smoothness)
-cmds.select(terrain)
-cmds.polySmooth()
-```
-
----
-
-# Conclusion
-
-- **What have you learned today**
-  - How to create objects in Maya using Python
-- **Homework**
-  - Can you extend the code to add colours to the terrain? 
-
---
-
-# Next time
-
-- **What will you learn next time**
-  - How to animate objects in Maya
-  - How to add UI using Maya scripts
-
---
-
-# Q&A and discussion
-- **Open Floor for Questions**
 
