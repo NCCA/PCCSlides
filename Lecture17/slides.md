@@ -151,6 +151,162 @@ cmds.polySphere('pSphere1', e=True, sy=10)
 ---
 
 
+## Maya Python cookbook
+
+- most of the following examples will show you simple code recipes to do certain tasks in maya.
+
+- This helps to combine things together into bigger scripts. Lets start with a simple example.
 
 
+```python
+cmds.file(new=True, f=True)
+```
+- this will not ask to save the current scene and can be useful when starting a new script.
+
+
+--
+
+## Python in Maya
+
+- all of the python structures we have used so far will work in maya.
+- All the data types (int, float, string, list, tuple, dictionary) are available.
+- We can use loops, conditionals, functions, classes, and modules.
+
+--
+
+## A function to scatter spheres
+
+- Lets write a simple function that will scatter spheres in the scene.
+
+```python
+import random
+
+def scatter_spheres(num,x_range=10,y_range=10,z_range=10,radius=0.5):
+    for _ in range(num):
+        x=random.uniform(-x_range,x_range)
+        y=random.uniform(-y_range,y_range)
+        z=random.uniform(-z_range,z_range)
+        cmds.polySphere(r=radius)
+        cmds.move(x,y,z)
+
+scatter_spheres(200,10,0,10,1.0)
+
+```
+
+--
+
+## A note on numbering
+
+- maya will check names when you create things.
+- In the previous example if we run the ```scatter_spheres``` command again it will re-number the spheres from where it left off.
+- always best to name objects if you want to query them later.
+
+
+---
+
+ Transforming Objects
+
+- the commands **move**, **rotate** and **scale** transform object by performing one command
+
+```python
+import maya.cmds as cmds
+cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
+cmds.move(5, 0, 0, "MyCube")
+cmds.rotate(45, 0, 0, "MyCube")
+cmds.scale(2, 2, 2, "MyCube")
+position = cmds.getAttr("MyCube.translate")
+```
+
+--
+
+## Transforming Objects
+
+- More control can be achieved with **xform**
+
+```python
+import maya.cmds as cmds
+cubeObject = cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
+cmds.xform(cubeObject, t=[5,0,0],r=True, os=True) #translate by (5,0,0), relative transformation in object space
+cmds.xform(cubeObject, ro=[45,0,0],r=True, os=True) #rotate by 45 degrees around x, relative transformation in object space
+cmds.xform(cubeObject, s=[2, 2, 2], r=True) #uniform scale by 2, relative transformation
+```
+
+---
+
+## Selection and Querying
+
+- We can select all object in the scene using the  select
+
+```python
+cmds.select(all=True)
+cmds.delete()
+```
+
+If we want more control we need to use the ls command.
+
+
+--
+
+## Selection and Querying
+
+- ls works a little like the linux command, but we can choose what we want to select.
+
+```python
+objects=cmds.ls()
+for obj in objects:
+    print(obj)
+```
+
+- we can also use wildcards to select objects.
+
+```python
+objects=cmds.ls('pSphere*')
+for obj in objects:
+    print(obj)
+```
+
+--
+
+## Selection and Querying
+
+- we can also query the selection
+
+```python
+selected=cmds.ls(sl=True)
+for obj in selected:
+    print(obj)
+```
+
+--
+
+## Selection and Querying
+
+- we can also query the type of object
+
+```python
+# Get all mesh objects in the scene
+meshes = cmds.ls(type='mesh')
+
+# Iterate through each mesh and delete its parent transform node
+for mesh in meshes:
+    parent = cmds.listRelatives(mesh, parent=True)
+    if parent:
+        cmds.delete(parent)
+```
+
+--
+
+## type flag
+
+- the type flag can be used to query objects of a certain type. 
+- we can see all the types by running the following command.
+
+```python
+cmds.ls(nt=True)
+```
+
+- as you can see there are many types of objects in maya.
+
+
+---
 
