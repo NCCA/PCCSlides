@@ -204,7 +204,7 @@ scatter_spheres(200,10,0,10,1.0)
 
 ---
 
- Transforming Objects
+## Transforming Objects
 
 - the commands **move**, **rotate** and **scale** transform object by performing one command
 
@@ -231,6 +231,28 @@ cmds.xform(cubeObject, ro=[45,0,0],r=True, os=True) #rotate by 45 degrees around
 cmds.xform(cubeObject, s=[2, 2, 2], r=True) #uniform scale by 2, relative transformation
 ```
 
+--
+
+## Setting Attributes
+
+```python
+# lets delete all objects
+cmds.select(all=True)
+cmds.delete()
+#lets create a nurb's cube
+cmds.nurbsCube(w=3, name='Cube1')
+cmds.getAttr('Cube1.tx')
+cmds.getAttr('Cube1.ty')
+cmds.getAttr('Cube1.tz')
+
+# let's make sure 'Cube1' is selected
+cmds.select('Cube1', replace=True)
+#let's change its translation attributes
+cmds.setAttr('Cube1.tx', 1)
+cmds.setAttr('Cube1.ty', 2)
+cmds.setAttr('Cube1.tz', 3)
+```
+
 ---
 
 ## Selection and Querying
@@ -242,7 +264,7 @@ cmds.select(all=True)
 cmds.delete()
 ```
 
-If we want more control we need to use the ls command.
+- If we want more control we need to use the ls command.
 
 
 --
@@ -307,6 +329,216 @@ cmds.ls(nt=True)
 
 - as you can see there are many types of objects in maya.
 
+---
+
+
+## maya.OpenMaya
+
+- This is a Python wrapper for the Maya C++ API, and referred to as Python API 1.0. 
+- It is suitable for developing plug-ins, and other tasks that require functionality not exposed by MEL. 
+- To understand the exposed classes, you should refer to the conceptual topics and the "C++ API Reference" in the Maya Developer Help.
+- This gives us a lot more low level control over the Maya including the DAG and direct access to nodes.
+
+--
+
+## maya.api.OpenMaya
+
+- This is a Python wrapper for the Maya C++ API, and referred to as Python API 2.0. 
+- This wrapper has better performance and is more "Pythonic" than the Python API 1.0. 
+- It is also a newer API, and is still under development, so not all classes exposed in 1.0 are available. 
+- Try to use this if possible.
+
+--
+
+## MVectors
+
+- The MVector class is a 3D vector class that is used in the Maya API.
+- It is used to represent 3D points and vectors in the 3D space.
+- It is a very useful class for performing 3D math operations.
+
+```python
+from maya.api.OpenMaya import MVector
+
+# Create vectors
+vec1 = MVector(1, 2, 3)
+vec2 = MVector(4, 5, 6)
+
+# Basic operations
+add_result = vec1 + vec2  # Vector addition
+sub_result = vec1 - vec2  # Vector subtraction
+scale_result = vec1 * 2   # Scaling by a scalar
+length = vec1.length()    # Vector magnitude (length)
+normalized = vec1.normal()  # Normalized vector (unit vector)
+
+# Dot and cross product
+dot_product = vec1 * vec2  # Dot product
+cross_product = vec1 ^ vec2  # Cross product
+
+# Display results
+print(f"Add: {add_result}")
+print(f"Subtract: {sub_result}")
+print(f"Scaled: {scale_result}")
+print(f"Length: {length}")
+print(f"Normalized: {normalized}")
+print(f"Dot Product: {dot_product}")
+print(f"Cross Product: {cross_product}")
+```
+
+--
+
+## MMatrix
+
+- The MMatrix class is a 4x4 matrix class that is used in the Maya API.
+- It is used to represent 4x4 matrices in the 3D space.
+
+```python
+from maya.api.OpenMaya import MMatrix
+
+# Create matrices
+mat1 = MMatrix([[1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 1, 0],
+                [0, 0, 0, 1]])
+
+mat2 = MMatrix([[2, 0, 0, 0],
+                [0, 2, 0, 0],
+                [0, 0, 2, 0],
+                [0, 0, 0, 2]])
+
+# Basic operations
+mult_result = mat1 * mat2  # Matrix multiplication
+transpose_result = mat1.transpose()  # Transpose of a matrix
+inverse_result = mat1.inverse()  # Inverse of a matrix
+
+# Accessing individual elements
+element = mat1.getElement(1,1)  # Access element at row 1, column 1
+
+# Display results
+print(f"Matrix Multiplication: {mult_result}")
+print(f"Transpose: {transpose_result}")
+print(f"Inverse: {inverse_result}")
+print(f"Element at (1, 1): {element}")
+```
+
+--
+
+## Combining MVector and MMatrix
+
+- You can multiply an MVector by an MMatrix to transform the vector using the matrix.
+
+```python
+from maya.api.OpenMaya import MVector, MMatrix
+
+# Create a vector
+vec = MVector(1, 2, 3)
+
+# Create a transformation matrix (scaling by 2)
+scale_matrix = MMatrix([[2, 0, 0, 0],
+                        [0, 2, 0, 0],
+                        [0, 0, 2, 0],
+                        [0, 0, 0, 1]])
+
+# Transform the vector using the matrix
+transformed_vec = vec * scale_matrix
+
+# Display result
+print(f"Original Vector: {vec}")
+print(f"Transformed Vector: {transformed_vec}")
+```
+
+--
+
+## Rotating a Vector Using a Rotation Matrix
+
+```python
+from maya.api.OpenMaya import MVector, MMatrix
+
+import math
+
+# Create a vector
+vec = MVector(1, 0, 0)
+
+# Define a rotation matrix (90 degrees around the Z-axis)
+theta = math.radians(90)
+rotation_matrix = MMatrix([[math.cos(theta), -math.sin(theta), 0, 0],
+                           [math.sin(theta),  math.cos(theta), 0, 0],
+                           [0,                0,              1, 0],
+                           [0,                0,              0, 1]])
+
+# Rotate the vector
+rotated_vec = vec * rotation_matrix
+
+# Display results
+print(f"Original Vector: {vec}")
+print(f"Rotated Vector: {rotated_vec}")
+```
+
+
+--
+
+## combining matrices
+
+- we can combine matrices to create a new matrix.
+
+```python
+from maya.api.OpenMaya import MVector, MMatrix
+
+# Create a scaling matrix
+scale_matrix = MMatrix([[2, 0, 0, 0],
+                        [0, 2, 0, 0],
+                        [0, 0, 2, 0],
+                        [0, 0, 0, 1]])
+
+# Create a translation matrix (translate by 5 units along X, Y, Z)
+translation_matrix = MMatrix([[1, 0, 0, 5],
+                               [0, 1, 0, 5],
+                               [0, 0, 1, 5],
+                               [0, 0, 0, 1]])
+
+# Combine transformations
+combined_matrix = scale_matrix * translation_matrix
+
+# Transform a vector
+vec = MVector(1, 1, 1)
+transformed_vec = vec * combined_matrix
+
+# Display results
+print(f"Combined Transformation Matrix: {combined_matrix}")
+print(f"Transformed Vector: {transformed_vec}")
+```
 
 ---
 
+## MTransformationMatrix
+
+- The MTransformationMatrix class is a 4x4 transformation matrix class that is used in the Maya API.
+- It is is used to handle 3D transformations such as translation, rotation, scaling, and shear. 
+- It provides convenient methods to manipulate and query transformations.
+
+--
+
+### Creating a Transformation Matrix
+
+```python
+m=MTransformationMatrix()
+m.setTranslation(MVector(2,3,4),om.MSpace.kWorld)
+m.setRotation(om.MEulerRotation(0,20,0))
+m.setScale(MVector(2.5,3.12,4.2),om.MSpace.kWorld)
+print(m.asMatrix())
+
+# extract the data
+
+print(m.rotation())
+print(m.scale(om.MSpace.kWorld))
+print(m.translation(om.MSpace.kWorld))
+```
+
+```
+
+---
+
+## Next Time
+
+- We have looked at some of the basics of maya python
+- next time we will look at some more functions
+- we will write some scripts to create useful tools in maya.
