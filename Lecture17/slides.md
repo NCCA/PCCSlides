@@ -533,7 +533,6 @@ print(m.scale(om.MSpace.kWorld))
 print(m.translation(om.MSpace.kWorld))
 ```
 
-```
 
 ---
 
