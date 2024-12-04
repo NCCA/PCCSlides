@@ -1,12 +1,12 @@
 import maya.cmds as cmds
 
 
-
-def hello() :
+def hello():
     print("Hello from NCCA functions")
 
 
 import maya.api.OpenMaya as om
+
 
 def get_center_of_selection():
     # Get the current selection
@@ -17,8 +17,8 @@ def get_center_of_selection():
 
     # Initialize variables for bounding box
 
-    bbox_min = om.MVector(float('inf'), float('inf'), float('inf'))
-    bbox_max = om.MVector(float('-inf'), float('-inf'), float('-inf'))
+    bbox_min = om.MVector(float("inf"), float("inf"), float("inf"))
+    bbox_max = om.MVector(float("-inf"), float("-inf"), float("-inf"))
 
     # Iterate through the selection and calculate the bounding box
     for i in range(selection.length()):
@@ -28,12 +28,12 @@ def get_center_of_selection():
         bbox_min = om.MVector(
             min(bbox_min.x, bbox.min.x),
             min(bbox_min.y, bbox.min.y),
-            min(bbox_min.z, bbox.min.z)
+            min(bbox_min.z, bbox.min.z),
         )
         bbox_max = om.MVector(
             max(bbox_max.x, bbox.max.x),
             max(bbox_max.y, bbox.max.y),
-            max(bbox_max.z, bbox.max.z)
+            max(bbox_max.z, bbox.max.z),
         )
 
     # Calculate the center of the bounding box
@@ -44,7 +44,7 @@ def get_center_of_selection():
 def get_bounding_sphere_radius():
     """
     Calculate the radius of the bounding sphere of the selected objects in Maya.
-    
+
     Returns:
         float: The radius of the bounding sphere.
         None: If no objects are selected.
@@ -56,8 +56,8 @@ def get_bounding_sphere_radius():
         return None
 
     # Initialize variables for the bounding box
-    bbox_min = [float('inf')] * 3
-    bbox_max = [float('-inf')] * 3
+    bbox_min = [float("inf")] * 3
+    bbox_max = [float("-inf")] * 3
 
     # Iterate over the selected objects and calculate the bounding box
     for obj in selection:
@@ -65,22 +65,29 @@ def get_bounding_sphere_radius():
         bbox = cmds.exactWorldBoundingBox(obj)
         # Update the overall bounding box
         bbox_min = [min(bbox_min[i], bbox[i]) for i in range(3)]
-        bbox_max = [max(bbox_max[i], bbox[i+3]) for i in range(3)]
+        bbox_max = [max(bbox_max[i], bbox[i + 3]) for i in range(3)]
 
     # Calculate the center of the bounding box
     bbox_center = [(bbox_min[i] + bbox_max[i]) / 2.0 for i in range(3)]
 
     # Calculate the radius of the bounding sphere
     # Radius is the distance from the center to the farthest corner of the bounding box
-    radius = ((bbox_max[0] - bbox_center[0]) ** 2 +
-              (bbox_max[1] - bbox_center[1]) ** 2 +
-              (bbox_max[2] - bbox_center[2]) ** 2) ** 0.5
+    radius = (
+        (bbox_max[0] - bbox_center[0]) ** 2
+        + (bbox_max[1] - bbox_center[1]) ** 2
+        + (bbox_max[2] - bbox_center[2]) ** 2
+    ) ** 0.5
 
     return radius
 
 
-
-def turntable_camera(radius=10, center=(0,0,0),start_frame=1, end_frame=360, camera_name="turntable_camera"):
+def turntable_camera(
+    radius=10,
+    center=(0, 0, 0),
+    start_frame=1,
+    end_frame=360,
+    camera_name="turntable_camera",
+):
     """
     Creates an animated camera along a circular path.
 
@@ -102,19 +109,21 @@ def turntable_camera(radius=10, center=(0,0,0),start_frame=1, end_frame=360, cam
 
     # Attach the camera to the path using a motion path
     motion_path = cmds.pathAnimation(
-        camera_transform, 
-        c=circle_path, 
-        follow=True, 
-        followAxis="x", 
-        upAxis="y", 
-        worldUpType="vector", 
+        camera_transform,
+        c=circle_path,
+        follow=True,
+        followAxis="x",
+        upAxis="y",
+        worldUpType="vector",
         worldUpVector=(0, 1, 0),
         startTimeU=0,
-        endTimeU=1.0
+        endTimeU=1.0,
     )
 
     # Ensure the motion path spans the full curve length
-    cmds.setAttr(f"{motion_path}.fractionMode", True)  # Interpret uValue as normalized (0-1) across the entire curve
+    cmds.setAttr(
+        f"{motion_path}.fractionMode", True
+    )  # Interpret uValue as normalized (0-1) across the entire curve
 
     # Keyframe the motion path's uValue for animation
     cmds.setAttr(f"{motion_path}.uValue", 0)  # Start at the beginning of the path
@@ -129,9 +138,9 @@ def turntable_camera(radius=10, center=(0,0,0),start_frame=1, end_frame=360, cam
 
     # Create an aim constraint
     cmds.aimConstraint(
-        aim_target, camera_transform, 
+        aim_target,
+        camera_transform,
         aimVector=(0, 0, -1),  # Camera aims down its negative Z-axis
-        upVector=(0, 1, 0),    # Y-axis as the up direction
-        worldUpType="scene"    # Use world up direction
+        upVector=(0, 1, 0),  # Y-axis as the up direction
+        worldUpType="scene",  # Use world up direction
     )
-
