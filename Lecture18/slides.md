@@ -359,3 +359,26 @@ turntable_gui()
 
 
 ```
+
+---
+
+# Conclusion
+
+- **What have you learned today**
+  - How to create UI
+  - How to create tools in Maya
+- **Homework**
+  - The information from this session is enough for one of the coursework ideas, think about it!
+
+--
+
+# Next time
+
+- **What will you learn next time**
+  - We do not have any new material, so only revision weeks are coming!
+  - Also we will be helping you with your Python assignments
+
+--
+
+# Q&A and discussion
+- **Open Floor for Questions**
