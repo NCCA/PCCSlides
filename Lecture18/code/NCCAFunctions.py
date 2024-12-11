@@ -1,10 +1,4 @@
 import maya.cmds as cmds
-
-
-def hello():
-    print("Hello from NCCA functions")
-
-
 import maya.api.OpenMaya as om
 
 
@@ -144,3 +138,4 @@ def turntable_camera(
         upVector=(0, 1, 0),  # Y-axis as the up direction
         worldUpType="scene",  # Use world up direction
     )
+

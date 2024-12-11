@@ -356,6 +356,4 @@ def turntable_gui():
 
 # Run the function to create the window
 turntable_gui()
-
-
 ```
