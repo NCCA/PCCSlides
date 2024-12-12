@@ -178,6 +178,8 @@ cmds.file(new=True, f=True)
 
 - Lets write a simple function that will scatter spheres in the scene.
 
+[scatter_sphere.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/scatter_sphere.py)
+
 ```python
 import random
 
@@ -208,6 +210,8 @@ scatter_spheres(200,10,0,10,1.0)
 
 - the commands **move**, **rotate** and **scale** transform object by performing one command
 
+[transform.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/transform.py)
+
 ```python
 import maya.cmds as cmds
 cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
@@ -223,6 +227,8 @@ position = cmds.getAttr("MyCube.translate")
 
 - More control can be achieved with **xform**
 
+[xform.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/xform.py)
+
 ```python
 import maya.cmds as cmds
 cubeObject = cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
@@ -234,6 +240,8 @@ cmds.xform(cubeObject, s=[2, 2, 2], r=True) #uniform scale by 2, relative transf
 --
 
 ## Setting Attributes
+
+[attr.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/attr.py)
 
 ```python
 # lets delete all objects
@@ -352,9 +360,8 @@ cmds.ls(nt=True)
 
 ## MVectors
 
-- The MVector class is a 3D vector class that is used in the Maya API.
-- It is used to represent 3D points and vectors in the 3D space.
-- It is a very useful class for performing 3D math operations.
+- The MVector class is a Maya API's 3D vector class.
+- To represent points and vectors in the 3D space.
 
 ```python
 from maya.api.OpenMaya import MVector
@@ -656,6 +663,9 @@ $$`
 - The MMatrix class is a 4x4 matrix class that is used in the Maya API.
 - It is used to represent 4x4 matrices in the 3D space.
 
+[mmatrix.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/mmatrix.py)
+
+
 ```python
 from maya.api.OpenMaya import MMatrix
 
@@ -798,8 +808,8 @@ print(m.scale(om.MSpace.kWorld))
 print(m.translation(om.MSpace.kWorld))
 ```
 
-
 ---
+
 # Conclusion
 
 - **What have you learned today**
