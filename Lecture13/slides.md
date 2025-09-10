@@ -1,4 +1,4 @@
-## Lesson 13 : Vector products and normals
+#### Lesson 13 : Vector products and normals
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
@@ -8,7 +8,7 @@
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Vector products and normals
 - **What will you learn today:**
@@ -77,7 +77,7 @@
 
 --
 
-### Dot product: angle between vectors
+#### Dot product: angle between vectors
 
 - If $\mathbf{a}$ and $\mathbf{b}$ are two non-zero vectors, the angle $α$ , $0 ≤ α ≤ π$, between $\mathbf{a}$ and $\mathbf{b}$ is determined by the formula:
 - $cos(\alpha) = \frac{\mathbf{a} \cdot \mathbf{b}}{\left\| \mathbf{a} \right\| \left\| \mathbf{b} \right\|}$
@@ -92,12 +92,14 @@
 
 --
 
-## Geometric meaning of dot product
+#### Geometric meaning of dot product
 
 - If $\mathbf{a}$ and $\mathbf{b}$ are *two unit* vectors, their lengths are equal to 1
 - $cos(\alpha) = \mathbf{a} \cdot \mathbf{b}$
   - Note this formula works only for unit vectors!
-- A geometric meaning of the dot product: cosine of the angle between two unit directions
+- If both vectors have unit length, their dot product directly measures how aligned they are
+  - Geometrically, the dot product of two unit vectors equals the cosine of the angle between their directions.
+
 
 ---
 
@@ -112,7 +114,7 @@
 
 --
 
-## The cross product: definition
+### The cross product: definition
 
 - Given two 3D vectors $ \mathbf{a} = (a_1, a_2, a_3)$ and $ \mathbf{b}=(b_1, b_2, b_3)$
 - The **cross product** (the vector product) is a vector
@@ -120,16 +122,18 @@
 
 --
 
-## The cross product: example
+### The cross product: example
 
-- $\mathbf{a} = (3, 2, 1)$ ,  $ \mathbf{b} = (-1, -2, 2)$
-  - $\mathbf{a} \times \mathbf{b} =$
-  - $=(2\cdot2 - 1 \cdot(-2), 1\cdot(-1) - 3\cdot2, 3\cdot(-2) - 2\cdot(-1) =$
-  - $=(6, -7, -4)$
+$\mathbf{a} = (3, 2, 1)$ ,  $ \mathbf{b} = (-1, -2, 2)$
+
+$\mathbf{a} \times \mathbf{b} =$
+$(2\cdot2 - 1 \cdot(-2), 1\cdot(-1) -3\cdot2, 3\cdot(-2) - 2\cdot(-1) $
+
+$=(6, -7, -4)$
 
 --
 
-### The cross product: geometric meaning
+#### The cross product: geometric meaning
 
 - The vector $\mathbf{a} \times \mathbf{b}$ is orthogonal to the plane containing vectors $\mathbf{a}$ and $\mathbf{b}$, it is called **the normal** for this plane
 - The direction of the cross product is given by the right-hand rule
@@ -138,7 +142,7 @@
 
 --
 
-### The cross product: geometric meaning
+#### The cross product: geometric meaning
 
 - The direction of the vector $\mathbf{a} \times \mathbf{b}$ is orthogonal to the plane containing $\mathbf{a}$ and $\mathbf{b}$, given the right-hand rule
 - The length of the cross product is given by the formula
@@ -156,7 +160,7 @@
 
 --
 
-## Calculating normals in Python
+### Calculating normals in Python
 
 ```python
 #!/usr/bin/env -S uv run --script

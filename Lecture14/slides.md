@@ -8,7 +8,7 @@
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Going interactive
 - **What will you learn today:**
@@ -37,7 +37,7 @@ from PIL import Image
 
 --
 
-### Real-time graphics pipeline: explanation
+##### Real-time graphics pipeline: explanation
 
 - **Application**: prepare your models, textures, lights, effects etc before the rendering stage
 - **Geometry**: collect all the geometry to be rendered: meshes, sprites, volumetrics etc
@@ -46,7 +46,7 @@ from PIL import Image
 
 ---
 
-### Interactive applications with Pygame
+#### Interactive applications with [Pygame](https://www.pygame.org/docs/)
 
 - What is Pygame?
   - **Pygame** is a popular Python library used to create games and interactive applications.
@@ -75,7 +75,7 @@ from PIL import Image
 
 --
 
-## The Pygame game loop example
+### The Pygame game loop example
 
 [1_basic_pygame.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/1_basic_pygame.py)
 
@@ -112,7 +112,7 @@ while running:
 
 --
 
-### The Pygame game loop example: explanation
+#### The Pygame game loop example: explanation
 
 - To work properly, pygame needs to be initialised: *pygame.init()*
 - The game loop is implemented using *while* loop with variable that can only be changed when we receive an appropriate event
@@ -150,7 +150,7 @@ for event in pygame.event.get():
 
 ---
 
-## Handling keyboard
+## Handling the keyboard
 
 - Easier way to handle keyboard is to use *pygame.key.get_pressed()* after *pygame.event.get()* is called
   - The function returns a list of keys and their states (pressed / not pressed)
@@ -158,7 +158,7 @@ for event in pygame.event.get():
 
 --
 
-## Handling keyboard: example
+### Handling the keyboard: example
 
 [2_keyboard.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/2_keyboard.py)
 
@@ -205,7 +205,7 @@ while running:
 
 --
 
-## Handling keyboard: tips
+### Handling the keyboard: tips
 
 - pygame.key.get_pressed() is updated every game loop.
   - If we want to check if the key was pressed and released, is it better to check for *pygame.KEYUP* event
@@ -214,10 +214,15 @@ while running:
 
 ---
 
-## Handling mouse
+## Handling the mouse
 
 - Position of the mouse can be queried with *pygame.mouse.get_pos()*
 - Similar to keyboard, you can handle mouse buttons with *pygame.mouse.get_pressed()*
+
+--
+
+## Handling the mouse
+
 
 [2_mouse.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/2_mouse.py)
 
@@ -268,7 +273,7 @@ while running:
 
 --
 
-###Handling mouse and keyboard: troubleshooting
+### Troubleshooting
 
 - Make sure your code has *pygame.event.get()* within your main game loop
   - The *get_pressed* function does not generate events itself!
@@ -278,7 +283,7 @@ while running:
 
 ---
 
-### Drawing shapes and objects with Pygame
+#### Drawing shapes and objects with Pygame
 
 - Common Drawing Functions:
   - **pygame.draw.polygon()**: Draws a polygon
@@ -332,7 +337,7 @@ while running:
 
 ---
 
-### User input + shapes = graphic editor
+#### User input + shapes = graphic editor
 
 [4_editor.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/4_editor.py)
 
@@ -400,7 +405,7 @@ while running:
 
 --
 
-## Working with sprites in Pygame
+## Sprites in Pygame
 
 - Use *pygame.image.load()* to load sprites
 - Use *screen.blit()* to render them on the screen.
