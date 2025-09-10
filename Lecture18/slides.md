@@ -77,8 +77,8 @@ hello()
 ## [reload](https://docs.python.org/2/library/functions.html#reload)
 
 - To help the development cycle, we can easily modify the script and call 
-```python
 
+```python
 import NCCAFunctions
 NCCAFunctions.hello()
 # make changes to source.
@@ -88,6 +88,8 @@ NCCAFunctions.hello()
 ```
 
 - to reload the module from the source file, otherwise this will be the same module for the whole of the session.
+ 
+
 
 ---
 
@@ -356,4 +358,29 @@ def turntable_gui():
 
 # Run the function to create the window
 turntable_gui()
+
+
 ```
+
+---
+
+# Conclusion
+
+- **What have you learned today**
+  - How to create UI
+  - How to create tools in Maya
+- **Homework**
+  - The information from this session is enough for one of the coursework ideas, think about it!
+
+--
+
+# Next time
+
+- **What will you learn next time**
+  - We do not have any new material, so only revision weeks are coming!
+  - Also we will be helping you with your Python assignments
+
+--
+
+# Q&A and discussion
+- **Open Floor for Questions**

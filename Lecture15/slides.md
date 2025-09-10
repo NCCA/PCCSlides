@@ -1,4 +1,4 @@
-## Lesson 14: Procedural game content creation
+## Lesson 15: Procedural game content creation
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
@@ -49,7 +49,7 @@ y = random.randint(0, 600)
 
 ## Recap: Pygame
 
-[1_start.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/1_start.py)
+[1_start.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/1_start.py)
 
 ```python
 #!/usr/bin/env python3
@@ -103,7 +103,7 @@ while running:
 
 ## Grid-based random generation, example
 
-[2_random.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/2_random.py)
+[2_random.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/2_random.py)
 
 ```python
 #!/usr/bin/env python3
@@ -172,7 +172,7 @@ while running:
 - Place items / elements / etc in random locations
 - Avoid clusters by checking proximity 
 
-[3_sampling.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_sampling.py)
+[3_sampling.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/3_sampling.py)
 
 ```python
 grid = []
@@ -222,7 +222,7 @@ for i in range(10):
 
 - While placing objects randomly we might want to check if the place is not previously occupied
 
-[3_prefabs.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_prefabs.py)
+[3_prefabs.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/3_prefabs.py)
 
 ```python
 for i in range(10):
@@ -278,7 +278,7 @@ for i in range(10):
 
 ### Drunkard walk algorithm example
 
-[3_walk.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_walk.py)
+[3_walk.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/3_walk.py)
 
 ```python
 posX = random.randint(0, 10)
@@ -392,7 +392,7 @@ year = car.pop("year")
 
 ## L-systems: Pygame example
 
-[5_lsystem.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_lsystem.py)
+[5_lsystem.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/3_lsystem.py)
 
 ```python
 #!/usr/bin/env python
@@ -555,7 +555,7 @@ while running:
 
 - **What will you learn next time**
   - Structuring the code with classes
-  - Project management
+  - How to animate procedurally
 
 --
 

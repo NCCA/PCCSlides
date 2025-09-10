@@ -30,6 +30,8 @@
 
 ## Preparing our project
 
+[1_start.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/1_start.py)
+
 ```python
 #!/usr/bin/env python3
 import pygame  # we will need core pygame functionality
@@ -289,6 +291,39 @@ class BouncingBall:
             self.velocity = (-newVelocity[0]*0.8, newVelocity[1])
 ```
 
+--
+
+### Bringing it all together 
+
+[2_bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/2_bouncingball.py)
+
+```python
+ball1 = BouncingBall(20, (20,20), (10,0))
+ball2 = BouncingBall(20, (620,20), (-100,100))
+ball1.setBounds(0, 0, width, height)
+ball2.setBounds(0, 0, width, height)
+
+# the game loop
+while running:
+    screen.fill(
+        black
+    )  # clear the window by filling the space with the background colour
+    # draw two lines
+    deltaT = float(clock.get_time())/1000.0
+    ball1.draw(screen, white)
+    ball2.draw(screen, white)
+    ball1.update(deltaT)
+    ball2.update(deltaT)
+
+    # event management
+    for event in pygame.event.get():  # if we received an event
+        if event.type == pygame.QUIT:  # if the event is "quit game"
+            running = False  # then we set the variable allowing for the loop to stop
+    pygame.display.flip()  # render
+    clock.tick(30)  # wait until we run with 30 frames per second or less
+# end of the program
+```
+
 ---
 
 ## Including external files
@@ -342,6 +377,8 @@ print(square_root(16))  # Output: 4.0
 
 ## Example: bouncing ball module
 
+[bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/bouncingball.py)
+
 ```python
 import pygame
 class BouncingBall:
@@ -379,6 +416,8 @@ class BouncingBall:
 --
 
 ## Example: using bouncing ball module
+
+[3_include.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/3_include.py)
 
 ```python
 from bouncingball import BouncingBall as BouncingBall

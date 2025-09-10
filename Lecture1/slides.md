@@ -1,10 +1,10 @@
 #### Lecture 1
 ### Introduction to Procedural Content Creation
 
-##### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+##### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -13,7 +13,7 @@
 
 - **Title:** Introduction to Procedural Content Creation
 - **What will you learn today:**
-  - What this unit is about and why you are studying it 
+  - What this unit is about and why you are studying it
   - What is Linux and what is Python
 
 ---
@@ -28,15 +28,15 @@
 --
 
 ##  Unit aims
- 
+
 - Develop the skill of computational thinking
-- Apply it to the production of animation and visual effects.  
+- Apply it to the production of animation and visual effects.
 
 Note:
-  The notes keyword is used to add speaker notes to a slide. 
+  The notes keyword is used to add speaker notes to a slide.
   These notes are not visible to the audience.
   Note the new line and the Tabs
-  
+
 --
 
 ## What will you learn in the unit
@@ -44,12 +44,12 @@ Note:
 - How to create assets using code / scripting
 - How to speak with computer using Python language
 - Why blending arts and science can be fun
-  
---  
+
+--
 
 ## Assignment
 
-- In the end of the semester 
+- In the end of the semester
 - Scripting project with several options to choose
   - We will discuss it during one of the latter sessions
 - 100% mark
@@ -104,7 +104,7 @@ Note:
 
 ### Programming sounds technical
 
-- "*I think only a mathematically minded people can ever write programs*" - **wrong**.  
+- "*I think only a mathematically minded people can ever write programs*" - **wrong**.
 - Process of creating art is similar to the process of creating programs
   - Starting software with sketches, tiny programs that just do one thing
   - Refine ideas through trial and error (and abstraction)
@@ -133,10 +133,10 @@ Note:
 ### Learning to speak with a computer
 
 - Let we try to understand computers
-- We are going to use **Linux** operating system. 
+- We are going to use **Linux** operating system.
   - Have you heard about Linux?
-- Most of the Digital Content Creation (DCC) tools were developed under Unix or Linux 
-  - Unix is the family of computer operating systems. 
+- Most of the Digital Content Creation (DCC) tools were developed under Unix or Linux
+  - Unix is the family of computer operating systems.
   - If you are using Mac, Macos is Unix
   - Linux is Unix as well
 
@@ -176,22 +176,32 @@ Note:
 
 ## Loading Linux
 
-* Use your student username (s123456) and password to log in 
-* Locate Terminal in the menu on top 
-* or right mouse click and select "open in Terminal" 
+* Use your student username (s123456) and password to log in
+* Locate Terminal in the menu on top
+* or right mouse click and select "open in Terminal"
 
 --
 
 ## Terminal
 
-- The terminal is the most powerful tool you have on your computer. 
-- It is the gateway to the operating system. 
+- The terminal is the most powerful tool you have on your computer.
+- It is the gateway to the operating system.
 - Terminal allows you to do things that are not possible with a GUI
 - You speak with the OS using Terminal
 
----
+--
 
-## Terminal 
+## Terminal Setup
+
+ <video width="800" height="420" controls>
+  <source src="images/Installers.mov" type="video/mp4">
+</video>
+
+--
+
+
+
+## Terminal
 
 - The first thing we need to do is to get a terminal open
 - When we open the terminal, it runs a program called a shell and awaits for your command
@@ -205,21 +215,21 @@ pwd
 
 --
 
-# The filesystem 
+# The filesystem
 
-- Most of the work we do is based on a filesystem and navigating 
+- Most of the work we do is based on a filesystem and navigating
 - The filesystem is a tree structure with a root at the top
 - The root is the top level of the filesystem and is represented by a **/** character.
-- Under the root are a number of directories 
-  - They are called folders in Windows. 
+- Under the root are a number of directories
+  - They are called folders in Windows.
   - They can contain files and other directories
 
 --
 
 ## The filesystem : directories
 - Each of you have a home directory, in your case it will be ```/home/i[STUDENT_NUMBER]```]
-- ~ is a shortcut for your home directory we can use it to mean "from home" 
-- To list the contents of a directory we use the ```ls``` command 
+- ~ is a shortcut for your home directory we can use it to mean "from home"
+- To list the contents of a directory we use the ```ls``` command
 
 ```
 ls ~
@@ -261,12 +271,12 @@ ls ~
 
 ## Python scripts
 
-- Often we use the term *script*. 
+- Often we use the term *script*.
 - What is the script in filmmaking?
 
 <blockquote><small><p>A movie script is a written document that details all of the narrative and visual elements for a feature-length or short movie. This document includes very specific formatting, namely action paragraphs, character dialogue, and in some cases, visual and sound cues. </p></small></blockquote>
 
-- Movie script explains what happens in the shot 
+- Movie script explains what happens in the shot
 - Script in programming explains what happens in the program
 
 ---
@@ -276,26 +286,26 @@ ls ~
 - The machines you use are all the same, for security purposes they are locked down
 - This makes things more complex when programming
 - To overcome this we need to install our own local python (another python advantage)
-- Full details on how to do this are in [this blog post](https://nccastaff.bournemouth.ac.uk/jmacey/post/PythonInstall/PythonInstall/)
+- To do this we use a tool called [uv](https://docs.astral.sh/uv/)
+- Full details of our lab setup is [here](https://nccastaff.bournemouth.ac.uk/jmacey/Lectures/PythonTooling/#/)
 
 --
 
 ## Installing Python
 
-- open a terminal and type the following
+- uv will install python for us when we first create a project, we have set the default python version to 3.13 as part of the system setup.
 
+- type the following in the shell
 
-```bash
-install_python.sh
 ```
-
-This may take a few minutes to run
+uv run python
+```
 
 ---
 
 ## ["hello world" in Python](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)
 
-- In the terminal type the command **python** and press enter
+- In the terminal type the command **uv run python** and press enter
 - You will enter the Python environment
   - Python shell
 - Start with writing this code:
@@ -315,18 +325,18 @@ print("Hello World")
 - This code has only one command.
   - It tells the Python shell to **print** the string "Hello World"
   - Brackets are used to indicate the string is *the argument* for the command
-  
+
 - Now try to output your own string in the Python shell
 
 ---
 
 ### Creating graphics with Python
 
-- Now try the following code 
+- Now try the following code
   - Note we have graphics window appearing
 
 ```python
-import turtle 
+import turtle
 turtle.down()
 ```
 
@@ -340,7 +350,7 @@ turtle.down()
 - Now we are going to write a new program, we need to re-open the [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) by typing ```python``` again.
 
 ```python
-import turtle 
+import turtle
 turtle.down()
 turtle.forward(100)
 turtle.right(90)
@@ -367,11 +377,11 @@ turtle.right(90)
 - ```down``` command puts the *pen* down
 - ```forward(n)``` command moves the pen a number of pixels forward
 - ```right(deg)``` command turns the pen right given by deg degrees
-  
+
 
 --
 
-### Creating graphics with Python 
+### Creating graphics with Python
 
 - The previous code draws a square
 - Can you draw other shapes like triangle?
@@ -392,7 +402,7 @@ turtle.right(90)
 
 - **What will you learn next time**
   - Files and directories in Linux
-  - Getting out of the Python shell 
+  - Getting out of the Python shell
     - Working with .py scripts
   - Learning more about *libraries*
 
@@ -400,4 +410,3 @@ turtle.right(90)
 
 ## Q&A and discussion
 - **Open Floor for Questions**
-
