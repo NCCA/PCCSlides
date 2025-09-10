@@ -1,14 +1,15 @@
-## Lesson 5: Basic programming constructs
+## Lesson 5:
+### Basic programming constructs
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Basic programming constructs
 - **What will you learn today:**
@@ -38,7 +39,7 @@ canvas.line( ( points[0], points[4]), draw_colour)
 --
 
 ```python
-import turtle 
+import turtle
 turtle.down()for
 # repeat the following two lines four times
 turtle.forward(100)
@@ -52,7 +53,7 @@ turtle.done()
 #### The three basic programming constructs
 
 - Programs are designed using common building blocks
-  - Also known as programming constructs
+- Also known as programming constructs
 - There are three basic building blocks
   - Sequence
   - Selection
@@ -76,7 +77,7 @@ x2 = input()
 print('Enter y2:')
 y2 = input()
 # Step 1: Calculate the x-coordinate of the midpoint
-x_m = (x1 + x2) / 2  
+x_m = (x1 + x2) / 2
 # Step 2: Calculate the y-coordinate of the midpoint
 y_m = (y1 + y2) / 2
 # Step 3: Print the result
@@ -92,7 +93,7 @@ print(y_m)
 - What is wrong with the algorithm below (apart from lack of comments)?
 
 ```python
-x_m = (x1 + x2) / 2  
+x_m = (x1 + x2) / 2
 canvas.line( ( (x_m, y_m), (x2, y2)), draw_colour)
 y_m = (y1 + y2) / 2
 
@@ -139,7 +140,7 @@ if condition:
 
 ---
 
-## Indentation and Code Blocks
+### Indentation and Code Blocks
 
 - **Indentation**: Python uses indentation to define blocks of code.
   - Convention states we use **4** spaces for indentation
@@ -166,7 +167,7 @@ print("x is greater than 5")  # This will cause an error
 
 ---
 
-## If statement: example
+### If statement: example
 
 ```python
 x = 0.5
@@ -175,7 +176,7 @@ if x > 0:
     print("x is positive")
 ```
 
-- Explanation: 
+- Explanation:
   - The condition checks if x is greater than 0.
   - If the condition is true (in this case, 0.5 > 0), the message "x is positive" is printed.
   - If the condition is false, the program moves on without executing the block.
@@ -207,7 +208,7 @@ else:
 
 ---
 
-## Comparison operators 
+## Comparison operators
 
 - Comparison operators are used to compare two values
 
@@ -268,11 +269,11 @@ if x >= 0 and y >= 0:
 
 ---
 
-## Iteration 
+## Iteration
 - Iteration is the process of repeating a block of code multiple times
 - There are two types of iteration:
   - **for loop**: Iterates over a sequence of items
-  - **while loop**: Repeats as long as a condition is true. 
+  - **while loop**: Repeats as long as a condition is true.
 
 ---
 
@@ -305,7 +306,7 @@ for i in range(start, stop, step):
 ### for loop with range(): example
 
 ```python
-import turtle 
+import turtle
 turtle.down()
 for i in range(4) :
     turtle.forward(100)
@@ -400,7 +401,7 @@ while running:
 
 ## Homework
 
-- Extend the last program to draw one extra object, such as a hexagon (six sides, 60 degrees turn). 
+- Extend the last program to draw one extra object, such as a hexagon (six sides, 60 degrees turn).
 - Add the ability to move to a new location before drawing the object. (hint you will need to ask for two numbers)
 
 --

@@ -1,9 +1,9 @@
 ## Lesson 8: Math(s)
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -50,16 +50,16 @@ for i in range(0, 100, 4)
 
 - We use **import** keyword for importing the library
 - We let Python know we are using the code from the library
-- Import turtle graphics: 
+- Import turtle graphics:
 ```python
-import turtle 
+import turtle
 ```
 
 ---
 
 ## Why Maths?
 
-<blockquote><small><p>To make a film, we have to direct almost 200 billion pixels. That's a lot of mathematics. (Iñigo Quilez, Pixar)</p></small></blockquote>					
+<blockquote><small><p>To make a film, we have to direct almost 200 billion pixels. That's a lot of mathematics. (Iñigo Quilez, Pixar)</p></small></blockquote>
 <img style="border: 0;" src="images/shadertoy-girl.jpg" width="35%">
 - The image above is generated procedurally
 
@@ -85,7 +85,7 @@ import turtle
 ```python
 from PIL import Image, ImageDraw
  #the image will be resolution x resolution
-resolution = 1024 #1k image 
+resolution = 1024 #1k image
 background_colour = (0,0,0)
 
 image = Image.new("RGB", (resolution, resolution), background_colour)
@@ -102,7 +102,7 @@ image.show()
 
 from PIL import Image, ImageDraw
 
-resolution = 1024 #1k image, i.e. 1024x1024 
+resolution = 1024 #1k image, i.e. 1024x1024
 background_colour = (0,0,0) #black background
 line_colour = (255, 255, 155) #white line colour
 
@@ -141,7 +141,7 @@ image.show()
 # texture2_1.py
 from PIL import Image, ImageDraw
 
-resolution = 1024 #1k image, i.e. 1024x1024 
+resolution = 1024 #1k image, i.e. 1024x1024
 background_colour = (0,0,0) #black background
 line_colour = (255, 255, 155) #white line colour
 step = 100
@@ -164,7 +164,7 @@ image.show()
 # texture2_2.py
 from PIL import Image, ImageDraw
 
-resolution = 1024 #1k image, i.e. 1024x1024 
+resolution = 1024 #1k image, i.e. 1024x1024
 background_colour = (0,0,0) #black background
 line_colour = (255, 255, 155) #white line colour
 step = 128
@@ -186,7 +186,7 @@ image.show()
 ```python
 from PIL import Image, ImageDraw
 # texture2_3.py
-resolution = 1024 #1k image, i.e. 1024x1024 
+resolution = 1024 #1k image, i.e. 1024x1024
 background_colour = (0,0,0) #black background
 line_colour = (255, 255, 155) #white line colour
 step = 128
@@ -214,7 +214,7 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 	canvas.line(((x, y), (x+size, y+size)), colour)
 	canvas.line(((x, y+size), (x+size, y)), colour)
 
-resolution = 1024 #1k image, i.e. 1024x1024 
+resolution = 1024 #1k image, i.e. 1024x1024
 background_colour = (0,0,0) #black background
 line_colour = (255, 255, 155) #white line colour
 step = 128
@@ -242,7 +242,7 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 	canvas.line(((x+size, y), (x+size/2, y+size)), colour)
 	canvas.line(((x+size/2, y+size), (x, y)), colour)
 
-resolution = 1024 #1k image, i.e. 1024x1024 
+resolution = 1024 #1k image, i.e. 1024x1024
 background_colour = (0,0,0) #black background
 line_colour = (255, 255, 155) #white line colour
 step = 128
@@ -269,7 +269,7 @@ image.show()
 
 ### Linear interpolation formula
 
-- Given two values $x_0$ and $x_1$, and a fraction $t$ between 0 and 1: 
+- Given two values $x_0$ and $x_1$, and a fraction $t$ between 0 and 1:
   - $x = x_0 + t(x_1 - x_0)$
 - $t$ represents how far along the line you are (e.g. $t=0.5$ finds the middle point)
 - Example: interpolating between $x_0=2$ and $x_1=8$ with $t=0.5$ gives $x=5$.
@@ -287,13 +287,13 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 ```
 
 - How we can fill out this triangle?
-  - We can use various methods including linear interpolation 
+  - We can use various methods including linear interpolation
 
 --
 
 ##### Filling a triangle with linear interpolation
 
-- The idea is: 
+- The idea is:
   - Instead of three edges, we will be drawing parallel lines one pixel apart
   - Y-direction might be a good choice for it
   - $y_{min} = y$, corresponds to t=0
@@ -308,7 +308,7 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 - Start of the scanline line segment:
   - $x_0 = x$, $x_1 = x+size/2$
   - $x_s = x_0 + t(x_1 - x_0) = x + t*size$
-- End of the scanline line segment: 
+- End of the scanline line segment:
   - $x_0 = x+size$, $x_1 = x+size/2$
   - $x_e = x_0 + t(x_1 - x_0) = x + size + t(-size/2)$
 
@@ -325,15 +325,15 @@ def draw_square_tile(canvas, x, y, size, colour) -> None:
 
 - In the previous example we interpolated geometry
 - Can we interpolate colour?
-  - Yes, but before look at another Python library
+  - Yes, but before lets look at another Python library
 
 ---
 
-### Math library
+### The math library
 
-- *math* library provides access to the mathematical functions
+- The *math* library provides access to the mathematical functions
 - Can work only with floating point real numbers and integers
-  - Cannot work with complex numbers, they have *cmath* library
+  - Cannot work with complex numbers, must use the *cmath* library
 
 ```python
 import math
@@ -363,7 +363,7 @@ colour_b = math.floor(colour1[2]+t*(colour2[2]-colour1[2]))
 
 #### Filling the triangle with interpolation
 
-- Full example: 
+- Full example:
 
 ```python
 #!/usr/bin/env -S uv run --script

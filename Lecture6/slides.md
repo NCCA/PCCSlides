@@ -1,14 +1,15 @@
-## Lesson 6: Functions and random numbers
+## Lesson 6:
+### Functions and random numbers
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+##### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Functions and random numbers
 - **What will you learn today:**
@@ -66,7 +67,7 @@ image.show()
 a = "Computer Animation & Visual Effects"
 b = "2024"
 print(a)
-print(b) 
+print(b)
 ```
 
 ---
@@ -140,7 +141,7 @@ draw.polygon(coordinates, fill_colour, linecolour)
 
 --
 
-## Example: polygon() 
+## Example: polygon()
 
 ```python
 from PIL import Image, ImageDraw
@@ -157,7 +158,7 @@ im.show()
 
 --
 
-## Example: polygon() 
+## Example: polygon()
 
 ```python
 from PIL import Image, ImageDraw
@@ -253,7 +254,7 @@ print(name, age)  # Output: Alice 30
 
 ---
 
-## Using functions	
+## Using functions
 
 ```python
 from PIL import Image, ImageDraw
@@ -520,18 +521,18 @@ im.show()
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Functions from Pillow library allowiing to draw lines and polygons
   - How to define functions
   - **random** module for procedural content creation
 - **Homework**
-  - Can you generate multiple triangles? How about other shapes? 
+  - Can you generate multiple triangles? How about other shapes?
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Vectors and why they are important in graphics
