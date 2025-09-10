@@ -1,5 +1,4 @@
 #!/usr/bin/env -S uv run --script
-import math
 
 from PIL import Image, ImageDraw
 

@@ -1,5 +1,4 @@
 #!/usr/bin/env -S uv run --script
-import math
 
 # unit cube around the origin centered at 0,0,0 with sides of length 0.5
 cube_verts = [
