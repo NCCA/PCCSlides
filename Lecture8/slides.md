@@ -496,7 +496,7 @@ image.show()
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Why powers or two are important
@@ -507,7 +507,7 @@ image.show()
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Texture maps

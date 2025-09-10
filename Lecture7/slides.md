@@ -479,7 +479,7 @@ image.show()
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - The tuple data type
@@ -489,7 +489,7 @@ image.show()
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - We will be revisiting more maths from the school and apply it for our image generation

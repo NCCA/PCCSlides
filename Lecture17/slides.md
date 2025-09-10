@@ -1,9 +1,9 @@
 ### Lesson 17: Python in  Maya
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -20,7 +20,7 @@
 ### Maya as a scripting Engine
 
 - at it's simplest maya is a scripting engine that can run MEL language scripts.
-- When maya starts up it executes multiple scripts located in the directory 
+- When maya starts up it executes multiple scripts located in the directory
 
 ``` $MAYA_LOCATION/scripts/startup/ ```
 
@@ -36,10 +36,10 @@
 
 # [MEL](https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-Scripting/files/GUID-60178D44-9990-45B4-8B43-9429D54DF70E-htm.html)
 
-- Maya’s user interface is created primarily using MEL, and MEL provides an easy way to extend the functionality of Maya. 
-- Everything you can do using Maya’s graphical interface can be automated and extended using MEL. 
+- Maya’s user interface is created primarily using MEL, and MEL provides an easy way to extend the functionality of Maya.
+- Everything you can do using Maya’s graphical interface can be automated and extended using MEL.
 - Familiarity with MEL can deepen your understanding of and expertise with Maya.
-- it’s easy to perform a task in the graphical interface, then drag the resulting commands from the Script Editor to the shelf to create a button. 
+- it’s easy to perform a task in the graphical interface, then drag the resulting commands from the Script Editor to the shelf to create a button.
 
 --
 
@@ -320,7 +320,7 @@ for mesh in meshes:
 
 ## type flag
 
-- the type flag can be used to query objects of a certain type. 
+- the type flag can be used to query objects of a certain type.
 - we can see all the types by running the following command.
 
 ```python
@@ -334,8 +334,8 @@ cmds.ls(nt=True)
 
 ## maya.OpenMaya
 
-- This is a Python wrapper for the Maya C++ API, and referred to as Python API 1.0. 
-- It is suitable for developing plug-ins, and other tasks that require functionality not exposed by MEL. 
+- This is a Python wrapper for the Maya C++ API, and referred to as Python API 1.0.
+- It is suitable for developing plug-ins, and other tasks that require functionality not exposed by MEL.
 - To understand the exposed classes, you should refer to the conceptual topics and the "C++ API Reference" in the Maya Developer Help.
 - This gives us a lot more low level control over the Maya including the DAG and direct access to nodes.
 
@@ -343,9 +343,9 @@ cmds.ls(nt=True)
 
 ## maya.api.OpenMaya
 
-- This is a Python wrapper for the Maya C++ API, and referred to as Python API 2.0. 
-- This wrapper has better performance and is more "Pythonic" than the Python API 1.0. 
-- It is also a newer API, and is still under development, so not all classes exposed in 1.0 are available. 
+- This is a Python wrapper for the Maya C++ API, and referred to as Python API 2.0.
+- This wrapper has better performance and is more "Pythonic" than the Python API 1.0.
+- It is also a newer API, and is still under development, so not all classes exposed in 1.0 are available.
 - Try to use this if possible.
 
 --
@@ -390,7 +390,7 @@ print(f"Cross Product: {cross_product}")
 
 - A **matrix** is defined as a rectangular array of numbers
 - Each number $a_{ij}$ of the matrix has two indexes: the **row index** *i* and the **column index** *j*.
-- Applications: 
+- Applications:
   - Computer graphics (transformations)
   - Machine learning
   - Physics simulations
@@ -455,7 +455,7 @@ $$`
 
 ### Matrix operations: scalar multiplication
 
-- We can multiply a matrix by a scalar number by multiplying each element: 
+- We can multiply a matrix by a scalar number by multiplying each element:
 
 `$$
 2*
@@ -552,7 +552,7 @@ y\prime\\\
 \end{bmatrix}
 $$`
 
-- Equivalent to: 
+- Equivalent to:
 `$$
 x\prime = a_{11}x + a_{12}y + a_{13}\\\
 y\prime = a_{21}x + a_{22}y + a_{23}
@@ -560,7 +560,7 @@ $$`
 
 --
 
-## 2D translation 
+## 2D translation
 
 `$$
 \begin{bmatrix}
@@ -581,7 +581,7 @@ $$`
 
 --
 
-## 2D scaling 
+## 2D scaling
 
 `$$
 \begin{bmatrix}
@@ -777,7 +777,7 @@ print(f"Transformed Vector: {transformed_vec}")
 ## MTransformationMatrix
 
 - The MTransformationMatrix class is a 4x4 transformation matrix class that is used in the Maya API.
-- It is is used to handle 3D transformations such as translation, rotation, scaling, and shear. 
+- It is is used to handle 3D transformations such as translation, rotation, scaling, and shear.
 - It provides convenient methods to manipulate and query transformations.
 
 --
@@ -800,7 +800,7 @@ print(m.translation(om.MSpace.kWorld))
 
 
 ---
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - We have looked at some of the basics of maya python
@@ -810,7 +810,7 @@ print(m.translation(om.MSpace.kWorld))
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - More functions

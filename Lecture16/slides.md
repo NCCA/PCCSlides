@@ -502,7 +502,7 @@ git config --list
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to define classes using an example of the bouncing ball
@@ -513,7 +513,7 @@ git config --list
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - How to generate content in Maya

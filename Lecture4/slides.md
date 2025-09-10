@@ -342,7 +342,7 @@ canvas.line( ( points[0], points[number_of_iteration_starting_at_1]), draw_colou
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How we can use variables
@@ -360,7 +360,7 @@ canvas.line( ( points[0], points[number_of_iteration_starting_at_1]), draw_colou
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Loops (iteration)

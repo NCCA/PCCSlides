@@ -400,7 +400,7 @@ im.show()
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to use algorithms to think like a computer
@@ -411,7 +411,7 @@ im.show()
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - More data types: lists

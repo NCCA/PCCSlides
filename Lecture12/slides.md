@@ -1,21 +1,21 @@
 ## Lesson 12 : Files and Meshes
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Files and Meshes
 - **What will you learn today:**
   - Opening and closing files
   - Reading and writing text files
   - context managers and exceptions
-  - How meshes are stored and written 
+  - How meshes are stored and written
   - The obj file format
 
 
@@ -23,9 +23,9 @@
 
 ## What is file I/O?
 
-- I/O stands for Input/Output 
-- It is the process of reading data from and writing data to files on a computer. 
-- In Python, file I/O is done using file objects 
+- I/O stands for Input/Output
+- It is the process of reading data from and writing data to files on a computer.
+- In Python, file I/O is done using file objects
 
 --
 
@@ -85,9 +85,9 @@ f.close()
 
 ## explanation
 
-- This will create a file called ```test.txt``` in the current directory 
-- Write the string ```Hello, World!``` to it. 
-- The ```close``` method is used to close the file after we have finished writing to it. 
+- This will create a file called ```test.txt``` in the current directory
+- Write the string ```Hello, World!``` to it.
+- The ```close``` method is used to close the file after we have finished writing to it.
 - If we do not close the file, the changes we have made to it may not be saved.
 
 ---
@@ -108,7 +108,7 @@ f.close()
 ## explanation
 
 - first we open the file in read mode
-- then we read the contents of the file into a string 
+- then we read the contents of the file into a string
   - typically we would then process the string in some way
 - finally we close the file
 
@@ -116,15 +116,15 @@ f.close()
 
 ## [context managers](https://docs.python.org/3/reference/datamodel.html#context-managers)
 
-- You will notice in both examples we have to remember to close the file. 
-- This can be a source of bugs in programs if we forget to close the file. 
-- To help with this Python has a feature called a context manager. 
+- You will notice in both examples we have to remember to close the file.
+- This can be a source of bugs in programs if we forget to close the file.
+- To help with this Python has a feature called a context manager.
 
 --
 
 ## Context Managers
-  
-- Context managers are objects that manage resources, such as files, and automatically clean up after themselves when they are no longer needed. 
+
+- Context managers are objects that manage resources, such as files, and automatically clean up after themselves when they are no longer needed.
 - We can use the ```with``` statement to create a context manager for a file. For example:
 
 ```python
@@ -140,7 +140,7 @@ with open("test.txt", "r") as file:
 
 ## [exceptions](https://docs.python.org/3/tutorial/errors.html)
 
-- python uses exceptions to tell us something has gone wrong there are a number of build in exceptions for example 
+- python uses exceptions to tell us something has gone wrong there are a number of build in exceptions for example
 
 ```python
 10/0
@@ -167,7 +167,7 @@ ZeroDivisionError: division by zero
 
 ## [try / except blocks](https://docs.python.org/3/reference/compound_stmts.html#try)
 
-- when we want to execute some code that may throw an exception we place it in a ```try : ``` block 
+- when we want to execute some code that may throw an exception we place it in a ```try : ``` block
 - we then use the ```except [type]: ``` block
 
 ```python
@@ -181,7 +181,7 @@ except ZeroDivisionError:
     print('Cant divide by zero')
 
 print('now do something else')
-``` 
+```
 
 
 --
@@ -196,9 +196,9 @@ print('now do something else')
 
 ## File exceptions
 
-- It may not always be possible to open a file, for example if the file does not exist or the user does not have permission to read or write to it. 
-- In these cases, Python will raise a ```FileNotFoundError``` or ```PermissionError``` exception. 
-- To handle these exceptions, we can use a ```try``` statement to catch the exception and handle it gracefully. 
+- It may not always be possible to open a file, for example if the file does not exist or the user does not have permission to read or write to it.
+- In these cases, Python will raise a ```FileNotFoundError``` or ```PermissionError``` exception.
+- To handle these exceptions, we can use a ```try``` statement to catch the exception and handle it gracefully.
 
 --
 
@@ -213,7 +213,7 @@ try :
         print(contents)
 except FileNotFoundError:
     print("File not found")
-    
+
 # throw a permission denied exception
 try:
     with open("/etc/passwd", "w") as file:
@@ -225,39 +225,47 @@ except PermissionError:
 
 ---
 
-## OS module
+## [Pathlib Module](https://docs.python.org/3/library/pathlib.html)
 
-- The module **os** provides functions for interacting with the operating system and allows for
-  - Handling the current working directory
-  - Creating a directory
-  - Listing out files and directories with Python
+- This module offers classes representing filesystem paths with semantics appropriate for different operating systems.
+- It can deal with cross platform file paths (Posix Windows etc)
+- Query if files exist
+- iterate folders and files
 
 --
 
-## Getting the Current working directory
+### Getting the Current working directory
 
-- To get the location of the current working directory use *os.getcwd()* 
+- To get the location of the current working directory use *Path.cwd()*
+
 ```python
-import os 
-cwd = os.getcwd() 
-print("Current working directory:", cwd) 
+
+from pathlib import Path
+
+cwd = Path.cwd()
+print(f"Current working directory : {cwd}")
+# get users home directory
+home = Path.home()
+print(f"{home=}")
+
 ```
 
 --
 
-## Listing out Files and Directories 
+### Listing out Files and Directories
 
-- Another useful function is OS is *os.listdir()*
-  - It lists all files and directories in the specified directory 
-  - If no directory specified, it lists all files and folders in the current working directory
+- Another useful function is *Path.iterdir()*
 
 ```python
-import os 
-path = "/"
-dir_list = os.listdir(path) 
-print("Files and directories in '", path, "' :") 
-print(dir_list)
+from pathlib import Path
+
+p = Path('/')
+print(f"Files and directories in '{p}':")
+for item in p.iterdir():
+    print(item)
 ```
+
+-  this will yield `Path` objects, which you can then use to get more information (like `item.is_dir()`, `item.name`, etc.).
 
 --
 
@@ -266,6 +274,7 @@ print(dir_list)
 - for now this is all we need.
 - Later we will look at more advanced file handling, such as reading and writing binary files, and working with directories.
 - Also structured file formats such as JSON or XML, which are used in many DCC tools.
+- Always try to use Pathlib for files over older things like ```os```
 
 
 ---
@@ -274,7 +283,7 @@ print(dir_list)
 
 - In computer graphics, a mesh is a collection of vertices, edges, and faces that define the shape of a 3D object.
 - Meshes are typically stored in files using a simple text format that describes the vertices, edges, and faces of the mesh.
-- They typically consist of a collection of lists, with the faces referring to the vertices by index. 
+- They typically consist of a collection of lists, with the faces referring to the vertices by index.
 - One of the most common file formats for storing meshes is the Wavefront OBJ format.
 
 --
@@ -334,11 +343,11 @@ v -2.0 0.0 0.0
 f 1 2 3
 ```
 
-- We can save this into a text file and open it in maya. 
+- We can save this into a text file and open it in maya.
 
---- 
+---
 
-## Python ObjWriter 
+## Python ObjWriter
 
 - We can write a simple python program to write out an obj file
 
@@ -366,7 +375,7 @@ with open("triangle1.obj", "w") as file:
 
 - This will write out a simple triangle mesh to a file called ```triangle1.obj```
 - We can then open this file in a 3D application such as Maya to view the mesh.
-- You will notice there are no normals or texture coordinates in this file 
+- You will notice there are no normals or texture coordinates in this file
 - we will add normals and texture coordinates next time
 
 ---
@@ -415,7 +424,7 @@ A x B = (AyBz - AzBy, AzBx - AxBz, AxBy - AyBx)
 #!/usr/bin/env -S uv run --script
 
 def calc_normal(v1, v2) :
-    
+
     n=[v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]]
     # normalize the normal
     length = math.sqrt((n[0]**2 + n[1]**2 + n[2]**2))
@@ -452,7 +461,7 @@ with open("triangle2.obj", "w") as file:
     # write the faces Note these are 1-based indices
     for face in faces:
         file.write(f"f {face[0]+1}//{face[0]+1} {face[1]+1}//{face[1]+1} {face[2]+1}//{face[2]+1}\n")
-        
+
 ```
 
 --
@@ -533,7 +542,7 @@ cube_uv=[
 ## todo write out the face data note we can share normals and uv's
 ## the back face is done for you.
 faces=[
-    [1, 1, 1], [2, 2, 1], [3, 3, 1],[4, 4, 1], # back face 
+    [1, 1, 1], [2, 2, 1], [3, 3, 1],[4, 4, 1], # back face
 ]
 
 with open("cube.obj", "w") as file:
@@ -547,14 +556,14 @@ with open("cube.obj", "w") as file:
     for i in range(0, len(faces), 4):
         # for ease we can build a string and write it in one go
         file.write(f"f {faces[i][0]}/{faces[i][1]}/{faces[i][2]}")
-        file.write(f"  {faces[i+1][0]}/{faces[i+1][1]}/{faces[i+1][2]}") 
+        file.write(f"  {faces[i+1][0]}/{faces[i+1][1]}/{faces[i+1][2]}")
         file.write(f"  {faces[i+2][0]}/{faces[i+2][1]}/{faces[i+2][2]}")
         file.write(f"  {faces[i+3][0]}/{faces[i+3][1]}/{faces[i+3][2]}\n")
 ```
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to load and save text files
@@ -565,7 +574,7 @@ with open("cube.obj", "w") as file:
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - More insight into vector algebra
@@ -575,5 +584,3 @@ with open("cube.obj", "w") as file:
 
 # Q&A and discussion
 - **Open Floor for Questions**
-
-

@@ -390,7 +390,7 @@ while running:
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Conditional operator **if**
@@ -406,7 +406,7 @@ while running:
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Functions

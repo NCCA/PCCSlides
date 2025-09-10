@@ -465,7 +465,7 @@ uv add pillow
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to work with files and directories in Linux
@@ -476,7 +476,7 @@ uv add pillow
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Introduction to *algorithmic thinking* and how to go with the program flow

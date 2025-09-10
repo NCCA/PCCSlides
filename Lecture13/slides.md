@@ -1,9 +1,9 @@
-## Lesson 13 : Vector products and normals 
+## Lesson 13 : Vector products and normals
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -123,7 +123,7 @@
 ## The cross product: example
 
 - $\mathbf{a} = (3, 2, 1)$ ,  $ \mathbf{b} = (-1, -2, 2)$
-  - $\mathbf{a} \times \mathbf{b} =$ 
+  - $\mathbf{a} \times \mathbf{b} =$
   - $=(2\cdot2 - 1 \cdot(-2), 1\cdot(-1) - 3\cdot2, 3\cdot(-2) - 2\cdot(-1) =$
   - $=(6, -7, -4)$
 
@@ -162,7 +162,7 @@
 #!/usr/bin/env -S uv run --script
 
 def calc_normal(v1, v2) :
-    
+
     n=[v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]]
     # normalize the normal
     length = math.sqrt((n[0]**2 + n[1]**2 + n[2]**2))
@@ -186,7 +186,7 @@ def calc_normal(v1, v2) :
 
 ---
 
-## Recap: Python ObjWriter 
+## Recap: Python ObjWriter
 
 ```python
 #!/usr/bin/env -S uv run --script
@@ -240,7 +240,7 @@ vn 0.0 0.0 1.0
 #!/usr/bin/env -S uv run --script
 
 def calc_normal(v1, v2) :
-    
+
     n=[v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]]
     # normalize the normal
     length = math.sqrt((n[0]**2 + n[1]**2 + n[2]**2))
@@ -268,7 +268,7 @@ with open("triangle2.obj", "w") as file:
     # write the faces Note these are 1-based indices
     for face in faces:
         file.write(f"f {face[0]+1}//{face[0]+1} {face[1]+1}//{face[1]+1} {face[2]+1}//{face[2]+1}\n")
-        
+
 ```
 
 --
@@ -349,7 +349,7 @@ cube_uv=[
 ## todo write out the face data note we can share normals and uv's
 ## the back face is done for you.
 faces=[
-    [1, 1, 1], [2, 2, 1], [3, 3, 1],[4, 4, 1], # back face 
+    [1, 1, 1], [2, 2, 1], [3, 3, 1],[4, 4, 1], # back face
 ]
 
 with open("cube.obj", "w") as file:
@@ -363,7 +363,7 @@ with open("cube.obj", "w") as file:
     for i in range(0, len(faces), 4):
         # for ease we can build a string and write it in one go
         file.write(f"f {faces[i][0]}/{faces[i][1]}/{faces[i][2]}")
-        file.write(f"  {faces[i+1][0]}/{faces[i+1][1]}/{faces[i+1][2]}") 
+        file.write(f"  {faces[i+1][0]}/{faces[i+1][1]}/{faces[i+1][2]}")
         file.write(f"  {faces[i+2][0]}/{faces[i+2][1]}/{faces[i+2][2]}")
         file.write(f"  {faces[i+3][0]}/{faces[i+3][1]}/{faces[i+3][2]}\n")
 ```
@@ -371,7 +371,7 @@ with open("cube.obj", "w") as file:
 ---
 
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Vector products
@@ -381,15 +381,13 @@ with open("cube.obj", "w") as file:
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - How to create games with Pygame
-  - Procedural content generation for games 
+  - Procedural content generation for games
 
 --
 
 # Q&A and discussion
 - **Open Floor for Questions**
-
-

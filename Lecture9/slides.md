@@ -1,9 +1,9 @@
 ## Lesson 9: Texture maps, colour spaces
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -12,7 +12,7 @@
 
 - **Title:** Texture maps, colour spaces
 - **What will you learn today:**
-  - What is a texture map 
+  - What is a texture map
   - How to generate normal map using the code
   - More details about colour spaces
   - How to load and save files in Python
@@ -45,14 +45,14 @@
 
 - We use **import** keyword for importing the library
 - We let Python know we are using the code from the library
-- Import turtle graphics: 
+- Import turtle graphics:
 ```python
-import turtle 
+import turtle
 ```
 
 ---
 
-## goScripts 
+## goScripts
 
 - Most of you are used to just doing a double click to run software
 - Under Linux things are a little different hence the need for extra scripts
@@ -256,7 +256,7 @@ img.show()
 
 --
 
-## CMYK Colour Model – Overview
+### CMYK Colour Model – Overview
 - CMYK is a subtractive colour model used for printing.
   - Cyan (C), Magenta (M), Yellow (Y), Black (K) are the primary colours.
   - Unlike RGB, CMYK works by subtracting light reflected off a white background.
@@ -267,8 +267,8 @@ img.show()
 
 ## The opacity map
 - The Opacity Map dictates how transparent a model is. This is useful for making material such as glass.
-- The Opacity Map is a grey scale map. 
-  - Black means the surface is completely transparent 
+- The Opacity Map is a grey scale map.
+  - Black means the surface is completely transparent
 - Similar to alpha in RGBA model
 
 --
@@ -349,7 +349,7 @@ image_alpha.save("opacityMap.png")
 
 --
 
-## Creating normal maps procedurally
+#### Creating normal maps procedurally
 
 - Step 1: for every pixel in the texture we define the unit normal vector
 - Step 2: x of the unit normal is set to R component, y is for the G component and z is for the B component
@@ -361,7 +361,7 @@ image_alpha.save("opacityMap.png")
 
 ---
 
-### Advanced example: creating normal map in Python
+##### Advanced example: Python Normal Map
 
 ```python
 #!/usr/bin/env -S uv run --script
@@ -443,7 +443,7 @@ image.save("normal_map.png")
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to work with files in Python and PIL
@@ -454,7 +454,7 @@ image.save("normal_map.png")
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Transformations: translate, rotate, scale
@@ -464,4 +464,3 @@ image.save("normal_map.png")
 
 # Q&A and discussion
 - **Open Floor for Questions**
-

@@ -1,9 +1,9 @@
 ## Lesson 15: Procedural game content creation
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -12,7 +12,7 @@
 
 - **Title:** Procedural game content creation
 - **What will you learn today:**
-  - More insight about pygame library 
+  - More insight about pygame library
   - Procedural level design with Pygame
 
 ---
@@ -170,7 +170,7 @@ while running:
 ## Procedural object placement
 
 - Place items / elements / etc in random locations
-- Avoid clusters by checking proximity 
+- Avoid clusters by checking proximity
 
 [3_sampling.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/3_sampling.py)
 
@@ -384,9 +384,9 @@ year = car.pop("year")
 
 ## L-systems: example
 
-- Fern: 
-  - Axiom = "X"  
-  - Rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  
+- Fern:
+  - Axiom = "X"
+  - Rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}
 
 --
 
@@ -490,13 +490,13 @@ pygame.init()   #this is an essential line to make pygame working
 width = 640     #width of the game window
 height = 480    #height of the game window
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 white = (255,255,255)
 black = (0,0,0)
 
 max_iterations = 8
-iterations = 1 
+iterations = 1
 
 axiom = "X"  # start
 rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  # fern
@@ -505,12 +505,12 @@ rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  # fern
 while running:
     screen.fill(black) #clear the window by filling the space with the background colour
     #draw two lines
-    length = 8/iterations  
+    length = 8/iterations
     angle = math.radians(25)  # change this to make different shapes
     g = generate_rule_string(axiom, rules, iterations)
     draw_lsystem(screen, (320, 470), math.radians(-90), g[-1], length, angle)
     if iterations < max_iterations:
-        iterations += 1 
+        iterations += 1
     #event management
     for event in pygame.event.get(): #if we received an event
         if event.type == pygame.QUIT: #if the event is "quit game"
@@ -540,18 +540,18 @@ while running:
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Dictionary data type
   - Various algorithms for procedural game content generation
 - **Homework**
   - Can use L-systems for generating something grid-based?
-  - In generak, the material from previous and this lessons is enough to kick-off with the coursework. 
+  - In generak, the material from previous and this lessons is enough to kick-off with the coursework.
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Structuring the code with classes
@@ -561,4 +561,3 @@ while running:
 
 # Q&A and discussion
 - **Open Floor for Questions**
-

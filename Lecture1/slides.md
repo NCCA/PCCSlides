@@ -388,7 +388,7 @@ turtle.right(90)
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Your (probably) first two hours in Linux
@@ -398,7 +398,7 @@ turtle.right(90)
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Files and directories in Linux
