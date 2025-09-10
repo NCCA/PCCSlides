@@ -352,6 +352,8 @@ print(value)
 - With a computer we can do everything
 - But we do not want to create entire worlds from scratch
 - We can leverage the work of other people through **Python libraries**
+- python has a lot of built in libraries such as math, random turtle.
+- we can add external ones ourselves.
 
 --
 
@@ -408,11 +410,23 @@ from random import *
 
 ## Python libraries
 
+- external libraries need to be installed we use ```uv add [library_name]``` in the project directory
+
+```zsh
+uv add nccapy
+```
+- this will add the nccapy library which will have all you need this year
+
+--
+
+## Python libraries
+
 - Python graphics libraries:
-  - **Pillow**: image manipulation with Python
+  - **Pillow**: image manipulation with Python (in nccapy)
   - **Turtle**: turtle graphics
   - **Matplotlib**: data visualisation
-  - **PyGame**: creating games with Python
+  - **Numpy** : advanced maths (in nccapy)
+  - **PyGame**: creating games with Python (in nccapy)
   - **PyOpenGL**: OpenGL bindings for Python
 
 ---
