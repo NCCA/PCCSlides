@@ -171,7 +171,7 @@ ZeroDivisionError: division by zero
 - we then use the ```except [type]: ``` block
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 
 a=10
 b=0
@@ -205,7 +205,7 @@ print('now do something else')
 ## example
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 
 try :
     with open("nothere", "r") as file:

@@ -15,8 +15,8 @@ running = True  # the variable to ensure the game loop
 white = (255, 255, 255)
 black = (0, 0, 0)
 
-ball1 = BouncingBall(20, (20,20), (10,0))
-ball2 = BouncingBall(20, (620,20), (-100,100))
+ball1 = BouncingBall(20, (20, 20), (10, 0))
+ball2 = BouncingBall(20, (620, 20), (-100, 100))
 ball1.setBounds(0, 0, width, height)
 ball2.setBounds(0, 0, width, height)
 
@@ -26,7 +26,7 @@ while running:
         black
     )  # clear the window by filling the space with the background colour
     # draw two lines
-    deltaT = float(clock.get_time())/1000.0
+    deltaT = float(clock.get_time()) / 1000.0
     ball1.draw(screen, white)
     ball2.draw(screen, white)
     ball1.update(deltaT)

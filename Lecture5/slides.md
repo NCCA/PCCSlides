@@ -361,7 +361,7 @@ for i in range(1, 6):
 ## Bringing it all together
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 
 import turtle
 

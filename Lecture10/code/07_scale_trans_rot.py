@@ -4,8 +4,6 @@ import math
 from PIL import Image, ImageDraw
 
 
-
-
 def translate_point(point, dx, dy) -> (float, float):
     return (point[0] + dx, point[1] + dy)
 
@@ -59,5 +57,5 @@ for count in range(0, 6):
     new_points = scale_points(points, count * 60, count * 60)
     new_points = roate_points(new_points, (count * 5) / 360.0 * 2 * math.pi)
     new_points = translate_points(new_points, 320, 240)
-    canvas.line( new_points, rainbow[count])
+    canvas.line(new_points, rainbow[count])
 im.show()

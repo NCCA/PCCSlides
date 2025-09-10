@@ -41,5 +41,5 @@ for count in range(0, 6):
     # note if you swap next two lines, you will get a different result
     new_points = scale_points(points, count * 80, count * 80)
     new_points = translate_points(new_points, 320, 240)
-    canvas.line( new_points, rainbow[count])
+    canvas.line(new_points, rainbow[count])
 im.show()

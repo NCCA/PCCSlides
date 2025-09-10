@@ -1,14 +1,14 @@
-## Lesson 4: Variables and lists 
+## Lesson 4: Variables and lists
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Variables and lists
 - **What will you learn today:**
@@ -18,10 +18,10 @@
 
 ---
 
-## Recap: Drawing the square using turtle
+#### Recap: Drawing a square using turtle
 
 ```python
-import turtle 
+import turtle
 turtle.down()
 turtle.forward(100)
 turtle.right(90)
@@ -36,7 +36,7 @@ turtle.done()
 
 --
 
-## Recap: Drawing the square using Pillow
+#### Recap: Drawing a square using Pillow
 
 ```python
 from PIL import Image, ImageDraw
@@ -52,7 +52,7 @@ im.show()
 
 --
 
-## Recap: Python variables
+### Recap: Python variables
 
 - Variables are containers for storing data values
 - A variable is created the moment you first assign a value to it
@@ -60,7 +60,7 @@ im.show()
 a = "Computer Animation & Visual Effects"
 b = "2024"
 print(a)
-print(b) 
+print(b)
 ```
 
 ---
@@ -75,7 +75,7 @@ print(b)
 a = "Computer Animation & Visual Effects"
 b = "2024"
 print(a)
-print(b) 
+print(b)
 ```
 
 --
@@ -88,20 +88,21 @@ print(b)
 course = "Computer Animation & Visual Effects"
 year = "2024"
 print(course)
-print(year) 
+print(year)
 ```
 
 ---
 
-## Coding Style and Practice
+### Coding Style and Practices
 
 - Coding standards are a set of guidelines and best practices that developers follow while writing code.
-- They help ensure that all the code looks and works in a similar way, no matter who wrote it. 
+- They help ensure that all the code looks and works in a similar way, no matter who wrote it.
 - We will be periodically revisit coding standards in these lessons
+- The [ncca python standard](https://nccastaff.bournemouth.ac.uk/jmacey/NCCACodingStandard/Python/) also see [citation and AI](https://nccastaff.bournemouth.ac.uk/jmacey/NCCACodingStandard/Citation/)
 
 --
 
-#### Why coding standards are necessary
+##### Why coding standards are necessary
 
 1. **Easier to Read**: It is much easier to someone else to understand your code
 2. **Reduces Mistakes**: Following standards can prevent common errors
@@ -135,7 +136,7 @@ im.show()
 
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 window_size = (640, 480)
@@ -156,7 +157,7 @@ image.show()
 
 - Python has 5 standard data types
   1. Numbers
-  2. String 
+  2. String
   3. List
   4. Tuple
   5. Dictionary
@@ -211,9 +212,9 @@ list3 = ["abc", 123, "Hello!", 3.14159]
 
 --
 
-## Accessing elements from the list
+#### Accessing elements from the list
 
-- Use the subscript operator [ ] to access an item in a list. 
+- Use the subscript operator [ ] to access an item in a list.
 - The index must be an integer.
 - The minimal index is 0, the maximum index is len()-1
 
@@ -223,7 +224,7 @@ list3 = ["abc", 123, "Hello!", 3.14159]
 
 - Lists can be elements of lists
   - We refer to them as **nested lists**
-- Nested lists are accessed using nested indexing. 
+- Nested lists are accessed using nested indexing.
 
 ```python
 # Creating a Multi-Dimensional List
@@ -244,7 +245,7 @@ print(my_list[1][0])
 
 - In Python, negative sequence indexes represent positions from the end of the List.
   - *-1* refers to the last item, *-2* to the second last item etc
-  
+
 ```python
 my_list = ["computer", "animation", "and", "visual", "effects"]
 print(my_list[-2])
@@ -255,7 +256,7 @@ print(my_list[-2])
 ## Using variables and lists
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 window_size = (640, 480)
@@ -275,7 +276,7 @@ image.show()
 --
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 window_size = (640, 480)
@@ -312,7 +313,7 @@ image.show()
 
 ## Geometric data
 
-- In the previous example 
+- In the previous example
   - We defined **a list of points**
   - We also defined line segments from these points
 - That is the first step for understanding how all the objects in computer graphics (animation, VFX) are defined
@@ -322,7 +323,7 @@ image.show()
 
 ## How to simplify the code?
 
-- Instead of 
+- Instead of
 
 ```python
 canvas.line( ( points[0], points[1]), draw_colour)
@@ -331,7 +332,7 @@ canvas.line( ( points[0], points[3]), draw_colour)
 canvas.line( ( points[0], points[4]), draw_colour)
 ```
 
-- You can use 
+- You can use
 
 ```python
 #repeat four times
@@ -352,7 +353,7 @@ canvas.line( ( points[0], points[number_of_iteration_starting_at_1]), draw_colou
 
 ## Homework
 
-- Extend the last example to draw the simple object like a clipart of the crystal. 
+- Extend the last example to draw the simple object like a clipart of the crystal.
 - It may help to determine the points of the crystal on paper first
 
 <img style="border: 0;" src="images/crystal.png" width="20%">

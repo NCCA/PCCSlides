@@ -44,7 +44,7 @@ for i in range(5):
 #### Recap: Drawing the square using Pillow
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 image = Image.new('RGB', (640, 480), (255, 255, 255))

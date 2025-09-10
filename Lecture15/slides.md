@@ -395,7 +395,7 @@ year = car.pop("year")
 [5_lsystem.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/3_lsystem.py)
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 

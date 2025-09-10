@@ -4,7 +4,6 @@ import math
 from PIL import Image, ImageDraw
 
 
-
 def translate_point(point, dx, dy) -> (float, float):
     return (point[0] + dx, point[1] + dy)
 

@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 
 import random
 import math
+
 
 def generate_rule_string(axiom: str, rules: dict[str, str], iterations: int) -> str:
     """
@@ -45,7 +46,14 @@ def rule(sequence: str, rules: dict[str, str]) -> str:
     return sequence
 
 
-def draw_lsystem(screen, position: tuple, orientation: float, commands: str, length: float, angle: float) -> None:
+def draw_lsystem(
+    screen,
+    position: tuple,
+    orientation: float,
+    commands: str,
+    length: float,
+    angle: float,
+) -> None:
     """
     Draws an L-system based on the given commands.
 
@@ -60,16 +68,22 @@ def draw_lsystem(screen, position: tuple, orientation: float, commands: str, len
     """
     stack = []
     for command in commands:
-        if command in ["F", "G", "R", "L", "A"]:  # forward rules for some l system grammars
-            directionX = math.cos(orientation)*length
-            directionY = math.sin(orientation)*length
-            newPosition = (position[0]+directionX, position[1]+directionY)
+        if command in [
+            "F",
+            "G",
+            "R",
+            "L",
+            "A",
+        ]:  # forward rules for some l system grammars
+            directionX = math.cos(orientation) * length
+            directionY = math.sin(orientation) * length
+            newPosition = (position[0] + directionX, position[1] + directionY)
             pygame.draw.line(screen, (255, 255, 255), position, newPosition, 1)
             position = newPosition
         elif command in ["f", "B"]:
-            directionX = math.cos(orientation)*length
-            directionY = math.sin(orientation)*length
-            newPosition = (position[0]+directionX, position[1]+directionY)
+            directionX = math.cos(orientation) * length
+            directionY = math.sin(orientation) * length
+            newPosition = (position[0] + directionX, position[1] + directionY)
             position = newPosition
         elif command == "+":
             orientation += angle
@@ -88,37 +102,40 @@ def draw_lsystem(screen, position: tuple, orientation: float, commands: str, len
 # + Turn Left
 # - Turn Right
 
-pygame.init()   #this is an essential line to make pygame working
+pygame.init()  # this is an essential line to make pygame working
 
-width = 640     #width of the game window
-height = 480    #height of the game window
-screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
-running = True  #the variable to ensure the game loop
-white = (255,255,255)
-black = (0,0,0)
+width = 640  # width of the game window
+height = 480  # height of the game window
+screen = pygame.display.set_mode((width, height))  # create the game window
+clock = (
+    pygame.time.Clock()
+)  # use the clock to ensure we updating the window not too often
+running = True  # the variable to ensure the game loop
+white = (255, 255, 255)
+black = (0, 0, 0)
 
 max_iterations = 8
-iterations = 1 
+iterations = 1
 
 axiom = "X"  # start
 rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  # fern
 
-#the game loop
+# the game loop
 while running:
-    screen.fill(black) #clear the window by filling the space with the background colour
-    #draw two lines
-    length = 8/iterations  
+    screen.fill(
+        black
+    )  # clear the window by filling the space with the background colour
+    # draw two lines
+    length = 8 / iterations
     angle = math.radians(25)  # change this to make different shapes
     g = generate_rule_string(axiom, rules, iterations)
     draw_lsystem(screen, (320, 470), math.radians(-90), g[-1], length, angle)
     if iterations < max_iterations:
-        iterations += 1 
-    #event management
-    for event in pygame.event.get(): #if we received an event
-        if event.type == pygame.QUIT: #if the event is "quit game"
-            running = False         #then we set the variable allowing for the loop to stop
-    pygame.display.flip()       #render
-    clock.tick(1)              #wait until we run with 30 frames per second or less
-#end of the program
-
+        iterations += 1
+    # event management
+    for event in pygame.event.get():  # if we received an event
+        if event.type == pygame.QUIT:  # if the event is "quit game"
+            running = False  # then we set the variable allowing for the loop to stop
+    pygame.display.flip()  # render
+    clock.tick(1)  # wait until we run with 30 frames per second or less
+# end of the program

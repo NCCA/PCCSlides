@@ -4,7 +4,6 @@ import math
 from PIL import Image, ImageDraw
 
 
-
 def rotate_point(point, theta) -> (float, float):
     return (
         point[0] * math.cos(theta) + point[1] * math.sin(theta),

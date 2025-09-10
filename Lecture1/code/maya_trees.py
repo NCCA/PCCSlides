@@ -2,6 +2,7 @@ import maya.cmds as cmds
 import random
 import math
 
+
 def simple_tree(x: float, z: float, height: float) -> None:
     """
     Generates a simple tree using Maya primitives.
@@ -17,15 +18,16 @@ def simple_tree(x: float, z: float, height: float) -> None:
     # Create the trunk
     trunk_height = height * 0.5
     trunk_radius = height * 0.1
-    trunk = cmds.polyCylinder(h=trunk_height, r=trunk_radius, sx=20, sy=1, sz=1, name='tree_trunk')[0]
-    cmds.move(x,  trunk_height / 2, z, trunk)
+    trunk = cmds.polyCylinder(
+        h=trunk_height, r=trunk_radius, sx=20, sy=1, sz=1, name="tree_trunk"
+    )[0]
+    cmds.move(x, trunk_height / 2, z, trunk)
 
     # Create the foliage
     foliage_height = height * 0.5
     foliage_radius = height * 0.3
-    foliage = cmds.polySphere(r=foliage_radius, sx=20, sy=20, name='tree_foliage')[0]
-    cmds.move(x,  trunk_height + foliage_height / 2, z, foliage)
-
+    foliage = cmds.polySphere(r=foliage_radius, sx=20, sy=20, name="tree_foliage")[0]
+    cmds.move(x, trunk_height + foliage_height / 2, z, foliage)
 
 
 def scatter_trees(num_objects: int, area_size: float, min_distance: float) -> None:
@@ -40,7 +42,10 @@ def scatter_trees(num_objects: int, area_size: float, min_distance: float) -> No
     Returns:
         None
     """
-    def is_valid_position(new_pos: tuple[float, float], existing_positions: list[tuple[float, float]]) -> bool:
+
+    def is_valid_position(
+        new_pos: tuple[float, float], existing_positions: list[tuple[float, float]]
+    ) -> bool:
         """
         Checks if the new position is valid (i.e., not too close to existing positions).
 
@@ -67,6 +72,7 @@ def scatter_trees(num_objects: int, area_size: float, min_distance: float) -> No
 
     for pos in positions:
         simple_tree(pos[0], pos[1], 10)
+
 
 # Example usage
 scatter_trees(140, 150, 5)

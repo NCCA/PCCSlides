@@ -2,13 +2,12 @@
 from PIL import Image, ImageDraw
 
 
-
-def translate_point(point, dx, dy) -> (float, float):  
+def translate_point(point, dx, dy) -> (float, float):
     # The function moves just one point given the offset
     return (point[0] + dx, point[1] + dy)
 
 
-def translate_points(points, dx, dy) -> list:  
+def translate_points(points, dx, dy) -> list:
     # This function moves multiple points with the same offset
     newPoints = list()
     for p in points:

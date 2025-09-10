@@ -4,7 +4,6 @@ import math
 from PIL import Image, ImageDraw
 
 
-
 def translate_point(point, dx, dy) -> (float, float):
     return (point[0] + dx, point[1] + dy)
 
@@ -59,5 +58,5 @@ for count in range(0, 50):
     new_points = translate_points(
         new_points, count * 15, 240 + 30 * math.sin((count * 15) / 360.0 * 2 * math.pi)
     )
-    canvas.line( new_points, rainbow[count % len(rainbow)])
+    canvas.line(new_points, rainbow[count % len(rainbow)])
 im.show()
