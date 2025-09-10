@@ -1,9 +1,9 @@
 ## Lesson 3: Algorithmic thinking and data
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -34,7 +34,7 @@ print("Hello, World!")
 a = "Computer Animation & Visual Effects"
 b = "2024"
 print(a)
-print(b) 
+print(b)
 ```
 
 --
@@ -43,16 +43,16 @@ print(b)
 
 - We use **import** keyword for importing the library
 - We let Python know we are using the code from the library
-- Import turtle graphics: 
+- Import turtle graphics:
 ```python
-import turtle 
+import turtle
 ```
 
 ---
 
 ## Algorithms
 
-- Humans can understand vague instructions, computers can't. 
+- Humans can understand vague instructions, computers can't.
 - An **algorithm** describes the method for solving a task.
 - It consists of a sequence of steps that will solve the given task if executed correctly.
 
@@ -60,9 +60,9 @@ import turtle
 
 ## Algorithms
 
-- How to create an instant coffee? 
+- How to create an instant coffee?
   - According to WikiHow
-  
+
 <blockquote><small><p><ul><li>Heat up a mug of water</li><li>Add 1–2 teaspoons (2–4 g) of instant coffee to the mug</li><li>Stir your coffee into the mug of hot water</li><li>Mix in sugar, spices, milk, or cream if you want them</li></ul></p></small></blockquote>
 
 Note:
@@ -105,7 +105,7 @@ Note:
 - Look again at the example of drawing the square
 - What is the sequence of operations here?
 ```python
-import turtle 
+import turtle
 turtle.down()
 turtle.forward(100)
 turtle.right(90)
@@ -126,7 +126,7 @@ turtle.done()
 - The sequence of operations is important
 - The order of operations can change the outcome
   - In advance programs many things can be happening at once, but we will not bother with that for now!
-- But first a step back :-) 
+- But first a step back :-)
 
 ---
 
@@ -152,10 +152,10 @@ turtle.done()
 
 ## Integers (recap)
 
-- In Mathematics, **integers** are the collection of whole numbers and negative numbers. 
+- In Mathematics, **integers** are the collection of whole numbers and negative numbers.
 
 - integers are numbers that can be positive, negative or zero, but cannot be a fraction
-- You can perform arithmetic operations on integers: 
+- You can perform arithmetic operations on integers:
   - Addition
   - Subtraction
   - Multiplication
@@ -168,7 +168,7 @@ turtle.done()
 - Real numbers is a combination of rational and irrational numbers
   - Rational numbers can be represented by a fraction (example: 1/2)
   - Irrational numbers cannot be represented by a fraction (example: sqrt(2))
-- You can perform arithmetic operations on real numbers 
+- You can perform arithmetic operations on real numbers
 
 --
 
@@ -181,7 +181,7 @@ turtle.done()
 
 --
 
-## Numbers 
+## Numbers
 ```python
 integer_variable = 1  # note the names are not reserved words
 float_variable = 1.2
@@ -235,19 +235,19 @@ print("Hello")
 print('Hello')
 string_variable = 'Hello, world!'
 print(string_variable)
-print(type(string_variable)) 
+print(type(string_variable))
 ```
 
 --
 
-## Strings 
+## Strings
 
 - A single character is a string with a length of 1
 - You can use quotes inside a string, as long as they don't match the quotes surrounding the string
 ```python
 print("It's alright")
 print("The unit is called 'Procedural Content Creation'")
-print('The unit is called "Procedural Content Creation"') 
+print('The unit is called "Procedural Content Creation"')
 ```
 
 --
@@ -260,7 +260,7 @@ print('The unit is called "Procedural Content Creation"')
 ```python
 # Creating String with triple
 # Quotes allows multiple lines
-String1 = """Computer 
+String1 = """Computer
 Animation
 And
 Visual
@@ -285,8 +285,8 @@ print(String1)
 - Can we draw something more complex?
 
 ```python
-#!/usr/bin/env python
-import turtle 
+#!/usr/bin/env -S uv run --script
+import turtle
 turtle.down()
 turtle.forward(100)
 turtle.right(90)
@@ -337,7 +337,7 @@ turtle.done()
 
 - The origin corresponds to 0
   - To the left of the origin are the negative real numbers
-  - To the right of the origin are the positive real numbers 
+  - To the right of the origin are the positive real numbers
 - Distance between 0 and 1 determines the scale
 - The real number associated with a point *P* is called the coordinate of *P*
 
@@ -353,7 +353,7 @@ turtle.done()
 
 ---
 
-## Algorithms 
+## Algorithms
 
 - Different algorithms can save the same problem
 - Different programs can do things that are seemingly the same
@@ -367,9 +367,9 @@ turtle.done()
 [turtle2.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture3/code/turtle2.py)
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 
-import turtle 
+import turtle
 turtle.down()
 turtle.goto(100,0)
 turtle.goto(100,100)
@@ -385,7 +385,7 @@ turtle.done()
 [pil_square.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture3/code/pil_square.py)
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 
 from PIL import Image, ImageDraw
 
@@ -421,5 +421,3 @@ im.show()
 
 # Q&A and discussion
 - **Open Floor for Questions**
-
-

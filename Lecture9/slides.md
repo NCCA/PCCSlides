@@ -122,7 +122,7 @@ im.save("green_new.jpg")
 [texture1.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture9/code/texture1.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 from PIL import Image, ImageDraw
 import math
@@ -165,7 +165,7 @@ image.show()
 [texture2.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture9/code/texture_base.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 from PIL import Image, ImageDraw
 import math
@@ -278,7 +278,7 @@ img.show()
 [texture3.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture9/code/texture_base_opacity.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 from PIL import Image, ImageDraw
 import math
@@ -364,7 +364,7 @@ image_alpha.save("opacityMap.png")
 ### Advanced example: creating normal map in Python
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 from PIL import Image, ImageDraw
 import math

@@ -78,7 +78,7 @@ print(add_numbers(3, 5))  # Output: 8
 [01_drawbox.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/01_drawbox.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
@@ -117,7 +117,7 @@ im.show()
 [02_translate_box.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/02_translate_box.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 from random import randint
 
@@ -149,7 +149,7 @@ im.show()
 [03_translate_box2.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/03_translate_box2.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 def translate_point(point, dx, dy) -> (float, float):  
@@ -214,7 +214,7 @@ im.show()
 [04_scaling1.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/04_scaling1.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 
@@ -264,7 +264,7 @@ im.show()
 [05_compose.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/05_compose.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 
@@ -338,7 +338,7 @@ im.show()
 [06_rotation.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/06_rotation)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
@@ -384,7 +384,7 @@ im.show()
 [07_scale_trans_rot.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/07_scale_trans_rot.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
@@ -457,7 +457,7 @@ im.show()
 [08_wave.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/08_wave.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
@@ -528,7 +528,7 @@ im.show()
 [brickwall.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/brickwall.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 import random
 

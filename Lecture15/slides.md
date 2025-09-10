@@ -52,7 +52,7 @@ y = random.randint(0, 600)
 [1_start.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/1_start.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 
@@ -106,7 +106,7 @@ while running:
 [2_random.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/2_random.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 import random

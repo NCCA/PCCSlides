@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 def draw_segment(canvas, start, direction, colour) -> None:

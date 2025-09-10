@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image
 
 im1 = Image.open("background.jpg")

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 from bouncingball import BouncingBall as BouncingBall

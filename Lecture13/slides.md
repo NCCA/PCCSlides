@@ -159,7 +159,7 @@
 ## Calculating normals in Python
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 def calc_normal(v1, v2) :
     
@@ -189,7 +189,7 @@ def calc_normal(v1, v2) :
 ## Recap: Python ObjWriter 
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 
 triangle = [[2.0, 0.0, 0.0], [0.0, 4.0, 0.0], [-2.0, 0.0, 0.0]]
@@ -237,7 +237,7 @@ vn 0.0 0.0 1.0
 - We can add normals to our OBJ file by calculating them for each face and writing them to the file.
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 def calc_normal(v1, v2) :
     
@@ -313,7 +313,7 @@ f v/vt/n v/vt/n v/vt/n
 - A cube mesh contains six faces, each with four vertices We can define it as follows
 
 ```
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 # unit cube around the origin centered at 0,0,0 with sides of length 0.5
 cube_verts=[

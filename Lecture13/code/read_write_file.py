@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 with open("test.txt", "w") as file:
     file.write("Hello, world!")

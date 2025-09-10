@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 im = Image.new("RGB", (640, 480), (255, 255, 20))

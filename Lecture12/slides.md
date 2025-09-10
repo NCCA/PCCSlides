@@ -343,7 +343,7 @@ f 1 2 3
 - We can write a simple python program to write out an obj file
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 
 triangle = [[2.0, 0.0, 0.0], [0.0, 4.0, 0.0], [-2.0, 0.0, 0.0]]
@@ -412,7 +412,7 @@ A x B = (AyBz - AzBy, AzBx - AxBz, AxBy - AyBx)
 - We can add normals to our OBJ file by calculating the normals for each face and writing them to the file.
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 def calc_normal(v1, v2) :
     
@@ -497,7 +497,7 @@ f v/vt/n v/vt/n v/vt/n
 - A cube mesh contains six faces, each with four vertices We can define it as follows
 
 ```
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 # unit cube around the origin centered at 0,0,0 with sides of length 0.5
 cube_verts=[

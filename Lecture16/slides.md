@@ -1,9 +1,9 @@
 ## Lesson 16: Bouncing ball class
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -14,7 +14,7 @@
 - **What will you learn today:**
   - Classes in Python
   - How we can use physics to animate bouncing ball
-  - How to manage projects 
+  - How to manage projects
 
 ---
 
@@ -33,7 +33,7 @@
 [1_start.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/1_start.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 
@@ -173,7 +173,7 @@ class BouncingBall:
         self.position = position
 		self.velocity = velocity
     def draw(self, screen, colour):
-        pygame.draw.circle(screen, colour, self.position, self.radius)		
+        pygame.draw.circle(screen, colour, self.position, self.radius)
 ```
 
 ---
@@ -273,7 +273,7 @@ class BouncingBall:
         if self.position[0] < self.minX or self.position[0] > self.maxX:
             self.position = oldPosition
             self.velocity = (-newVelocity[0], newVelocity[1])
-``` 
+```
 
 ---
 
@@ -293,7 +293,7 @@ class BouncingBall:
 
 --
 
-### Bringing it all together 
+### Bringing it all together
 
 [2_bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/2_bouncingball.py)
 
@@ -423,7 +423,7 @@ class BouncingBall:
 from bouncingball import BouncingBall as BouncingBall
 ```
 
-- Best practices: 
+- Best practices:
   - Avoid circular imports.
   - Use relative imports within packages.
   - Keep module functionality focused and specific.
@@ -470,12 +470,12 @@ my_project/
 ## Introduction to Git
 
 - **Git** is a distributed version control system.
-- Commands: 
-  - *git init* : Initialize repository  
-  - *git add .* : Stage changes  
-  - *git commit -m "message"* : Commit changes  
-  - *git push* : Push changes to remote repository  
-  - *git pull* : Pull latest changes from remote repository 
+- Commands:
+  - *git init* : Initialize repository
+  - *git add .* : Stage changes
+  - *git commit -m "message"* : Commit changes
+  - *git push* : Push changes to remote repository
+  - *git pull* : Pull latest changes from remote repository
   - *git status* : show the status of our repo
 
 --
@@ -522,4 +522,3 @@ git config --list
 
 # Q&A and discussion
 - **Open Floor for Questions**
-

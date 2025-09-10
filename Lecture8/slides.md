@@ -97,7 +97,7 @@ image.show()
 #### Adding content to the square texture
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 #texture1.py
 
 from PIL import Image, ImageDraw
@@ -366,7 +366,7 @@ colour_b = math.floor(colour1[2]+t*(colour2[2]-colour1[2]))
 - Full example: 
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 # texture3_2.py
 from PIL import Image, ImageDraw
@@ -444,7 +444,7 @@ def draw_circle(cx, cy, r, col):
 #### Putting everything together and time to play
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 # texture4.py
 from PIL import Image, ImageDraw
 import math
