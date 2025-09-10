@@ -442,7 +442,7 @@ img.show()
 ```zsh
 uv init FirstImage
 cd FirstImage
-uv add nccapy
+uv add pillow
 ```
 
 - copy the previous code into the main.py file (replacing the default)
