@@ -1,0 +1,13 @@
+[project]
+name = "testball"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "nccapy>=0.1.7",
+    "bouncingball",
+]
+
+[tool.uv.sources]
+bouncingball = { path = "../BouncingBall/" }

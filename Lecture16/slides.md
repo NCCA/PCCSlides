@@ -1,9 +1,9 @@
-## Lesson 16: Bouncing ball class
+### Lesson 16: Bouncing ball class
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -14,7 +14,7 @@
 - **What will you learn today:**
   - Classes in Python
   - How we can use physics to animate bouncing ball
-  - How to manage projects 
+  - How to manage projects
 
 ---
 
@@ -33,7 +33,7 @@
 [1_start.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/1_start.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 
@@ -120,7 +120,7 @@ ball2 = BouncingBall(20, (620,20), (-10,0))
 
 --
 
-## Accessing attributes of an object
+### Accessing attributes of an object
 
 ```python
 class BouncingBall:
@@ -173,12 +173,12 @@ class BouncingBall:
         self.position = position
 		self.velocity = velocity
     def draw(self, screen, colour):
-        pygame.draw.circle(screen, colour, self.position, self.radius)		
+        pygame.draw.circle(screen, colour, self.position, self.radius)
 ```
 
 ---
 
-## Physics in computer graphics
+### Physics in computer graphics
 
 - When we are animating procedurally, we want to make believable animations
   - We use physics for procedural animation
@@ -210,7 +210,7 @@ class BouncingBall:
 
 --
 
-## Adding a method for particle movement
+#### Particle movement method
 
 ```python
     def update(self, deltaT):
@@ -240,7 +240,7 @@ class BouncingBall:
 
 --
 
-### Adding collision detection to Bouncing Ball class
+#### Adding collision detection
 
 ```python
 class BouncingBall:
@@ -273,7 +273,7 @@ class BouncingBall:
         if self.position[0] < self.minX or self.position[0] > self.maxX:
             self.position = oldPosition
             self.velocity = (-newVelocity[0], newVelocity[1])
-``` 
+```
 
 ---
 
@@ -293,7 +293,7 @@ class BouncingBall:
 
 --
 
-### Bringing it all together 
+### Bringing it all together
 
 [2_bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/2_bouncingball.py)
 
@@ -367,7 +367,7 @@ print(square_root(16))  # Output: 4.0
 
 --
 
-### Creating and Importing Custom Modules
+#### Creating and Importing Custom Modules
 
 1. Create a Python file with reusable functions or classes
 2. Import and use it in another file
@@ -375,7 +375,9 @@ print(square_root(16))  # Output: 4.0
 
 --
 
-## Example: bouncing ball module
+### Example: bouncing ball module
+
+[bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/bouncingball.py)
 
 [bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/bouncingball.py)
 
@@ -420,17 +422,17 @@ class BouncingBall:
 [3_include.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/3_include.py)
 
 ```python
-from bouncingball import BouncingBall as BouncingBall
+from bouncingball import BouncingBall
 ```
 
-- Best practices: 
+- Best practices:
   - Avoid circular imports.
   - Use relative imports within packages.
   - Keep module functionality focused and specific.
 
 ---
 
-## Project management in Python
+### Project management in Python
 
 - Why Project Management in Python?
   - Helps organize and maintain codebases.
@@ -448,16 +450,26 @@ my_project/
 │   ├── module1.py
 │   └── module2.py
 ├── main.py
+|── pyproject.toml
 ├── README.md
 └── .gitignore
 ```
 
 - *README.md*: Project overview and instructions in the Markdown format
 - .gitignore: Files to exclude from version control.
+- pyproject.toml python project configuration files.
 
 --
 
-## Importance of Source Control
+## Advanced Example
+
+- uv allows us to generate and build python packages
+- For a full example see the Lecture16/code/Packages folder
+- The README.md has full step by step instructions
+
+---
+
+### Importance of Source Control
 
 - What is Source Control?
   - A system to track changes to files.
@@ -470,12 +482,12 @@ my_project/
 ## Introduction to Git
 
 - **Git** is a distributed version control system.
-- Commands: 
-  - *git init* : Initialize repository  
-  - *git add .* : Stage changes  
-  - *git commit -m "message"* : Commit changes  
-  - *git push* : Push changes to remote repository  
-  - *git pull* : Pull latest changes from remote repository 
+- Commands:
+  - *git init* : Initialize repository
+  - *git add .* : Stage changes
+  - *git commit -m "message"* : Commit changes
+  - *git push* : Push changes to remote repository
+  - *git pull* : Pull latest changes from remote repository
   - *git status* : show the status of our repo
 
 --
@@ -493,16 +505,26 @@ git config --list
 
 --
 
-## Collaboration with GitHub/GitLab
+### Collaboration with GitHub/GitLab
 
 - Platforms like GitHub or GitLab facilitate collaboration.
 - Collaboration Tips:
   - Commit often with clear messages.
-  - regularly pull the latest changes to avoid conflicts.
+  - Regularly pull the latest changes to avoid conflicts.
+
+--
+
+## uv and Git
+
+- uv automatically sets your project to be a git project
+- it creates a simple .gitignore for python
+- adds everything to the main branch
+- you have been using it all along!
+
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to define classes using an example of the bouncing ball
@@ -513,7 +535,7 @@ git config --list
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - How to generate content in Maya
@@ -522,4 +544,3 @@ git config --list
 
 # Q&A and discussion
 - **Open Floor for Questions**
-

@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-from PIL import Image, ImageDraw
+#!/usr/bin/env -S uv run --script
+from PIL import Image
 
 im = Image.open("green.jpg")
 pixel = im.getpixel((100, 100))

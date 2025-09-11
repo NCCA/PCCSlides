@@ -8,7 +8,7 @@
 
 ---
 
-# Session outline
+## Session outline
 
 - We will look at how maya python works
 - How to create a simple tool (and design it)
@@ -79,7 +79,6 @@ hello()
 - To help the development cycle, we can easily modify the script and call
 
 ```python
-
 import NCCAFunctions
 NCCAFunctions.hello()
 # make changes to source.
@@ -89,6 +88,8 @@ NCCAFunctions.hello()
 ```
 
 - to reload the module from the source file, otherwise this will be the same module for the whole of the session.
+
+
 
 ---
 
@@ -365,7 +366,7 @@ turntable_gui()
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to create UI
@@ -375,7 +376,7 @@ turntable_gui()
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - We do not have any new material, so only revision weeks are coming!

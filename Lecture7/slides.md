@@ -1,14 +1,14 @@
 ## Lesson 7: Vector and lines
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Vector and lines
 - **What will you learn today:**
@@ -67,13 +67,13 @@ print(var)
 
 ## Tuple with one item
 
-- In case your generating a tuple with a single element, make sure to add a comma after the element. 
+- In case your generating a tuple with a single element, make sure to add a comma after the element.
 
 ```python
 #One-item tuple
 mytuple = ("Animation",)
 print(type(mytuple))
- 
+
 #NOT a tuple
 mytuple = ("Animation")
 print(type(mytuple))
@@ -87,7 +87,7 @@ print(type(mytuple))
   - You cannot add items to a tuple once it is created.
   - You can only read elements, not change them
   - You cannot remove items from tuple once it is created.
-  
+
 ```python
 var = ("Computer", "Animation", "Visual", "Effects")
 print(var[1]) # prints Animation
@@ -98,7 +98,7 @@ var[1]="Graphics" # generates error
 
 ## Accessing values in tuples
 
-- There are two ways to access the elements of a tuple: 
+- There are two ways to access the elements of a tuple:
   - Using a positive index
   - Using a negative index
 
@@ -220,7 +220,7 @@ image.show()
 
 ### Visualising vectors with Python
 
-- vector = endpoint - startpoint 
+- vector = endpoint - startpoint
 - endpoint = startpoint + vector
   - for the line segment we call this vector **a direction vector**
 
@@ -287,7 +287,7 @@ image.show()
 ## Vector addition
 
 - Algebra: $ (a_x, a_y) + (b_x, b_y) = (a_x+b_x, a_y+b_y)$
-- Geometry: 
+- Geometry:
   - <small>Position the vectors **a** and **b** so that the start point of **b** coincides with the end point of **a**
   - Then start point of **a+b** coincides with the start point of **a** and end point of **a+b** coincides with the start point of **b**</small>
 
@@ -321,10 +321,10 @@ image.show()
 ### Vector multiplication by a scalar
 
 - Algebra: $ p\cdot(a_x, a_y) = (p \cdot a_x, p \cdot a_y)$
-- Geometry: 
+- Geometry:
   - The length of $p \mathbf{a}$ is *p* times the length of $\mathbf{a}$
   - If $p>0$, the direction is the same, if $p<0$, the direction is opposite
-  
+
 <img style="border: 0;" src="images/VectorMulScalar.png" width="35%">
 
 --
@@ -372,7 +372,7 @@ image.show()
 
 ## Vectors on a triangle
 
-- How many vectors can be defined with three distinctive non-collinear points? 
+- How many vectors can be defined with three distinctive non-collinear points?
 
 <img style="border: 0;" src="images/VectorTriangle1.png" width="50%">
 
@@ -380,7 +380,7 @@ image.show()
 
 ## Vectors on a triangle
 
-- How many vectors can be defined with three distinctive non-collinear points? 
+- How many vectors can be defined with three distinctive non-collinear points?
   - Six!
 
 <img style="border: 0;" src="images/VectorTriangle2.png" width="50%">
@@ -390,7 +390,7 @@ image.show()
 ## Vectors on a triangle
 
 - If we define two vectors that do not share the same line segment, the rest four can be expressed with vector addition, subtraction and inverse.
-- If we have $ \overrightarrow{AB} $ and $ \overrightarrow{AC} $, then 
+- If we have $ \overrightarrow{AB} $ and $ \overrightarrow{AC} $, then
   - <small>$ \overrightarrow{BA} = -\overrightarrow{AB} $  $ \overrightarrow{CA} = -\overrightarrow{AC} $  $ \overrightarrow{BC} = \overrightarrow{AC}-\overrightarrow{AB} $   $ \overrightarrow{CB} = \overrightarrow{AB}-\overrightarrow{AC} $</small>
 
 <img style="border: 0;" src="images/VectorTriangle2.png" width="30%">
@@ -479,17 +479,17 @@ image.show()
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - The tuple data type
   - The vector algebra and geometry
 - **Homework**
-  - Modify the code such that we have not line segments, but polylines going out of a particular point 
+  - Modify the code such that we have not line segments, but polylines going out of a particular point
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - We will be revisiting more maths from the school and apply it for our image generation

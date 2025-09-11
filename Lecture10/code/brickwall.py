@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 import random
 
 from PIL import Image, ImageDraw
-
-
 
 
 def draw_polygon(canvas, pointList, colour) -> None:
@@ -67,5 +65,5 @@ for x in range(0, resolution + 1, step):
         else:
             new_points = translate_points(new_points, x + step / 2, y)
             lineShift = True
-        canvas.polygon( new_points, brick)
+        canvas.polygon(new_points, brick)
 im.show()

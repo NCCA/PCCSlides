@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 import random
@@ -30,7 +30,7 @@ for spriteName in sprites:
 
 levelElements = ["water", "island"]
 grid = []
-for x in range (10):
+for x in range(10):
     gridrow = []
     for y in range(10):
         gridrow.append(random.choice(levelElements))
@@ -42,11 +42,11 @@ while running:
         black
     )  # clear the window by filling the space with the background colour
 
-    for x in range (0, 10):
-        for y in range (0, 10):
-            screen.blit(sprite_images[0], (x*70, y*70))
-            if (grid[x][y] == "island"):
-                screen.blit(sprite_images[1], (x*70, y*70))
+    for x in range(0, 10):
+        for y in range(0, 10):
+            screen.blit(sprite_images[0], (x * 70, y * 70))
+            if grid[x][y] == "island":
+                screen.blit(sprite_images[1], (x * 70, y * 70))
 
     # event management
     for event in pygame.event.get():  # if we received an event

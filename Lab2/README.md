@@ -250,14 +250,14 @@ will add the execute permission to the owner of the file.  The following table s
 The hashbang or shebang is the first two characters of a script file.  It is used to tell the shell what program to use to run the script.  For example if we want to run a python script we would use
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 ```
 
 In this case we are using the env command to find the python executable.  This is useful as it will find the first python executable in the PATH variable.  This means that we can use different versions of python by changing the PATH variable (we will look at this later when we install pyenv in the next lab).
 
 ## Homework
 
-create a simple python script in your scripts folder that prints out hello world. You can use the #!/usr/bin/env python to run the program. 
+create a simple python script in your scripts folder that prints out hello world. You can use the #!/usr/bin/env -S uv run --script to run the program. 
 
 
 
