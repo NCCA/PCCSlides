@@ -9,7 +9,9 @@ pygame.init()  # this is an essential line to make pygame working
 width = 700  # width of the game window
 height = 700  # height of the game window
 screen = pygame.display.set_mode((width, height))  # create the game window
-clock = pygame.time.Clock()  # use the clock to ensure we updating the window not too often
+clock = (
+    pygame.time.Clock()
+)  # use the clock to ensure we updating the window not too often
 running = True  # the variable to ensure the game loop
 black = (0, 0, 0)
 
@@ -36,13 +38,15 @@ for x in range(10):
     grid.append(gridrow)
 
 for i in range(10):
-    posX = random.randint(0, 9) # note zero-based indexing hence 0-9
+    posX = random.randint(0, 9)  # note zero-based indexing hence 0-9
     posY = random.randint(0, 9)
     grid[posX][posY] = "island"
 
 # the game loop
 while running:
-    screen.fill(black)  # clear the window by filling the space with the background colour
+    screen.fill(
+        black
+    )  # clear the window by filling the space with the background colour
 
     for x in range(0, 10):
         for y in range(0, 10):
