@@ -8,7 +8,7 @@
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Procedural game content creation
 - **What will you learn today:**
@@ -25,11 +25,11 @@
 
 --
 
-## Recap: Random numbers and random library
+#### Recap: Random numbers and random module
 
-- Random module: *import random*
-- *random.randint(a, b)*: Returns a random integer between a and b.
-- *random.choice(list): Chooses a random element from a list.*
+- [Random module](https://docs.python.org/3/library/random.html): ```import random```
+- ```random.randint(a, b)``` : Returns a random integer between a and b.
+- ```random.choice(list)``` : Chooses a random element from a list.
 
 ```python
 import random
@@ -39,7 +39,7 @@ y = random.randint(0, 600)
 
 ---
 
-## Types of Procedural Content Generation
+#### Types of Procedural Content Generation
 - **Random Generation**: Using random values to place objects and create unpredictable layouts.
 - **Noise Functions**: Using noise for organic patterns (e.g. terrain generation).
 - **Cellular Automata**: Algorithms that use cells to create complex systems (used in caves or dungeons).
@@ -93,7 +93,7 @@ while running:
 
 ---
 
-## Grid-based random generation
+### Grid-based random generation
 
 - The screen is divided into a grid
   - Normally stored as a list of lists
@@ -101,7 +101,7 @@ while running:
 
 --
 
-## Grid-based random generation, example
+#### Example : Grid-based random generation
 
 [2_random.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/2_random.py)
 
@@ -167,7 +167,7 @@ while running:
 
 --
 
-## Procedural object placement
+### Procedural object placement
 
 - Place items / elements / etc in random locations
 - Avoid clusters by checking proximity
@@ -218,7 +218,7 @@ for i in range(10):
 
 --
 
-### Modifying the code by adding extra conditions
+#### Adding extra conditions
 
 - While placing objects randomly we might want to check if the place is not previously occupied
 
@@ -240,7 +240,7 @@ for i in range(10):
 
 ---
 
-## Noise-based procedural generation
+#### Noise-based procedural generation
 
 - Noise *functions* interpolate random values
 - Classic noise functions: *Perlin Noise*, *Simplex Noise*
@@ -304,8 +304,9 @@ while canWalk:
 
 ## More rule-based systems
 
-- L-System (https://en.wikipedia.org/wiki/L-system) allows to describe fractal-like forms
-- Used to generate plants
+- [L-System](https://en.wikipedia.org/wiki/L-system) allows to describe fractal-like forms
+  - Used to generate plants
+- [Difusion Limited Aggregation](https://en.wikipedia.org/wiki/Diffusion-limited_aggregation)
 - But before let we learn one more data type in Python
 
 ---
@@ -332,7 +333,7 @@ student = {"name": "Alice", "age": 20, "courses": ["Animation", "Effects"]}
 
 --
 
-## Characteristics of dictionaries
+### Characteristics of dictionaries
 
 - Keys must be unique and immutable (e.g., strings, numbers, or tuples).
 - Values can be of any data type, including lists or other dictionaries.
@@ -523,7 +524,7 @@ while running:
 
 ---
 
-### Best practices for procedural game content generation
+#### Best practices
 
 - Keep code modular for easier tweaks and testing
 - Test generated content to ensure playability

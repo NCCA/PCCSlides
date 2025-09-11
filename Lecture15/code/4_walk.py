@@ -36,8 +36,8 @@ for x in range(10):
         gridrow.append("water")
     grid.append(gridrow)
 
-posX = random.randint(0, 10)
-posY = random.randint(0, 10)
+posX = random.randint(0, 9) # note zero-based indexing hence 0-9
+posY = random.randint(0, 9)
 walkDirections = ["left", "right", "up", "down"]
 canWalk = True
 while canWalk:
