@@ -1,10 +1,4 @@
 import maya.cmds as cmds
-
-
-def hello():
-    print("Hello from NCCA functions")
-
-
 import maya.api.OpenMaya as om
 
 

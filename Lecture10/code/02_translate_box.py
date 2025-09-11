@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-import math
-from random import randint
+#!/usr/bin/env -S uv run --script
 
 from PIL import Image, ImageDraw
 

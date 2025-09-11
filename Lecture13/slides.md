@@ -1,14 +1,14 @@
-## Lesson 13 : Vector products and normals 
+#### Lesson 13 : Vector products and normals
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Vector products and normals
 - **What will you learn today:**
@@ -77,7 +77,7 @@
 
 --
 
-### Dot product: angle between vectors
+#### Dot product: angle between vectors
 
 - If $\mathbf{a}$ and $\mathbf{b}$ are two non-zero vectors, the angle $α$ , $0 ≤ α ≤ π$, between $\mathbf{a}$ and $\mathbf{b}$ is determined by the formula:
 - $cos(\alpha) = \frac{\mathbf{a} \cdot \mathbf{b}}{\left\| \mathbf{a} \right\| \left\| \mathbf{b} \right\|}$
@@ -92,12 +92,14 @@
 
 --
 
-## Geometric meaning of dot product
+#### Geometric meaning of dot product
 
 - If $\mathbf{a}$ and $\mathbf{b}$ are *two unit* vectors, their lengths are equal to 1
 - $cos(\alpha) = \mathbf{a} \cdot \mathbf{b}$
   - Note this formula works only for unit vectors!
-- A geometric meaning of the dot product: cosine of the angle between two unit directions
+- If both vectors have unit length, their dot product directly measures how aligned they are
+  - Geometrically, the dot product of two unit vectors equals the cosine of the angle between their directions.
+
 
 ---
 
@@ -112,7 +114,7 @@
 
 --
 
-## The cross product: definition
+### The cross product: definition
 
 - Given two 3D vectors $ \mathbf{a} = (a_1, a_2, a_3)$ and $ \mathbf{b}=(b_1, b_2, b_3)$
 - The **cross product** (the vector product) is a vector
@@ -120,16 +122,18 @@
 
 --
 
-## The cross product: example
+### The cross product: example
 
-- $\mathbf{a} = (3, 2, 1)$ ,  $ \mathbf{b} = (-1, -2, 2)$
-  - $\mathbf{a} \times \mathbf{b} =$ 
-  - $=(2\cdot2 - 1 \cdot(-2), 1\cdot(-1) - 3\cdot2, 3\cdot(-2) - 2\cdot(-1) =$
-  - $=(6, -7, -4)$
+$\mathbf{a} = (3, 2, 1)$ ,  $ \mathbf{b} = (-1, -2, 2)$
+
+$\mathbf{a} \times \mathbf{b} =$
+$(2\cdot2 - 1 \cdot(-2), 1\cdot(-1) -3\cdot2, 3\cdot(-2) - 2\cdot(-1) $
+
+$=(6, -7, -4)$
 
 --
 
-### The cross product: geometric meaning
+#### The cross product: geometric meaning
 
 - The vector $\mathbf{a} \times \mathbf{b}$ is orthogonal to the plane containing vectors $\mathbf{a}$ and $\mathbf{b}$, it is called **the normal** for this plane
 - The direction of the cross product is given by the right-hand rule
@@ -138,7 +142,7 @@
 
 --
 
-### The cross product: geometric meaning
+#### The cross product: geometric meaning
 
 - The direction of the vector $\mathbf{a} \times \mathbf{b}$ is orthogonal to the plane containing $\mathbf{a}$ and $\mathbf{b}$, given the right-hand rule
 - The length of the cross product is given by the formula
@@ -156,13 +160,13 @@
 
 --
 
-## Calculating normals in Python
+### Calculating normals in Python
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 def calc_normal(v1, v2) :
-    
+
     n=[v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]]
     # normalize the normal
     length = math.sqrt((n[0]**2 + n[1]**2 + n[2]**2))
@@ -186,10 +190,10 @@ def calc_normal(v1, v2) :
 
 ---
 
-## Recap: Python ObjWriter 
+## Recap: Python ObjWriter
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 
 triangle = [[2.0, 0.0, 0.0], [0.0, 4.0, 0.0], [-2.0, 0.0, 0.0]]
@@ -237,10 +241,10 @@ vn 0.0 0.0 1.0
 - We can add normals to our OBJ file by calculating them for each face and writing them to the file.
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 
 def calc_normal(v1, v2) :
-    
+
     n=[v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]]
     # normalize the normal
     length = math.sqrt((n[0]**2 + n[1]**2 + n[2]**2))
@@ -268,7 +272,7 @@ with open("triangle2.obj", "w") as file:
     # write the faces Note these are 1-based indices
     for face in faces:
         file.write(f"f {face[0]+1}//{face[0]+1} {face[1]+1}//{face[1]+1} {face[2]+1}//{face[2]+1}\n")
-        
+
 ```
 
 --
@@ -313,7 +317,7 @@ f v/vt/n v/vt/n v/vt/n
 - A cube mesh contains six faces, each with four vertices We can define it as follows
 
 ```
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 # unit cube around the origin centered at 0,0,0 with sides of length 0.5
 cube_verts=[
@@ -349,7 +353,7 @@ cube_uv=[
 ## todo write out the face data note we can share normals and uv's
 ## the back face is done for you.
 faces=[
-    [1, 1, 1], [2, 2, 1], [3, 3, 1],[4, 4, 1], # back face 
+    [1, 1, 1], [2, 2, 1], [3, 3, 1],[4, 4, 1], # back face
 ]
 
 with open("cube.obj", "w") as file:
@@ -363,7 +367,7 @@ with open("cube.obj", "w") as file:
     for i in range(0, len(faces), 4):
         # for ease we can build a string and write it in one go
         file.write(f"f {faces[i][0]}/{faces[i][1]}/{faces[i][2]}")
-        file.write(f"  {faces[i+1][0]}/{faces[i+1][1]}/{faces[i+1][2]}") 
+        file.write(f"  {faces[i+1][0]}/{faces[i+1][1]}/{faces[i+1][2]}")
         file.write(f"  {faces[i+2][0]}/{faces[i+2][1]}/{faces[i+2][2]}")
         file.write(f"  {faces[i+3][0]}/{faces[i+3][1]}/{faces[i+3][2]}\n")
 ```
@@ -371,7 +375,7 @@ with open("cube.obj", "w") as file:
 ---
 
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Vector products
@@ -381,15 +385,13 @@ with open("cube.obj", "w") as file:
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - How to create games with Pygame
-  - Procedural content generation for games 
+  - Procedural content generation for games
 
 --
 
 # Q&A and discussion
 - **Open Floor for Questions**
-
-

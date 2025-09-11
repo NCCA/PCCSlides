@@ -1,11 +1,15 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
-def calc_normal(v1, v2) :
-    
-    n=[v1[1]*v2[2]-v1[2]*v2[1], v1[2]*v2[0]-v1[0]*v2[2], v1[0]*v2[1]-v1[1]*v2[0]]
+
+def calc_normal(v1, v2):
+    n = [
+        v1[1] * v2[2] - v1[2] * v2[1],
+        v1[2] * v2[0] - v1[0] * v2[2],
+        v1[0] * v2[1] - v1[1] * v2[0],
+    ]
     # normalize the normal
-    length = math.sqrt((n[0]**2 + n[1]**2 + n[2]**2))
+    length = math.sqrt((n[0] ** 2 + n[1] ** 2 + n[2] ** 2))
     if length == 0:
         return n
     n[0] /= length
@@ -13,11 +17,12 @@ def calc_normal(v1, v2) :
     n[2] /= length
     return n
 
+
 triangle = [[2.0, 0.0, 0.0], [0.0, 4.0, 0.0], [-2.0, 0.0, 0.0]]
 uv = [[0.0, 0.0], [0.5, 1.0], [1.0, 0.0]]
 faces = [[0, 1, 2]]
 
-normals=[]
+normals = []
 normals.append(calc_normal(triangle[0], triangle[1]))
 normals.append(calc_normal(triangle[1], triangle[2]))
 normals.append(calc_normal(triangle[2], triangle[0]))
@@ -27,10 +32,11 @@ with open("triangle3.obj", "w") as file:
         file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]}\n")
     for normal in normals:
         file.write(f"vn {normal[0]} {normal[1]} {normal[2]}\n")
-    for st in uv :
+    for st in uv:
         file.write(f"vt {st[0]} {st[1]}\n")
     # write the faces Note these are 1-based indices
     for face in faces:
         # for ease we can build a string and write it in one go
-        file.write(f"f {face[0]+1}/{face[0]+1}/{face[0]+1} {face[1]+1}/{face[1]+1}/{face[1]+1} {face[2]+1}/{face[2]+1}/{face[2]+1}\n")
-        
+        file.write(
+            f"f {face[0] + 1}/{face[0] + 1}/{face[0] + 1} {face[1] + 1}/{face[1] + 1}/{face[1] + 1} {face[2] + 1}/{face[2] + 1}/{face[2] + 1}\n"
+        )

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 
@@ -24,8 +24,8 @@ while running:
         black
     )  # clear the window by filling the space with the background colour
 
-    for x in range (0, 700, 70):
-        for y in range (0, 700, 70):
+    for x in range(0, 700, 70):
+        for y in range(0, 700, 70):
             screen.blit(spriteWater, (x, y))
 
     # event management

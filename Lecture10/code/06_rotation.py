@@ -1,8 +1,7 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
-
 
 
 def rotate_point(point, theta) -> (float, float):

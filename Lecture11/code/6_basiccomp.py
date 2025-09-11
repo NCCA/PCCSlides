@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-from PIL import Image, ImageDraw
+#!/usr/bin/env -S uv run --script
+from PIL import Image
 
 fg = Image.open("green.jpg")
 bg = Image.open("background.jpg")

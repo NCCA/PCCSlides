@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 
@@ -22,8 +22,8 @@ def draw_box(canvas, x, y, height, width, colour) -> None:
         colour,
     )
 
-def main() :
 
+def main():
     image = Image.new("RGB", (640, 480), (100, 0, 20))
     canvas = ImageDraw.Draw(image)
     x = 300
@@ -43,6 +43,7 @@ def main() :
     draw_box(canvas, x, y, h, w, (0, 255, 255))
 
     image.show()
+
 
 if __name__ == "__main__":
     main()

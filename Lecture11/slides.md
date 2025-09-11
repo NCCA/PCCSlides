@@ -1,18 +1,18 @@
-## Lesson 11: Image manipulation
+### Lesson 11: Image manipulation
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Image manipulation
 - **What will you learn today:**
-  - Algorithms behind digital compositing 
+  - Algorithms behind digital compositing
   - Basic image manipulation
   - Basic image compositing
   - Some simple effects
@@ -63,7 +63,7 @@ im.show()
 
 ## Image resolution
 
-- **Resolution** is how many pixels make the width and the height of the image 
+- **Resolution** is how many pixels make the width and the height of the image
   - Example: 640 x 480 means the width is 640 pixels and the height is 480
 
 ```python
@@ -79,11 +79,11 @@ im.show()
 
 ## Pixels and colours
 
-- Each pixel contains its own characteristics: 
-  - the x,y position 
+- Each pixel contains its own characteristics:
+  - the x,y position
   - Colour
-  - Transparency (opacity) 
-  - Other attributes, such as blending mode etc. 
+  - Transparency (opacity)
+  - Other attributes, such as blending mode etc.
 - Colours of all the pixels define what an image looks like
 
 --
@@ -99,7 +99,7 @@ im.show()
 ## Image processing
 
 - Read pixel, modify colour, write pixel
-  - Basic mathematical operations: add, multiply, divide, power 
+  - Basic mathematical operations: add, multiply, divide, power
 - Example: increase brightness by multiplying every pixel by a constant value
 
 ```python
@@ -166,7 +166,7 @@ def gammaCorrection(colour, gamma) -> tuple:
     unitColour = (colour[0]/255, colour[1]/255, colour[2]/255)
     gammaColour = (pow(unitColour[0], 1/gamma), pow(unitColour[1], 1/gamma), pow(unitColour[2], 1/gamma))
     return ((int(gammaColour[0]*255), int(gammaColour[1]*255), int(gammaColour[2]*255)))
-    
+
 
 im = Image.open("green.jpg")
 gamma = 2
@@ -190,10 +190,10 @@ im.show()
 
 --
 
-### Grayscaling: Weighted average method
+#### Grayscaling: Weighted average method
 
 - This method just averages the colour channels
-- The formula is: 
+- The formula is:
   - Grayscale = (R + G + B) / 3
 
 ```python
@@ -214,7 +214,7 @@ im.show()
 ### Grayscaling: Luminosity method
 
 - This method is based on the fact that the human eye have a different level of sensitivity to different colors.
-- The formula is: 
+- The formula is:
   - Grayscale = (0.299 × R) + (0.587 × G) + (0.114 × B)
 
 ```python
@@ -235,7 +235,7 @@ im.show()
 ### Grayscaling: Desaturation method
 
 - This method process the image to black and white correspondingly by averaging the colour channels equally.
-- The formula is: 
+- The formula is:
   - Grayscale = (max(R, G, B) + min(R, G, B)) / 2
 
 ```python
@@ -255,16 +255,16 @@ im.show()
 
 ## Spatial filters
 
-- All the previous methods had a direct mapping between input colour and output colour 
+- All the previous methods had a direct mapping between input colour and output colour
 - **A spatial filter** is a tool that takes into account not just a single input pixel, but also a small neighbourhood
-- **Examples**: Edge detection filter, Sharpen, Blurring 
+- **Examples**: Edge detection filter, Sharpen, Blurring
 
 <img style="border: 0;" src="images/Convolution.gif" width="35%">
 
 
 --
 
-## Blurring 
+## Blurring
 
 - **Overview**: The colours from neighbouring pixels are weighted averaged with the current pixel to produce a new image.
 - The most common algorithm is the average of 9 pixels around and including the current pixel
@@ -273,7 +273,7 @@ im.show()
 
 --
 
-## Blurring: Python implementation
+### Blurring: Python implementation
 
 ```python
 from PIL import Image
@@ -317,7 +317,7 @@ im.show()
 ```python
 from PIL import Image
 
-im1 = Image.open("background.jpg") 
+im1 = Image.open("background.jpg")
 im2 = Image.open("green.jpg")
 
 for x in range(0, im1.width):
@@ -333,7 +333,7 @@ im1.show()
 
 ## Mix
 
-- Mix is a specialised version of Add operation 
+- Mix is a specialised version of Add operation
 - Specifically, it is the weighted normalised addition of two images
 - Output = ColourA x MV + ColourB x (1-MV)
   - MV is a mix value between 0 and 1: 0 results in imageB, 1 results in imageA
@@ -341,11 +341,11 @@ im1.show()
 --
 
 ## Mix: Python implementation
-  
+
 ```python
 from PIL import Image
 
-im1 = Image.open("background.jpg") 
+im1 = Image.open("background.jpg")
 im2 = Image.open("green.jpg")
 
 mixValue = 0.2
@@ -376,7 +376,7 @@ im1.show()
 
 --
 
-## Creating a matte: chroma-keying
+### Creating a matte: chroma-keying
 
 - Creating a mask from existing scene procedurally can be done using many different methods
 - Chroma-keying is about picking a colour (or range of colours) and isolate pixels that fall within the hue range of the colour
@@ -384,7 +384,7 @@ im1.show()
 
 --
 
-## Chroma-keying: Python implementation
+#### Chroma-keying: Python implementation
 
 - The idea in the code below: if the value for G is high and values for R and B combined is significantly lower than G, we note the pixel
 
@@ -402,7 +402,7 @@ im.show()
 
 --
 
-## Matte extraction: Python implementation
+#### Matte extraction: Python implementation
 
 ```python
 from PIL import Image
@@ -424,7 +424,7 @@ mask.show()
 ## Over operation
 
 - One of the most important operation in digital compositing
-- The Over operator is specifically designed to layer a four-channel image over another image. 
+- The Over operator is specifically designed to layer a four-channel image over another image.
 - Output = ColourA + ColourB x (1 - AlphaA)
   - Assumes alpha channel is created using matte extraction
   - A: foreground, B: background
@@ -432,7 +432,7 @@ mask.show()
 
 --
 
-## Over operation: Python implementation
+#### Over operation: Python implementation
 
 ```python
 from PIL import Image
@@ -464,7 +464,7 @@ result.show()
 
 ---
 
-### Compositing: bringing it all together
+#### Compositing: bringing it all together
 ```python
 from PIL import Image
 
@@ -504,7 +504,9 @@ result.show()
 
 ---
 
-### Advanced example: Over operation in RGBA and advanced chroma-keying
+##### Advanced example:
+- Over operation in RGBA and advanced chroma-keying
+
 ```python
 from PIL import Image
 
@@ -563,7 +565,7 @@ result.show()
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Image processing algorithms: gamma correction, grayscaling, blurring
@@ -573,7 +575,7 @@ result.show()
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - How to work with files in Python
@@ -583,4 +585,3 @@ result.show()
 
 # Q&A and discussion
 - **Open Floor for Questions**
-

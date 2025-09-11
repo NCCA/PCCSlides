@@ -1,14 +1,14 @@
 ## Lesson 10: Transformations
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Transformations
 - **What will you learn today:**
@@ -30,7 +30,7 @@ print(add_numbers(3, 5))  # Output: 8
 
 ---
 
-## Transformation: a definition
+#### Transformation: a definition
 
 - A geometric transformation is a function which maps from a point set to itself or another point set.
 
@@ -38,21 +38,21 @@ print(add_numbers(3, 5))  # Output: 8
 
 --
 
-## Classification of transformations
+#### Classification of transformations
 
 - From the geometric point of view, we can classify transformations according to the properties they preserve
   - Distances
   - Angles
   - Ratios between distances
   - Parallelism
-  
+
 <img style="border: 0;" src="images/1.png" width="30%">
 
 --
 
-## Affine transformations
+### Affine transformations
 
-- Affine transformation is a transformation that preserves 
+- Affine transformation is a transformation that preserves
   - Collinearity (all points lying on a line initially still lie on a line after transformation)
   - Ratios of distances (the midpoint of a line segment remains the midpoint after transformation)
 
@@ -60,7 +60,7 @@ print(add_numbers(3, 5))  # Output: 8
 
 --
 
-## Affine transformations
+### Affine transformations
 
 - Affine transformations include
   - Translation
@@ -73,12 +73,12 @@ print(add_numbers(3, 5))  # Output: 8
 
 ---
 
-## Preparing the playground
+### Preparing the playground
 
 [01_drawbox.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/01_drawbox.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
@@ -117,7 +117,7 @@ im.show()
 [02_translate_box.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/02_translate_box.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 from random import randint
 
@@ -149,15 +149,15 @@ im.show()
 [03_translate_box2.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/03_translate_box2.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
-def translate_point(point, dx, dy) -> (float, float):  
+def translate_point(point, dx, dy) -> (float, float):
     # The function moves just one point given the offset
     return (point[0] + dx, point[1] + dy)
 
 
-def translate_points(points, dx, dy) -> list:  
+def translate_points(points, dx, dy) -> list:
     # This function moves multiple points with the same offset
     newPoints = list()
     for p in points:
@@ -187,7 +187,7 @@ im.show()
 
 ---
 
-## Scaling
+### Scaling
 
 - Scaling is a transformation that enlarges or shrinks the objects
   - **Uniform**: The same scaling factor in all directions
@@ -199,7 +199,7 @@ im.show()
 
 --
 
-## Scaling formula
+### Scaling formula
 
 - Scaling is defined by multiplying coordinates by scale factors
 - $x\prime=s_x x$
@@ -214,17 +214,17 @@ im.show()
 [04_scaling1.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/04_scaling1.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 
 
-def scale_point(point, sx, sy) -> (float, float):  
+def scale_point(point, sx, sy) -> (float, float):
     # The function does non-uniform scaling for a point
     return (point[0] * sx, point[1] * sy)
 
 
-def scale_points(points, sx, sy) -> list:  
+def scale_points(points, sx, sy) -> list:
     # The function does non-uniform scaling for a point set
     new_points = list()
     for p in points:
@@ -259,12 +259,12 @@ im.show()
 
 --
 
-###### Composition of transformations: Python 
+###### Composition of transformations: Python
 
 [05_compose.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/05_compose.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 from PIL import Image, ImageDraw
 
 
@@ -338,7 +338,7 @@ im.show()
 [06_rotation.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/06_rotation)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
@@ -379,12 +379,12 @@ im.show()
 
 ---
 
-### Bringing it all together 
+### Bringing it all together
 
 [07_scale_trans_rot.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/07_scale_trans_rot.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
@@ -457,7 +457,7 @@ im.show()
 [08_wave.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/08_wave.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 
 from PIL import Image, ImageDraw
@@ -528,7 +528,7 @@ im.show()
 [brickwall.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture10/code/brickwall.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math
 import random
 
@@ -604,7 +604,7 @@ im.show()
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to define and implement affine transformations
@@ -614,7 +614,7 @@ im.show()
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Loading images

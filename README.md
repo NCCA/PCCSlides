@@ -2,11 +2,27 @@
 
 This repository contains the slide for the PCC unit, you can get the raw markdown notes from here or view the full reveal.js slides by clicking the links below.
 
-The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides/) contains the full slides and labs as well as other material. 
+The webpage [https://ncca.github.io/PCCSlides/](https://ncca.github.io/PCCSlides/) contains the full slides and labs as well as other material.
+
+Note that we use [uv](https://docs.astral.sh/uv/) for all our python projects if you are using this at home follow the instructions [here](https://docs.astral.sh/uv/getting-started/installation/) on how to install.
+
+uv is installed in the linux labs so you don't need too, if you wish to use it under Windows open a terminal and run the following.
+
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | more"
+```
+
+Once complete re-start the shell and uv should run. It will find the default python so you can add a newer version using
+
+```
+uv python install 3.13
+uv python pin 3.13
+```
+
 
 ## Week 1
 
-- [Introduction and your first script in Python](https://ncca.github.io/PCCSlides/Lecture1) 
+- [Introduction and your first script in Python](https://ncca.github.io/PCCSlides/Lecture1)
 - [Files and Libraries](https://ncca.github.io/PCCSlides/Lecture2)
 
 ## Week 2

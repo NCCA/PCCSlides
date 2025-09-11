@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import math  # using floor function from this library
 import os  # note previous lecture: this will be needed to get all the files in a directory
 

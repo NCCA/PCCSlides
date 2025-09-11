@@ -1,18 +1,18 @@
 ## Lesson 15: Procedural game content creation
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Procedural game content creation
 - **What will you learn today:**
-  - More insight about pygame library 
+  - More insight about pygame library
   - Procedural level design with Pygame
 
 ---
@@ -25,11 +25,11 @@
 
 --
 
-## Recap: Random numbers and random library
+#### Recap: Random numbers and random module
 
-- Random module: *import random*
-- *random.randint(a, b)*: Returns a random integer between a and b.
-- *random.choice(list): Chooses a random element from a list.*
+- [Random module](https://docs.python.org/3/library/random.html): ```import random```
+- ```random.randint(a, b)``` : Returns a random integer between a and b.
+- ```random.choice(list)``` : Chooses a random element from a list.
 
 ```python
 import random
@@ -39,7 +39,7 @@ y = random.randint(0, 600)
 
 ---
 
-## Types of Procedural Content Generation
+#### Types of Procedural Content Generation
 - **Random Generation**: Using random values to place objects and create unpredictable layouts.
 - **Noise Functions**: Using noise for organic patterns (e.g. terrain generation).
 - **Cellular Automata**: Algorithms that use cells to create complex systems (used in caves or dungeons).
@@ -52,7 +52,7 @@ y = random.randint(0, 600)
 [1_start.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/1_start.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 
@@ -93,7 +93,7 @@ while running:
 
 ---
 
-## Grid-based random generation
+### Grid-based random generation
 
 - The screen is divided into a grid
   - Normally stored as a list of lists
@@ -101,12 +101,12 @@ while running:
 
 --
 
-## Grid-based random generation, example
+#### Example : Grid-based random generation
 
 [2_random.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/2_random.py)
 
 ```python
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 import random
@@ -167,10 +167,10 @@ while running:
 
 --
 
-## Procedural object placement
+### Procedural object placement
 
 - Place items / elements / etc in random locations
-- Avoid clusters by checking proximity 
+- Avoid clusters by checking proximity
 
 [3_sampling.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/3_sampling.py)
 
@@ -218,7 +218,7 @@ for i in range(10):
 
 --
 
-### Modifying the code by adding extra conditions
+#### Adding extra conditions
 
 - While placing objects randomly we might want to check if the place is not previously occupied
 
@@ -240,7 +240,7 @@ for i in range(10):
 
 ---
 
-## Noise-based procedural generation
+#### Noise-based procedural generation
 
 - Noise *functions* interpolate random values
 - Classic noise functions: *Perlin Noise*, *Simplex Noise*
@@ -304,8 +304,9 @@ while canWalk:
 
 ## More rule-based systems
 
-- L-System (https://en.wikipedia.org/wiki/L-system) allows to describe fractal-like forms
-- Used to generate plants
+- [L-System](https://en.wikipedia.org/wiki/L-system) allows to describe fractal-like forms
+  - Used to generate plants
+- [Difusion Limited Aggregation](https://en.wikipedia.org/wiki/Diffusion-limited_aggregation)
 - But before let we learn one more data type in Python
 
 ---
@@ -332,7 +333,7 @@ student = {"name": "Alice", "age": 20, "courses": ["Animation", "Effects"]}
 
 --
 
-## Characteristics of dictionaries
+### Characteristics of dictionaries
 
 - Keys must be unique and immutable (e.g., strings, numbers, or tuples).
 - Values can be of any data type, including lists or other dictionaries.
@@ -384,9 +385,9 @@ year = car.pop("year")
 
 ## L-systems: example
 
-- Fern: 
-  - Axiom = "X"  
-  - Rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  
+- Fern:
+  - Axiom = "X"
+  - Rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}
 
 --
 
@@ -395,7 +396,7 @@ year = car.pop("year")
 [5_lsystem.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture15/code/3_lsystem.py)
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 
@@ -490,13 +491,13 @@ pygame.init()   #this is an essential line to make pygame working
 width = 640     #width of the game window
 height = 480    #height of the game window
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 white = (255,255,255)
 black = (0,0,0)
 
 max_iterations = 8
-iterations = 1 
+iterations = 1
 
 axiom = "X"  # start
 rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  # fern
@@ -505,12 +506,12 @@ rules = {"X": "F+[[X]-X]-F[-FX]+X", "F": "FF"}  # fern
 while running:
     screen.fill(black) #clear the window by filling the space with the background colour
     #draw two lines
-    length = 8/iterations  
+    length = 8/iterations
     angle = math.radians(25)  # change this to make different shapes
     g = generate_rule_string(axiom, rules, iterations)
     draw_lsystem(screen, (320, 470), math.radians(-90), g[-1], length, angle)
     if iterations < max_iterations:
-        iterations += 1 
+        iterations += 1
     #event management
     for event in pygame.event.get(): #if we received an event
         if event.type == pygame.QUIT: #if the event is "quit game"
@@ -523,7 +524,7 @@ while running:
 
 ---
 
-### Best practices for procedural game content generation
+#### Best practices
 
 - Keep code modular for easier tweaks and testing
 - Test generated content to ensure playability
@@ -540,18 +541,18 @@ while running:
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - Dictionary data type
   - Various algorithms for procedural game content generation
 - **Homework**
   - Can use L-systems for generating something grid-based?
-  - In generak, the material from previous and this lessons is enough to kick-off with the coursework. 
+  - In generak, the material from previous and this lessons is enough to kick-off with the coursework.
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
   - Structuring the code with classes
@@ -561,4 +562,3 @@ while running:
 
 # Q&A and discussion
 - **Open Floor for Questions**
-

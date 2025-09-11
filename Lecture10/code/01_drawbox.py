@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-import math
+#!/usr/bin/env -S uv run --script
 
 from PIL import Image, ImageDraw
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 import pygame  # we will need core pygame functionality
 import pygame.draw  # this module will be needed for drawing on the screen
 
@@ -29,5 +29,5 @@ while running:
             running = False  # then we set the variable allowing for the loop to stop
     pygame.display.flip()  # render
     clock.tick(30)  # wait until we run with 30 frames per second or less
-    
+
 # end of the program

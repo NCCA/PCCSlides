@@ -1,18 +1,18 @@
 ## Lesson 14: Going interactive
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
 
-# Session outline
+## Session outline
 
 - **Title:** Going interactive
 - **What will you learn today:**
-  - Introduction to pygame library 
+  - Introduction to pygame library
   - How to read user mind with input
 
 ---
@@ -37,16 +37,16 @@ from PIL import Image
 
 --
 
-### Real-time graphics pipeline: explanation
+##### Real-time graphics pipeline: explanation
 
 - **Application**: prepare your models, textures, lights, effects etc before the rendering stage
 - **Geometry**: collect all the geometry to be rendered: meshes, sprites, volumetrics etc
 - **Rasterisation**: converting geometry to pixels, takes place at the rendering engine and / or the graphics card
-- Basically, we generate a lot of images in a second 
+- Basically, we generate a lot of images in a second
 
 ---
 
-### Interactive applications with Pygame
+#### Interactive applications with [Pygame](https://www.pygame.org/docs/)
 
 - What is Pygame?
   - **Pygame** is a popular Python library used to create games and interactive applications.
@@ -67,7 +67,7 @@ from PIL import Image
 
 ## The Pygame game loop
 
-- Game loop is a continuous loop that: 
+- Game loop is a continuous loop that:
   - Processed user input
   - Updates game state
   - Draws graphics on the screen
@@ -75,7 +75,7 @@ from PIL import Image
 
 --
 
-## The Pygame game loop example
+### The Pygame game loop example
 
 [1_basic_pygame.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/1_basic_pygame.py)
 
@@ -88,7 +88,7 @@ pygame.init()   #this is an essential line to make pygame working
 width = 640     #width of the game window
 height = 480    #height of the game window
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 white = (255,255,255)
 black = (0,0,0)
@@ -97,9 +97,9 @@ black = (0,0,0)
 while running:
     screen.fill(black) #clear the window by filling the space with the background colour
     #draw two lines
-    pygame.draw.line(screen, white, (0,0), (20,20), 10) 
+    pygame.draw.line(screen, white, (0,0), (20,20), 10)
     pygame.draw.line(screen, white, (20,0), (0,20), 10)
-    
+
     #event management
     for event in pygame.event.get(): #if we received an event
         if event.type == pygame.QUIT: #if the event is "quit game"
@@ -112,7 +112,7 @@ while running:
 
 --
 
-### The Pygame game loop example: explanation
+#### The Pygame game loop example: explanation
 
 - To work properly, pygame needs to be initialised: *pygame.init()*
 - The game loop is implemented using *while* loop with variable that can only be changed when we receive an appropriate event
@@ -143,14 +143,14 @@ while running:
 
 ```python
 for event in pygame.event.get():
- # then check what event.type is 
+ # then check what event.type is
 ```
 
 - Some events can be handled separately, but *pygame.event.get()* should be called nevertheless
 
 ---
 
-## Handling keyboard
+## Handling the keyboard
 
 - Easier way to handle keyboard is to use *pygame.key.get_pressed()* after *pygame.event.get()* is called
   - The function returns a list of keys and their states (pressed / not pressed)
@@ -158,7 +158,7 @@ for event in pygame.event.get():
 
 --
 
-## Handling keyboard: example
+### Handling the keyboard: example
 
 [2_keyboard.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/2_keyboard.py)
 
@@ -171,7 +171,7 @@ pygame.init()   #this is an essential line to make pygame working
 width = 640     #width of the game window
 height = 480    #height of the game window
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 white = (255,255,255)
 black = (0,0,0)
@@ -183,7 +183,7 @@ posY = 0
 while running:
     screen.fill(black) #clear the window by filling the space with the background colour
     #draw two lines
-    pygame.draw.line(screen, white, (posX,posY), (posX+20,posY+20), 10) 
+    pygame.draw.line(screen, white, (posX,posY), (posX+20,posY+20), 10)
     pygame.draw.line(screen, white, (posX+20,posY+0), (posX+0,posY+20), 10)
 
     key = pygame.key.get_pressed()
@@ -205,19 +205,24 @@ while running:
 
 --
 
-## Handling keyboard: tips
+### Handling the keyboard: tips
 
-- pygame.key.get_pressed() is updated every game loop. 
+- pygame.key.get_pressed() is updated every game loop.
   - If we want to check if the key was pressed and released, is it better to check for *pygame.KEYUP* event
   - This should happen inside handling of *pygame.event.get()*
 - clock.tick(t) allows refreshing the screen and update the keyboard with *t* frames per second
 
 ---
 
-## Handling mouse
+## Handling the mouse
 
 - Position of the mouse can be queried with *pygame.mouse.get_pos()*
 - Similar to keyboard, you can handle mouse buttons with *pygame.mouse.get_pressed()*
+
+--
+
+## Handling the mouse
+
 
 [2_mouse.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/2_mouse.py)
 
@@ -230,7 +235,7 @@ pygame.init()   #this is an essential line to make pygame working
 width = 640     #width of the game window
 height = 480    #height of the game window
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 white = (255,255,255)
 red = (255,0,0)
@@ -255,7 +260,7 @@ while running:
         current_colour = red
 
     #draw the cross in the current position with the current colour
-    pygame.draw.line(screen, current_colour, (posX,posY), (posX+20,posY+20), 10) 
+    pygame.draw.line(screen, current_colour, (posX,posY), (posX+20,posY+20), 10)
     pygame.draw.line(screen, current_colour, (posX+20,posY+0), (posX+0,posY+20), 10)
 
     #event management
@@ -268,7 +273,7 @@ while running:
 
 --
 
-###Handling mouse and keyboard: troubleshooting
+### Troubleshooting
 
 - Make sure your code has *pygame.event.get()* within your main game loop
   - The *get_pressed* function does not generate events itself!
@@ -278,7 +283,7 @@ while running:
 
 ---
 
-### Drawing shapes and objects with Pygame
+#### Drawing shapes and objects with Pygame
 
 - Common Drawing Functions:
   - **pygame.draw.polygon()**: Draws a polygon
@@ -301,7 +306,7 @@ pygame.init()   #this is an essential line to make pygame working
 width = 640     #width of the game window
 height = 480    #height of the game window
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 white = (255,255,255)
 black = (0,0,0)
@@ -312,27 +317,27 @@ while running:
     #draw two lines
 
     key = pygame.key.get_pressed()
-    
+
     if key[pygame.K_c]:
         pygame.draw.circle(screen, (255, 0, 0), (320, 240), 50)  # Draws a red circle
     elif key[pygame.K_p]:
         pygame.draw.polygon(screen, white, ((300,220), (340,220), (320, 260)))
     else:
-        pygame.draw.line(screen, white, (300,220), (340,260), 5) 
-        pygame.draw.line(screen, white, (340,220), (300,260), 5) 
-    
+        pygame.draw.line(screen, white, (300,220), (340,260), 5)
+        pygame.draw.line(screen, white, (340,220), (300,260), 5)
+
     #event management
     for event in pygame.event.get(): #if we received an event
         if event.type == pygame.QUIT: #if the event is "quit game"
             running = False         #then we set the variable allowing for the loop to stop
     pygame.display.flip()       #render
     clock.tick(30)              #wait until we run with 30 frames per second or less
-#end of the program   
+#end of the program
 ```
 
 ---
 
-### User input + shapes = graphic editor
+#### User input + shapes = graphic editor
 
 [4_editor.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/4_editor.py)
 
@@ -341,7 +346,7 @@ import pygame   #we will need core pygame functionality
 import pygame.draw #this module will be needed for drawing on the screen
 
 def draw_shape(screen, x, y, colour):
-    pygame.draw.line(screen, colour, (x,y), (x+20,y+20), 10) 
+    pygame.draw.line(screen, colour, (x,y), (x+20,y+20), 10)
     pygame.draw.line(screen, colour, (x+20,y+0), (x+0,y+20), 10)
 
 pygame.init()   #this is an essential line to make pygame working
@@ -349,7 +354,7 @@ pygame.init()   #this is an essential line to make pygame working
 width = 640     #width of the game window
 height = 480    #height of the game window
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 white = (255,255,255)
 red = (255,0,0)
@@ -363,7 +368,7 @@ cursorList = []
 #the game loop
 while running:
     screen.fill(black) #clear the window by filling the space with the background colour
-    
+
     for item in cursorList:
         draw_shape(screen, item[0], item[1], white)
 
@@ -386,7 +391,7 @@ while running:
             running = False         #then we set the variable allowing for the loop to stop
     pygame.display.flip()       #render
     clock.tick(30)              #wait until we run with 30 frames per second or less
-#end of the program  
+#end of the program
 ```
 
 ---
@@ -400,9 +405,9 @@ while running:
 
 --
 
-## Working with sprites in Pygame
+## Sprites in Pygame
 
-- Use *pygame.image.load()* to load sprites 
+- Use *pygame.image.load()* to load sprites
 - Use *screen.blit()* to render them on the screen.
 
 [5_sprites.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/5_sprites.py)
@@ -418,7 +423,7 @@ pygame.init()   #this is an essential line to make pygame working
 width = 640     #width of the game window
 height = 480    #height of the game window
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 black = (0,0,0)
 
@@ -431,7 +436,7 @@ for spriteName in sprites:
 #the game loop
 while running:
     screen.fill(black) #clear the window by filling the space with the background colour
-    
+
     x = 0
     y = 0
     for spriteImage in sprite_images:
@@ -445,7 +450,7 @@ while running:
             running = False         #then we set the variable allowing for the loop to stop
     pygame.display.flip()       #render
     clock.tick(30)              #wait until we run with 30 frames per second or less
-#end of the program    
+#end of the program
 ```
 
 ---
@@ -467,14 +472,14 @@ def justifyPosition(x, y) -> tuple:
     xCell = math.floor(x / 70)
     yCell = math.floor(y / 70)
     return (xCell*70, yCell*70)
-    
+
 
 pygame.init()   #this is an essential line to make pygame working
 
 width = 700     #width of the game window, multiple of 70 because of the sprite size
 height = 490    #height of the game window, multiple of 70 because of hte sprite size
 screen = pygame.display.set_mode((width, height)) #create the game window
-clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often 
+clock = pygame.time.Clock() #use the clock to ensure we updating the window not too often
 running = True  #the variable to ensure the game loop
 black = (0,0,0)
 white = (255,255,255)
@@ -488,7 +493,7 @@ for filename in file_list:
         sprites.append(loadedImage)
     except FileNotFoundError:
         print("Sprite "+filename+" is not loaded")
-    
+
 currentSprite = -1
 sprite_count = len(sprites)
 
@@ -498,25 +503,25 @@ levelSprites = []
 #the game loop
 while running:
     screen.fill(black) #clear the window by filling the space with the background colour
-    
+
     for item in levelSprites:
         spriteImage = sprites[item[2]]
         screen.blit(spriteImage, (item[0], item[1]))
-    
+
     mouse_pos = pygame.mouse.get_pos()
     posX = mouse_pos[0]
     posY = mouse_pos[1]
     posScreen = justifyPosition(posX, posY)
     posX = posScreen[0]
     posY = posScreen[1]
-    
+
     if currentSprite >= 0:
         spriteImage = sprites[currentSprite]
         screen.blit(spriteImage, posScreen)
     else:
-        pygame.draw.line(screen, white, (posX,posY), (posX+70,posY+70), 10) 
+        pygame.draw.line(screen, white, (posX,posY), (posX+70,posY+70), 10)
         pygame.draw.line(screen, white, (posX+70,posY), (posX,posY+70), 10)
-    
+
     #event management
     for event in pygame.event.get(): #if we received an event
         if event.type == pygame.QUIT: #if the event is "quit game"
@@ -528,31 +533,30 @@ while running:
                 currentSprite = currentSprite - 1
             if event.key == pygame.K_SPACE and currentSprite >= 0:
                 levelSprites.append((posX, posY, currentSprite))
-                
+
     pygame.display.flip()       #render
     clock.tick(30)              #wait until we run with 30 frames per second or less
-#end of the program  
+#end of the program
 ```
 
 ---
 
-# Conclusion
+## Conclusion
 
 - **What have you learned today**
   - How to create interactive programs with Pygame
   - How to read user's mind with a keyboard and a mouse
 - **Homework**
-  - Think how you can save your level design. Refer to the previous lecture about loading and saving files if you need a starting point. 
+  - Think how you can save your level design. Refer to the previous lecture about loading and saving files if you need a starting point.
 
 --
 
-# Next time
+## Next time
 
 - **What will you learn next time**
-  - Procedural content generation for games 
+  - Procedural content generation for games
 
 --
 
 # Q&A and discussion
 - **Open Floor for Questions**
-
