@@ -265,6 +265,8 @@ def turntable_camera(radius=10, center=(0,0,0),start_frame=1, end_frame=360, cam
 
 ## Putting it all together.
 
+[NCCAFunctions.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture18/code/NCCAFunctions.py)
+
 ```python
 import NCCAFunctions
 
@@ -287,7 +289,7 @@ NCCAFunctions.turntable_camera(radius=radius+2,center=center,start_frame=1,end_f
 
 ## Code
 
-
+[turntable_gui.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture18/code/turntable_gui.py)
 
 ```python
 import NCCAFunctions

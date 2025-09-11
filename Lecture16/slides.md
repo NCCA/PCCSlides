@@ -293,7 +293,7 @@ class BouncingBall:
 
 --
 
-### Bringing it all together
+### Bringing it all together 
 
 [2_bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/2_bouncingball.py)
 
@@ -376,6 +376,8 @@ print(square_root(16))  # Output: 4.0
 --
 
 ### Example: bouncing ball module
+
+[bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/bouncingball.py)
 
 [bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/bouncingball.py)
 
