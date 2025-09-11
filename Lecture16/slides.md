@@ -1,4 +1,4 @@
-## Lesson 16: Bouncing ball class
+### Lesson 16: Bouncing ball class
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
@@ -120,7 +120,7 @@ ball2 = BouncingBall(20, (620,20), (-10,0))
 
 --
 
-## Accessing attributes of an object
+### Accessing attributes of an object
 
 ```python
 class BouncingBall:
@@ -178,7 +178,7 @@ class BouncingBall:
 
 ---
 
-## Physics in computer graphics
+### Physics in computer graphics
 
 - When we are animating procedurally, we want to make believable animations
   - We use physics for procedural animation
@@ -210,7 +210,7 @@ class BouncingBall:
 
 --
 
-## Adding a method for particle movement
+#### Particle movement method
 
 ```python
     def update(self, deltaT):
@@ -240,7 +240,7 @@ class BouncingBall:
 
 --
 
-### Adding collision detection to Bouncing Ball class
+#### Adding collision detection
 
 ```python
 class BouncingBall:
@@ -367,7 +367,7 @@ print(square_root(16))  # Output: 4.0
 
 --
 
-### Creating and Importing Custom Modules
+#### Creating and Importing Custom Modules
 
 1. Create a Python file with reusable functions or classes
 2. Import and use it in another file
@@ -375,7 +375,7 @@ print(square_root(16))  # Output: 4.0
 
 --
 
-## Example: bouncing ball module
+### Example: bouncing ball module
 
 [bouncingball.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/bouncingball.py)
 
@@ -420,7 +420,7 @@ class BouncingBall:
 [3_include.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture16/code/3_include.py)
 
 ```python
-from bouncingball import BouncingBall as BouncingBall
+from bouncingball import BouncingBall
 ```
 
 - Best practices:
@@ -430,7 +430,7 @@ from bouncingball import BouncingBall as BouncingBall
 
 ---
 
-## Project management in Python
+### Project management in Python
 
 - Why Project Management in Python?
   - Helps organize and maintain codebases.
@@ -448,16 +448,26 @@ my_project/
 │   ├── module1.py
 │   └── module2.py
 ├── main.py
+|── pyproject.toml
 ├── README.md
 └── .gitignore
 ```
 
 - *README.md*: Project overview and instructions in the Markdown format
 - .gitignore: Files to exclude from version control.
+- pyproject.toml python project configuration files.
 
 --
 
-## Importance of Source Control
+## Advanced Example
+
+- uv allows us to generate and build python packages
+- For a full example see the Lecture16/code/Packages folder
+- The README.md has full step by step instructions
+
+---
+
+### Importance of Source Control
 
 - What is Source Control?
   - A system to track changes to files.
@@ -493,12 +503,22 @@ git config --list
 
 --
 
-## Collaboration with GitHub/GitLab
+### Collaboration with GitHub/GitLab
 
 - Platforms like GitHub or GitLab facilitate collaboration.
 - Collaboration Tips:
   - Commit often with clear messages.
-  - regularly pull the latest changes to avoid conflicts.
+  - Regularly pull the latest changes to avoid conflicts.
+
+--
+
+## uv and Git
+
+- uv automatically sets your project to be a git project
+- it creates a simple .gitignore for python
+- adds everything to the main branch
+- you have been using it all along!
+
 
 ---
 

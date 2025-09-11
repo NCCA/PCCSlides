@@ -8,7 +8,7 @@
 
 ---
 
-# Session outline
+## Session outline
 
 - We will look at how maya python works
 - How to create a simple tool (and design it)
