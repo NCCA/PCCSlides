@@ -1,9 +1,9 @@
 ## Lesson 18: Python in Maya 2
 
-#### Jon Macey, Ian Stephenson, Oleg Fryazinov 
+#### Jon Macey, Ian Stephenson, Oleg Fryazinov
 
 - **Course:** BA Computer Animation and Visual Effects
-- **Level:** 4 
+- **Level:** 4
 - **Unit:** Procedural Content Creation
 
 ---
@@ -24,7 +24,7 @@
 ```
 # Windows
 %HOMEDRIVE%\%HOMEPATH%\Documents\maya\[version]\scripts
-# Linux 
+# Linux
 ~/maya/[version]/scripts
 # Mac OSX
 ~/Library/Preferences/Autodesk/maya/[version]/scripts
@@ -76,7 +76,8 @@ hello()
 
 ## [reload](https://docs.python.org/2/library/functions.html#reload)
 
-- To help the development cycle, we can easily modify the script and call 
+- To help the development cycle, we can easily modify the script and call
+
 ```python
 
 import NCCAFunctions
@@ -160,7 +161,7 @@ import maya.cmds as cmds
 def get_bounding_sphere_radius():
     """
     Calculate the radius of the bounding sphere of the selected objects in Maya.
-    
+
     Returns:
         float: The radius of the bounding sphere.
         None: If no objects are selected.
@@ -199,7 +200,7 @@ def get_bounding_sphere_radius():
 
 --
 
-## turntable_camera 
+## turntable_camera
 
 ```python
 def turntable_camera(radius=10, center=(0,0,0),start_frame=1, end_frame=360, camera_name="turntable_camera"):
@@ -224,12 +225,12 @@ def turntable_camera(radius=10, center=(0,0,0),start_frame=1, end_frame=360, cam
 
     # Attach the camera to the path using a motion path
     motion_path = cmds.pathAnimation(
-        camera_transform, 
-        c=circle_path, 
-        follow=True, 
-        followAxis="x", 
-        upAxis="y", 
-        worldUpType="vector", 
+        camera_transform,
+        c=circle_path,
+        follow=True,
+        followAxis="x",
+        upAxis="y",
+        worldUpType="vector",
         worldUpVector=(0, 1, 0),
         startTimeU=0,
         endTimeU=1.0
@@ -251,7 +252,7 @@ def turntable_camera(radius=10, center=(0,0,0),start_frame=1, end_frame=360, cam
 
     # Create an aim constraint
     cmds.aimConstraint(
-        aim_target, camera_transform, 
+        aim_target, camera_transform,
         aimVector=(0, 0, -1),  # Camera aims down its negative Z-axis
         upVector=(0, 1, 0),    # Y-axis as the up direction
         worldUpType="scene"    # Use world up direction
@@ -262,6 +263,8 @@ def turntable_camera(radius=10, center=(0,0,0),start_frame=1, end_frame=360, cam
 --
 
 ## Putting it all together.
+
+[NCCAFunctions.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture18/code/NCCAFunctions.py)
 
 ```python
 import NCCAFunctions
@@ -285,7 +288,7 @@ NCCAFunctions.turntable_camera(radius=radius+2,center=center,start_frame=1,end_f
 
 ## Code
 
-
+[turntable_gui.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture18/code/turntable_gui.py)
 
 ```python
 import NCCAFunctions
@@ -356,4 +359,29 @@ def turntable_gui():
 
 # Run the function to create the window
 turntable_gui()
+
+
 ```
+
+---
+
+# Conclusion
+
+- **What have you learned today**
+  - How to create UI
+  - How to create tools in Maya
+- **Homework**
+  - The information from this session is enough for one of the coursework ideas, think about it!
+
+--
+
+# Next time
+
+- **What will you learn next time**
+  - We do not have any new material, so only revision weeks are coming!
+  - Also we will be helping you with your Python assignments
+
+--
+
+# Q&A and discussion
+- **Open Floor for Questions**

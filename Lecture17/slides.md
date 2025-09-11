@@ -178,6 +178,8 @@ cmds.file(new=True, f=True)
 
 - Lets write a simple function that will scatter spheres in the scene.
 
+[scatter_sphere.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/scatter_sphere.py)
+
 ```python
 import random
 
@@ -208,6 +210,8 @@ scatter_spheres(200,10,0,10,1.0)
 
 - the commands **move**, **rotate** and **scale** transform object by performing one command
 
+[transform.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/transform.py)
+
 ```python
 import maya.cmds as cmds
 cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
@@ -223,6 +227,8 @@ position = cmds.getAttr("MyCube.translate")
 
 - More control can be achieved with **xform**
 
+[xform.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/xform.py)
+
 ```python
 import maya.cmds as cmds
 cubeObject = cmds.polyCube(name="MyCube", width=2, height=2, depth=2)
@@ -235,11 +241,13 @@ cmds.xform(cubeObject, s=[2, 2, 2], r=True) #uniform scale by 2, relative transf
 
 ## Setting Attributes
 
+[attr.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/attr.py)
+
 ```python
 # lets delete all objects
 cmds.select(all=True)
 cmds.delete()
-#lets create a nurb's cube
+#lets create a NURBS cube
 cmds.nurbsCube(w=3, name='Cube1')
 cmds.getAttr('Cube1.tx')
 cmds.getAttr('Cube1.ty')
@@ -352,9 +360,8 @@ cmds.ls(nt=True)
 
 ## MVectors
 
-- The MVector class is a 3D vector class that is used in the Maya API.
-- It is used to represent 3D points and vectors in the 3D space.
-- It is a very useful class for performing 3D math operations.
+- The MVector class is a Maya API's 3D vector class.
+- To represent points and vectors in the 3D space.
 
 ```python
 from maya.api.OpenMaya import MVector
@@ -384,12 +391,280 @@ print(f"Dot Product: {dot_product}")
 print(f"Cross Product: {cross_product}")
 ```
 
+---
+
+## Matrices
+
+- A **matrix** is defined as a rectangular array of numbers
+- Each number $a_{ij}$ of the matrix has two indexes: the **row index** *i* and the **column index** *j*.
+- Applications: 
+  - Computer graphics (transformations)
+  - Machine learning
+  - Physics simulations
+
 --
+
+## Matrix terminology
+
+- **Dimension**: Rows × Columns (e.g., 3×2)
+- **Square Matrix**: Same number of rows and columns: $
+- **identity Matrix**: Diagonal elements are 1, others are 0.
+- **Zero Matrix**: All elements are 0.
+
+`$$
+I=\begin{bmatrix}
+1 & 0 \\\
+0 & 1
+\end{bmatrix}
+$$`
+
+--
+
+### Matrix operations: addition and subtraction
+
+- The sum of two m × n matrices A and B is the matrix formed by adding the corresponding entries
+`$$
+\begin{bmatrix}
+1 & 2 \\\
+3 & 4
+\end{bmatrix}
++
+\begin{bmatrix}
+5 & 6 \\\
+7 & 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 & 8 \\\
+10 & 12
+\end{bmatrix}
+$$`
+
+- Similarly, we can find the difference of two matrices by subtracting the corresponding entries
+`$$
+\begin{bmatrix}
+1 & 2 \\\
+3 & 4
+\end{bmatrix}
+-
+\begin{bmatrix}
+5 & 6 \\\
+7 & 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+-4 & -4 \\\
+-4 & -4
+\end{bmatrix}
+$$`
+
+--
+
+### Matrix operations: scalar multiplication
+
+- We can multiply a matrix by a scalar number by multiplying each element: 
+
+`$$
+2*
+\begin{bmatrix}
+1 & 2 \\\
+3 & 4
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 & 4 \\\
+6 & 8
+\end{bmatrix}
+$$`
+
+--
+
+### Matrix operations: transposition
+
+- The transpose of the m × n matrix A is the n × m matrix Aᵀ whose (i,j) element is the (j, i) element of A.
+`$$
+2*
+\begin{bmatrix}
+1 & 2 \\\
+3 & 4
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+1 & 3 \\\
+2 & 4
+\end{bmatrix}
+$$`
+
+--
+
+## Matrix multiplication
+- The product of m × r matrix A and r × n matrix B is m × n matrix with elwment in (i,j) is the dot product of the ith row of A and jth column of B.
+`$$
+(\textbf{AB})_{ij}=\sum_{k}a_{ik}b_{kj}
+$$`
+
+`$$
+\begin{bmatrix}
+2 & 1 \\\
+0 & 4
+\end{bmatrix}
+\begin{bmatrix}
+-3 & 1 \\\
+1 & 2
+\end{bmatrix}
+=
+\begin{bmatrix}
+2*(-3)+1*1 & 2*1+1*2 \\\
+0*(-3)+4*1 & 0*1+4*2
+\end{bmatrix}
+=\\
+\begin{bmatrix}
+-5 & 4 \\\
+4 & 8
+\end{bmatrix}
+$$`
+
+---
+
+### Transformations with matrices
+
+- Matrices are used for geometric transformations
+  - Affine tranformations: translation, rotation, scale, shear
+  - Projective transformations: orthographic, perspective
+  - A composition of transformations above
+- A transformation on *nD* Cartesian coordinates can be represented by a **matrix (n+1)x(n+1)**
+- Identity matrix does identity transformation, i.e. does not change the object
+
+--
+
+## 2D transformation matrices
+
+- The matrix form for transformations:
+`$$
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13}\\\
+a_{21} & a_{22} & a_{23}\\\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x\\\
+y\\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x\prime\\\
+y\prime\\\
+1
+\end{bmatrix}
+$$`
+
+- Equivalent to: 
+`$$
+x\prime = a_{11}x + a_{12}y + a_{13}\\\
+y\prime = a_{21}x + a_{22}y + a_{23}
+$$`
+
+--
+
+## 2D translation 
+
+`$$
+\begin{bmatrix}
+1 & 0 & t_x\\\
+0 & 1 & t_y\\\
+0 & 0 & 1
+\end{bmatrix}
+$$`
+
+- Example: translation by 3 in x and 2 in y:
+`$$
+\begin{bmatrix}
+1 & 0 & 3\\\
+0 & 1 & 2\\\
+0 & 0 & 1
+\end{bmatrix}
+$$`
+
+--
+
+## 2D scaling 
+
+`$$
+\begin{bmatrix}
+s_x & 0 & 0\\\
+0 & s_y & 0\\\
+0 & 0 & 1
+\end{bmatrix}
+$$`
+
+- Example: non-uniform scaling, make object twice as small for x and twice as big for y:
+`$$
+\begin{bmatrix}
+0.5 & 0 & 0\\\
+0 & 2 & 0\\\
+0 & 0 & 1
+\end{bmatrix}
+$$`
+
+--
+
+## 2D rotation
+
+`$$
+\begin{bmatrix}
+cos(\theta) & -sin(theta) & 0\\\
+sin(theta) & cos(theta) & 0\\\
+0 & 0 & 1
+\end{bmatrix}
+$$`
+
+- Example: counterclockwise rotation by 90 degrees around the origin:
+`$$
+\begin{bmatrix}
+0 & -1 & 0\\\
+1 & 0 & 0\\\
+0 & 0 & 1
+\end{bmatrix}
+$$`
+
+--
+
+## Composite transformations
+
+- The ordered set of transformations can be defined with just one matrix by computing the reversed multiplication of the matrices
+- Example: rotation around arbitrary point includes 3 steps:
+  - Translate to origin: **T1**
+  - Perform rotation around the origin: **R**
+  - Translate back: **T2**
+- ** M = T2 R T1**
+
+--
+
+## 3D matrix transformations
+
+- Matrices are similar for 2D and 3D transformations
+- We work with 3D coordinates, so matrices are 4x4
+- Example: 3D translation
+`$$
+\begin{bmatrix}
+1 & 0 & 0 & t_x\\\
+0 & 1 & 0 & t_y\\\
+0 & 0 & 1 & t_z\\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$`
+
+
+---
 
 ## MMatrix
 
 - The MMatrix class is a 4x4 matrix class that is used in the Maya API.
 - It is used to represent 4x4 matrices in the 3D space.
+
+[mmatrix.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture17/code/mmatrix.py)
+
 
 ```python
 from maya.api.OpenMaya import MMatrix
@@ -476,7 +751,7 @@ print(f"Rotated Vector: {rotated_vec}")
 
 --
 
-## combining matrices
+## Combining matrices
 
 - we can combine matrices to create a new matrix.
 
@@ -533,11 +808,25 @@ print(m.scale(om.MSpace.kWorld))
 print(m.translation(om.MSpace.kWorld))
 ```
 
-
 ---
 
-## Next Time
+# Conclusion
 
-- We have looked at some of the basics of maya python
-- next time we will look at some more functions
-- we will write some scripts to create useful tools in maya.
+- **What have you learned today**
+  - We have looked at some of the basics of maya python
+  - Transformation matrices
+- **Homework**
+  - No homework this time!
+
+--
+
+# Next time
+
+- **What will you learn next time**
+  - More functions
+  - How to create tools in Maya
+
+--
+
+# Q&A and discussion
+- **Open Floor for Questions**

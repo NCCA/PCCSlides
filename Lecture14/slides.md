@@ -1,4 +1,4 @@
-## Lesson 13: Going interactive
+## Lesson 14: Going interactive
 
 #### Jon Macey, Ian Stephenson, Oleg Fryazinov 
 
@@ -77,7 +77,7 @@ from PIL import Image
 
 ## The Pygame game loop example
 
-[1_basic_pygame.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/1_basic_pygame.py)
+[1_basic_pygame.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/1_basic_pygame.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -160,7 +160,7 @@ for event in pygame.event.get():
 
 ## Handling keyboard: example
 
-[2_keyboard.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/2_keyboard.py)
+[2_keyboard.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/2_keyboard.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -219,7 +219,7 @@ while running:
 - Position of the mouse can be queried with *pygame.mouse.get_pos()*
 - Similar to keyboard, you can handle mouse buttons with *pygame.mouse.get_pressed()*
 
-[2_mouse.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/2_mouse.py)
+[2_mouse.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/2_mouse.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -290,7 +290,7 @@ while running:
 
 ### Shapes with Pygame: example
 
-[3_shapes.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/3_shapes.py)
+[3_shapes.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/3_shapes.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -334,7 +334,7 @@ while running:
 
 ### User input + shapes = graphic editor
 
-[4_editor.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/4_editor.py)
+[4_editor.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/4_editor.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -405,7 +405,7 @@ while running:
 - Use *pygame.image.load()* to load sprites 
 - Use *screen.blit()* to render them on the screen.
 
-[5_sprites.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/5_sprites.py)
+[5_sprites.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/5_sprites.py)
 
 ```python
 import pygame   #we will need core pygame functionality
@@ -452,7 +452,7 @@ while running:
 
 ### Time to play: level editor
 
-[6_leveldesign.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture13/code/5_leveldesign.py)
+[6_leveldesign.py](https://github.com/NCCA/PCCSlides/blob/main/Lecture14/code/5_leveldesign.py)
 
 ```python
 #!/usr/bin/python3
